@@ -55,8 +55,6 @@ You are aiming to show you can:
 - **M5**: Apply + document safe/correct use of equipment and techniques
 - **D4**: Investigate fault causes + propose design-spec amendments to improve reliability
 
-**Tip:** Put a small label on slides (e.g., “Evidence: P5/M5”) to show assessors where to look.
-
 ---
 
 # Integrity Reminder (Again)
