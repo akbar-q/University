@@ -49,9 +49,14 @@ I_S = \frac{V_S}{R_T}
 \approx 6.7961\,\mathrm{A}
 $$
 
-Series currents:
+Series currents (same current through series elements):
+
 $$
-I_{R1} = I_{R4} = I_S \approx 6.7961\,\mathrm{A}
+I_{R1} = I_S \approx 6.7961\,\mathrm{A}
+$$
+
+$$
+I_{R4} = I_S \approx 6.7961\,\mathrm{A}
 $$
 
 ---
