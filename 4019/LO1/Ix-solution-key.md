@@ -138,8 +138,19 @@ $$
 $$
 
 ## Quick self-check (optional)
+
 Current through $R_9$:
+
 $$
-I_{R9} = \frac{V_B}{R_9} \approx \frac{3.344}{6} \approx 0.557\,\mathrm{A}
+I_{R9} = \frac{V_B}{R_9}
+\approx \frac{3.344}{6}
+\approx 0.557\,\mathrm{A}
 $$
-Sum at node $B$: $I_{R9} + I_x \approx 0.557 + 0.669 = 1.226\,\mathrm{A}$, matching $I_1$.
+
+KCL at node $B$ (right-branch current splits into $R_9$ and $R_{10}$):
+
+$$
+I_1 = I_{R9} + I_x
+\approx 0.557 + 0.669
+\approx 1.226\,\mathrm{A}
+$$
