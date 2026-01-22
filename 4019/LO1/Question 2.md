@@ -57,15 +57,21 @@ $$
 ---
 
 ## Step 4 — (c) p.d. across each series element
+
 $$
-\begin{aligned}
-V_{R1} &= I_S R_1 \approx (6.7961)(5) \approx 33.9806\,\mathrm{V} \\
-V_{23} &= I_S R_{23} \approx (6.7961)\left(\frac{12}{7}\right) \approx 11.6505\,\mathrm{V} \\
-V_{R4} &= I_S R_4 \approx (6.7961)(8) \approx 54.3689\,\mathrm{V}
-\end{aligned}
+V_{R1} = I_S R_1 \approx (6.7961)(5) \approx 33.9806\,\mathrm{V}
 $$
 
-Parallel voltages:
+$$
+V_{23} = I_S R_{23} \approx (6.7961)\left(\frac{12}{7}\right) \approx 11.6505\,\mathrm{V}
+$$
+
+$$
+V_{R4} = I_S R_4 \approx (6.7961)(8) \approx 54.3689\,\mathrm{V}
+$$
+
+Since $R_2$ and $R_3$ are in parallel, they share the same p.d.:
+
 $$
 V_{R2} = V_{R3} = V_{23} \approx 11.6505\,\mathrm{V}
 $$
@@ -73,19 +79,23 @@ $$
 ---
 
 ## Step 5 — (b) Current through each parallel resistor
+
 $$
-\begin{aligned}
-I_{R2} &= \frac{V_{R2}}{R_2} \approx \frac{11.6505}{3} \approx 3.8835\,\mathrm{A} \\
-I_{R3} &= \frac{V_{R3}}{R_3} \approx \frac{11.6505}{4} \approx 2.9126\,\mathrm{A}
-\end{aligned}
+I_{R2} = \frac{V_{R2}}{R_2} \approx \frac{11.6505}{3} \approx 3.8835\,\mathrm{A}
+$$
+
+$$
+I_{R3} = \frac{V_{R3}}{R_3} \approx \frac{11.6505}{4} \approx 2.9126\,\mathrm{A}
 $$
 
 (Equivalent current-division form, optional):
+
 $$
-\begin{aligned}
-I_{R2} &= I_S\frac{R_3}{R_2+R_3} \\
-I_{R3} &= I_S\frac{R_2}{R_2+R_3}
-\end{aligned}
+I_{R2} = I_S\frac{R_3}{R_2+R_3}
+$$
+
+$$
+I_{R3} = I_S\frac{R_2}{R_2+R_3}
 $$
 
 ---
@@ -93,8 +103,9 @@ $$
 ## Final answers
 
 ### (a) Supply current
+
 $$
-\boxed{I_S \approx 6.7961\,\mathrm{A}}
+I_S \approx 6.7961\,\mathrm{A}
 $$
 
 ### (b) Current through each resistor
@@ -118,17 +129,21 @@ $$
 ## Quick self-check (optional)
 
 KCL at the split:
+
 $$
-\begin{aligned}
-I_S &\approx I_{R2} + I_{R3} \\
-6.7961 &\approx 3.8835 + 2.9126
-\end{aligned}
+I_S \approx I_{R2} + I_{R3}
+$$
+
+$$
+6.7961 \approx 3.8835 + 2.9126
 $$
 
 KVL around the loop:
+
 $$
-\begin{aligned}
-V_S &\approx V_{R1} + V_{23} + V_{R4} \\
-100.0 &\approx 33.9806 + 11.6505 + 54.3689
-\end{aligned}
+V_S \approx V_{R1} + V_{23} + V_{R4}
+$$
+
+$$
+100.0 \approx 33.9806 + 11.6505 + 54.3689
 $$
