@@ -206,72 +206,75 @@ I_S = \frac{V_S}{R_T}
 \approx 6.7961\,\mathrm{A}
 $$
 
-Because $R_1$ and $R_4$ are in series with the supply, their currents are:
+Because $R_1$ and $R_4$ are in series with the supply:
 $$
 I_{R1} = I_{R4} = I_S \approx 6.7961\,\mathrm{A}
 $$
 
 ---
 
-## Step 4 — (c) p.d. across each *series* element (voltage division / Ohm’s Law)
-Across $R_1$:
-$$
-V_{R1} = I_S R_1 \approx (6.7961)(5) \approx 33.9806\,\mathrm{V}
-$$
+## Step 4 — (c) p.d. across each series element
+Using Ohm’s Law on each series element:
 
-Across the parallel block:
 $$
-V_{23} = I_S R_{23} \approx (6.7961)\left(\frac{12}{7}\right) \approx 11.6505\,\mathrm{V}
-$$
-
-Across $R_4$:
-$$
-V_{R4} = I_S R_4 \approx (6.7961)(8) \approx 54.3689\,\mathrm{V}
+\begin{aligned}
+V_{R1} &= I_S R_1 \approx (6.7961)(5) \approx 33.9806\,\mathrm{V} \\
+V_{23} &= I_S R_{23} \approx (6.7961)\left(\frac{12}{7}\right) \approx 11.6505\,\mathrm{V} \\
+V_{R4} &= I_S R_4 \approx (6.7961)(8) \approx 54.3689\,\mathrm{V}
+\end{aligned}
 $$
 
 ---
 
-## Step 5 — (b) Current through each *parallel* resistor (current division / Ohm’s Law)
-
+## Step 5 — (b) Current through each parallel resistor
 Since $R_2$ and $R_3$ are in parallel, they share the same p.d.:
+
 $$
 V_{R2} = V_{R3} = V_{23} \approx 11.6505\,\mathrm{V}
 $$
 
-Using Ohm’s Law:
-$$
-I_{R2} = \frac{V_{R2}}{R_2} \approx \frac{11.6505}{3} \approx 3.8835\,\mathrm{A}
-$$
+Currents (Ohm’s Law):
 
 $$
-I_{R3} = \frac{V_{R3}}{R_3} \approx \frac{11.6505}{4} \approx 2.9126\,\mathrm{A}
+\begin{aligned}
+I_{R2} &= \frac{V_{R2}}{R_2} \approx \frac{11.6505}{3} \approx 3.8835\,\mathrm{A} \\
+I_{R3} &= \frac{V_{R3}}{R_3} \approx \frac{11.6505}{4} \approx 2.9126\,\mathrm{A}
+\end{aligned}
 $$
 
 (Equivalent current-division form, optional):
+
 $$
-I_{R2} = I_S\frac{R_3}{R_2+R_3}, \qquad
-I_{R3} = I_S\frac{R_2}{R_2+R_3}
+\begin{aligned}
+I_{R2} &= I_S\frac{R_3}{R_2+R_3} \\
+I_{R3} &= I_S\frac{R_2}{R_2+R_3}
+\end{aligned}
 $$
 
 ---
 
 ## Final answers
+
 ### (a) Supply current
 $$
 \boxed{I_S \approx 6.7961\,\mathrm{A}}
 $$
 
 ### (b) Current through each resistor
-- $I_{R1} \approx 6.7961\,\mathrm{A}$
-- $I_{R2} \approx 3.8835\,\mathrm{A}$
-- $I_{R3} \approx 2.9126\,\mathrm{A}$
-- $I_{R4} \approx 6.7961\,\mathrm{A}$
+| Resistor | Current |
+|---|---:|
+| $R_1$ | $I_{R1} \approx 6.7961\,\mathrm{A}$ |
+| $R_2$ | $I_{R2} \approx 3.8835\,\mathrm{A}$ |
+| $R_3$ | $I_{R3} \approx 2.9126\,\mathrm{A}$ |
+| $R_4$ | $I_{R4} \approx 6.7961\,\mathrm{A}$ |
 
 ### (c) p.d. across each resistor
-- $V_{R1} \approx 33.9806\,\mathrm{V}$
-- $V_{R2} \approx 11.6505\,\mathrm{V}$
-- $V_{R3} \approx 11.6505\,\mathrm{V}$
-- $V_{R4} \approx 54.3689\,\mathrm{V}$
+| Resistor | p.d. |
+|---|---:|
+| $R_1$ | $V_{R1} \approx 33.9806\,\mathrm{V}$ |
+| $R_2$ | $V_{R2} \approx 11.6505\,\mathrm{V}$ |
+| $R_3$ | $V_{R3} \approx 11.6505\,\mathrm{V}$ |
+| $R_4$ | $V_{R4} \approx 54.3689\,\mathrm{V}$ |
 
 ---
 
