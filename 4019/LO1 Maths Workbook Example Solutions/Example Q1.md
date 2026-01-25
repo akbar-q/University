@@ -16,6 +16,27 @@ For the circuit in Figure 1, determine the current $I_x$ (the current flowing in
 - $R_9 = 6\,\Omega$
 - $R_{10} = 5\,\Omega$
 
+## Circuit diagram (ASCII)
+```text
+      +Vs
+       o----[ R6 ]----o A
+       |              |
+       |            [ R7 ]
+       |              |
+       |              o (ground)
+       |
+       |              o A
+       |              |
+       |            [ R8 ]
+       |              |
+       |              o B
+       |             / \
+       |          [R9] [R10]
+       |             \ /
+       |              |
+       o--------------o (ground)
+```
+
 ## Assumptions / interpretation
 - Bottom rail is ground (0 V).
 - The source sets the left top node to $+20\,\mathrm{V}$ relative to ground.

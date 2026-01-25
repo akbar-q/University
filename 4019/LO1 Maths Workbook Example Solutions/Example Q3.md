@@ -16,6 +16,23 @@ Circuit structure: Two loops sharing a common branch ($R_2$).
 - **Loop 1 (left):** $E_1$, $R_1$, $R_2$
 - **Loop 2 (right):** $E_2$, $R_2$, $R_3$
 
+## Circuit diagram (ASCII)
+```text
+					o (top node)
+					|\
+				[E1]\
+					|  \
+				[R1]  [R3]
+					|    |
+					o----o
+					| [R2]
+					|  |
+					o--o (bottom node)
+						 \
+						 [E2]
+							\
+```
+
 ---
 
 ## Step 1 — Define branch currents and apply KCL

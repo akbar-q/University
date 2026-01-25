@@ -13,6 +13,21 @@ Apply Kirchhoff’s Current Law (KCL) to analyse the operation of the bridge cir
 - $R_{BR} = 3\,\Omega$ (bottom-right)
 - $R_{B} = 32\,\Omega$ (bridge between the two mid-nodes)
 
+## Circuit diagram (ASCII)
+```text
+		  o (top node)  V_T
+		 / \
+	 [2Ω]/   \[14Ω]
+	    /     \
+	  o---[32Ω]---o
+	   \         /
+	 [11Ω]\   /[3Ω]
+		 \ /
+		  o (bottom node) 0V
+
+	Supply: V_S = 54 V between top and bottom nodes
+```
+
 ---
 
 ## Step 1 — Label node voltages

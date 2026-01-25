@@ -18,6 +18,15 @@ For the series-parallel arrangement shown in Figure 2, apply Ohm’s Law, voltag
 
 Circuit structure: $R_1$ in series with $(R_2 \parallel R_3)$ in series with $R_4$.
 
+## Circuit diagram (ASCII)
+```text
+	+V_S o----[ R1 ]----o----[ R4 ]----o 0V
+							 |
+							 +----[ R2 ]----+
+							 |
+							 +----[ R3 ]----+
+```
+
 ---
 
 ## Step 1 — Reduce the parallel part
