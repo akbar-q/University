@@ -275,7 +275,7 @@ These counting tasks are the most directly connected to the pill packaging scena
 - If `PILL_COUNT >= TARGET` then set `CYCLE_COMPLETE = 1` and energise `ACTUATOR` for a fixed time
 - Reset counter on `RESET` or at end of cycle
 
-**Image prompt (generate diagram):**
+**Image prompt (generate diagram):**---
 Create a clean PLC training infographic for a “Pill Counter to Target” used in a blister-pack station. White background, blue/gray palette.
 
 Include:
