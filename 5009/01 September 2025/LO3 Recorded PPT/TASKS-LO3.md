@@ -9,7 +9,19 @@ Each task includes:
 
 ---
 
+## Included process diagrams (reference)
+
+![Agitated mixing tank diagram](Images/01%20Agitated%20Mixing%20Tank%20(2%20materials%20%2B%20heater%20%2B%20levels).png)
+
+![Two-tank heat/cool transfer system diagram](Images/02%20Two-Tank%20Heat%20Cool%20Transfer%20System%20(V1%E2%80%93V5%2C%20LHLL%2C%20TT).png)
+
+![Simple tank fill/drain diagram](Images/03%20Simple%20Tank%20Fill%20Drain%20with%20Start%20Stop%20Panel%20(MV1%2C%20MV2%2C%20TLB).png)
+
+---
+
 ## Task A — AND Gate: Safe-to-Run Permissive
+
+![AND gate safe-to-run permissive diagram](Images/04%20AND%20Gate%20%E2%80%93%20%E2%80%9CSafe%20to%20Run%E2%80%9D.png)
 
 **Scenario link:** Only allow the cycle to run when safety conditions are OK.
 
@@ -29,6 +41,8 @@ Each task includes:
 
 ## Task B — OR Gate: Buzzer on Fault OR Completion
 
+![OR gate buzzer on fault or completion diagram](Images/05%20OR%20Gate%20%E2%80%93%20Alarm.png)
+
 **Scenario link:** Buzzer sounds for either a fault or successful completion.
 
 **Core logic:**
@@ -46,6 +60,8 @@ Each task includes:
 ---
 
 ## Task C — XOR Gate: Two-Sensor Disagreement (Mismatch)
+
+![XOR gate two-sensor mismatch diagram](Images/06%20XOR%20Gate%20%E2%80%93%20Mismatch%20Two-Sensor%20Disagreement%20Detection.png)
 
 **Scenario link:** Two pill sensors should agree; mismatch indicates a problem.
 
@@ -69,6 +85,8 @@ Each task includes:
 
 ## Task D — Blinky 1: Cycle-On Lamp (Heartbeat)
 
+![Blinky cycle running lamp (heartbeat) diagram](Images/07%20Blinky%201%20%E2%80%94%20Cycle%20Running%20Lamp%20(Heartbeat%20%20Status).png)
+
 **Scenario link:** A blinking lamp indicates the cycle is active and the controller is running.
 
 **Core logic:**
@@ -89,6 +107,8 @@ Each task includes:
 ---
 
 ## Task E — Blinky 2: Fault Lamp + Buzzer Beep Pattern
+
+![Blinky fault lamp + buzzer beep pattern diagram](Images/08%20Blinky%202%20Fault%20Lamp%20Buzzer%20Beep%20Pattern.png)
 
 **Scenario link:** Fault indication must be obvious to the operator.
 
@@ -137,6 +157,8 @@ Each task includes:
 
 ## Task G — Counting 2: Reject/Fault Event Counter
 
+![Counting reject/fault event counter diagram](Images/09%20Counting%202%20Reject%20Fault%20Event%20Counter.jpg)
+
 **Scenario link:** Count how many fault events occurred (basic traceability/troubleshooting).
 
 **Core logic:**
@@ -154,6 +176,8 @@ Each task includes:
 ---
 
 ## Task H — ADC Acquisition + Maths: Raw Voltage → Temperature
+
+![ADC acquisition and scaling diagram](Images/10%20ADC%20Acquisition%20Maths%20Raw%20Voltage%20-%20Temperature.jpg)
 
 **Scenario link:** Temperature monitoring for process/environmental safety.
 
