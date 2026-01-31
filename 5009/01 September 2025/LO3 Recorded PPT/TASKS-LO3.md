@@ -9,13 +9,75 @@ Each task includes:
 
 ---
 
-## Included process diagrams (reference)
+## Tank Control Tasks — Constraints (Industrial Process Context)
+
+These three process tasks are the main “industrial style” exercises. Implement them using Ladder in OpenPLC.
+
+Important
+- Use the strict IO addresses, timings, and order-of-operations in `TASK-SPECS-LO3.md`.
+- The constraints below describe the plant and the *expected behaviour* (to reduce interpretation).
+
+---
+
+### Tank Task 1 — Wet Granulation Mixing (With Temperature Control)
 
 ![Agitated mixing tank diagram](Images/01%20Agitated%20Mixing%20Tank%20(2%20materials%20%2B%20heater%20%2B%20levels).png)
 
+Task description (constraints)
+- Two ON/OFF valves regulate the flow of liquid binder and powder.
+- Two separate level sensors detect the presence/level of liquid binder and powder.
+- One low-level sensor detects when the tank has discharged (low level after drain).
+- An agitator (motor) mixes the materials.
+- A heater and a temperature sensor are installed inside the tank.
+- Materials are mixed until the temperature reaches the setpoint.
+- After mixing completes, the outlet/drain valve turns ON to drain the mixed product.
+
+What you must demonstrate
+- A clear automatic sequence: fill (both materials) → mix with temperature control → drain.
+- Temperature reaches setpoint before the process allows draining.
+- Safe stop behaviour (Stop/E-stop dominate and bring outputs to safe state).
+
+---
+
+### Tank Task 2 — Parallel Tanks Level + Temperature Control (Sterilisation Support)
+
 ![Two-tank heat/cool transfer system diagram](Images/02%20Two-Tank%20Heat%20Cool%20Transfer%20System%20(V1%E2%80%93V5%2C%20LHLL%2C%20TT).png)
 
+Task description (constraints)
+- Two tanks are connected in parallel.
+- Both tanks use the same inlet supply (Valve-1).
+- Tank-1 is filled through Valve-2; Tank-2 is filled through Valve-3.
+- Level and temperature are controlled in both tanks simultaneously.
+- Both tanks use sensors for low level and high level.
+- Tank-1 uses a heater to heat the fluid.
+- Tank-2 uses a cooling method (cold water circuit) to cool the liquid.
+- Outlet valves V4 and V5 (bottom of tanks) drain material for the next process stage.
+- Two temperature sensors monitor temperature in each tank.
+
+What you must demonstrate
+- Independent level control for both tanks (no overflow, refill on low level).
+- Temperature control actions are correct for each tank (heat vs cool).
+- Sensible coordination so the inlet supply is managed (no contradictory commands).
+
+---
+
+### Tank Task 3 — Water Filling and Discharging Control (Sterilisation Feed Tank)
+
 ![Simple tank fill/drain diagram](Images/03%20Simple%20Tank%20Fill%20Drain%20with%20Start%20Stop%20Panel%20(MV1%2C%20MV2%2C%20TLB).png)
+
+Task description (constraints)
+- TLB-2 monitors low level and TLB-1 monitors high level.
+- MV1 is the filling valve; MV2 is the discharge valve.
+- Valves are controlled according to the level sensor signals.
+- When water level drops below low level, MV1 turns ON automatically.
+- When water level reaches high level, MV2 turns ON to discharge.
+- When high level is detected, a buzzer turns ON for alarm.
+- The cycle stops if the user presses Stop on the control panel.
+
+What you must demonstrate
+- Automatic fill and discharge behaviour based on TLB-1/TLB-2.
+- High-level alarm buzzer.
+- Stop button halts the cycle.
 
 ---
 
@@ -130,6 +192,8 @@ Each task includes:
 ---
 
 ## Task F — Counting 1: Pill Counter to Target (CTU)
+
+![Counting pill counter to target (CTU) diagram](Images/09%20Counting%201%20Pill%20Counter%20to%20Target%20(CTU).jpeg)
 
 **Scenario link:** Count pills and trigger packaging when the target count is reached.
 
