@@ -11,7 +11,7 @@ Each task includes:
 
 ## Tank Control Tasks — Constraints (Industrial Process Context)
 
-These three process tasks are the main “industrial style” exercises. Implement them using Ladder in OpenPLC.
+These process tasks are the main “industrial style” exercises. Implement them using Ladder in OpenPLC.
 
 Important
 - Use the strict IO addresses, timings, and order-of-operations in `TASK-SPECS-LO3.md`.
@@ -59,11 +59,37 @@ What you must demonstrate
 - Temperature control actions are correct for each tank (heat vs cool).
 - Sensible coordination so the inlet supply is managed (no contradictory commands).
 
+### Tank Task 3 — Oil Separation Tank (Level Control)
+
+![Oil separation tank diagram](Images/03%20Oil%20Seperation%20Tank.png)
+
+Task description (constraints)
+- A single inlet valve (MV1) controls inflow into a separation tank.
+- Two level sensors are used:
+  - `LS1` (upper level)
+  - `LS2` (lower level)
+- The process goal is to keep the tank within a safe operating band and demonstrate a simple automatic sequence suitable for separation/settling applications.
+
+What you must demonstrate
+- Automatic fill behaviour:
+  - When level is below the lower sensor, MV1 turns ON (fill).
+  - When level reaches the upper sensor, MV1 turns OFF (stop filling).
+- Safe behaviour:
+  - Stop/E-stop forces outputs OFF (MV1 OFF).
+- Clear explanation in your recording of what LS1/LS2 represent.
+
+Notes
+- This is an extra process task. If your `TASK-SPECS-LO3.md` does not define IO for it, choose a sensible IO map and write it clearly in your recording/report.
+
+OpenPLC ladder hints
+- Implement MV1 control using a latch (set when `LS2` indicates low, reset when `LS1` indicates high).
+- If your sensors are “active at level” (1 when wet), confirm which state means “low” vs “high” in your simulation and keep it consistent.
+
 ---
 
-### Tank Task 3 — Water Filling and Discharging Control (Sterilisation Feed Tank)
+### Tank Task 4 — Water Filling and Discharging Control (Sterilisation Feed Tank)
 
-![Simple tank fill/drain diagram](Images/03%20Simple%20Tank%20Fill%20Drain%20with%20Start%20Stop%20Panel%20(MV1%2C%20MV2%2C%20TLB).png)
+![Simple tank fill/drain diagram](Images/04%20Simple%20Tank%20Fill%20Drain%20with%20Start%20Stop%20Panel%20(MV1%2C%20MV2%2C%20TLB).png)
 
 Task description (constraints)
 - TLB-2 monitors low level and TLB-1 monitors high level.
@@ -83,7 +109,7 @@ What you must demonstrate
 
 ## Task A — AND Gate: Safe-to-Run Permissive
 
-![AND gate safe-to-run permissive diagram](Images/04%20AND%20Gate%20%E2%80%93%20%E2%80%9CSafe%20to%20Run%E2%80%9D.png)
+![AND gate safe-to-run permissive diagram](Images/05%20AND%20Gate%20%E2%80%93%20%E2%80%9CSafe%20to%20Run%E2%80%9D.png)
 
 **Scenario link:** Only allow the cycle to run when safety conditions are OK.
 
@@ -103,7 +129,7 @@ What you must demonstrate
 
 ## Task B — OR Gate: Buzzer on Fault OR Completion
 
-![OR gate buzzer on fault or completion diagram](Images/05%20OR%20Gate%20%E2%80%93%20Alarm.png)
+![OR gate buzzer on fault or completion diagram](Images/06%20OR%20Gate%20%E2%80%93%20Alarm.png)
 
 **Scenario link:** Buzzer sounds for either a fault or successful completion.
 
@@ -123,7 +149,7 @@ What you must demonstrate
 
 ## Task C — XOR Gate: Two-Sensor Disagreement (Mismatch)
 
-![XOR gate two-sensor mismatch diagram](Images/06%20XOR%20Gate%20%E2%80%93%20Mismatch%20Two-Sensor%20Disagreement%20Detection.png)
+![XOR gate two-sensor mismatch diagram](Images/07%20XOR%20Gate%20%E2%80%93%20Mismatch%20Two-Sensor%20Disagreement%20Detection.png)
 
 **Scenario link:** Two pill sensors should agree; mismatch indicates a problem.
 
@@ -147,7 +173,7 @@ What you must demonstrate
 
 ## Task D — Blinky 1: Cycle-On Lamp (Heartbeat)
 
-![Blinky cycle running lamp (heartbeat) diagram](Images/07%20Blinky%201%20%E2%80%94%20Cycle%20Running%20Lamp%20(Heartbeat%20%20Status).png)
+![Blinky cycle running lamp (heartbeat) diagram](Images/08%20Blinky%201%20%E2%80%94%20Cycle%20Running%20Lamp%20(Heartbeat%20%20Status).png)
 
 **Scenario link:** A blinking lamp indicates the cycle is active and the controller is running.
 
@@ -170,7 +196,7 @@ What you must demonstrate
 
 ## Task E — Blinky 2: Fault Lamp + Buzzer Beep Pattern
 
-![Blinky fault lamp + buzzer beep pattern diagram](Images/08%20Blinky%202%20Fault%20Lamp%20Buzzer%20Beep%20Pattern.png)
+![Blinky fault lamp + buzzer beep pattern diagram](Images/09%20Blinky%202%20Fault%20Lamp%20Buzzer%20Beep%20Pattern.png)
 
 **Scenario link:** Fault indication must be obvious to the operator.
 
@@ -193,7 +219,7 @@ What you must demonstrate
 
 ## Task F — Counting 1: Pill Counter to Target (CTU)
 
-![Counting pill counter to target (CTU) diagram](Images/09%20Counting%201%20Pill%20Counter%20to%20Target%20(CTU).jpeg)
+![Counting pill counter to target (CTU) diagram](Images/10%20Counting%201%20Pill%20Counter%20to%20Target%20(CTU).jpeg)
 
 **Scenario link:** Count pills and trigger packaging when the target count is reached.
 
@@ -221,7 +247,7 @@ What you must demonstrate
 
 ## Task G — Counting 2: Reject/Fault Event Counter
 
-![Counting reject/fault event counter diagram](Images/09%20Counting%202%20Reject%20Fault%20Event%20Counter.jpg)
+![Counting reject/fault event counter diagram](Images/11%20Counting%202%20Reject%20Fault%20Event%20Counter.jpg)
 
 **Scenario link:** Count how many fault events occurred (basic traceability/troubleshooting).
 
@@ -241,7 +267,7 @@ What you must demonstrate
 
 ## Task H — ADC Acquisition + Maths: Raw Voltage → Temperature
 
-![ADC acquisition and scaling diagram](Images/10%20ADC%20Acquisition%20Maths%20Raw%20Voltage%20-%20Temperature.jpg)
+![ADC acquisition and scaling diagram](Images/12%20ADC%20Acquisition%20Maths%20Raw%20Voltage%20-%20Temperature.jpg)
 
 **Scenario link:** Temperature monitoring for process/environmental safety.
 
