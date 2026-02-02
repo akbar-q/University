@@ -360,7 +360,7 @@ Add a small clean formula box with the simplified equation: “°C = RAW × (100
 This diagram supports the LO3 mini task “Variables: Simple AirCon Control (Start/Stop + Threshold)”.
 
 Target filename (place into the LO3 Images folder):
-- `13 Variables AirCon Control (Start-Stop + Threshold).png`
+- `08 Variables Task — AirCon Control.png`
 
 ## Variables Task — AirCon Control Diagram (Start/Stop + Threshold)
 
