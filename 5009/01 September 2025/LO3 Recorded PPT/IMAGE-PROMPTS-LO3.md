@@ -353,6 +353,63 @@ Include:
 
 Add a small clean formula box with the simplified equation: “°C = RAW × (100/4095)”.
 
+---
+
+# Variables / Comparators (Start/Stop Latch + Temperature Threshold)
+
+This diagram supports the LO3 mini task “Variables: Simple AirCon Control (Start/Stop + Threshold)”.
+
+Target filename (place into the LO3 Images folder):
+- `13 Variables AirCon Control (Start-Stop + Threshold).png`
+
+## Variables Task — AirCon Control Diagram (Start/Stop + Threshold)
+
+Create a clean PLC training diagram showing a **simple air conditioning control** as a functional control schematic (NOT a ladder diagram). Students should be able to look at the diagram and deduce the ladder logic themselves. White background, light grey grid, modern sans-serif font, crisp vector style.
+
+The diagram must include TWO parts (top + bottom):
+
+Part A (top): Variable table
+- A simple table with columns: Name, Type, Initial Value
+- Include these rows exactly:
+  - `StartButton` (BOOL)
+  - `StopButton` (BOOL)
+  - `Process` (BOOL)
+  - `RoomHot` (BOOL)
+  - `MeasuredTemp` (INT)
+  - `ThresholdTemp` (INT) initial value `21`
+  - `AirCon` (BOOL)
+
+Part B (bottom): Functional diagram (signal flow left → right)
+- Left side: an operator panel with two pushbuttons:
+  - Green momentary button labeled “START” tagged `StartButton`
+  - Red momentary button labeled “STOP” tagged `StopButton`
+- A block labeled “RUN LATCH (Start/Stop memory)” with:
+  - Input: `StartButton`
+  - Reset input: `StopButton`
+  - Output: `Process`
+- A temperature sensor icon labeled “Room Temp Sensor” feeding a value labeled `MeasuredTemp`
+- A small setpoint knob / numeric box labeled “Threshold Setpoint = 21°C” tagged `ThresholdTemp`
+- A compare block labeled “GT (MeasuredTemp > ThresholdTemp)” with:
+  - IN1 = `MeasuredTemp`
+  - IN2 = `ThresholdTemp`
+  - OUT = `RoomHot`
+- An AND logic block labeled “AND” combining:
+  - `Process`
+  - `RoomHot`
+  - Output = `AirCon`
+- Far right: an output icon (fan/AC unit) labeled “AirCon Output” tagged `AirCon`
+
+Add a small neat callout box: “AirCon runs only when the process is enabled AND the room is hotter than the threshold.”
+
+Style requirements
+- Keep text readable at A4 size
+- Clear alignment, straight signal arrows, no clutter
+- No ladder rungs, no contact/coil symbols
+- Output as PNG 300 dpi
+
+Negative prompt
+- No photorealism, no watermarks, no tiny unreadable labels, no messy wiring
+
 
 
 

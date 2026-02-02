@@ -300,6 +300,40 @@ What you must demonstrate
 
 ---
 
+## Task I — Variables: Simple AirCon Control (Start/Stop + Threshold)
+
+![AirCon control variables task diagram](Images/13%20Variables%20Task%20%E2%80%94%20AirCon%20Control.png)
+
+**Scenario link:** A small temperature-controlled enclosure (or room) in a production area. When the process is running, the air conditioning should turn on if the measured temperature is above a threshold.
+
+**Core logic (matches the example ladder style):**
+- `Process` (BOOL) is a latched run bit controlled by Start/Stop.
+- `RoomHot` (BOOL) = (`MeasuredTemp` > `ThresholdTemp`).
+- `AirCon` (BOOL) = `Process AND RoomHot`.
+
+**What to demonstrate:**
+- Start latches `Process` ON until Stop.
+- When `MeasuredTemp` rises above `ThresholdTemp`, `RoomHot` goes true.
+- `AirCon` turns ON only when the process is running *and* the room is hot.
+- Changing `ThresholdTemp` changes when `RoomHot` and `AirCon` activate.
+
+**OpenPLC ladder hints:**
+- Use a seal-in (latch) rung:
+  - NO contact `StartButton` in parallel with NO contact `Process`
+  - In series with NC contact `StopButton`
+  - Coil = `Process`
+- Use a compare block:
+  - `GT` block with `MeasuredTemp` as IN1 and `ThresholdTemp` as IN2
+  - Output drives `RoomHot`
+- Final rung:
+  - `Process` AND `RoomHot` → coil `AirCon`
+
+**Image note:**
+- Generate the diagram using the prompt in `IMAGE-PROMPTS-LO3.md` and save it to the Images folder as:
+  - `13 Variables Task — AirCon Control.png`
+
+---
+
 ## Suggested “Quick Demo” Order (for a short recording)
 
 1) Show IO mapping (Start/Reset/E-stop/Pill sensor) and outputs (Actuator/Buzzer/Lamps)
@@ -308,4 +342,5 @@ What you must demonstrate
 4) Trigger fault → show OR gate buzzer + fault lamp
 5) Show XOR mismatch behaviour (toggle sensors)
 6) Show ADC raw-to-temperature scaling + high-temp alarm
+7) Show Variables/AirCon control (Start/Stop latch + threshold compare)
 
