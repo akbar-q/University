@@ -55,8 +55,10 @@ To propose the embedded coffee-machine engineering project in line with **engine
 
 ## What to submit
 ### Team submission (documents)
-- `S1_LO1_ProjectProposal.pdf` (or `.docx`)
-- `S1_LO1_Appendix_Compliance_and_Risk.pdf` (or combined into one appendix)
+- `S1_LO1_ProposalPack.pdf` (or `.docx`) — includes proposal + feasibility + compliance/ethics/risk
+
+\[If your centre requires the appendix as a separate file\]
+Export the same document as two files by splitting the “Compliance/ethics/risk” section into a separate appendix document at submission time.
 
 ### Minimum contents checklist
 **Main proposal document (P1 + P2):**
@@ -92,12 +94,12 @@ To demonstrate use of **project management software, tools, techniques** (Jira) 
 
 ## What to submit
 ### Team submission
-- `S2_LO2_ProjectManagementPlanReport.pdf` (or `.docx`)
+- `S2_LO2_ProjectManagementPlan.pdf` (or `.docx`)
 - `S2_LO2_Jira_Exports/`
   - board screenshots, backlog export, dependency view screenshots
   - weekly sprint configuration screenshots (if used)
   - dashboard/report screenshots (status summaries)
-- `S2_LO2_EvaluationCriteria.xlsx` (or `.pdf`)
+- `S2_LO2_EvaluationCriteria` (included inside the plan document as the KPI section/table, or exported separately as `.pdf` if your centre prefers)
 
 ### Minimum contents checklist
 **Project plan (P3):**
@@ -133,7 +135,7 @@ To show the project was implemented (or simulated), monitored against the plan, 
 ## What to submit
 ### Team submission
 - `S3_LO3_TechnicalEngineeringReport.pdf` (or `.docx`)
-- `S3_LO3_TestPlan_and_Results.pdf`
+  - includes test plan, results tables, evidence index (appendix) where possible
 - `S3_LO3_EvidencePack/`
   - photos of hardware
   - videos of demos
@@ -184,6 +186,9 @@ To present the integrated engineering project to a technically literate audience
 - `S4_LO4_FeedbackRecord.pdf`
   - who attended, what they said, Q&A notes
 
+\[Template support\]
+Use the slide-by-slide outline in `LO4_Presentation_and_PD/TEMPLATE_S4_LO4_Presentation_PPT_Outline.md`.
+
 ### Minimum contents checklist
 - Architecture + team subsystem boundaries
 - Live demo (or recorded demo)
@@ -205,6 +210,10 @@ To individually reflect on outcomes and evaluate end-to-end delivery, including 
   - reflective model used (e.g., Gibbs/Kolb/5R)
   - critical evaluation of performance
   - action plan responding to feedback (specific actions + timelines)
+
+\[Examiner + student support\]
+- Question sets for a 10–15 minute PD are in `LO4_Presentation_and_PD/LO4_PD_QuestionBank_10-15min_ExaminerSheet.md`.
+- Sample Q&A with critical answers is in `LO4_Presentation_and_PD/TEMPLATE_S5_LO4_PD_SampleQnA_WithCriticalAnswers.md`.
 
 ### Minimum PD coverage (suggested question bank)
 - What was your subsystem responsibility and how did you manage dependencies?
