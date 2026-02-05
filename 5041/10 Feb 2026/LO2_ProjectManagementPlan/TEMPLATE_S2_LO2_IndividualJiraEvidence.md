@@ -8,7 +8,6 @@
 ## Student details
 - Name: [Name]
 - Student ID: [ID]
-- Team: [Team]
 - Date: [DD Mon YYYY]
 
 ---
@@ -34,8 +33,8 @@ Paste screenshots or list issue keys.
 Describe one real dependency you created/handled.
 
 - Dependency: [A blocks B]
-- Why it existed: [protocol/pinout/dimensions]
-- What you did to reduce risk: [stub/mock/early publish]
+- Why it existed: [parts lead time/tool access/data availability/learning prerequisite/module interface definition]
+- What you did to reduce risk: [early ordering, alternative plan, simulated inputs, test harness]
 - Evidence: [dependency screenshot + comments]
 
 ---

@@ -3,14 +3,157 @@
 
 Session length: **4 hours**.
 
-Main outcome: by end of this session, teams have a near-complete **LO1 submission pack**: proposal brief + aims/objectives + feasibility + legislation/ethics/risk impacts + risk register v1.
+Main outcome: by end of this session, each student has a near-complete **LO1 proposal pack**: brief + aims/objectives + feasibility + legislation/ethics/risk impacts + risk register v1.
+
+---
+
+## Slide 1 — Title
+**On-slide:**
+- Week 2: LO1 proposal + feasibility + ethics/legislation/risk
+
+**Speaker notes (2 min):**
+- Today converts your idea into an assessable engineering proposal.
+
+---
+
+## Slide 2 — What LO1 is asking you to prove
+**On-slide:**
+- You can define a project properly
+- You can justify it (research + feasibility)
+- You can design responsibly (standards, ethics, risk)
+
+**Speaker notes (5–6 min):**
+- P1/P2/M1/D1 are all evidence-based.
+
+---
+
+## Slide 3 — Project brief (P1): required fields
+**On-slide:**
+- Problem + user need
+- Proposed solution concept
+- Constraints (time, tools, safety)
+- Impact (why it matters)
+
+**Speaker notes (6–8 min):**
+- Avoid “shopping lists”; write a problem/need.
+
+---
+
+## Slide 4 — Background/research: what counts as strong evidence
+**On-slide:**
+- Secondary: papers, datasheets, standards, manuals
+- Primary: measurements, experiments, interviews/observations
+- Cite sources correctly
+
+**Speaker notes (8–10 min):**
+- MATLAB: references for model assumptions + validation approaches.
+- Hardware: datasheets/app notes + lab measurements are strong.
+
+---
+
+## Slide 5 — Aims vs objectives (P2)
+**On-slide:**
+- Aim: high-level outcome
+- Objective: measurable statement that implies a test
+
+**Speaker notes (8–10 min):**
+- If you can’t test it, it’s not an objective.
+
+---
+
+## Slide 6 — SMART objectives: making them measurable
+**On-slide:**
+- Specific, Measurable, Achievable, Relevant, Time-bound
+- Must include metric + threshold + evidence method
+
+**Speaker notes (10–12 min):**
+- MATLAB evidence: plots, error metrics, stability margins, rise time, RMSE.
+- Hardware evidence: logs, timing measurements, sensor calibration plots.
+
+---
+
+## Slide 7 — Feasibility study (M1): what you must justify
+**On-slide:**
+- Technical feasibility (tools/skills)
+- Schedule feasibility (time realism)
+- Cost/resources (BOM/licences)
+- Operational feasibility (lab/access constraints)
+
+**Speaker notes (8–10 min):**
+- Include “what you will cut first” if time slips.
+
+---
+
+## Slide 8 — D1: legislation/ethics/risk must change your design
+**On-slide:**
+- Identify what applies
+- Show the design impact
+- Show how you will evidence compliance
+
+**Speaker notes (8–10 min):**
+- Examples: ELV constraints, guarding moving parts, data privacy for logging, safe test procedures.
+
+---
+
+## Slide 9 — Risk register v1: minimum quality bar
+**On-slide:**
+- Hazard/event
+- Likelihood + severity
+- Mitigation
+- Residual risk
+- Evidence you did mitigation
+
+**Speaker notes (6–8 min):**
+- Risks must connect to planned tasks, not just words.
+
+---
+
+## Slide 10 — In-class Activity: build your LO1 pack draft
+**On-slide:**
+- Write/complete: brief, background, stakeholders
+- Write 1–2 aims
+- Write 6–10 SMART objectives
+- Fill feasibility table
+- Build risk register v1
+
+**Speaker notes (35–45 min):**
+- Circulate and force measurability: “what data proves this objective?”
+
+---
+
+## Slide 11 — Evidence clinic checklist (Week 2)
+**On-slide:**
+- Objectives are measurable and testable
+- Feasibility is justified with numbers/constraints
+- D1 shows clear design impacts
+- Risks have mitigations that become tasks
+
+**Speaker notes (15–20 min):**
+- If an objective can’t be tested, rewrite it now.
+
+---
+
+## Slide 12 — Between-week tasks (Week 2 → Week 3)
+**On-slide:**
+- Finalise LO1 pack
+- Convert objectives into acceptance criteria candidates
+- Prepare to build LO2 Jira plan + KPIs
+
+**Speaker notes (5 min):**
+- Week 3 is planning discipline: you will baseline and control change.
+# Week 2 Presentation Outline — Unit 5041
+## LO1 Proposal Pack: SMART objectives, feasibility, ethics/legislation/risk (D1 focus)
+
+Session length: **4 hours**.
+
+Main outcome: by end of this session, students have a near-complete **LO1 submission pack**: proposal brief + aims/objectives + feasibility + legislation/ethics/risk impacts + risk register v1.
 
 ---
 
 ## Slide 1 — Title
 **On-slide:**
 - Week 2: LO1 proposal + feasibility + ethics/risk
-- Project: ESP32 coffee machine controller
+- Project: your individual project (MATLAB or hardware)
 
 **Speaker notes (2 min):**
 - Frame it: today is where you turn ideas into an assessable engineering proposal.
@@ -75,9 +218,10 @@ Main outcome: by end of this session, teams have a near-complete **LO1 submissio
 - Objective = how you will achieve it (measurable steps)
 
 **Speaker notes (8–10 min):**
-- Give coffee-machine specific examples:
-  - Aim: “Design and validate an ESP32-based appliance controller with safe fault handling.”
-  - Objective: “Detect low-water condition and enter Fault state within 1 second, verified by test logs.”
+-- Give individual-project examples (pick one that matches the student’s pathway):
+  - Hardware aim: “Design and validate a prototype system with safe fault handling.”
+  - MATLAB aim: “Build and validate a model/controller against test cases.”
+  - Objective: “Detect an edge-case condition and enter a safe state within 1 second, verified by logs/plots.”
 
 Add one Arduino-specific evidence cue:
 - Objective evidence example: “Serial logs captured from Arduino IDE Serial Monitor showing timestamps and state transitions.”
@@ -120,11 +264,11 @@ Add one Arduino-specific evidence cue:
 - Schedule feasibility
 - Cost/resource feasibility
 - Operational feasibility (lab constraints)
-- Integration feasibility (multi-team)
+- Integration/test feasibility (individual)
 
 **Speaker notes (10–12 min):**
 - Explain: feasibility is a *structured argument*.
-- Integration feasibility: stubs/mocks + ICD + change control.
+- Integration/test feasibility: test harnesses + interface definition/spec (if applicable) + change control.
 
 ---
 
@@ -165,8 +309,8 @@ Add one Arduino-specific evidence cue:
 
 ## Slide 11 — Feasibility: schedule (8 weeks, 1 day taught)
 **On-slide:**
-- Integration milestones are mandatory
-- Freeze interfaces early (ICD v1.0)
+- Integration/testing milestones are mandatory
+- Freeze key interfaces/assumptions early (if applicable)
 - Time buffers for debugging
 
 **Speaker notes (8–10 min):**
@@ -241,31 +385,29 @@ Add Arduino/ESP32-specific D1 examples:
 - User need fit
 
 **Speaker notes (6–8 min):**
-- Even though the overall project is fixed, teams must justify subsystem scope decisions.
+- Even though you choose your own project, you must justify scope decisions (time/risk/cost/skills).
 
 ---
 
-## Slide 17 — ICD update: v0.2 → v1.0 (what to freeze)
+## Slide 17 — Freeze key interfaces/assumptions (if applicable)
 **On-slide:**
-- Pinout baseline
-- Message formats baseline
-- Fault IDs baseline
+- Interface baseline (pins/data formats/units/timing)
+- Assumptions baseline (constraints and modelling assumptions)
+- Fault/edge-case definitions baseline
 
 **Speaker notes (6–8 min):**
 - Explain change control:
   - after freezing, any change needs a Jira Change issue + impact analysis.
 
 Add a concrete serial protocol freeze example:
-- Freeze at least these commands:
-  - `CMD START PROFILE=<name>`
-  - `CMD STOP`
-  - `CMD RESET_FAULT`
-- Freeze at least these telemetry fields:
-  - `STATE`, `TEMP`, `WLEVEL`, `FAULT`
+Add a concrete example (only if you have a protocol/interface):
+- Freeze commands/inputs (what can be requested)
+- Freeze outputs/telemetry fields (what will be logged/plotted)
+- Freeze units and timing assumptions
 
 ---
 
-## Slide 18 — In-class Activity 1: write the P1 brief (team)
+## Slide 18 — In-class Activity 1: write the P1 brief (individual)
 **On-slide:**
 - 200–300 words
 - include problem, solution concept, impact

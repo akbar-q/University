@@ -23,9 +23,10 @@ This document is designed to cover:
 
 ## Document control
 - Unit: 5041 Engineering Project
-- Project: ESP32 Coffee Machine Controller (multi-team)
-- Team name: [Team]
-- Team members: [Names + IDs]
+- Project title: [Your project title]
+- Student name: [Name]
+- Student ID: [ID]
+- Pathway: [MATLAB simulation/model-based OR hardware]
 - Date: [DD Mon YYYY]
 - Version: [v0.x]
 
@@ -38,10 +39,10 @@ Write 5–10 lines:
 - What evidence is included (logs, videos, test tables, photos, Jira exports)
 
 Suggested sentence starters:
-- “This report documents the implementation, integration and evaluation of an ESP32-based coffee-machine controller demonstrator. It covers requirements, design, build, test, and evaluation against predefined KPIs.”
+- “This report documents the implementation and evaluation of an individual engineering project. It covers requirements, design, build/simulation, test/validation, and evaluation against predefined KPIs.”
 - “Progress was monitored against the baseline plan using Jira, and changes were controlled through documented change and decision logs.”
 
-\[Insert Figure 1: System block diagram + subsystem boundaries.\]
+\[Insert Figure 1: System block diagram/model diagram (show your system boundary and major modules).\]
 
 ---
 
@@ -60,7 +61,7 @@ Suggested sentence starters:
 
 ## 3. Design and architecture
 ### 3.1 System architecture
-\[Describe architecture: power, sensing, actuation, UI, comms, fault handling.\]
+\[Describe architecture appropriate to your project (hardware or MATLAB model): modules/blocks, signals/units, safety/fault/edge-case handling.\]
 
 \[Insert: architecture diagram.\]
 
@@ -99,9 +100,9 @@ Describe the important technical choices with evidence-based language:
 \[Insert: code structure diagram or module list.\]
 
 ### 4.3 Version control and configuration
-- Arduino core version: \[version\]
-- libraries: \[list\]
-- how builds were reproducible: \[repo tag / zip release\]
+- Tools/versions: \[MATLAB version/toolboxes OR embedded toolchain versions\]
+- libraries/dependencies: \[list\]
+- how runs/builds were reproducible: \[repo tag / zip release\]
 
 ---
 
@@ -113,7 +114,7 @@ Describe the important technical choices with evidence-based language:
 
 | Milestone / Task | Planned date | Actual date | Status | Variance | Root cause | Action taken |
 |---|---|---|---|---|---|---|
-| MS-01 ICD v1.0 frozen |  |  |  |  |  |  |
+| MS-01 Plan baseline frozen |  |  |  |  |  |  |
 
 ### 5.3 Monitoring evidence
 \[Insert: screenshots of Jira dashboards / timeline / board showing progress.\]
@@ -130,8 +131,8 @@ Write 2–4 paragraphs describing:
 ### 6.1 Test strategy
 Explain:
 - unit testing (if any)
-- subsystem testing
-- integration testing
+- module testing
+- system/integration testing
 - acceptance testing against KPIs
 
 ### 6.2 Test environment
@@ -145,7 +146,7 @@ Create at least 10 test cases including faults.
 | Test ID | Requirement/KPI | Test description | Input conditions | Procedure | Expected result | Pass/Fail |
 |---|---|---|---|---|---|---|
 | T-01 | KPI-01 | Fault response time | \[conditions\] | \[steps\] | \[≤ threshold\] |  |
-| T-02 | OBJ-xx | Brew cycle sequence | \[conditions\] | \[steps\] | \[correct states\] |  |
+| T-02 | OBJ-xx | End-to-end scenario | \[conditions\] | \[steps\] | \[expected outputs\] |  |
 | T-03 | Safety | Output defaults off | \[conditions\] | \[steps\] | outputs OFF |  |
 
 ---

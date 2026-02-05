@@ -1,11 +1,122 @@
 # Week 4 Presentation Outline — Unit 5041
-## LO3 Start: Implementation kickoff, test plan v1, evidence capture, Integration Milestone 1 (“Hello Integration”)
-
-Toolchain assumption: **Arduino IDE + ESP32 (Arduino-ESP32)**.
+## LO3 starts: executing the plan + test/simulation design + reporting standards
 
 Session length: **4 hours**.
 
-Main outcome: by end of this session, teams have started implementation, produced a defensible **test plan v1**, and demonstrated **Milestone 1**: a minimal end-to-end integration path (real or stubbed).
+Main outcome: students start LO3 execution with a defensible test/simulation method and correct evidence capture.
+
+---
+
+## Slide 1 — Title
+**On-slide:**
+- Week 4: LO3 execution + test/simulation plan + evidence quality
+
+---
+
+## Slide 2 — LO3: what you must evidence
+**On-slide:**
+- P4/M3: activities implemented + progress tracked vs plan
+- P6/M5: planned tests/simulations + practical troubleshooting examples
+- P5/M4: coherent technical report
+
+**Speaker notes (6–8 min):**
+- LO3 is where weak evidence habits fail. Capture as you go.
+
+---
+
+## Slide 3 — Test vs validation (simple rule)
+**On-slide:**
+- Verification: built it right
+- Validation: built the right thing
+
+**Speaker notes (6–8 min):**
+- MATLAB validation can be “model matches expected behaviour” with justification.
+
+---
+
+## Slide 4 — Test/simulation plan v1 (required fields)
+**On-slide:**
+- Test ID + objective link
+- Setup + parameters
+- Metric + units + threshold
+- Procedure + trials
+- Evidence capture method
+
+**Speaker notes (8–10 min):**
+- Reproducibility is the quality bar.
+
+---
+
+## Slide 5 — Data capture conventions
+**On-slide:**
+- Tables with units
+- Naming conventions
+- Screenshots must have labels/meaning
+
+---
+
+## Slide 6 — Technical report structure (start writing now)
+**On-slide:**
+- Intro, Background, Requirements
+- Method/Plan, Implementation
+- Results, Discussion
+- Evaluation, Conclusions, Recommendations
+
+**Speaker notes (6–8 min):**
+- Write Method while you still remember what you did.
+
+---
+
+## Slide 7 — Quality bar (hardware path)
+**On-slide:**
+- Safe wiring/power
+- Sensor conditioning/calibration
+- Logging of key variables
+- One fault/edge-case test
+
+---
+
+## Slide 8 — Quality bar (MATLAB path)
+**On-slide:**
+- Assumptions stated and justified
+- Solver/time step justified
+- Parameter provenance
+- Validation against expected behaviour
+
+---
+
+## Slide 9 — In-class Activity: create test/sim plan v1
+**On-slide:**
+- Draft 6–10 tests/runs
+- Create results table templates
+- Add Jira tasks for each test
+
+**Speaker notes (40–60 min):**
+- Make every objective testable.
+
+---
+
+## Slide 10 — Evidence clinic checklist (Week 4)
+**On-slide:**
+- Progress vs baseline recorded
+- Test/sim plan is measurable + feasible
+- Logbook entries include evidence links
+
+---
+
+## Slide 11 — Between-week tasks (Week 4 → Week 5)
+**On-slide:**
+- Execute first test/sim runs
+- Capture evidence properly
+- Start Results + Discussion draft paragraphs
+# Week 4 Presentation Outline — Unit 5041
+## LO3 Start: Implementation kickoff, test plan v1, evidence capture, Integration Milestone 1 (“Hello Integration”)
+
+Project pathways: **MATLAB simulation/model-based OR hardware**.
+
+Session length: **4 hours**.
+
+Main outcome: by end of this session, students have started implementation, produced a defensible **test/simulation plan v1**, and demonstrated **Milestone 1**: a minimal end-to-end system path (real or stubbed).
 
 ---
 
@@ -62,7 +173,7 @@ Main outcome: by end of this session, teams have started implementation, produce
 
 ---
 
-## Slide 5 — Serial protocol baseline (ICD v1.0 reminder)
+## Slide 5 — Interface/protocol baseline (if applicable)
 **On-slide:**
 - Baud: 115200
 - UI → ESP32: `CMD ...`
@@ -231,7 +342,7 @@ Main outcome: by end of this session, teams have started implementation, produce
 
 ---
 
-## Slide 18 — In-class Activity 2: team test plan v1 creation
+## Slide 18 — In-class Activity 2: test plan v1 creation
 **On-slide:**
 - Write 10 tests minimum
 - Link each to objective/KPI
@@ -253,7 +364,7 @@ Main outcome: by end of this session, teams have started implementation, produce
 
 **Speaker notes (activity, 35–40 min):**
 - This is the key session outcome.
-- If a team is blocked, they must:
+- If you are blocked, you must:
   - create a Jira dependency
   - create a mitigation task
   - demo the stubbed version anyway

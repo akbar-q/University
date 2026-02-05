@@ -1,4 +1,4 @@
-# S4 — LO4 Team Presentation (PPT Template Outline)
+# S4 — LO4 Individual Presentation (PPT Template Outline)
 
 \[Replace all bracketed text like \[this\].\]
 
@@ -12,9 +12,9 @@ Recommended format:
 ---
 
 ## Slide 1 — Title
-- Project: ESP32 Coffee Machine Controller (multi-team)
-- Team: \[Team Name\]
-- Members: \[Names + IDs\]
+- Project title: \[Your project title\]
+- Student: \[Name + ID\]
+- Pathway: \[MATLAB OR hardware\]
 - Date: \[DD Mon YYYY\]
 
 Speaker notes:
@@ -33,7 +33,7 @@ Speaker notes:
 ---
 
 ## Slide 3 — System overview (block diagram)
-\[Insert system block diagram showing boundaries and subsystems.\]
+\[Insert system block diagram/model diagram showing system boundary and major modules.\]
 
 - Inputs (sensors): \[list\]
 - Outputs (actuators/indicators): \[list\]
@@ -42,12 +42,12 @@ Speaker notes:
 
 ---
 
-## Slide 4 — Architecture and interfaces (ICD)
-- Team split and interfaces
-- Serial protocol / message types (if used)
-- Fault codes (examples)
+## Slide 4 — Architecture and interfaces (if applicable)
+- Key modules and interfaces
+- Data formats/units/timing assumptions (if applicable)
+- Fault/edge-case handling approach
 
-\[Insert: one screenshot snippet of ICD v1.0 (pinout or protocol).\]
+\[Insert: one excerpt of your interface definition/spec (optional).\]
 
 ---
 
@@ -71,7 +71,7 @@ Speaker notes:
 
 ## Slide 7 — Project management summary (LO2 evidence)
 - Baseline plan vs actual (1 table or graphic)
-- Top dependencies and how you controlled them
+- Top dependencies and how you controlled them (parts/tools/data/learning prerequisites)
 - 1 key decision and why (trade-off)
 
 \[Insert: Jira dashboard/timeline screenshot.\]
@@ -79,7 +79,7 @@ Speaker notes:
 ---
 
 ## Slide 8 — Test plan highlights
-- Test strategy (unit/subsystem/integration/acceptance)
+-- Test strategy (unit/module/system/acceptance)
 - What you tested that mattered (3–5 tests)
 
 \[Insert test case table screenshot or a clean summary table.\]

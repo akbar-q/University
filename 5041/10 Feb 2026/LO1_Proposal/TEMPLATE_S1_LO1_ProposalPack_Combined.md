@@ -20,9 +20,10 @@ This single document is designed to cover:
 
 ## Document control
 - Unit: 5041 Engineering Project
-- Project: ESP32 Coffee Machine Controller (multi-team)
-- Team name: [Team]
-- Team members: [Names + IDs]
+- Project title: [Your project title]
+- Student name: [Name]
+- Student ID: [ID]
+- Pathway: [MATLAB simulation/model-based OR hardware]
 - Date: [DD Mon YYYY]
 - Version: [v0.x]
 
@@ -30,12 +31,12 @@ This single document is designed to cover:
 
 ## 1. Introduction
 Write 3–6 lines explaining what this proposal pack is trying to achieve:
-- What is being proposed? (ESP32-based coffee-machine controller demonstrator)
-- Why is it needed? (safety, repeatability, maintainability, fault handling)
+- What is being proposed? (your individual project)
+- Why is it needed? (the problem/need it addresses)
 - What evidence will be used? (sources, diagrams, feasibility justification, risk register)
 
 Suggested sentence starters:
-- “This proposal pack defines an ESP32-based coffee-machine controller demonstrator, including the project aims/objectives, feasibility justification, and the legislation/ethical/risk factors that shaped the design decisions.”
+- “This proposal pack defines an individual engineering project, including the project aims/objectives, feasibility justification, and the legislation/ethical/risk factors that shaped the design decisions.”
 - “The proposal is justified using datasheet evidence, a requirements capture, a feasibility study, and a risk register with mitigations and residual risk.”
 
 \[Insert: system overview diagram showing boundaries: sensors, ESP32, drivers, power supplies, UI, enclosure.\]
@@ -61,7 +62,7 @@ Suggested sentence starters:
 \[Summarise what you learned from sources: datasheets, app notes, guidance, similar systems.\]
 
 Minimum expectation:
-- At least 5 credible sources per team (datasheets count)
+- At least 5 credible sources per student (datasheets count)
 
 ---
 
@@ -137,7 +138,7 @@ Suggested table:
 | Schedule | \[G/A/R\] | \[milestones\] | \[risk\] | \[mitigation\] |
 | Cost/resources | \[G/A/R\] | \[BOM estimate\] | \[risk\] | \[mitigation\] |
 | Operational | \[G/A/R\] | \[lab access/policy\] | \[risk\] | \[mitigation\] |
-| Integration | \[G/A/R\] | \[ICD plan + stubs\] | \[risk\] | \[mitigation\] |
+| Integration/test | \[G/A/R\] | \[interface definition + test harness plan\] | \[risk\] | \[mitigation\] |
 
 ### 6.2 Bill of materials (high level)
 
@@ -149,9 +150,9 @@ Suggested table:
 
 ### 6.3 Integration feasibility (required)
 Write ~300–600 words explaining:
-- what interfaces are frozen (ICD v1.0)
-- how teams work in parallel without blocking
-- how integration will be proven (integration checklist)
+- what modules/interfaces you will define clearly (e.g., pin map, data formats, units)
+- what dependencies may block you (parts lead time, tool access, learning prerequisites)
+- how end-to-end behaviour will be proven (integration checklist + acceptance tests)
 
 ---
 

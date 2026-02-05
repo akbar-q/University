@@ -1,11 +1,81 @@
 # Week 5 Presentation Outline — Unit 5041
-## LO3: Producing results, troubleshooting (RCA), simulation/experiments, and writing the Results/Discussion properly
-
-Toolchain assumption: **Arduino IDE + ESP32 (Arduino-ESP32)**.
+## Producing results + troubleshooting + structured analysis (M5 focus)
 
 Session length: **4 hours**.
 
-Main outcome: teams generate **real measured results** (not claims), troubleshoot at least one performance issue using a structured method (supports M5), and begin a strong **Results + Discussion** write-up.
+Main outcome: meaningful results exist, and students can explain them with engineering analysis and practical troubleshooting evidence.
+
+---
+
+## Slide 1 — Title
+**On-slide:**
+- Week 5: results + troubleshooting + analysis write-up
+
+---
+
+## Slide 2 — What M5 looks like
+**On-slide:**
+- At least 2 practical examples of resolving issues
+- Alternatives compared (settings/variants/approaches)
+- Evidence: logs/plots/photos + explanation
+
+---
+
+## Slide 3 — Root cause analysis (RCA) tools
+**On-slide:**
+- 5 Whys
+- Fishbone
+- Fault tree (optional)
+
+**Speaker notes (6–8 min):**
+- Pick one tool and apply it to a real issue.
+
+---
+
+## Slide 4 — Experimental discipline (repeatability)
+**On-slide:**
+- Control variables
+- Repeat trials
+- Record settings
+
+---
+
+## Slide 5 — Writing Results vs Discussion
+**On-slide:**
+- Results: what happened (with data)
+- Discussion: why it happened (interpretation)
+
+---
+
+## Slide 6 — In-class Activity: run/inspect one test end-to-end
+**On-slide:**
+- Execute one run or replay data
+- Fill a results table row
+- Write a 6–8 sentence discussion paragraph
+
+---
+
+## Slide 7 — Evidence clinic checklist (Week 5)
+**On-slide:**
+- Outcomes linked to objectives
+- At least one alternative attempt documented
+- Evidence is reproducible
+
+---
+
+## Slide 8 — Between-week tasks (Week 5 → Week 6)
+**On-slide:**
+- Produce main results set
+- Draft Implementation + Results sections
+- Update risks/changes in Jira
+# Week 5 Presentation Outline — Unit 5041
+## LO3: Producing results, troubleshooting (RCA), simulation/experiments, and writing the Results/Discussion properly
+
+Project pathways: **MATLAB simulation/model-based OR hardware**.
+
+Session length: **4 hours**.
+
+Main outcome: students generate **real measured results** (not claims), troubleshoot at least one performance issue using a structured method (supports M5), and begin a strong **Results + Discussion** write-up.
 
 ---
 
@@ -137,13 +207,13 @@ Main outcome: teams generate **real measured results** (not claims), troubleshoo
 
 ---
 
-## Slide 11 — Common embedded failure causes (coffee machine context)
+## Slide 11 — Common embedded failure causes (hardware context)
 **On-slide:**
 - Loose wiring / floating inputs
 - Brownouts (power dips) causing resets
 - Debounce/filtering not done
 - Blocking `delay()` causing missed events
-- Incorrect assumptions in ICD
+- Incorrect assumptions in interface definition/spec
 
 **Speaker notes (8–10 min):**
 - Give quick checks for each:
@@ -226,7 +296,7 @@ Main outcome: teams generate **real measured results** (not claims), troubleshoo
 
 ---
 
-## Slide 18 — In-class Activity 1: run 3 KPI tests (teams)
+## Slide 18 — In-class Activity 1: run 3 KPI tests (individual)
 **On-slide:**
 - Choose 3 KPIs
 - Run ≥ 5 trials each
@@ -234,11 +304,11 @@ Main outcome: teams generate **real measured results** (not claims), troubleshoo
 
 **Speaker notes (activity, 35–40 min):**
 - Enforce repeat trials.
-- Teams must produce a results table before leaving the activity.
+- Each student must produce a results table before leaving the activity.
 
 ---
 
-## Slide 19 — In-class Activity 2: RCA mini-case (teams)
+## Slide 19 — In-class Activity 2: RCA mini-case (individual)
 **On-slide:**
 - Pick 1 failing KPI
 - Apply 5 Whys

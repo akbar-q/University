@@ -7,31 +7,28 @@ Key idea: the 4-hour weekly session is for **teaching, modelling, guided practic
 
 ---
 
-## Delivery model for this cohort (embedded “coffee machine” system, multi-team)
-This plan assumes the cohort builds **one integrated system** (a coffee machine-style appliance controller) split across **2–4 teams** working in parallel.
+## Delivery model for this cohort (individual projects)
+Each student completes an **individual engineering project**. Students can choose either:
 
-- **Shared product:** one “Coffee Machine Controller” demonstrator built around **ESP32**, with optional 3D printed enclosure and safe low-voltage actuators/sensors.
-- **Parallel teams:** each team owns a subsystem and publishes an **interface contract** (electrical + software) that other teams depend on.
-- **Integration ownership:** one team (or a nominated Systems Integrator in each team) manages integration tasks and interface change control.
-- **Jira is the backbone:** teams manage dependencies explicitly using `blocks / is blocked by`, weekly status reports, a change log, and a risk register.
+- **Path A — MATLAB simulation/model-based project:** e.g., modelling + controller design + validation, signal processing, parameter estimation, digital twin, fault detection, optimisation.
+- **Path B — Hardware project (embedded/mechatronics):** e.g., sensor/actuator system, closed-loop control demonstrator, monitoring system, small robot/mechanism, instrumentation.
+
+Jira is the backbone: each student manages their own plan using weekly status reports, a change log, and a risk register. Dependencies are still used, but as **personal project dependencies** (lead time for parts, learning prerequisites, tool availability), not dependencies on other people’s deliverables.
 
 ### Safety scope (recommended default)
-To keep the project safe and feasible in 8 weeks, treat this as a **coffee-machine-like** system (state machine, sensing, pumping/valves, UI) and avoid uncontrolled hazards.
+To keep projects safe and feasible in 8 weeks, enforce **low-risk scope** and prevent uncontrolled hazards.
 
-- Use **extra-low voltage** (e.g., 5–12 V) where possible.
-- If you include liquids/heat: require containment, drip trays, and strict risk controls.
-- If your centre policy disallows hot water/mains power in student projects, simulate:
-	- “heater” with an LED + resistor load and a temperature sensor placed near it, or
-	- “boiler temperature” as a simulated sensor signal.
+- Use **extra-low voltage** (e.g., 5–12 V) where possible for hardware projects.
+- Avoid mains power unless your centre has explicit policy, supervision, and safe equipment (recommended: avoid).
+- If liquids/heat are not allowed, simulate the variable (e.g., temperature as a generated signal, load as a resistor/LED).
 
-### Minimum viable integrated features (baseline)
-By Week 8, the integrated demonstrator should achieve:
-- A **state machine**: Idle → Ready → Brewing → Complete → Fault
-- **User interface**: start/stop, drink selection (basic), status indication
-- **Sensing**: water level and a temperature input (real or simulated)
-- **Actuation**: pump/valve control (real or simulated load)
-- **Fault handling**: at least 3 faults with safe shutdown + logged reason
-- **Evidence**: test cases executed with results linked to objectives
+### Minimum viable project features (baseline)
+By Week 8, each project should achieve:
+- A clear **system definition** (inputs/outputs, constraints, assumptions)
+- A working **implementation** (hardware or MATLAB) that produces measurable outputs
+- A **test/validation method** with explicit acceptance criteria linked to objectives
+- **Fault/edge-case handling** appropriate to the project (e.g., sensor failure, saturation, numerical instability)
+- **Evidence**: test/simulation runs executed with results linked to objectives
 
 ## Assessment mapping (what gets produced when)
 - **LO1 (P1, P2, M1, D1):** Mainly Weeks 1–2 (proposal + feasibility + legislation/ethics/risk)
@@ -60,16 +57,16 @@ Use this same structure every week to keep students on track:
 - **Presentation + Feedback (LO4):** slides + Q&A + feedback capture + response plan
 - **Reflection + Action Plan (LO4):** reflective practice model + critical evaluation + improvements
 
-Additional evidence strongly recommended for this multi-team model:
-- **Interface control document (ICD):** pinout + signal levels, message formats, API endpoints, timing requirements
-- **Integration test report:** subsystem tests + system-level tests, including fault injection
+Additional evidence strongly recommended for the individual model:
+- **Interface definition/spec (if applicable):** pinout + signal levels, message formats between modules/tasks, data units, timing requirements
+- **Verification/validation evidence:** unit/module tests + system-level tests, including at least one fault/edge-case test
 - **Decision log:** key trade-offs (cost/time/safety/complexity) and why chosen
 
 ---
 
-# Week 1 — Project launch + team split + architecture selection (LO1 foundations)
+# Week 1 — Project launch + individual project selection + scope control (LO1 foundations)
 
-**Week goal:** students leave with a shared project definition (coffee machine controller), a high-level system architecture, and team responsibilities that enable parallel work.
+**Week goal:** each student leaves with an individual project idea (MATLAB or hardware), a safe/feasible scope for 8 weeks, and a first-pass architecture/model plan.
 
 **Targets this week:** LO1 setup for P1/P2/M1/D1 (no final submissions yet, but evidence must start).
 
@@ -86,30 +83,25 @@ Additional evidence strongly recommended for this multi-team model:
 - “Scope triangle” and common failure modes:
 	- too big to finish, too small to be Level 5, unclear user need, no measurable test plan
 
-- System engineering basics for multi-team projects:
-	- product requirements vs design decisions
-	- subsystem boundaries
-	- why interface contracts prevent rework
-	- integration risks (the main risk in team projects)
+- Systems thinking (applies to individual projects too):
+	- requirements vs design decisions
+	- defining system boundary + inputs/outputs
+	- assumptions and constraints
 
 ### Guided build (Block B, 0:40–1:40)
 
-- Activity: **Shared requirements + team architecture workshop**
-- Students produce (live, as a whole cohort):
-	- A one-page **Product Requirements** list (functional + non-functional)
-	- A simple **system block diagram** (UI ↔ ESP32 control ↔ sensors/actuators ↔ power)
-	- A shortlist of **hazards** (hot surfaces, water + electrics, moving parts) and how you will avoid/simulate
-	- Team assignment (2–4 teams) and boundaries
-- Students produce (live, in teams):
-	- Team mission statement (what you own)
-	- First draft of the **interface contract** for your boundary (even if incomplete)
-	- A list of “inputs you need from other teams” and “outputs you will provide”
+- Activity: **Individual project ideation + scoping workshop**
+- Students produce (live, individually):
+	- A one-page **Project Brief** (problem, user, context, why it matters)
+	- A simple **system block diagram/model diagram** (inputs → processing/controller → outputs)
+	- A shortlist of **hazards/risks** and a safe approach (build vs simulate)
+	- A first-pass **requirements list** (functional + non-functional)
+	- A first-pass **test/validation idea** (what will you measure?)
 
 ### Evidence clinic (Block C, 1:50–2:50)
 
-- Quick-check each team for:
-	- clear subsystem boundary and ownership
-	- an interface contract draft exists (pinout/API/message formats)
+- Quick-check each student for:
+	- a feasible scope (can be finished/tested in 8 weeks)
 	- hazards identified with a safe approach (real vs simulated)
 	- at least 6 measurable requirements exist (these become objectives next week)
 
@@ -119,24 +111,22 @@ Additional evidence strongly recommended for this multi-team model:
 	- create Epics:
 		- Proposal & Compliance (LO1)
 		- Planning & Jira (LO2)
-		- Subsystem Build (one Epic per team)
-		- Integration & System Test
+		- Build/Model
+		- Test/Validate
 		- Technical Report
 		- Presentation & Reflection
-	- create a **Decision** issue: “Coffee machine controller project chosen” (with scope/safety constraints)
+	- create a **Decision** issue: “Project concept chosen” (with scope/safety constraints)
 	- create a **Risk register** (as either a spreadsheet attachment or Jira Risk issues)
 - Logbook entry (minimum): what you did today + decisions + why + next steps
 
 **Between Week 1 and Week 2 (independent work):**
-- Do **secondary research** relevant to the coffee machine system (minimum 5 sources total per team):
-	- embedded safety / low-voltage design practices
-	- sensor/actuator selection for the subsystem
-	- similar appliance state machines / UI patterns
-	- 3D printing constraints (if mechanical team)
+- Do **secondary research** relevant to your chosen project (minimum 5 sources):
+	- for MATLAB projects: key modelling assumptions + validation references
+	- for hardware projects: sensor/actuator selection + safety/ELV practices + relevant standards
 - Draft:
-	- 1-page background (system) + 1-page background (your subsystem)
+	- 1-page background (project context) + 1-page background (your technical approach)
 	- initial list of standards/regs and centre safety rules that apply
-	- interface contract v0.1 (what signals/data you will exchange)
+	- interface definition v0.1 (if applicable: pin map, module data formats, units)
 - Update Jira with research tasks and attach links
 
 ---
@@ -158,25 +148,24 @@ Additional evidence strongly recommended for this multi-team model:
 - Feasibility: how to justify, not just claim
 - D1 framing: show how legislation/ethics/risk actively changes your design choices
 
-- Multi-team feasibility:
-	- integration as the primary schedule risk
-	- interface stability and change control
-	- “definition of done” for a subsystem (test evidence, not just assembly)
+- Feasibility (individual):
+	- time/scope realism (what will you cut first?)
+	- tools + skills gap and mitigation plan
+	- access constraints (hardware availability, lab access, licences)
 
 ### Guided build (Block B, 0:40–1:40)
 
-- Activity: **Write LO1 proposal for the shared system + convert requirements into SMART objectives**
+
+- Activity: **Write LO1 proposal for your individual project + convert requirements into SMART objectives**
 - Students produce (live drafts):
-	- system project brief (problem, solution, impact)
-	- subsystem briefs (1 paragraph each, owned by teams)
+	- project brief (problem, solution, impact)
 	- final system aims (1–2) and SMART objectives (6–10) that cover:
-		- functional behaviour (state machine)
-		- sensor/actuator performance
-		- safety behaviours (fault handling)
-		- usability (UI responsiveness/clarity)
-		- integration behaviours (interfaces)
+		- functional behaviour
+		- performance/quality metrics
+		- safety/robustness behaviours (fault/edge-case handling)
+		- validation behaviours (how you prove it)
 	- outline deliverables:
-		- integrated demo
+		- demo/model outputs
 		- Jira plan (export/screenshots)
 		- technical report
 		- presentation + reflection
@@ -194,10 +183,10 @@ Additional evidence strongly recommended for this multi-team model:
 		- how compliance is evidenced
 
 - Add an “integration feasibility” row (required):
-	- how you will test subsystem integration without everything finished (stubs, simulated sensors, test harnesses)
+	- how you will test your system without every part finished (stubs, simulated inputs, test harnesses)
 
 ### Jira + logbook + next actions (Block D, 2:50–4:00)
-- Jira: create a “Decision” issue: team structure + subsystem boundaries + why
+- Jira: create a “Decision” issue: final project scope + why
 - Jira: create “Risk” issues linked to tasks
 - Logbook: “What I changed after feedback today” (this becomes strong M/D evidence)
 
@@ -210,10 +199,10 @@ Additional evidence strongly recommended for this multi-team model:
 	- D1: legislation/ethics/risk impacts (illustrated)
 - Gather/attach evidence: citations, standards extracts, screenshots of risk register
 
-- Create interface contract v0.2 (minimum):
+- Create interface definition v0.2 (if applicable):
 	- electrical: pinout + voltage levels + connector assumptions
-	- software: message formats/APIs + timing expectations
-	- responsibility: who owns which signal/message
+	- software: data formats between modules/tasks + timing expectations
+	- units and naming conventions
 
 ---
 
@@ -240,11 +229,10 @@ Additional evidence strongly recommended for this multi-team model:
 	- AHP for weighted priorities
 	- HES decision matrix (safety/environment)
 
-- Jira practices for multi-team dependency management:
-	- `blocks / is blocked by` for interface dependencies
-	- “integration milestones” as named versions/labels
-	- use of Components (Team-Firmware, Team-Hardware, Team-Mechanical, Team-UI)
-	- a weekly “scrum of scrums” style status report
+- Jira practices for individual project dependency management:
+	- `blocks / is blocked by` for real constraints (parts lead time, lab access, learning prerequisites)
+	- milestones as versions/labels
+	- weekly status report issue
 
 ### Guided build (Block B, 0:40–1:40)
 - Activity: **Build the plan in Jira**
@@ -253,8 +241,8 @@ Additional evidence strongly recommended for this multi-team model:
 	- Issues with: description, acceptance criteria, estimate, due date, owner
 	- Milestones as versions or a “Milestone” label
 	- Dependencies using links (blocks/is blocked by)
-	- At least 10 cross-team dependency links (real ones):
-		- e.g., firmware blocked by final pinout; UI blocked by state machine messages; mechanical blocked by PCB dimensions
+	- At least 6 meaningful dependency links (real ones):
+		- e.g., build blocked by parts arrival; testing blocked by calibration; modelling blocked by parameter identification data
 - If a Gantt view is available (Advanced Roadmaps/add-on): show how to export/screenshot
 
 ### Evidence clinic (Block C, 1:50–2:50)
@@ -282,7 +270,7 @@ Additional evidence strongly recommended for this multi-team model:
 - Update Jira daily (minimum: move tasks, add comments, attach evidence)
 
 - Publish interface contract v1.0 (freeze a baseline):
-	- any changes after this must go through change control
+	- any changes after this must go through change control (Change issue + justification)
 
 ---
 
@@ -311,6 +299,11 @@ Additional evidence strongly recommended for this multi-team model:
 	- debouncing and sensor filtering (simple, justified)
 	- logging strategy (serial log + saved logs/screenshots)
 
+- MATLAB-specific quality bar (if applicable):
+	- model assumptions and parameter provenance
+	- solver settings/time step justification
+	- validation against expected/known behaviour
+
 ### Guided build (Block B, 0:40–1:40)
 - Activity: **Build test plan v1 (or simulation plan v1)**
 - Students produce:
@@ -319,8 +312,8 @@ Additional evidence strongly recommended for this multi-team model:
 	- data capture plan (tables, units, naming conventions)
 	- risk updates for lab work
 
-- Integration test harness plan (required):
-	- how each team will test without the other team finished (stubs/mocks)
+- Test harness plan (required):
+	- how you will test before everything is finished (stubs, simulated inputs, synthetic data, fixtures)
 
 ### Evidence clinic (Block C, 1:50–2:50)
 - Review:
@@ -330,9 +323,7 @@ Additional evidence strongly recommended for this multi-team model:
 - If behind: force scope control (cut features, protect evaluation quality)
 
 - Integration checkpoint (end of Week 4):
-	- teams demonstrate “hello integration” (minimum):
-		- shared pinout verified or simulated
-		- shared message/state interface verified via a stub
+	- demonstrate one end-to-end path through your system (even if partially simulated)
 
 ### Jira + logbook + next actions (Block D, 2:50–4:00)
 - Create/confirm:
@@ -345,7 +336,7 @@ Additional evidence strongly recommended for this multi-team model:
 - Start writing report sections: Introduction, Background, Plan/Method
 - Capture evidence as you go (photos, screenshots, data files)
 
-- Hold a team-to-team interface sync (30 minutes) and log decisions in Jira
+- Collect one external feedback point (peer/technician/user) on your scope/test plan and log it as a Jira comment or feedback note
 
 ---
 
@@ -372,9 +363,10 @@ Additional evidence strongly recommended for this multi-team model:
 	- screenshot of setup/settings
 	- short interpretation: “What does this mean against Objective X?”
 
-- Integration activity (minimum):
-	- integrate 1 subsystem-to-subsystem path end-to-end (even if simulated)
-	- example: UI start command → firmware state change → actuator output → UI status update
+- System integration activity (minimum):
+	- integrate 1 end-to-end path (even if partially simulated)
+	- example hardware: sensor input → processing/controller → actuator output
+	- example MATLAB: model → controller/estimator → outputs compared to acceptance criteria
 
 ### Evidence clinic (Block C, 1:50–2:50)
 - Review evidence against P6/M5:
@@ -419,8 +411,8 @@ Additional evidence strongly recommended for this multi-team model:
 	- time/cost summary table (planned vs actual)
 
 - System-level V&V (required):
-	- run at least 1 full brew cycle end-to-end and record timings
-	- fault injection test (choose 1): low water, overtemp, stuck button, comms loss
+	- run at least 1 end-to-end scenario and record key metrics
+	- fault/edge-case test (choose 1–2): sensor disconnect, out-of-range input, saturation, numerical instability, comms loss, supply drop (simulated)
 
 ### Evidence clinic (Block C, 1:50–2:50)
 - Report clinic:
@@ -473,9 +465,9 @@ Additional evidence strongly recommended for this multi-team model:
 	- start reflective log + action plan (M6/D4)
 	- incorporate third-party feedback plan (who will give feedback next week?)
 
-- Multi-team evaluation prompt (for D3):
-	- “Which dependency caused the biggest impact and how did you manage it?”
-	- “What interface change caused rework and what would you do next time?”
+- Evaluation prompts (for D3):
+	- “Which risk/constraint caused the biggest impact and how did you manage it?”
+	- “What change caused rework and what would you do next time?”
 
 ### Jira + logbook + next actions (Block D, 2:50–4:00)
 - Create Week 8 presentation issues + rehearsal tasks
@@ -506,9 +498,9 @@ Additional evidence strongly recommended for this multi-team model:
 	- evidence shown (results, evaluation)
 	- questions logged
 
-- Team presentation requirement:
-	- show system architecture + subsystem boundaries
-	- show at least 1 integration test and 1 fault response
+- Presentation requirement:
+	- show system/model architecture
+	- show at least 1 system/integration test and 1 fault/edge-case response
 
 ### Evidence clinic (Block C, 2:05–3:05)
 - Feedback capture:
@@ -566,9 +558,8 @@ If any of these are different, tell me and I will adjust Week 1–2 proposal/ris
 
 - **Liquids/heat policy:** are students allowed to use water and/or heated elements, or must these be simulated?
 - **Power policy:** is mains power strictly prohibited in student builds? (recommended: yes)
-- **Connectivity policy:** can ESP32 use Wi‑Fi in the lab (for a web UI), or should all comms be wired serial only?
-- **Assessment approach:** group product with **individual** logbooks/reflections (recommended), or a purely team submission?
-- **Team count:** 2, 3, or 4 teams (plan supports all)
+- **Hardware constraints (if hardware path):** any restrictions on wireless, rotating parts, moving mechanisms, or specific lab tools?
+- **Software constraints (if MATLAB path):** required toolboxes, version, or restrictions on using provided models?
 
 ---
 
@@ -595,8 +586,8 @@ This project structure meets all criteria if the evidence rules below are enforc
 - **P7:** achieved via an integrated demo + technically literate presentation + logged Q&A.
 - **P8/M6/D4:** achieved via reflective practice model + third-party feedback + action plan.
 
-### Evidence rule that makes group work assessable
-Even with a shared system, require each student to produce:
+### Evidence rule that makes individual work assessable
+Each student must produce:
 - their own weekly logbook entries
-- at least one owned Jira workstream (tasks with evidence)
+- a Jira plan with tasks closed using evidence attachments/links
 - an individual reflection and action plan

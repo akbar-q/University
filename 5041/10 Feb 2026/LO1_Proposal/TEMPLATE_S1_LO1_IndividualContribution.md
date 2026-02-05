@@ -1,6 +1,6 @@
 # S1 — LO1 Individual Contribution Statement (Template)
 
-> One per student. This protects individual grading in a team proposal.
+> One per student. Recommended supporting evidence for individual grading.
 > Recommended length: 1–2 pages.
 
 ---
@@ -8,7 +8,6 @@
 ## Student details
 - Name: [Name]
 - Student ID: [ID]
-- Team: [Team]
 - Date: [DD Mon YYYY]
 
 ---

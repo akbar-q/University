@@ -1,11 +1,68 @@
 # Week 7 Presentation Outline — Unit 5041
-## LO3 (D3) Critical evaluation vs plan + LO4 preparation (presentation build + reflective practice setup)
-
-Toolchain assumption: **Arduino IDE + ESP32 (Arduino-ESP32)**.
+## Critical evaluation (D3) + presentation build + reflective practice
 
 Session length: **4 hours**.
 
-Main outcome: teams produce a strong **D3 evaluation** (critical analysis of outcomes vs original plan, with justified recommendations), and build a presentation draft aligned to LO4 (P7) while setting up individual reflection/PD evidence (P8/M6/D4).
+Main outcome: D3 evaluation written and an LO4 presentation structure ready.
+
+---
+
+## Slide 1 — Title
+**On-slide:**
+- Week 7: critical evaluation + presentation + reflection setup
+
+---
+
+## Slide 2 — D3: what “critical” means
+**On-slide:**
+- Compare outcomes vs plan/objectives
+- Explain variances (root causes)
+- Justify improvements/recommendations
+
+---
+
+## Slide 3 — Evaluation table (template)
+**On-slide:**
+- Objective
+- Result
+- Evidence
+- Judgement
+- Improvement
+
+---
+
+## Slide 4 — LO4 presentation: the technical narrative
+**On-slide:**
+- Problem → method → results → evaluation → next steps
+
+---
+
+## Slide 5 — Reflective practice model
+**On-slide:**
+- Choose one: Gibbs or Kolb (or centre preference)
+
+---
+
+## Slide 6 — In-class Activity: write evaluation section live
+**On-slide:**
+- Complete evaluation table
+- Rank recommendations by impact/effort
+
+---
+
+## Slide 7 — Between-week tasks (Week 7 → Week 8)
+**On-slide:**
+- Finalise report
+- Build slides + rehearse
+- Collect at least one third-party feedback point
+# Week 7 Presentation Outline — Unit 5041
+## LO3 (D3) Critical evaluation vs plan + LO4 preparation (presentation build + reflective practice setup)
+
+Project pathways: **MATLAB simulation/model-based OR hardware**.
+
+Session length: **4 hours**.
+
+Main outcome: students produce a strong **D3 evaluation** (critical analysis of outcomes vs original plan, with justified recommendations), and build an individual presentation draft aligned to LO4 (P7) while setting up reflection/PD evidence (P8/M6/D4).
 
 ---
 
@@ -112,7 +169,7 @@ Main outcome: teams produce a strong **D3 evaluation** (critical analysis of out
 
 ---
 
-## Slide 9 — Root-cause of project variances (common in embedded teams)
+## Slide 9 — Root-cause of project variances (common in student embedded projects)
 **On-slide:**
 - Integration delay (interfaces not frozen)
 - Hardware delivery/wiring issues
@@ -150,12 +207,12 @@ Main outcome: teams produce a strong **D3 evaluation** (critical analysis of out
 
 ---
 
-## Slide 12 — Multi-team evaluation (required prompts)
+## Slide 12 — Individual project evaluation (required prompts)
 **On-slide:**
 - Which dependency caused the most impact?
-- Which interface change caused rework?
+- Which assumption/interface change caused rework?
 - How did Jira help (or not)?
-- What would you freeze earlier next time?
+- What would you baseline/freeze earlier next time?
 
 **Speaker notes (8–10 min):**
 - This gives excellent material for both D3 (project) and D4/M6 (reflection).
@@ -177,7 +234,7 @@ Main outcome: teams produce a strong **D3 evaluation** (critical analysis of out
 **On-slide:**
 1) Problem + aim
 2) Requirements + success criteria
-3) Architecture + team boundaries
+3) Architecture/model overview
 4) Method (plan + tests)
 5) Results (KPIs)
 6) Fault handling demo
@@ -293,7 +350,7 @@ Main outcome: teams produce a strong **D3 evaluation** (critical analysis of out
 - Insert fault demo plan
 
 **Speaker notes (activity, 30–35 min):**
-- By end, teams must have a slide deck draft.
+- By end, each student must have a slide deck draft.
 
 ---
 

@@ -8,7 +8,6 @@
 ## Student details
 - Name: [Name]
 - Student ID: [ID]
-- Team: [Team]
 - Date range covered: [start → end]
 
 ---

@@ -19,9 +19,10 @@ This document is designed to cover:
 
 ## Document control
 - Unit: 5041 Engineering Project
-- Project: ESP32 Coffee Machine Controller (multi-team)
-- Team name: [Team]
-- Team members: [Names + IDs]
+- Project title: [Your project title]
+- Student name: [Name]
+- Student ID: [ID]
+- Pathway: [MATLAB simulation/model-based OR hardware]
 - Date: [DD Mon YYYY]
 - Version: [v0.x]
 
@@ -29,15 +30,15 @@ This document is designed to cover:
 
 ## 1. Introduction
 Write 3–6 lines explaining what LO2 is trying to achieve:
-- What is being planned? (integrated ESP32 controller + demo)
+- What is being planned? (your individual project)
 - What tool will you use? (Jira)
 - What evidence will you use? (exports/screenshots: backlog, dependencies, timeline, dashboards, risks/changes/decisions)
 
 Suggested sentence starters:
-- “This report presents a comprehensive project plan for an ESP32-based coffee machine controller demonstrator using Jira to define tasks, owners, dependencies, milestones, and control mechanisms.”
+- “This report presents a comprehensive project plan for an individual engineering project using Jira to define tasks, dependencies, milestones, and control mechanisms.”
 - “The plan includes measurable evaluation criteria (KPIs) and a control process for risks, changes, and decisions, evidenced through Jira exports and weekly status updates.”
 
-\[Insert: one-page project overview figure (architecture/team boundaries + milestone timeline).\]
+\[Insert: one-page project overview figure (system/model diagram + milestone timeline).\]
 
 ---
 
@@ -48,11 +49,11 @@ Suggested sentence starters:
 ### 2.2 Deliverables
 List the deliverables and what “done” means.
 
-| Deliverable | Owner (role/team) | Done definition | Evidence |
+| Deliverable | Owner | Done definition | Evidence |
 |---|---|---|---|
-| Integrated demonstrator | [Integrator] | [definition] | [video + logs] |
-| Test plan + results | [QA lead] | [definition] | [PDF + data files] |
-| Technical report | [Doc lead] | [definition] | [report PDF] |
+| Project implementation (hardware or MATLAB) | [Self] | [definition] | [video/plots/logs] |
+| Test/simulation plan + results | [Self] | [definition] | [PDF + data files] |
+| Technical report | [Self] | [definition] | [report PDF] |
 
 ---
 
@@ -77,7 +78,7 @@ State clearly:
 Explain how work is decomposed.
 
 Recommended structure:
-- Epics = Subsystems (Firmware, Hardware I/O, UI/Connectivity, Mechanical/Enclosure, Integration/Test)
+- Epics = Workstreams (Design/Model, Implement/Build, Test/Validate, Analysis/Report)
 - Stories/Tasks = implementable work items
 - Subtasks = specific steps
 
@@ -99,9 +100,9 @@ Define 5–8 milestones.
 
 | Milestone ID | Milestone | Date/week | Acceptance check |
 |---|---|---|---|
-| MS-01 | ICD v1.0 frozen | Week [x] | Protocol + pinout published |
-| MS-02 | Subsystem demos complete | Week [x] | Demo evidence recorded |
-| MS-03 | Integration demo | Week [x] | End-to-end run shown |
+| MS-01 | Plan baseline frozen | Week [x] | Baseline export captured |
+| MS-02 | Prototype/model v1 produces results | Week [x] | First results table/plot/log |
+| MS-03 | System/acceptance test run | Week [x] | End-to-end scenario evidence |
 
 ### 5.2 Timeline evidence
 \[Insert: Jira Timeline view screenshot (or equivalent).\]
@@ -117,18 +118,14 @@ State:
 ---
 
 ## 6. Roles, responsibilities and communication (P3)
-### 6.1 Team roles
-Define roles clearly.
-
-| Role | Person | Responsibilities | Backup |
-|---|---|---|---|
-| Systems integrator | [name] | ICD, integration, interface conflicts | [name] |
-| QA/test lead | [name] | test plan, results tables | [name] |
-| Jira admin | [name] | workflows, fields, dashboards | [name] |
+### 6.1 Roles and responsibilities (individual)
+Define responsibilities clearly:
+- Project owner: you (planning, delivery, evidence)
+- Stakeholders/users (if any): who provides requirements/feedback
+- Tutor/supervisor: checkpoints/approvals (centre process)
 
 ### 6.2 Communication plan
-- Meeting cadence: [weekly]
-- Stand-up format: [what is reported]
+- Check-in cadence: [weekly]
 - Where decisions are recorded: [Jira Decision issues]
 - How evidence is stored: [folder + naming]
 
@@ -138,7 +135,7 @@ Define roles clearly.
 ### 7.1 Dependency management approach
 Explain how you will use Jira links:
 - `blocks` / `is blocked by`
-- why dependencies exist (protocol, pinout, mechanical dimensions)
+- why dependencies exist (parts lead time, lab access, learning prerequisites, data availability, module interface definition)
 
 ### 7.2 Dependency map (required evidence)
 \[Insert: screenshot of dependency view OR a table summary of key dependencies.\]
@@ -147,16 +144,15 @@ Suggested dependency table:
 
 | Dependency | Blocks what? | Owned by | Needed by date | Risk if late | Mitigation |
 |---|---|---|---|---|---|
-| Serial protocol v1 | UI integration | Firmware | Week [x] | UI can’t test | Use stub generator |
+| Sensor arrives | Calibration + testing | Self | Week [x] | Tests slip | Order early / use simulated data |
 
-### 7.3 ICD (interface control document) plan
-State what your ICD includes:
-- Pinout
-- Signal levels
-- Serial protocol messages
-- Fault codes
+### 7.3 Interface definition/spec (if applicable)
+State what your interface definition includes (examples):
+- Pinout and signal levels (hardware)
+- Data formats between modules/functions (MATLAB or software)
+- Units, naming conventions, timing requirements
 
-\[Insert: ICD v1.0 screenshot/link (or a short excerpt as a figure).\]
+\[Insert: interface definition excerpt/screenshot/link (optional).\]
 
 ---
 
@@ -181,7 +177,7 @@ Include at least 8 risks.
 Describe:
 - how changes are proposed (Change issue)
 - how impact is assessed (scope/schedule/cost/risk)
-- who approves (teacher + integrator)
+- who approves (you + tutor/supervisor, per centre process)
 
 ### 9.2 Decision log
 Record key decisions.
@@ -231,13 +227,13 @@ Use this structure every week:
 This section must be measurable and tied to objectives.
 
 ### 11.1 KPI table (required)
-Provide subsystem and system-level KPIs.
+Provide module-level and system-level KPIs.
 
 | KPI ID | KPI | Target | Measurement method | Frequency | Evidence output |
 |---|---|---|---|---|---|
-| KPI-01 | Fault response time | \[≤ 1000 ms\] | serial timestamps | per test | log file |
-| KPI-02 | Brew cycle repeatability | \[± X s\] | timed trials (n≥5) | per build | results table |
-| KPI-03 | UI response | \[≤ X ms\] | event-to-update timing | per test | log/screen recording |
+| KPI-01 | Response time / rise time | \[≤ X\] | timing from logs/plots | per test | log/plot |
+| KPI-02 | Accuracy / error metric (e.g., RMSE) | \[≤ X\] | calculation over trials | per run | results table |
+| KPI-03 | Robustness (edge-case behaviour) | \[pass criteria\] | fault/edge-case test | per test | log/plot/video |
 
 ### 11.2 KPI justification
 Write 2–4 paragraphs:

@@ -5,43 +5,33 @@ This document defines **exactly what to submit**, **in what format**, and **whic
 Design principle used here (matches your preference):
 - **Primary rule:** avoid mixing multiple LOs into one document.
 - **Allowed:** one LO can have **multiple submission types** (e.g., document + Jira export + evidence pack).
-- **Group work is allowed**, but **each student must have individual evidence** (logbook + PD + reflection + owned Jira tasks).
+- This pack is written for **individual projects** (each student has their own project idea), but informal peer support is fine as long as **all submitted evidence is individually produced**.
 
 ---
 
 ## Submission overview (recommended split)
 
-| Submission ID | Primary LO | Submission type | Individual / Team | Why this split works |
+| Submission ID | Primary LO | Submission type | Individual | Why this split works |
 |---|---|---|---|---|
-| S1 | LO1 | Proposal pack (document) + compliance appendix | Team document + individual contribution statement | Keeps LO1 clean: proposal/feasibility/legislation-risk in one place |
-| S2 | LO2 | Project management plan report + Jira plan exports | Team report + individual Jira evidence | LO2 is “planning in PM software”; Jira evidence is essential |
-| S3 | LO3 | Technical engineering report + implementation evidence pack + individual logbook | Team report + individual logbook | LO3 requires execution evidence + a full technical report |
-| S4 | LO4 | Team presentation + feedback record | Team | P7 is explicitly presentation + feedback |
+| S1 | LO1 | Proposal pack (document) + compliance/ethics/risk section | Yes | Keeps LO1 clean: proposal/feasibility/legislation-risk in one place |
+| S2 | LO2 | Project management plan report + Jira plan exports | Yes | LO2 is “planning in PM software”; Jira evidence is essential |
+| S3 | LO3 | Technical engineering report + implementation evidence pack + logbook | Yes | LO3 requires execution evidence + a full technical report |
+| S4 | LO4 | Individual presentation + feedback record | Yes | P7 is explicitly presentation + feedback (it can be delivered individually) |
 | S5 | LO4 | Professional Discussion (PD) + individual reflection + action plan | Individual | Cleanly assesses P8/M6/D4 via oral + reflection |
 
 ---
 
 ## Required folder structure (students)
-Students submit a single zipped folder per team:
+Students submit a single zipped folder per student:
 
 ```
-5041_<Cohort>_<TeamName>_SubmissionPack.zip
+5041_<Cohort>_<StudentID>_SubmissionPack.zip
   S1_LO1_Proposal/
   S2_LO2_ProjectManagementPlan/
   S3_LO3_TechnicalReport_and_Evidence/
   S4_LO4_Presentation_and_Feedback/
   S5_LO4_PD_and_Reflection/
-  Shared_Evidence/
-```
-
-And each student submits an individual zip:
-
-```
-5041_<Cohort>_<StudentID>_IndividualEvidence.zip
-  Logbook/
-  PD/
-  Reflection/
-  Jira_Evidence/
+  Shared_Evidence/  (optional: datasheets, standards extracts, generic references)
 ```
 
 > If your centre prefers one combined submission, keep the same internal folders but package once.
@@ -51,11 +41,11 @@ And each student submits an individual zip:
 # S1 — LO1 Proposal Pack (P1, P2, M1, D1)
 
 ## Purpose
-To propose the embedded coffee-machine engineering project in line with **engineering regulatory and ethical frameworks**, including feasibility, aims/objectives, and the effects of legislation/ethics/risk.
+To propose an **individual engineering project** (hardware-based or MATLAB simulation) in line with **engineering regulatory and ethical frameworks**, including feasibility, aims/objectives, and the effects of legislation/ethics/risk.
 
 ## What to submit
-### Team submission (documents)
-- `S1_LO1_ProposalPack.pdf` (or `.docx`) — includes proposal + feasibility + compliance/ethics/risk
+### Individual submission
+- `S1_LO1_ProposalPack_<StudentID>.pdf` (or `.docx`) — includes proposal + feasibility + compliance/ethics/risk
 
 \[If your centre requires the appendix as a separate file\]
 Export the same document as two files by splitting the “Compliance/ethics/risk” section into a separate appendix document at submission time.
@@ -81,9 +71,9 @@ Export the same document as two files by splitting the “Compliance/ethics/risk
 - Risk register v1 (hazards, likelihood/severity, mitigations, residual risk)
 
 ### Individual requirement (to protect individual grading)
-- `S1_LO1_IndividualContribution_<StudentID>.pdf`
-  - what you researched/wrote/decided
-  - one key trade-off you argued for (with justification)
+- (Optional but recommended) `S1_LO1_IndividualContribution_<StudentID>.pdf`
+  - what you researched/decided
+  - one key trade-off you chose (with justification)
 
 ---
 
@@ -93,8 +83,8 @@ Export the same document as two files by splitting the “Compliance/ethics/risk
 To demonstrate use of **project management software, tools, techniques** (Jira) to create a comprehensive plan with evaluation criteria.
 
 ## What to submit
-### Team submission
-- `S2_LO2_ProjectManagementPlan.pdf` (or `.docx`)
+### Individual submission
+- `S2_LO2_ProjectManagementPlan_<StudentID>.pdf` (or `.docx`)
 - `S2_LO2_Jira_Exports/`
   - board screenshots, backlog export, dependency view screenshots
   - weekly sprint configuration screenshots (if used)
@@ -106,18 +96,18 @@ To demonstrate use of **project management software, tools, techniques** (Jira) 
 - Lifecycle stages (initiation → planning → execution → close)
 - WBS/backlog with tasks and ownership
 - Milestones and timeline (Gantt if used, otherwise Jira timeline screenshots)
-- Roles and responsibilities (team structure + integrator role)
+- Roles and responsibilities (you as project owner; any external stakeholders/users)
 - Risk plan (how risks are tracked/updated)
 
 **Comprehensive Jira usage (M2):**
-- Cross-team dependencies (`blocks/is blocked by`) used meaningfully
+- Dependencies (`blocks/is blocked by`) used meaningfully (e.g., hardware lead times, waiting on parts, learning prerequisites, tool availability)
 - Change control process (baseline + change issues)
 - Regular updates regime (weekly status reports)
 
 **Evaluation criteria (D2):**
 - Explicit, measurable KPIs at:
-  - subsystem level (e.g., sensor sampling rate, UI response time)
-  - system level (e.g., fault response time, brew-cycle timing)
+  - module/subsystem level (e.g., sensor sampling rate, estimator stability margin, controller rise time)
+  - overall system level (e.g., fault response time, end-to-end response time, simulation-vs-measurement fit)
 - Decision matrix/AHP/HES matrix used for at least one major decision
 
 ### Individual requirement
@@ -133,8 +123,8 @@ To demonstrate use of **project management software, tools, techniques** (Jira) 
 To show the project was implemented (or simulated), monitored against the plan, and documented in a structured technical engineering report with critical analysis and improvement recommendations.
 
 ## What to submit
-### Team submission
-- `S3_LO3_TechnicalEngineeringReport.pdf` (or `.docx`)
+### Individual submission
+- `S3_LO3_TechnicalEngineeringReport_<StudentID>.pdf` (or `.docx`)
   - includes test plan, results tables, evidence index (appendix) where possible
 - `S3_LO3_EvidencePack/`
   - photos of hardware
@@ -175,24 +165,24 @@ To show the project was implemented (or simulated), monitored against the plan, 
 
 ---
 
-# S4 — LO4 Team Presentation + Feedback (P7)
+# S4 — LO4 Individual Presentation + Feedback (P7)
 
 ## Purpose
 To present the integrated engineering project to a technically literate audience and conduct a feedback session.
 
-## What to submit (team)
-- `S4_LO4_PresentationSlides.pdf` (and/or `.pptx`)
+## What to submit (individual)
+- `S4_LO4_PresentationSlides_<StudentID>.pdf` (and/or `.pptx`)
 - `S4_LO4_DemoVideo.mp4` (recommended)
-- `S4_LO4_FeedbackRecord.pdf`
+- `S4_LO4_FeedbackRecord_<StudentID>.pdf`
   - who attended, what they said, Q&A notes
 
 \[Template support\]
 Use the slide-by-slide outline in `LO4_Presentation_and_PD/TEMPLATE_S4_LO4_Presentation_PPT_Outline.md`.
 
 ### Minimum contents checklist
-- Architecture + team subsystem boundaries
+- Architecture (your system/modules)
 - Live demo (or recorded demo)
-- At least 1 integration test shown
+- At least 1 system/integration test shown (hardware or MATLAB)
 - At least 1 fault response shown
 - Q&A captured and summarised
 
@@ -216,7 +206,7 @@ To individually reflect on outcomes and evaluate end-to-end delivery, including 
 - Sample Q&A with critical answers is in `LO4_Presentation_and_PD/TEMPLATE_S5_LO4_PD_SampleQnA_WithCriticalAnswers.md`.
 
 ### Minimum PD coverage (suggested question bank)
-- What was your subsystem responsibility and how did you manage dependencies?
+- What did you deliver personally and what evidence supports it?
 - Which risk had the biggest impact and how did you mitigate it?
 - What would you change in the plan if you started again?
 - Evidence of engineering judgement (trade-offs, standards, safety)

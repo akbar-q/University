@@ -3,7 +3,7 @@
 This folder contains LO4 templates and examiner resources.
 
 ## LO4 submissions (as per deliverables map)
-- Team (S4): Presentation slides + feedback record.
+- Individual (S4): Presentation slides + feedback record.
 - Individual (S5): Professional Discussion prep notes + reflection/action plan.
 
 ## Templates/resources in this folder

@@ -11,7 +11,7 @@ Use:
 ---
 
 ## Timing plan (suggested)
-- 0:00–1:00 — Student intro (role + subsystem)
+- 0:00–1:00 — Student intro (project + pathway)
 - 1:00–6:00 — Pass coverage (what they did + evidence)
 - 6:00–11:00 — Merit coverage (evaluation + responding to feedback/changes)
 - 11:00–15:00 — Distinction probe (critical judgement, trade-offs, improvements)
@@ -27,7 +27,7 @@ If running 10 minutes:
 ## Evidence prompts (use these as follow-ups)
 Ask for at least one evidence item per key claim:
 - Jira issue keys owned, screenshots, or exports
-- Serial logs with timestamps
+- Logs/plots with timestamps/units (as applicable)
 - Test case IDs + results table
 - Photos/videos of build and demo
 - Change/decision log entries
@@ -38,7 +38,7 @@ Ask for at least one evidence item per key claim:
 Pick at least 1.
 
 1) Role and contribution
-- Q: “What was your subsystem responsibility and what did you personally deliver?”
+- Q: “What did you personally deliver, and what evidence proves it?”
 - Follow-ups:
   - “Which Jira issues show this?”
   - “What evidence proves your work functions?”
@@ -80,7 +80,7 @@ Pick 1–2.
 3) Dependency management
 - Q: “Describe a dependency that blocked you (or that you blocked for others) and how you handled it.”
 - Follow-ups:
-  - “What did you do to unblock early (stub/mock/ICD publish)?”
+  - “What did you do to reduce the risk early (alternative plan, simulated inputs, early ordering, test harness)?”
 
 4) Issue resolution (practical)
 - Q: “Give a practical example of a performance/structural issue and how you solved it.”

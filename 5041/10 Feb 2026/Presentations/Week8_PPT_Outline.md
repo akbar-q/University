@@ -1,11 +1,58 @@
 # Week 8 Presentation Outline — Unit 5041
-## LO4 Delivery: Team presentation + feedback session (P7) + Individual reflection/action plan + PD completion (P8/M6/D4)
-
-Toolchain assumption: **Arduino IDE + ESP32 (Arduino-ESP32)**.
+## Presentation + feedback + final reflection/action plan
 
 Session length: **4 hours**.
 
-Main outcome: teams deliver the **final presentation + feedback session**, and each student completes **reflection + action plan** and is ready for (or completes) the **Professional Discussion (PD)**.
+Main outcome: LO4 presentation delivered with feedback captured, and reflection/action plan completed.
+
+---
+
+## Slide 1 — Title
+**On-slide:**
+- Week 8: presentations + feedback + reflection/action plan
+
+---
+
+## Slide 2 — Presentation checklist (P7)
+**On-slide:**
+- System/model architecture
+- Evidence: key results + KPIs
+- One system/integration test
+- One fault/edge-case response
+- Q&A captured
+
+---
+
+## Slide 3 — Feedback capture (required)
+**On-slide:**
+- Who gave feedback?
+- What did they say?
+- What will you do next?
+
+---
+
+## Slide 4 — Reflection (P8/M6/D4)
+**On-slide:**
+- What went well?
+- What didn’t?
+- Why?
+- Action plan with dates
+
+---
+
+## Slide 5 — Close-out (professional standard)
+**On-slide:**
+- Jira final status report
+- Evidence archived and labelled
+- Risks closed or carried forward
+# Week 8 Presentation Outline — Unit 5041
+## LO4 Delivery: Individual presentation + feedback + reflection/action plan + PD completion (P7/P8/M6/D4)
+
+Project pathways: **MATLAB simulation/model-based OR hardware**.
+
+Session length: **4 hours**.
+
+Main outcome: each student delivers the **final presentation + feedback record**, completes **reflection + action plan**, and is ready for (or completes) the **Professional Discussion (PD)**.
 
 ---
 
@@ -21,15 +68,13 @@ Main outcome: teams deliver the **final presentation + feedback session**, and e
 
 ## Slide 2 — What you are being assessed on today (LO4)
 **On-slide:**
-- P7: team presentation + feedback session
+- P7: individual presentation + feedback record
 - P8: individual reflection on outcomes
 - M6: evaluate end-to-end delivery + address feedback
 - D4: critically evaluate using reflective practice + action plan
 
 **Speaker notes (6–8 min):**
-- Clarify split:
-  - team marks come from presentation delivery quality
-  - individual marks come from reflection/PD quality (and evidence)
+- Emphasise: this is assessed individually, so evidence and clarity matter.
 
 ---
 
@@ -38,7 +83,7 @@ Main outcome: teams deliver the **final presentation + feedback session**, and e
 - Stay within time
 - Show evidence (KPIs + tests)
 - Show fault handling
-- Explain system architecture and team boundaries
+- Explain system/model architecture (modules/blocks)
 
 **Speaker notes (6–8 min):**
 - “Evidence shown” means at least one table/graph/log excerpt.
@@ -166,7 +211,7 @@ Main outcome: teams deliver the **final presentation + feedback session**, and e
 - PD (if scheduled) or PD readiness check
 
 **Speaker notes (4–5 min):**
-- Explain logistics: order of teams, time per team.
+- Explain logistics: order of presenters, time per presenter.
 
 ---
 
@@ -189,18 +234,18 @@ Main outcome: teams deliver the **final presentation + feedback session**, and e
 - Save demo video if used
 
 **Speaker notes (4–5 min):**
-- Assign one person per team to take notes.
+- Ensure someone (or you) takes notes for each presenter.
 
 ---
 
-## Slide 15 — Activity: team presentations (round 1)
+## Slide 15 — Activity: individual presentations (round 1)
 **On-slide:**
 - Present now
 - Show at least 1 KPI table
 - Show fault handling evidence
 
 **Speaker notes (activity, variable time):**
-- As assessor, ask at least one technical question per team:
+-- As assessor, ask at least one technical question per presenter:
   - “How did you measure response time?”
   - “What assumptions are in your simulation?”
   - “What is your fail-safe behaviour?”
@@ -214,7 +259,7 @@ Main outcome: teams deliver the **final presentation + feedback session**, and e
 - Add action items
 
 **Speaker notes (activity, 15–20 min):**
-- Each team must produce a feedback record.
+- Each student must produce a feedback record.
 
 ---
 

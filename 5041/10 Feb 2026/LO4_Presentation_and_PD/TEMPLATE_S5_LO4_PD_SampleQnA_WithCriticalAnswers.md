@@ -4,9 +4,9 @@
 \[This is a *model* document to show what strong answers look like. Students should not memorise it word-for-word.\]
 
 Context assumed for examples:
-- Project: ESP32 coffee-machine controller demonstrator
-- Key KPIs: fault response time, repeatability of brew cycle, safe default-off outputs
-- Constraints: ELV only; heater simulated; controlled restart required
+- Project: individual engineering project (hardware or MATLAB)
+- Key KPIs: response time/accuracy/robustness (example)
+- Constraints: safety policy; time constraints; tool availability
 
 ---
 
@@ -20,7 +20,7 @@ Context assumed for examples:
 
 ## Q1) “What was your role and what did you deliver?” (Pass baseline)
 ### Strong answer (example)
-“My main responsibility was firmware integration: implementing the state machine, fault handling, and the serial logging format used by the UI team. I delivered the Brewing state logic, a non-blocking sensor sampling loop, and a fault handler that forces outputs OFF on unsafe conditions. My contribution is evidenced by Jira issues \[keys\], commit/export \[where\], and test evidence \[T-01 fault response logs\].”
+“I delivered the core implementation of my project: \[e.g., a control algorithm and a validation script / a sensor acquisition module and a fault handler\]. I also defined the test/validation method and captured results in \[plots/logs/results tables\]. My contribution is evidenced by Jira issues \[keys\], versioned code/model exports \[where\], and test evidence \[test IDs + evidence refs\].”
 
 ### Why this is strong
 - Specific deliverables (not vague)
@@ -52,7 +52,7 @@ Follow-up-ready evidence list:
 
 ## Q4) “Give an example of feedback you received and what you changed.” (Merit)
 ### Strong answer (example)
-“Feedback from the Week \[x\] demo was that fault messages were unclear and the UI could not distinguish ‘LowWater’ from ‘SensorFault’. We responded by standardising fault codes in the ICD and adding a `FAULT=<code>` message field. The change is recorded as a Jira Decision \[ID\] and implemented in \[issue key\]. We verified it by replaying the same fault injection tests and showing the UI displays distinct fault reasons.”
+“Feedback from the Week \[x\] demo/review was that \[a result/plot/behaviour\] was unclear and the system did not distinguish between \[two cases\]. I responded by standardising the output format and adding \[a clearer metric/log field/plot annotation\]. The change is recorded as a Jira Decision \[ID\] and implemented in \[issue key\]. I verified it by re-running the same test/validation cases and showing the outputs are now unambiguous.”
 
 ### Critical add-on
 “A trade-off was extra protocol complexity; to manage this we kept the protocol key-value and newline-delimited so parsing remained simple and robust.”
@@ -81,12 +81,12 @@ What makes it Distinction-level:
 
 ## Q7) “Critically evaluate outcomes vs the original plan and objectives.” (Distinction)
 ### Strong answer (example)
-“Against the original plan, we achieved \[X/Y\] KPIs and delivered the integrated demo on \[date\], but we missed \[one KPI\] due to \[root cause\]. The variance was caused by \[dependency or technical limitation\]. We responded by \[change in plan\] and recorded it as a Jira Change \[ID\]. In hindsight, we should have frozen the ICD earlier and used stubs sooner to avoid blocking UI integration. Evidence for this is the Jira timeline showing blocked work and the change log showing the mitigation.”
+“Against the original plan, I achieved \[X/Y\] KPIs and delivered \[the demo/results\] on \[date\], but I missed \[one KPI\] due to \[root cause\]. The variance was caused by \[dependency or technical limitation\]. I responded by \[change in plan\] and recorded it as a Jira Change \[ID\]. In hindsight, I should have \[re-sequenced work earlier / built the test harness sooner / ordered parts earlier\] to reduce blocking and improve evidence quality. Evidence for this is the Jira timeline showing blocked work and the change log showing the mitigation.”
 
 ### Improvement recommendations (minimum 3) (Distinction)
 1) Technical: \[e.g., add hardware current sensing\] → improves safety KPI.
 2) Testing/quality: \[automated log parsing + test harness\] → improves measurement repeatability.
-3) Process: \[earlier ICD freeze + integration milestone\] → reduces dependency risk.
+3) Process: \[earlier baseline + early test harness + staged integration\] → reduces dependency risk.
 
 ---
 

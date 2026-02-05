@@ -1,11 +1,67 @@
 # Week 6 Presentation Outline — Unit 5041
-## LO3: Verification & Validation, acceptance testing, cost/time variance, and Integration Milestone 2 (“System V&V run + fault injection”)
-
-Toolchain assumption: **Arduino IDE + ESP32 (Arduino-ESP32)**.
+## Verification/validation + planned vs actual + report quality
 
 Session length: **4 hours**.
 
-Main outcome: teams demonstrate **Milestone 2** (full end-to-end run + fault injection), complete an objective-linked **acceptance checklist**, and strengthen report quality with cost/time performance analysis.
+Main outcome: acceptance testing against objectives, and a structured report draft with evidence traceability.
+
+---
+
+## Slide 1 — Title
+**On-slide:**
+- Week 6: verify/validate + report quality
+
+---
+
+## Slide 2 — Acceptance testing against objectives
+**On-slide:**
+- Objective → metric → threshold → pass/fail
+- Evidence link for each
+
+---
+
+## Slide 3 — Planned vs actual (variance is not failure)
+**On-slide:**
+- What changed?
+- Why?
+- What did you do about it?
+
+---
+
+## Slide 4 — System-level test + edge-case test (required)
+**On-slide:**
+- One end-to-end scenario
+- One fault/edge-case scenario
+
+---
+
+## Slide 5 — Report clinic: coherence and traceability
+**On-slide:**
+- Figures/tables labelled
+- Evidence index is complete
+- Every claim has evidence
+
+---
+
+## Slide 6 — In-class Activity: build acceptance checklist
+**On-slide:**
+- Create table: objective vs result vs judgement vs evidence
+
+---
+
+## Slide 7 — Between-week tasks (Week 6 → Week 7)
+**On-slide:**
+- Freeze results set
+- Draft Evaluation section
+- Draft Recommendations list
+# Week 6 Presentation Outline — Unit 5041
+## LO3: Verification & Validation, acceptance testing, cost/time variance, and Integration Milestone 2 (“System V&V run + fault injection”)
+
+Project pathways: **MATLAB simulation/model-based OR hardware**.
+
+Session length: **4 hours**.
+
+Main outcome: students demonstrate **Milestone 2** (full end-to-end run + fault/edge-case injection), complete an objective-linked **acceptance checklist**, and strengthen report quality with cost/time performance analysis.
 
 ---
 
@@ -129,7 +185,7 @@ Main outcome: teams demonstrate **Milestone 2** (full end-to-end run + fault inj
 **Speaker notes (8–10 min):**
 - Teach how to write it in the report without excuses:
   - “We underestimated integration time because…”
-  - “Mitigation applied: stubs + ICD freeze + extra integration session.”
+  - “Mitigation applied: stubs + interface/assumptions baseline + extra integration test session.”
 
 ---
 
@@ -233,7 +289,7 @@ Main outcome: teams demonstrate **Milestone 2** (full end-to-end run + fault inj
 - Jira updated (Status Report + evidence)
 
 **Speaker notes (10–15 min):**
-- Quickly inspect each team’s evidence links.
+- Quickly inspect each student’s evidence links.
 
 ---
 

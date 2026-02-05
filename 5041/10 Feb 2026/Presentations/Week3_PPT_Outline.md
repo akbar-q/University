@@ -1,11 +1,147 @@
 # Week 3 Presentation Outline — Unit 5041
+## LO2 Project Management Plan in Jira + evaluation criteria (KPIs)
+
+Session length: **4 hours**.
+
+Main outcome: each student has a **baselined Jira plan** with milestones, dependencies, risks, change control, and **explicit evaluation criteria/KPIs**.
+
+---
+
+## Slide 1 — Title
+**On-slide:**
+- Week 3: LO2 planning in Jira + KPIs
+
+**Speaker notes (2 min):**
+- LO2 is not “having a board”; it’s demonstrating comprehensive planning discipline.
+
+---
+
+## Slide 2 — LO2 criteria in plain language
+**On-slide:**
+- P3: plan using PM software/tools/techniques
+- M2: comprehensive use of Jira features
+- D2: measurable evaluation criteria (KPIs) built into the plan
+
+**Speaker notes (5–6 min):**
+- Your plan must show how you’ll measure success, not just what you’ll build.
+
+---
+
+## Slide 3 — Converting LO1 objectives into backlog items
+**On-slide:**
+- Objective → acceptance criteria → tasks/tests
+- Evidence must be planned (not accidental)
+
+**Speaker notes (6–8 min):**
+- Example: objective with threshold becomes a test task with a results table.
+
+---
+
+## Slide 4 — Work Breakdown Structure (WBS) → Jira Epics
+**On-slide:**
+- Epics: Build/Model, Test/Validate, Report, Presentation
+- Tasks: implement, test, analyse, write-up
+
+**Speaker notes (6–8 min):**
+- Include report-writing tasks early (don’t leave to Week 7).
+
+---
+
+## Slide 5 — Dependencies (individual)
+**On-slide:**
+- `blocks / is blocked by` for real constraints
+- Examples: parts lead time, calibration access, learning prerequisites, data availability
+
+**Speaker notes (6–8 min):**
+- Dependencies must change your schedule decisions.
+
+---
+
+## Slide 6 — Milestones + baseline + change control
+**On-slide:**
+- Baseline your plan (date-stamped export/screenshot)
+- If scope/time changes: create a Change issue + justification
+
+**Speaker notes (6–8 min):**
+- Distinction evidence often comes from handling change professionally.
+
+---
+
+## Slide 7 — Evaluation criteria (D2): what “good” looks like
+**On-slide:**
+- 6–10 KPIs with units + thresholds
+- Mix of performance, quality, reliability/robustness
+
+**Speaker notes (8–10 min):**
+- MATLAB KPI examples: rise time, overshoot, steady-state error, RMSE, computation time.
+- Hardware KPI examples: response time, accuracy, noise, power consumption, fault detection time.
+
+---
+
+## Slide 8 — Decision method (D2): choose one and use it
+**On-slide:**
+- Decision matrix / AHP / HES matrix
+- Use for one major trade-off
+
+**Speaker notes (6–8 min):**
+- Show the method, the weights, and the conclusion.
+
+---
+
+## Slide 9 — Weekly status report discipline
+**On-slide:**
+- Plan vs actual
+- Blockers/risks
+- Changes/decisions
+- Evidence links
+
+**Speaker notes (5–6 min):**
+- This becomes LO3 progress evidence automatically.
+
+---
+
+## Slide 10 — In-class Activity: build LO2 pack
+**On-slide:**
+- Build epics + tasks
+- Add acceptance criteria to key tasks
+- Add 6+ dependency links
+- Define KPIs table
+- Baseline export
+
+**Speaker notes (45–60 min):**
+- Circulate and enforce measurability and completeness.
+
+---
+
+## Slide 11 — Evidence clinic checklist (Week 3)
+**On-slide:**
+- Backlog covers full lifecycle
+- KPIs are measurable and realistic
+- Risks have mitigation tasks
+- Baseline captured
+- Change control process defined
+
+**Speaker notes (15–20 min):**
+- Fix weak KPIs now; they drive LO3 evaluation later.
+
+---
+
+## Slide 12 — Between-week tasks (Week 3 → Week 4)
+**On-slide:**
+- Start build/model work immediately
+- Draft test/simulation plan v1
+- Start report headings and methods section
+
+**Speaker notes (5 min):**
+- Week 4 is LO3 start: you must generate outcomes, not just setup.
+# Week 3 Presentation Outline — Unit 5041
 ## LO2 Project Management Plan (Jira): comprehensive plan + dependencies + evaluation criteria (KPIs)
 
 Toolchain assumption: **Arduino IDE + ESP32 (Arduino-ESP32)**.
 
 Session length: **4 hours**.
 
-Main outcome: by end of this session, teams have a baselined **LO2 project plan** in Jira that is comprehensive (M2) and includes explicit **evaluation criteria/KPIs** (D2).
+Main outcome: by end of this session, students have a baselined **LO2 project plan** in Jira that is comprehensive (M2) and includes explicit **evaluation criteria/KPIs** (D2).
 
 ---
 
@@ -13,7 +149,7 @@ Main outcome: by end of this session, teams have a baselined **LO2 project plan*
 **On-slide:**
 - Week 3: LO2 planning in Jira
 - Build a comprehensive plan + evaluation criteria
-- Multi-team coffee machine controller
+- Individual project planning (MATLAB or hardware)
 
 **Speaker notes (2 min):**
 - Today is about turning LO1 into an executable plan.
@@ -46,10 +182,10 @@ Main outcome: by end of this session, teams have a baselined **LO2 project plan*
 
 ---
 
-## Slide 4 — Multi-team planning: why WBS + dependencies matter
+## Slide 4 — Planning discipline: why WBS + dependencies matter
 **On-slide:**
-- Teams work in parallel
-- Integration is the critical path
+- Workstreams run in parallel (design/build/test/report)
+- Integration/testing is often the critical path
 - Dependencies must be explicit
 
 **Speaker notes (6–8 min):**
@@ -60,8 +196,8 @@ Main outcome: by end of this session, teams have a baselined **LO2 project plan*
 
 ## Slide 5 — Jira: the minimum configuration we will enforce
 **On-slide:**
-- One Jira project for the cohort
-- Epics: per team + integration + reporting
+- One Jira project per student
+- Epics: workstreams (Design/Model, Implement/Build, Test/Validate, Analysis/Report)
 - Issue types: Task, Bug, Risk, Change, Decision, Status Report
 
 **Speaker notes (5–7 min):**
@@ -71,9 +207,9 @@ Main outcome: by end of this session, teams have a baselined **LO2 project plan*
 
 ## Slide 6 — Jira: naming conventions (prevents chaos)
 **On-slide:**
-- Epics: `TEAM-A Firmware`, `TEAM-B Hardware`, `TEAM-C UI`, `TEAM-D Mechanical`, `Integration & Test`, `Report`
+- Epics: `Design/Model`, `Implement/Build`, `Test/Validate`, `Analysis/Report`
 - Tasks: verb + object, e.g., `Implement START command parser`
-- Labels: `OBJ-01`, `ICD`, `MILESTONE-1`
+- Labels: `OBJ-01`, `INTERFACE`, `MILESTONE-1`
 
 **Speaker notes (6–8 min):**
 - Show examples:
@@ -115,9 +251,9 @@ Main outcome: by end of this session, teams have a baselined **LO2 project plan*
 - Every dependency must have an owner + due date
 
 **Speaker notes (8–10 min):**
-- Walk through a concrete dependency chain:
-  - UI “Start button sends CMD START” blocked by firmware “command grammar defined”
-  - firmware task blocked by ICD “message format freeze”
+-- Walk through a concrete dependency chain:
+  - “Calibration test” blocked by “sensor arrives”
+  - “System test run” blocked by “test harness implemented”
 
 ---
 
@@ -128,7 +264,7 @@ Main outcome: by end of this session, teams have a baselined **LO2 project plan*
 - Milestone 3 (Week 8): “Presentation-ready system”
 
 **Speaker notes (5–7 min):**
-- Explain why milestones are required: without them, teams drift.
+- Explain why milestones are required: without them, projects drift.
 
 ---
 
@@ -154,19 +290,20 @@ Main outcome: by end of this session, teams have a baselined **LO2 project plan*
 
 ---
 
-## Slide 13 — KPI examples for this coffee machine system (copy/paste ready)
+## Slide 13 — KPI examples (copy/paste ready)
 **On-slide:**
-- Fault response time (ms)
-- UI response time (ms)
-- Sensor stability (noise / variance)
-- Brew cycle time accuracy (s)
-- Uptime / reset count during demo
+- Response time / rise time / settling time
+- Accuracy / error metric (e.g., RMSE)
+- Robustness (edge-case/fault behaviour meets pass criteria)
+- Stability/noise metric (if sensors/signals are used)
+- Reliability metric (e.g., reset count during a test run)
 
 **Speaker notes (10–12 min):**
 - Give measurement methods:
-  - Fault response time: timestamp in serial log at event + timestamp at state change
-  - UI response time: command send time vs telemetry reflect time
-  - Reset count: count of boot logs
+  - Timing: timestamps in logs or plot cursors
+  - Accuracy: compute error metric across trials/cases
+  - Robustness: define edge-case tests and pass/fail rules
+  - Reliability: count resets/failures over a fixed-duration run
 
 ---
 
@@ -220,19 +357,20 @@ Main outcome: by end of this session, teams have a baselined **LO2 project plan*
 
 ---
 
-## Slide 18 — In-class Activity 1 (whole class): freeze ICD v1.0 plan baseline
+## Slide 18 — In-class Activity 1 (whole class): baseline the plan
 **On-slide:**
-- Freeze: pinout, serial protocol, fault IDs
+- Baseline: plan snapshot + measurable KPIs
+- Freeze: key interfaces/assumptions (if applicable)
 - Create Change policy
 - Record in Jira Decision issue
 
 **Speaker notes (activity, 20–25 min):**
-- You facilitate a quick negotiation.
-- Rule: freeze the *minimum* needed for parallel work.
+- You facilitate a quick baseline exercise.
+- Rule: baseline the minimum needed to start building/testing with confidence.
 
 ---
 
-## Slide 19 — In-class Activity 2 (teams): build full backlog (WBS → tasks)
+## Slide 19 — In-class Activity 2: build full backlog (WBS → tasks)
 **On-slide:**
 - Create tasks for Weeks 4–6 build/test
 - Each task: owner + estimate + acceptance criteria
@@ -244,30 +382,29 @@ Main outcome: by end of this session, teams have a baselined **LO2 project plan*
 
 ---
 
-## Slide 20 — In-class Activity 3 (teams): add real dependency links
+## Slide 20 — In-class Activity 3: add real dependency links
 **On-slide:**
-- Add at least 10 cross-team `blocks` links
+- Add at least 10 meaningful `blocks` links
 - Set due dates on blocker tasks
 
 **Speaker notes (activity, 20–25 min):**
 - Example dependencies to suggest:
-  - UI blocked by command grammar
-  - Mechanical blocked by PCB dimensions
-  - Hardware blocked by selected pump current
+  - “Calibration test” blocked by “sensor arrives”
+  - “System test run” blocked by “test harness implemented”
+  - “Results section write-up” blocked by “results set frozen”
 
 ---
 
-## Slide 21 — In-class Activity 4 (teams): define KPIs + tests
+## Slide 21 — In-class Activity 4: define KPIs + tests
 **On-slide:**
 - Produce KPI table (10 KPIs minimum)
 - Each KPI → test method + threshold
 
 **Speaker notes (activity, 30–35 min):**
 - Enforce coverage:
-  - 3 system KPIs
-  - 3 firmware/control KPIs
-  - 2 UI KPIs
-  - 2 hardware/mechanical KPIs
+  - system-level KPIs (end-to-end behaviour)
+  - module-level KPIs (a few key subsystems/functions)
+  - at least one robustness/edge-case KPI
 
 ---
 
@@ -280,7 +417,7 @@ Main outcome: by end of this session, teams have a baselined **LO2 project plan*
 - Change control exists
 
 **Speaker notes (10–15 min):**
-- Quickly review each team’s board.
+- Quickly review each student’s board.
 - If something is missing, fix it before leaving.
 
 ---
@@ -289,7 +426,7 @@ Main outcome: by end of this session, teams have a baselined **LO2 project plan*
 **On-slide:**
 - Start implementation immediately
 - Build test harness/stubs for integration
-- Capture serial logs as evidence
+- Capture logs/plots/photos/videos as evidence
 
 **Speaker notes (5 min):**
 - Emphasize: Week 4 checks implementation progress.
