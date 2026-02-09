@@ -1,9 +1,9 @@
 # Unit 4015: Automation, Robotics and Programmable Logic Controllers (PLCs) (Level 4, 15 credits)
-## 8-Week Teaching Plan (1 teaching day per week, 4 hours per week)
+## 8-Week Teaching Plan (2 classes per week, 4 hours per class)
 
-This version is designed for **one 4-hour session per week** over 8 weeks.
+This version is designed for **two 4-hour classes per week** over 8 weeks (**8 contact hours/week total**).
 
-Key idea: the 4-hour weekly session is for **teaching, modelling, guided practice, and evidence checks**. Most **practice/programming/write-up** time happens **between weeks** and is logged as independent study.
+Key idea: Class time is for **teaching, modelling, guided practice, and evidence checks**. Most **practice/programming/write-up** time still happens **between weeks** and is logged as independent study.
 
 ---
 
@@ -41,22 +41,39 @@ To keep sessions safe and repeatable:
 
 ---
 
-## Assessment mapping (what gets produced when)
-- **LO1 (P1, P2, P3, M1, D1):** Mainly Weeks 1–2 (PLC types, I/O, comms, languages, internal architecture analysis)
-- **LO2 (P4, P5, M2, D2):** Mainly Weeks 3–4 (PLC program design + comms use + test/debug + performance analysis)
-- **LO3 (P6, P7, M3, D3):** Mainly Weeks 5–6 (robot tools/sensors/end effectors + robot program + improvements scope)
-- **LO4 (P8, M4, D4):** Mainly Weeks 6–8 (cell safety systems + safe operation analysis + safe working plan + full risk assessment)
+## Tutor split (LO ownership)
+Teaching is split by Learning Outcome so each tutor owns two LOs end-to-end.
+
+- **Miss Anu (Theory lead):** **LO1 + LO4**
+  - LO1: PLC design/operational characteristics, I/O, comms, IEC 61131-3 languages, internal architecture
+  - LO4: robot cell safety systems, safe operation analysis, safe working plan + full risk assessment
+
+- **Mr Akbar (Technical lead):** **LO2 + LO3**
+  - LO2: PLC program design + comms implementation (OpenPLC + Node-RED serial), testing/debugging, performance analysis
+  - LO3: robot tools/sensors/end effectors + robot programming for a given task + improvements scope
 
 ---
 
-## Standard weekly session template (4 hours)
-Use this same structure every week to keep students on track:
+## Assessment mapping (what gets produced when)
+- **LO1 (P1, P2, P3, M1, D1) — Miss Anu:** Mainly Weeks 1–2 (PLC types, I/O, comms, languages, internal architecture analysis)
+- **LO2 (P4, P5, M2, D2) — Mr Akbar:** Mainly Weeks 1–4 (setup + PLC program design/implementation + Node-RED comms + test/debug + performance analysis)
+- **LO3 (P6, P7, M3, D3) — Mr Akbar:** Mainly Weeks 5–6 (robot tools/sensors/end effectors + robot program + improvements scope)
+- **LO4 (P8, M4, D4) — Miss Anu:** Seed safety early, then mainly Weeks 5–8 (cell safety systems + safe operation analysis + safe working plan + full risk assessment)
 
+---
+
+## Standard weekly delivery pattern (2 × 4 hours)
+Each week has two sessions.
+
+- **Session 1 (4 hours) — Miss Anu (Theory):** LO1/LO4 teaching, modelling, and evidence clinic
+- **Session 2 (4 hours) — Mr Akbar (Technical):** LO2/LO3 implementation, programming, and evidence clinic
+
+Use a consistent in-session structure for both sessions:
 - **Block A (0:00–0:40) – Teach & model:** new concepts + worked exemplar
-- **Block B (0:40–1:40) – Guided build:** students apply the concept to the common brief while you circulate
+- **Block B (0:40–1:40) – Guided build:** students apply the concept while you circulate
 - **Break (1:40–1:50)**
-- **Block C (1:50–2:50) – Evidence clinic:** you check evidence quality against the criteria and give targeted corrections
-- **Block D (2:50–4:00) – Documentation + next actions:** tidy artefacts, screenshots, versioning, and next-week tasks
+- **Block C (1:50–2:50) – Evidence clinic:** check evidence quality against criteria and fix gaps
+- **Block D (2:50–4:00) – Documentation + next actions:** tidy artefacts, screenshots, and set next-week tasks
 
 ---
 
@@ -74,305 +91,454 @@ Documentation control expectation (supports LO3 essential content):
 
 ---
 
-# Week 1 — Unit launch + automation context + PLC types and applications (LO1: P1)
+# Week 1 — Kick-off + LO1 foundations + technical environment setup
 
-**Week goal:** students understand unit expectations and can describe PLC configurations and typical applications.
+**Week goal:** students understand unit expectations, start LO1 evidence, and get the technical toolchain ready for LO2.
 
-**Targets this week:** LO1 P1 evidence started.
+**Targets this week:** LO1 P1 started (Anu). LO2 setup started (Akbar).
 
-### Teach (Block A, 0:00–0:40)
+## Session 1 (Miss Anu — LO1)
+### Block A (0:00–0:40) – Teach & model
 - Unit overview: learning outcomes and pass/merit/distinction in plain language
 - Automation and Industry 4.0 context (what changes and why it matters)
 - PLC system overview: controller + I/O + power + comms + programming device
-- PLC types/configurations:
-  - modular, unitary (compact), rack mounted
-  - typical applications, constraints, and selection factors
+- PLC types/configurations (P1): modular, unitary (compact), rack mounted + typical applications
 
-### Guided build (Block B, 0:40–1:40)
+### Block B (0:40–1:40) – Guided build
 - Activity: **PLC selection mini-case**
   - given 2–3 scenarios (simple machine, small cell, multi-rack line)
   - choose a PLC configuration and justify selection
 
-### Evidence clinic (Block C, 1:50–2:50)
-- Check each student has:
-  - a comparison table covering PLC types/configurations
-  - at least 3 application examples with justification
+### Block C (1:50–2:50) – Evidence clinic
+- P1 evidence quality check:
+  - comparison table covers modular/unitary/rack with realistic pros/cons
+  - applications are justified (why this PLC type fits the scenario)
 
-### Documentation + next actions (Block D, 2:50–4:00)
-- Start the LO1 Fundamentals Pack structure (headings + template)
-- Independent work set:
-  - gather manufacturer references/datasheets (minimum 3)
-  - draft P1 narrative (PLC types/configurations + applications)
+### Block D (2:50–4:00) – Documentation + next actions
+- Start LO1 Fundamentals Pack structure (headings + template)
+- Set independent study tasks and show how to reference sources properly
+
+
+
+## Session 2 (Mr Akbar — LO2)
+### Block A (0:00–0:40) – Teach & model
+- OpenPLC workflow overview (Editor → Runtime) and good practice for versioning/exports
+- Node-RED overview for SCADA/HMI (dashboard concept + flows + serial nodes)
+- USB serial basics: ports, baud, framing, why serial is used in industry
+
+### Block B (0:40–1:40) – Guided build
+- Activity: **Environment bring-up**
+  - verify OpenPLC Editor is installed and can create a basic LD/ST project
+  - verify Node-RED + Dashboard runs and a dashboard page can be opened
+  - verify the lab PC can see the Controlino Mega as a COM port
+
+### Block C (1:50–2:50) – Evidence clinic
+- Required evidence captured:
+  - OpenPLC project created (screenshot/export)
+  - Node-RED dashboard visible (screenshot)
+  - serial device visible (COM port evidence)
+
+### Block D (2:50–4:00) – Documentation + next actions
+- Create the LO2 pack structure (design pack + comms + test/debug log)
+- Set expectations for what will count as P5 evidence later (serial read + serial write)
+
+
+
+**Independent work (between Week 1 and Week 2):**
+- LO1: gather manufacturer references/datasheets (minimum 3) and draft P1 narrative
+- LO2: capture a short “toolchain checklist” page (what versions/settings were used)
 
 ---
 
-# Week 2 — PLC I/O devices + comms links + programming languages + internal architecture (LO1: P2, P3, M1, D1)
+# Week 2 — LO1 I/O + comms + languages + architecture, and LO2 requirements + I/O allocation
 
-**Week goal:** students can classify I/O, describe comms links, explain IEC 61131-3 languages, and analyse internal PLC architecture.
+**Week goal:** students complete most LO1 evidence and begin LO2 design preparation.
 
-**Targets this week:** LO1 P2/P3/M1/D1 evidence.
+**Targets this week:** LO1 P2/P3/M1/D1 progress (Anu). LO2 P4 started (Akbar).
 
-### Teach (Block A, 0:00–0:40)
-- Inputs/outputs:
-  - digital vs analogue, sourcing/sinking concepts (as appropriate)
-  - voltage/current limits and practical constraints
-  - interface requirements and signal conditioning (high-level, Level 4 appropriate)
-- Communications:
-  - serial links (RS-232/RS-422/RS-485) vs Ethernet
-  - supervisory/cell/field network levels
-  - example industrial protocols (e.g., PROFINET, EtherNet/IP)
-  - Centre context for this cohort: **USB serial** PLC ↔ Node-RED SCADA/HMI link
-- IEC 61131-3 language overview:
-  - when LD/FBD/ST/SFC are typically used
-- Internal architecture (for D1):
-  - scan cycle basics, memory areas, I/O image table, CPU and comms modules
+## Session 1 (Miss Anu — LO1)
+### Block A (0:00–0:40) – Teach & model
+- Inputs/outputs (P2): digital vs analogue, voltage/current limits, interface requirements
+- Communications (P3): serial vs Ethernet, network levels, and the centre’s USB serial PLC ↔ Node-RED link
+- IEC 61131-3 languages (M1): LD/FBD/ST/SFC — strengths and typical use
+- Internal architecture (D1): scan cycle, memory areas, I/O image table, CPU/comms modules
 
-### Guided build (Block B, 0:40–1:40)
+### Block B (0:40–1:40) – Guided build
 - Activity: **I/O and comms mapping for the common brief**
   - create an I/O list (sensors/actuators) and label digital/analogue
-  - choose a comms link between PLC and HMI/SCADA/simulator and justify
+  - write a short comms link description for the USB serial setup (purpose + constraints)
 
-### Evidence clinic (Block C, 1:50–2:50)
-- Check for:
-  - P2: I/O device types with examples
-  - P3: comms links described with purpose and constraints
-  - M1: a clear comparison of IEC 61131-3 languages
-  - D1: internal architecture analysis linked to operational application (speed, scan time, memory, I/O update behaviour)
+### Block C (1:50–2:50) – Evidence clinic
+- P2/P3/M1 check:
+  - I/O examples match realistic sensors/actuators
+  - comms description includes why USB serial is suitable/limited
+  - language comparison includes a scenario-based justification (why LD vs ST)
+- D1 check:
+  - architecture diagram + scan cycle explanation
+  - explicit link to operational application (e.g., scan time vs response)
 
-### Documentation + next actions (Block D, 2:50–4:00)
-- Independent work set:
-  - complete LO1 Fundamentals Pack draft
-  - create 1 internal architecture diagram and a scan-cycle explanation
+### Block D (2:50–4:00) – Documentation + next actions
+- Show students how to present tables/diagrams cleanly for LO1
+- Set LO1 completion tasks (pack ready by Week 3)
 
----
 
-# Week 3 — PLC program preparation: requirements, allocation lists, number systems, logic elements (LO2: P4 start)
 
-**Week goal:** students can design key preparation elements before coding and can justify them.
+## Session 2 (Mr Akbar — LO2)
+### Block A (0:00–0:40) – Teach & model
+- Converting a functional requirement into an implementable PLC design pack
+- Tagging conventions and building an I/O allocation list that matches OpenPLC variables
 
-**Targets this week:** LO2 P4 evidence started.
-
-### Teach (Block A, 0:00–0:40)
-- Translating a functional requirement into PLC program structure
-- Signal types and tagging conventions
-- Number systems used in PLC contexts (binary/hex basics) and why they appear
-- Allocation lists:
-  - mapping inputs/outputs and naming consistently
-- Logic building blocks:
-  - AND/OR/XOR concepts
-  - timers, counters, latches (core use cases)
-
-### Guided build (Block B, 0:40–1:40)
-- Activity: **Design pack v1 for the common brief**
+### Block B (0:40–1:40) – Guided build
+- Activity: **LO2 design pack v1**
   - functional requirement statement
   - I/O allocation list with tags
   - sequence description (steps/interlocks)
-  - initial logic elements required (timers/counters/latches)
+  - identify timers/counters/latches needed
 
-### Evidence clinic (Block C, 1:50–2:50)
-- Check P4 coverage:
-  - requirements captured clearly
-  - allocation list is complete and consistent
-  - logic elements chosen are appropriate and justified
+### Block C (1:50–2:50) – Evidence clinic
+- P4 design pack review:
+  - requirements are measurable and unambiguous
+  - tags/names are consistent and match intended wiring/simulation
+  - sequence has clear start/stop/reset behaviour
 
-### Documentation + next actions (Block D, 2:50–4:00)
-- Independent work set:
-  - refine the design pack based on feedback
-  - prepare to implement the PLC program next week
+### Block D (2:50–4:00) – Documentation + next actions
+- Lock the design pack baseline (v1) and define what can change later (with justification)
+- Prepare students for Week 3 coding (starter project scaffold)
 
----
 
-# Week 4 — PLC implementation + comms connections + testing/debugging + performance notes (LO2: P4, P5, M2, D2)
 
-**Week goal:** students implement a working PLC program for the given task, use comms correctly, and produce a defensible test/debug record and basic performance analysis.
-
-**Targets this week:** LO2 P4/P5/M2/D2 evidence.
-
-### Teach (Block A, 0:00–0:40)
-- Communication connections (P5):
-  - what “correctly used” means (addressing, device setup, basic diagnostics)
-  - common failure modes (wrong IP/subnet, mismatch tags, wrong device, wrong driver)
-- HMI/SCADA as a required deliverable:
-  - minimum expected screens (Level 4): status + basic control
-  - confirming read/write behaviour (a control action changes PLC state; PLC state is shown correctly)
-- Node-RED implementation pattern (minimum):
-  - a flow that reads PLC status from serial and updates dashboard widgets
-  - dashboard controls that write commands back to the PLC via serial
-  - basic comms robustness: timeouts/default states if serial data is missing
-- Testing/debugging methods (M2):
-  - systematic test approach (test cases, expected vs actual)
-  - online monitoring/forcing (policy-dependent), trace tools, watch tables
-  - fault finding workflow and recording evidence
-- Performance analysis for D2 (Level 4 appropriate):
-  - scan time awareness (where visible)
-  - response time observations, timing accuracy for sequences
-
-### Guided build (Block B, 0:40–1:40)
-- Activity: **Build PLC program v1 and connect SCADA/HMI**
-  - implement sequence and interlocks
-  - implement at least 1 timer and 1 counter (if applicable)
-  - implement start/stop, E-stop/safety input behaviour (simulated if necessary)
-  - build the required SCADA/HMI page(s):
-    - live status indicators (minimum: a few key inputs/outputs)
-    - basic controls (minimum: start/stop/reset or mode select, as appropriate)
-  - integrate Node-RED over USB serial:
-    - prove the serial link works (connect, correct port settings)
-    - prove a command from HMI changes PLC behaviour
-
-### Evidence clinic (Block C, 1:50–2:50)
-- Students must show:
-  - a working demonstration (live or simulated)
-  - SCADA/HMI evidence (Node-RED):
-    - dashboard screenshot(s)
-    - Node-RED flow screenshot
-    - PLC ↔ HMI comms working with at least one read and one write demonstrated (USB serial)
-  - test cases executed with results (pass/fail)
-  - at least 2 debug examples (what went wrong, how it was found, how it was fixed)
-  - brief performance notes (timing, response, stability, and HMI update responsiveness where observable)
-
-### Documentation + next actions (Block D, 2:50–4:00)
-- Independent work set:
-  - finish LO2 pack: final program screenshots/export + test/debug log
-  - write D2 narrative: design choices + performance observations + limitations
+**Independent work (between Week 2 and Week 3):**
+- LO1: complete the LO1 Fundamentals Pack draft
+- LO2: refine the design pack so coding can start Week 3
 
 ---
 
-# Week 5 — Industrial robotics fundamentals + tools/sensors/end effectors + basic robot commands (LO3: P7, P6 start)
+# Week 3 — LO1 consolidation + LO4 safety seed, and LO2 PLC program build begins
 
-**Week goal:** students can explain tools/sensors/end effectors and begin a robot program using straightforward commands.
+**Week goal:** LO1 is consolidated and LO2 implementation starts with early testing.
 
-**Targets this week:** LO3 P7 evidence + start P6.
+**Targets this week:** LO1 completion/check (Anu). LO2 P4 build in progress (Akbar). LO4 safety introduced (Anu).
 
-### Teach (Block A, 0:00–0:40)
-- Types of robots (articulated, SCARA, cartesian, collaborative; match what you have)
-- Robot tools and end effectors:
-  - grippers, vacuum, tooling, tool frames (conceptual)
-- Sensors and applications:
-  - proximity, vision (high-level), force/torque (high-level)
-- Programming methods:
-  - teach pendant vs offline programming vs simulation
-- Safety note (preview LO4): operating envelope, modes, and why risk assessment matters
+## Session 1 (Miss Anu — LO1 + LO4 seed)
+### Block A (0:00–0:40) – Teach & model
+- LO1 consolidation clinic: common weak spots and how to write D1 analysis clearly
+- LO4 safety seed: policies/procedures, hazards, hierarchy of control, why safety is assessed in robotics cells
 
-### Guided build (Block B, 0:40–1:40)
+### Block B (0:40–1:40) – Guided build
+- Activity: **D1 write-up improvement**
+  - strengthen “architecture → operational application” links (scan time/memory/I-O update)
+- Activity: **hazard spotting** (for your lab cell)
+  - identify 5 plausible hazards and propose controls (not the full D4 yet)
+
+### Block C (1:50–2:50) – Evidence clinic
+- LO1 sign-off check:
+  - P1–P3 complete
+  - M1 language explanation is clear and justified
+  - D1 analysis is written (not just diagram)
+- LO4 starter check:
+  - hazards list is realistic and control measures follow hierarchy of control
+
+### Block D (2:50–4:00) – Documentation + next actions
+- Set LO4 evidence capture expectations for later weeks (what photos/diagrams are allowed)
+- Assign LO4 reading/tasks (centre policy + lab safety rules)
+
+
+
+## Session 2 (Mr Akbar — LO2)
+### Block A (0:00–0:40) – Teach & model
+- PLC coding patterns in OpenPLC (LD/ST) for sequences and interlocks
+- Timers/counters/latches: typical patterns and mistakes
+
+### Block B (0:40–1:40) – Guided build
+- Activity: **Implement PLC program v0.5**
+  - implement core sequence + interlocks
+  - implement at least one timer and one counter (if applicable)
+
+### Block C (1:50–2:50) – Evidence clinic
+- Run structured test steps:
+  - expected vs actual behaviour for each step
+  - capture at least one fault found and fixed (early M2 habit)
+
+### Block D (2:50–4:00) – Documentation + next actions
+- Update the test/debug log template (students fill as they go)
+- Set Week 4 target: PLC ↔ Node-RED integration with read/write proof
+
+
+
+**Independent work (between Week 3 and Week 4):**
+- LO2: finish PLC program v1.0 ready to connect to Node-RED
+- LO4: gather evidence on safety features present (photos/diagrams where permitted)
+
+---
+
+# Week 4 — LO2 completion: PLC + Node-RED SCADA/HMI + testing/debugging + performance analysis
+
+**Week goal:** students complete a fully functional PLC solution for the given task, integrated with Node-RED SCADA/HMI over USB serial, with testing/debugging evidence and performance notes.
+
+**Targets this week:** LO2 P4/P5/M2/D2 evidence completed (Akbar). Miss Anu uses her session for LO4 prep work.
+
+## Session 1 (Miss Anu — LO4 prep)
+### Block A (0:00–0:40) – Teach & model
+- How to write a safety investigation (P8) vs a safety analysis (M4)
+- Risk assessment structure students will use for D4 (hazards → controls → residual risk)
+
+### Block B (0:40–1:40) – Guided build
+- Activity: **Safety evidence planning**
+  - identify what safety features exist in the cell and what evidence can be captured
+  - draft the outline headings for LO4 Safety Pack
+
+### Block C (1:50–2:50) – Evidence clinic
+- Check each student has a clear LO4 evidence plan:
+  - what will be investigated (P8)
+  - what will be analysed (M4)
+  - what the safe working plan must cover (D4)
+
+### Block D (2:50–4:00) – Documentation + next actions
+- Start LO4 Safety Pack document structure
+- Set target: by Week 5 they must have P8 evidence captured
+
+
+
+## Session 2 (Mr Akbar — LO2)
+### Block A (0:00–0:40) – Teach & model
+- Communication connections (P5): correct COM port settings, data format consistency, basic diagnostics
+- Node-RED pattern: read status → dashboard; dashboard controls → write commands; timeouts/default states
+- Testing/debugging methods (M2): systematic test cases and recording fixes
+- Performance analysis (D2, Level 4): timing accuracy/response observations + HMI update responsiveness
+
+### Block B (0:40–1:40) – Guided build
+- Activity: **Integrate PLC ↔ Node-RED and complete the task**
+  - implement or finalise sequence and interlocks
+  - build required dashboard screens (minimum: status + basic control)
+  - prove at least one read and one write from HMI to PLC
+
+### Block C (1:50–2:50) – Evidence clinic
+- Required evidence set:
+  - working demo (live/sim)
+  - Node-RED flow screenshot + dashboard screenshot(s)
+  - test cases with results
+  - at least 2 debug examples recorded
+  - short performance notes
+
+### Block D (2:50–4:00) – Documentation + next actions
+- Write-up clinic: turn screenshots into a coherent D2 narrative (design choices + performance + limitations)
+- Set expectations for LO2 completion pack format
+
+
+**Independent work (between Week 4 and Week 5):**
+- LO2: finish the LO2 pack write-up (P4/P5/M2/D2 narrative)
+- LO3: read the robot manual/simulator basics and collect tool/sensor/end-effector notes
+
+---
+
+# Week 5 — LO3 robotics fundamentals + LO4 safety systems investigation begins
+
+**Week goal:** students start LO3 robotics evidence with a working basic routine, and Miss Anu begins LO4 safety systems investigation.
+
+**Targets this week:** LO3 P7 + start P6 (Akbar). LO4 P8 started (Anu).
+
+## Session 1 (Miss Anu — LO4)
+### Block A (0:00–0:40) – Teach & model
+- Safety systems used within an industrial robotic cell (P8): guarding, interlocks, E-stops, light curtains (as applicable)
+- Operating envelope and operational modes (teach/auto/manual/reduced speed)
+
+### Block B (0:40–1:40) – Guided build
+- Activity: **Safety system investigation**
+  - identify safety features on the pick-and-place cell (or a case study if access is limited)
+  - map each feature to the hazard it controls
+
+### Block C (1:50–2:50) – Evidence clinic
+- P8 evidence quality check:
+  - safety systems are correctly named and described
+  - each system is linked to a specific hazard
+
+### Block D (2:50–4:00) – Documentation + next actions
+- Build the LO4 P8 evidence section (figures + short explanations)
+- Set target: P8 evidence complete by Week 6
+
+
+
+## Session 2 (Mr Akbar — LO3)
+### Block A (0:00–0:40) – Teach & model
+- Types of robots + programming methods (teach pendant vs offline vs simulation)
+- Tools/sensors/end effectors and applications (P7)
+
+### Block B (0:40–1:40) – Guided build
 - Activity: **Robot program v0.1**
-  - create a simple motion routine for a given task (e.g., move between points + open/close gripper)
-  - introduce at least one IO action (e.g., gripper command) where supported
+  - create a simple routine for the given pick-and-place task
+  - include at least one IO action where supported (e.g., gripper open/close)
 
-### Evidence clinic (Block C, 1:50–2:50)
-- Check:
-  - P7: tools/sensors/end effectors explained with appropriate applications
-  - P6 progress: program structure exists and can run in simulation/training mode
+### Block C (1:50–2:50) – Evidence clinic
+- P7 check: tools/sensors/end effectors + correct applications
+- P6 check: program runs in a safe mode and follows a sensible structure
 
-### Documentation + next actions (Block D, 2:50–4:00)
-- Independent work set:
-  - complete P7 write-up
-  - add 1 safety/robustness behaviour to the robot routine (e.g., home position, speed limit, safe start)
+### Block D (2:50–4:00) – Documentation + next actions
+- Write-up clinic: explain the program structure and commands used (so it meets P6 evidence expectations)
+- Set target: by Week 6 program runs end-to-end
+
+
+**Independent work (between Week 5 and Week 6):**
+- LO3: complete P7 write-up and refine robot program to run reliably
+- LO4: continue collecting safety evidence and draft P8 text
 
 ---
 
-# Week 6 — Working robot program + investigate a robotic system + improvements (LO3: P6, M3, D3) + start LO4
+# Week 6 — LO3 completion + LO4 safe operation analysis
 
-**Week goal:** students produce a fully working robot program for a given task, investigate the system, and propose realistic improvements.
+**Week goal:** students complete a working robot program and improvements scope, and analyse how safety systems ensure safe operation.
 
-**Targets this week:** LO3 P6/M3/D3 evidence + LO4 started.
+**Targets this week:** LO3 P6/M3/D3 completed (Akbar). LO4 M4 started (Anu).
 
-### Teach (Block A, 0:00–0:40)
-- Key commands/functions (platform-specific):
-  - motion types (joint/linear), speed, zones/blending, frames, IO control
-- Calibration/configuration basics (high-level):
-  - tool frame/work object concepts (as applicable)
-- What makes D3 “distinction”: working program + illustrated scope for more complex tasks
-- Start LO4: safety systems and operating modes (preview)
+## Session 1 (Miss Anu — LO4)
+### Block A (0:00–0:40) – Teach & model
+- How systems ensure safe operation (M4): linking hazards → controls → operating modes → user interfaces
 
-### Guided build (Block B, 0:40–1:40)
+### Block B (0:40–1:40) – Guided build
+- Activity: **M4 analysis writing workshop**
+  - write 2–3 paragraphs analysing how the cell’s safety systems prevent/mitigate key hazards
+
+### Block C (1:50–2:50) – Evidence clinic
+- Improve M4 quality:
+  - replace vague claims with hazard-specific analysis
+  - reference P8 evidence explicitly
+
+### Block D (2:50–4:00) – Documentation + next actions
+- Start the D4 pack skeleton (safe working plan headings + risk assessment table)
+- Set target: D4 draft ready by Week 7
+
+
+## Session 2 (Mr Akbar — LO3)
+### Block A (0:00–0:40) – Teach & model
+- Key commands/functions (platform-specific): motion types, speed, zones/blending, frames, IO control
+- Calibration/configuration basics (high-level): tool frame/work object concepts (as applicable)
+
+### Block B (0:40–1:40) – Guided build
 - Activity: **Robot program v1.0 + improvement options**
   - implement the full given task reliably
-  - add at least 1 enhancement (e.g., reduced cycle time path, consistent approach/retreat, error handling pattern if available)
+  - add at least 1 enhancement (e.g., reduced cycle time path, consistent approach/retreat)
 
-### Evidence clinic (Block C, 1:50–2:50)
-- Students must show:
-  - program runs end-to-end for the given task (video or live demo)
-  - M3: short investigation of the system (layout, tools, sensors, constraints) with improvement recommendations
-  - D3: an illustrated “next complexity” plan (what would be needed for more complex tasks and why)
+### Block C (1:50–2:50) – Evidence clinic
+- D3 readiness check:
+  - capture end-to-end run evidence (video/screenshots)
+  - write M3 investigation notes + improvement recommendations
+  - illustrate “next complexity” scope (what extra sensors/logic would be needed)
 
-### Documentation + next actions (Block D, 2:50–4:00)
-- Independent work set:
-  - finish LO3 pack (program evidence + investigation + improvements scope)
-  - start LO4 safety evidence collection (cell safety features and hazards)
+### Block D (2:50–4:00) – Documentation + next actions
+- Write-up clinic: turn the demo into D3 evidence + improvements scope
+- Set target: LO3 pack completed by Week 7
 
----
 
-# Week 7 — Robot cell safety systems + safe operation analysis (LO4: P8, M4)
-
-**Week goal:** students can investigate safety systems and analyse how they ensure safe operation for a given cell.
-
-**Targets this week:** LO4 P8/M4 evidence.
-
-### Teach (Block A, 0:00–0:40)
-- Safety foundations:
-  - policies/procedures/regulations (centre-specific)
-  - hazards and risk concepts (severity/likelihood, hierarchy of control)
-- Cell safety features:
-  - guarding, interlocks, E-stops, light curtains (as applicable)
-  - operating envelope and safe zones
-  - operational modes (teach, auto, manual/reduced speed)
-- User interfaces: how mode selection and access control reduce risk
-
-### Guided build (Block B, 0:40–1:40)
-- Activity: **Safety system investigation for a given cell**
-  - use your real cell/trainer or a case-study/simulator cell
-  - identify safety features and explain what hazard each controls
-
-### Evidence clinic (Block C, 1:50–2:50)
-- Check:
-  - P8: safety systems investigated with evidence (photos/screenshots/diagrams)
-  - M4: analysis of how safety systems ensure safe operation (not just listing)
-
-### Documentation + next actions (Block D, 2:50–4:00)
-- Independent work set:
-  - write LO4 P8/M4 sections
-  - draft a risk assessment structure ready for Week 8
+**Independent work (between Week 6 and Week 7):**
+- LO3: finalise the robotics pack (evidence, screenshots, write-up)
+- LO4: draft D4 plan structure and start the risk assessment table
 
 ---
 
-# Week 8 — Safe working plan + full risk assessment for a robot cell in a production process (LO4: D4)
+# Week 7 — LO4 D4 drafting + technical evidence tidy
 
-**Week goal:** students produce a safe working plan for a given production process, including a full risk assessment and control measures.
+**Week goal:** students draft the safe working plan and full risk assessment structure (D4), and tidy LO2/LO3 evidence readiness.
 
-**Targets this week:** LO4 D4 evidence completed.
+**Targets this week:** LO4 D4 drafting (Anu). LO2/LO3 evidence tidy (Akbar).
 
-### Teach (Block A, 0:00–0:25)
-- What “safe working plan” means in practice:
-  - defined task, boundaries, and roles
-  - step-by-step method statement
-  - emergency procedures and stop conditions
-  - evidence that risk controls are implemented and checked
+## Session 1 (Miss Anu — LO4)
+### Block A (0:00–0:40) – Teach & model
+- D4 expectations: safe working plan + full risk assessment for a production process
+- Covering the full lifecycle in hazards: setup/teach/run/maintenance
 
-### Guided build (Block B, 0:25–1:55)
-- Activity: **Write and complete D4 pack**
-  - safe working plan for the given production process
-  - full risk assessment:
-    - hazards, who is at risk, initial risk rating
-    - control measures (engineering + administrative + PPE where relevant)
-    - residual risk rating
-    - verification checks (how you confirm controls are in place)
+### Block B (0:40–1:40) – Guided build
+- Activity: **Write D4 draft v1**
+  - safe working plan (method statement style)
+  - risk assessment table (initial risk → controls → residual risk)
 
-### Evidence clinic (Block C, 2:05–3:05)
-- D4 quality check:
-  - hazards are realistic and cover the full lifecycle (setup, teach, run, maintenance)
+### Block C (1:50–2:50) – Evidence clinic
+- D4 draft review:
+  - hazards are realistic and cover the full process
+  - control measures follow hierarchy of control
+  - residual risk is plausible and explained
+
+### Block D (2:50–4:00) – Documentation + next actions
+- Improve the safe working plan so it is implementable (steps + stop conditions + emergency actions)
+- Set target: final D4 sign-off next week
+
+
+## Session 2 (Mr Akbar — LO2/LO3 tidy)
+### Block A (0:00–0:40) – Teach & model
+- What “submission-ready evidence” looks like for LO2 and LO3 (screenshots, exports, labelled figures)
+
+### Block B (0:40–1:40) – Guided build
+- Activity: **Evidence tidy sprint**
+  - LO2: ensure Node-RED flow + dashboard + serial read/write proof are captured
+  - LO2: ensure test cases + debug examples + performance notes are written up
+  - LO3: ensure robot program evidence + investigation + improvements scope are complete
+
+### Block C (1:50–2:50) – Evidence clinic
+- Checklist sign-off:
+  - LO2 includes P5 comms evidence + M2 debug evidence + D2 performance notes
+  - LO3 includes P6 program evidence + M3 investigation + D3 improvements scope
+
+### Block D (2:50–4:00) – Documentation + next actions
+- Fix referencing/labels so every screenshot is explained and traceable
+- Set final Week 8 demo schedule (who demonstrates what)
+
+
+**Independent work (between Week 7 and Week 8):**
+- LO4: refine D4 with clearer controls and residual risk justification
+- LO2/LO3: final formatting and referencing of screenshots/exports
+
+---
+
+# Week 8 — LO4 D4 completion + final technical demonstrations
+
+**Week goal:** students complete D4 to a high standard and complete any final technical demonstrations/evidence gaps.
+
+**Targets this week:** LO4 D4 completed (Anu). LO2/LO3 final demonstrations (Akbar).
+
+## Session 1 (Miss Anu — LO4)
+### Block A (0:00–0:40) – Teach & model
+- Final D4 quality bar:
+  - hazards cover full lifecycle
   - controls follow hierarchy (eliminate/substitute/engineer/admin/PPE)
-  - plan is implementable in your centre context
+  - residual risk is justified
+  - verification checks are realistic
 
-### Documentation + next actions (Block D, 3:05–4:00)
-- Final tidy:
-  - ensure LO1–LO4 packs are complete
-  - ensure screenshots/exports are labelled and referenced
+### Block B (0:40–1:40) – Guided build
+- Activity: **Complete D4 pack**
+  - finalise safe working plan and risk assessment
+
+### Block C (1:50–2:50) – Evidence clinic
+- D4 sign-off checklist:
+  - safe working plan is step-by-step and includes stop conditions
+  - risk assessment has initial vs residual risk
+  - control measures are specific (not generic)
+
+### Block D (2:50–4:00) – Documentation + next actions
+- Final formatting and referencing for LO4 submission
+- Confirm what evidence is being submitted and where
+
+
+
+## Session 2 (Mr Akbar — LO2/LO3)
+### Block A (0:00–0:40) – Teach & model
+- Demo discipline: what to show for LO2 vs LO3, and how to narrate evidence clearly
+
+### Block B (0:40–1:40) – Guided build
+- Activity: **Final demonstrations and evidence capture (round 1)**
+  - LO2: PLC + Node-RED SCADA/HMI demo with read/write proof
+  - LO3: robot program demo + improvements scope recap
+
+### Block C (1:50–2:50) – Evidence clinic
+- Gap closing:
+  - capture missing screenshots/videos/logs
+  - fix any unclear or unlabelled evidence
+
+### Block D (2:50–4:00) – Documentation + next actions
+- Submission-ready packaging: naming consistency, figure references, and completeness check
 
 ---
 
 ## Weekly progress tracking (lightweight)
-- Every week in-session: evidence clinic sign-off items
-- Every week between sessions: at least one improvement pass on the evidence packs (fix quality, add diagrams, add references)
+- Every week: each tutor signs off evidence items for their LOs
+- Between sessions: at least one improvement pass on evidence packs (fix quality, add diagrams, add references)
 
 ---
 
