@@ -1,0 +1,12 @@
+Date	StartTime	EndTime	Duration_h	Location	Work_Package_or_Jira	Objective	Work_Done	Evidence_Files	Tools	Test_Notes	Issues_and_Fixes	Next_Session_Plan
+
+2026-02-12	18:30	20:15	1.75	Home	PROJ-12	Draft requirements + acceptance criteria	Wrote measurable acceptance criteria (rise time, overshoot, THD targets); created requirements table in report	EVID-001_requirements.md	VS Code	N/A	Ambiguous targets -> aligned with tutor guidance (set initial targets and mark as revocable)	Build baseline Simulink model and log results
+2026-02-13	14:00	16:00	2.00	Home	PROJ-14	Build baseline plant model	Implemented plant model and PI controller skeleton; added scope logging to file	EVID-002_model_v0.1.slx	MATLAB/Simulink	Step response test	Overshoot high -> reduced Kp; added anti-windup	Add noise injection and parameter sweep
+2026-02-13	16:30	18:00	1.50	Home	PROJ-15	Run baseline tests + document	Ran 3 test cases (step, disturbance, noise); exported plots and wrote 1-page test summary	EVID-003_step_response.png; EVID-004_test_summary.md	MATLAB; Word/Markdown	Pass/fail against criteria	Plot labels inconsistent -> standardised units/legends	Start MPPT baseline implementation
+2026-02-19	19:00	21:10	2.17	Home	PROJ-16	Implement MPPT P&O	Implemented P&O MPPT with tuned step size; added irradiance profile generator	EVID-010_mppt_po.slx	MATLAB/Simulink	Irradiance ramp	Oscillation at steady state -> reduced perturb step	Implement Incremental Conductance for comparison
+2026-02-26	17:45	20:00	2.25	Home	PROJ-20	Add SRF-PLL and verify lock	Implemented SRF-PLL; tested lock under nominal and harmonic injection	EVID-021_pll_lock.png	MATLAB/Simulink	Harmonics injected (5th)	PLL slower under harmonics -> tuned loop filter	Compute THD and add results table
+												
+												
+
+
+
