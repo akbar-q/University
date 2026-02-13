@@ -1,12 +1,12 @@
-Date	StartTime	EndTime	Duration_h	Location	Work_Package_or_Jira	Objective	Work_Done	Evidence_Files	Tools	Test_Notes	Issues_and_Fixes	Next_Session_Plan
+Date	Hours_Spent	Planned	Work_Done	Evidence	Tests_or_Checks	Issues_and_Fixes	Next_Steps	Learning
 
-2026-02-12	18:30	20:15	1.75	Home	PROJ-12	Draft requirements + acceptance criteria	Wrote measurable acceptance criteria (rise time, overshoot, THD targets); created requirements table in report	EVID-001_requirements.md	VS Code	N/A	Ambiguous targets -> aligned with tutor guidance (set initial targets and mark as revocable)	Build baseline Simulink model and log results
-2026-02-13	14:00	16:00	2.00	Home	PROJ-14	Build baseline plant model	Implemented plant model and PI controller skeleton; added scope logging to file	EVID-002_model_v0.1.slx	MATLAB/Simulink	Step response test	Overshoot high -> reduced Kp; added anti-windup	Add noise injection and parameter sweep
-2026-02-13	16:30	18:00	1.50	Home	PROJ-15	Run baseline tests + document	Ran 3 test cases (step, disturbance, noise); exported plots and wrote 1-page test summary	EVID-003_step_response.png; EVID-004_test_summary.md	MATLAB; Word/Markdown	Pass/fail against criteria	Plot labels inconsistent -> standardised units/legends	Start MPPT baseline implementation
-2026-02-19	19:00	21:10	2.17	Home	PROJ-16	Implement MPPT P&O	Implemented P&O MPPT with tuned step size; added irradiance profile generator	EVID-010_mppt_po.slx	MATLAB/Simulink	Irradiance ramp	Oscillation at steady state -> reduced perturb step	Implement Incremental Conductance for comparison
-2026-02-26	17:45	20:00	2.25	Home	PROJ-20	Add SRF-PLL and verify lock	Implemented SRF-PLL; tested lock under nominal and harmonic injection	EVID-021_pll_lock.png	MATLAB/Simulink	Harmonics injected (5th)	PLL slower under harmonics -> tuned loop filter	Compute THD and add results table
-												
-												
+2026-02-12	1.75	Draft requirements + success criteria	Wrote requirements list and success criteria in plain language; prepared a basic test list	requirements.docx	Quick self-check against unit brief	Targets were unclear -> rewrote as measurable and asked tutor	Build baseline model/prototype	How to make criteria measurable
+2026-02-13	2.00	Build first model/prototype	Built first working version; recorded baseline behaviour and saved screenshots/photos	photo_01.jpg; baseline_plot.png	Baseline test run	Overshoot too high -> adjusted setting and re-tested	Add noise/stress test	Small changes should be validated with repeatable tests
+2026-02-13	1.50	Run tests + document results	Ran 3 test cases; wrote a short results summary with pass/partial/fail	test_notes.md; results_table.xlsx	Step + disturbance tests	Notes were messy -> standardised headings and units	Start main feature implementation	Good documentation saves time later
+2026-02-19	2.17	Implement core feature	Implemented the core feature and captured before/after results	before_after.png; notes_week2.md	Normal + worst-case check	Feature unstable in worst case -> added limit/protection	Compare two approaches	Stress tests reveal hidden problems
+2026-02-26	2.25	Integration check	Integrated two parts and ran end-to-end check; captured log output	log_output.txt; integration_photo.jpg	Integration test	Unexpected noise -> added filter/parameter change and verified	Repeat integration test + update logbook	Integration often creates new issues
+								
+								
 
 
 
