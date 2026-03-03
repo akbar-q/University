@@ -1,0 +1,24 @@
+PROGRAM program0
+  VAR
+    JOG_EDGE AT %IX0.0 : BOOL;
+    JOG_PULSE AT %M0.5 : BOOL;
+  END_VAR
+  VAR
+    Duration : TIME := t#300ms;
+    TP0 : TP;
+    R_TRIG1 : R_TRIG;
+  END_VAR
+
+  R_TRIG1(CLK := JOG_EDGE);
+  TP0(IN := R_TRIG1.Q, PT := Duration);
+  JOG_PULSE := TP0.Q;
+END_PROGRAM
+
+
+CONFIGURATION Config0
+
+  RESOURCE Res0 ON PLC
+    TASK task0(INTERVAL := T#20ms,PRIORITY := 0);
+    PROGRAM instance0 WITH task0 : program0;
+  END_RESOURCE
+END_CONFIGURATION

@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6.xsd">
+  <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2026-03-03T10:17:37"/>
+  <contentHeader name="Unnamed" modificationDateTime="2026-03-03T10:36:34">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="10" y="10"/>
+      </fbd>
+      <ld>
+        <scaling x="10" y="10"/>
+      </ld>
+      <sfc>
+        <scaling x="10" y="10"/>
+      </sfc>
+    </coordinateInfo>
+  </contentHeader>
+  <types>
+    <dataTypes/>
+    <pous>
+      <pou name="program0" pouType="program">
+        <interface>
+          <localVars>
+            <variable name="Cycle_Complete" address="%IX0.1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Service_Due" address="%M05">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Reset" address="%IX0.2">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </localVars>
+          <localVars>
+            <variable name="Program_Value">
+              <type>
+                <INT/>
+              </type>
+              <initialValue>
+                <simpleValue value="100"/>
+              </initialValue>
+            </variable>
+            <variable name="CTU0">
+              <type>
+                <derived name="CTU"/>
+              </type>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <LD>
+            <leftPowerRail localId="1" width="60" height="280">
+              <position x="30" y="40"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="60" y="20"/>
+              </connectionPointOut>
+              <connectionPointOut formalParameter="">
+                <relPosition x="60" y="80"/>
+              </connectionPointOut>
+              <connectionPointOut formalParameter="">
+                <relPosition x="60" y="140"/>
+              </connectionPointOut>
+              <connectionPointOut formalParameter="">
+                <relPosition x="60" y="200"/>
+              </connectionPointOut>
+              <connectionPointOut formalParameter="">
+                <relPosition x="60" y="260"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <rightPowerRail localId="2" width="60" height="280">
+              <position x="680" y="40"/>
+              <connectionPointIn>
+                <relPosition x="0" y="20"/>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="80"/>
+                <connection refLocalId="8">
+                  <position x="680" y="120"/>
+                  <position x="620" y="120"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="140"/>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="200"/>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="260"/>
+              </connectionPointIn>
+            </rightPowerRail>
+            <contact localId="4" negated="false" edge="falling" width="21" height="20">
+              <position x="160" y="110"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="1">
+                  <position x="160" y="120"/>
+                  <position x="90" y="120"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>Cycle_Complete</variable>
+            </contact>
+            <block localId="5" typeName="CTU" instanceName="CTU0" width="50" height="200">
+              <position x="260" y="70"/>
+              <inputVariables>
+                <variable formalParameter="CU" edge="rising">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="4">
+                      <position x="260" y="120"/>
+                      <position x="180" y="120"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="R">
+                  <connectionPointIn>
+                    <relPosition x="0" y="110"/>
+                    <connection refLocalId="6">
+                      <position x="260" y="180"/>
+                      <position x="180" y="180"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="PV">
+                  <connectionPointIn>
+                    <relPosition x="0" y="170"/>
+                    <connection refLocalId="7">
+                      <position x="260" y="240"/>
+                      <position x="240" y="240"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="Q">
+                  <connectionPointOut>
+                    <relPosition x="50" y="50"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="CV">
+                  <connectionPointOut>
+                    <relPosition x="50" y="110"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <contact localId="6" negated="false" width="21" height="20">
+              <position x="160" y="170"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="1">
+                  <position x="160" y="180"/>
+                  <position x="90" y="180"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>Reset</variable>
+            </contact>
+            <inVariable localId="7" width="120" height="30" negated="false">
+              <position x="120" y="220"/>
+              <connectionPointOut>
+                <relPosition x="120" y="20"/>
+              </connectionPointOut>
+              <expression>Program_Value</expression>
+            </inVariable>
+            <coil localId="8" negated="false" width="21" height="20">
+              <position x="600" y="110"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="5" formalParameter="Q">
+                  <position x="600" y="120"/>
+                  <position x="310" y="120"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>Service_Due</variable>
+            </coil>
+          </LD>
+        </body>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations>
+      <configuration name="Config0">
+        <resource name="Res0">
+          <task name="task0" priority="0" interval="T#20ms">
+            <pouInstance name="instance0" typeName="program0"/>
+          </task>
+        </resource>
+      </configuration>
+    </configurations>
+  </instances>
+</project>
