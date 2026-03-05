@@ -1,0 +1,176 @@
+{\rtf1\ansi\ansicpg1252
+{\fonttbl
+{\f1\fnil\fcharset128\fprq0 Meiryo;}
+{\f2\fnil\fcharset0\fprq0 Arial;}
+}
+{\colortbl;
+\red255\green255\blue255;
+\red64\green64\blue64;
+\red0\green0\blue255;
+}
+{\stylesheet
+{\s1\b\kerning24\f1\cf2\lang19465\level1 heading 1;}
+{\s2\kerning24\f1\fs32\cf2\lang19465\level2 heading 2;}
+{\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\level3 heading 3;}
+{\s4\fi-504\kerning24\f1\fs28\cf2\lang19465\level4 heading 4;}
+{\s5\fi-504\i\kerning24\f1\fs28\cf2\lang19465\level5 heading 5;}
+{\s6\li3960\fi-360\kerning24\lang19465\level6 heading 6;}
+{\s7\li4680\fi-360\kerning24\lang19465\level7 heading 7;}
+{\s8\li5400\fi-360\kerning24\lang19465\level8 heading 8;}
+{\s9\li6120\fi-360\kerning24\lang19465\level9 heading 9;}
+}
+\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs56\cf1\lang1033 Design and Modifications in Pneumatic and Hydraulic Systems}{\fs56\cf1\lang2057 \par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs48\lang2057 Akbar Qamar\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs48\lang2057 Mechatronics Engineering\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs64\lang2057 Agenda\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li540\fi-540 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\fs40\lang1033 Understand common components in pneumatic and hydraulic systems.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li540\fi-540 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\fs40\lang1033 Learn how to evaluate and implement design modifications for improved functionality and reliability.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li540\fi-540 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\fs40\lang1033 Apply knowledge to spec out and design a 4-DOF arm kit using syringe actuators and pumps.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs56\cf1\lang1033 Common Components in Pneumatic/Hydraulic Systems}{\fs56\cf1\lang2057 \par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\b\fs40\lang1033 Valves:}{\fs40\lang1033  Control flow direction and pressure.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\b\fs40\lang1033 Compressors/Pumps:}{\fs40\lang1033  Generate pressure.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\qj {\b\fs40\lang1033 Actuators:}{\fs40\lang1033  Convert pressure into motion (e.g., linear actuators).\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\b\fs40\lang1033 Tubing/Fittings:}{\fs40\lang1033  Connect components.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Valves\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Direct fluid/air flow to control actuator movement.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Ensure safe operation by regulating pressure and flow.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\cf1\lang2057 Main Types of Valves\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\b\fs48\lang1033 Directional Control Valves:}{\fs48\lang1033  Control the direction of flow (e.g., 2-way, 3-way, 4-way valves).\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\b\fs48\lang1033 Pressure Control Valves:}{\fs48\lang1033  Regulate pressure (e.g., relief valves, pressure reducing valves).\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\b\fs48\lang1033 Flow Control Valves:}{\fs48\lang1033  Adjust flow rate (e.g., throttle valves).\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Directional\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Image is an Electronically Controlled Valve\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Directional\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Image is an Electronically Controlled  Valve Illustrated\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Regulator\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Mechanical Spring Based Regulator\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Regulator\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Mechanical Spring Based Regulator, Adjustable\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Flow\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Controls the Volume Flow\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Flow\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Controls the Volume Flow\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs64\lang2057 Compressors and Pumps\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs48\lang1033 Generate pressure to move fluid/air through the system.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs48\lang1033 Provide the energy needed for actuators to perform work.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\cf1\lang1033 Types of Compressors (Pneumatics): \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs56 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs56{\pntxtb \'95}}{\b\i0\fs56\lang1033 Reciprocating Compressors:}{\i0\fs56\lang1033  Use pistons to compress air.\par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs56 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs56{\pntxtb \'95}}{\b\i0\fs56\lang1033 Rotary Screw Compressors:}{\i0\fs56\lang1033  Use rotating screws for continuous air supply.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Compressor\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Image is a Traditional Compressor You Find in Day to Day Life\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Directional\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Image is an Electronically Controlled Valve\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Directional\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Image is an Electronically Controlled Valve\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Compressor\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Rotary Screw is Not as Common\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 { \par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 { \par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs48\cf1\lang1033 Rotary Screw Compressor vs. Reciprocating Compressor\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\b\fs40\lang1033 Reciprocating Compressor:}{\fs40\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\i0\fs40\lang1033 Uses pistons to compress air.\par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\i0\fs40\lang1033 Intermittent operation (on/off cycling).\par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\i0\fs40\lang1033 Compact and cost-effective for small-scale applications.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\b\fs40\lang1033 Rotary Screw Compressor:}{\fs40\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\i0\fs40\lang1033 Uses rotating screws to compress air.\par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\i0\fs40\lang1033 Continuous operation with steady airflow.\par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\i0\fs40\lang1033 Higher initial cost but more efficient for large-scale or continuous-use applications.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs56\cf1\lang1033 Advantages of Rotary Screw Compressors\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\b\fs40\lang1033 1. Continuous Operation:}{\fs40\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\i0\fs40\lang1033 Provides a steady flow of compressed air without pulsations.\par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\i0\fs40\lang1033 Ideal for applications requiring constant air supply (e.g., manufacturing lines).\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\b\fs40\lang1033 2. Higher Efficiency:}{\fs40\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\i0\fs40\lang1033 Lower energy consumption per unit of air produced.\par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\i0\fs40\lang1033 Better suited for high-demand applications.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs56\cf1\lang1033 Advantages of Rotary Screw Compressors\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\b\fs36\lang1033 3. Lower Maintenance:}{\fs36\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\i0\fs36\lang1033 Fewer moving parts compared to reciprocating compressors.\par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\i0\fs36\lang1033 Longer lifespan and reduced downtime.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\b\fs36\lang1033 4. Quieter Operation:}{\fs36\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\i0\fs36\lang1033 Rotary screw compressors operate more quietly than reciprocating compressors.\par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\i0\fs36\lang1033 Better for environments where noise is a concern.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\b\fs36\lang1033 5. Compact Design:}{\fs36\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\i0\fs36\lang1033 Despite higher capacity, rotary screw compressors often have a smaller footprint than reciprocating compressors of similar output.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs56\cf1\lang1033 Disadvantages of Rotary Screw Compressors\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\b\fs40\lang1033 1. Higher Initial Cost:}{\fs40\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\i0\fs40\lang1033 More expensive to purchase and install compared to reciprocating compressors.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\b\fs40\lang1033 2. Complexity:}{\fs40\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\i0\fs40\lang1033 More complex design, requiring specialized maintenance and expertise.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\b\fs40\lang1033 3. Less Suitable for Intermittent Use:}{\fs40\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\i0\fs40\lang1033 Designed for continuous operation, making them less efficient for applications with sporadic air demand.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs56\cf1\lang1033 Advantages of Reciprocating Compressors\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\b\fs48\lang1033 1. Lower Initial Cost:}{\fs48\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\i0\fs48\lang1033 More affordable for small-scale or low-budget applications.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\b\fs48\lang1033 2. Simple Design:}{\fs48\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\i0\fs48\lang1033 Easier to maintain and repair.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\b\fs48\lang1033 3. Suitable for Intermittent Use:}{\fs48\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\i0\fs48\lang1033 Ideal for applications with sporadic air demand (e.g., small workshops, DIY projects).\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs56\cf1\lang1033 Disadvantages of Reciprocating Compressors\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\b\fs36\lang1033 1. Pulsating Airflow:}{\fs36\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\i0\fs36\lang1033 Produces uneven airflow, which can affect certain applications.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\b\fs36\lang1033 2. Higher Maintenance:}{\fs36\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\i0\fs36\lang1033 More moving parts (e.g., pistons, valves) lead to more wear and tear.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\b\fs36\lang1033 3. Noisy Operation:}{\fs36\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\i0\fs36\lang1033 Louder than rotary screw compressors, which can be a drawback in noise-sensitive environments.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\b\fs36\lang1033 4. Limited Capacity:}{\fs36\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs36 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs36{\pntxtb \'95}}{\i0\fs36\lang1033 Less efficient for high-demand or continuous-use applications.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs56\cf1\lang1033 Summary of Key Differences\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\b\fs48\lang1033 Rotary Screw Compressor:}{\fs48\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\i0\fs48\lang1033 Continuous operation, higher efficiency, quieter, higher initial cost.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\b\fs48\lang1033 Reciprocating Compressor:}{\fs48\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\i0\fs48\lang1033 Intermittent operation, lower initial cost, simpler design, noisier.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\cf1\lang1033 Types of Compressors (Hydraulics): \par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs64 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs64{\pntxtb \'95}}{\b\fs64\lang1033 Gear Pumps:}{\fs64\lang1033  Simple and reliable for low-pressure systems.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs64 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs64{\pntxtb \'95}}{\b\fs64\lang1033 Piston Pumps:}{\fs64\lang1033  High-pressure and high-efficiency for heavy-duty applications.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Gear\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Uses Teeth to Generate Centrifugal Force\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Piston\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Uses a piston to push and pull controlling flow via one-way valves\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Piston\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Uses a piston to push and pull controlling flow via one-way valves\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Piston\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang1033 Uses a piston to push and pull controlling flow via one-way valves\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs48\cf1\lang1033 Gear vs Piston Pump\tab \par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\fs40\lang1033 Gear Pump:\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\fs40\lang1033     Pros: Simple, low cost, reliable, and compact.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\fs40\lang1033     Cons: Limited to low-pressure applications, noisy, and less efficient.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\fs40\lang1033     Best for: Low-pressure systems like lubrication or fuel transfer.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\fs40\lang1033 Piston Pump:\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\fs40\lang1033     Pros: Handles very high pressures, highly efficient, and quiet.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\fs40\lang1033     Cons: Expensive, complex, and requires more maintenance.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs40 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs40{\pntxtb \'95}}{\fs40\lang1033     Best for: High-pressure systems like construction equipment or aerospace \tab hydraulics.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Actuators\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\fs48\lang1033 Perform the physical work (e.g., lifting, pushing, rotating).\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\fs48\lang1033 Translate fluid/air pressure into mechanical motion.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\pntext\pard\plain\f2\fs72 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs72{\pntxtb \'95}}{\fs72\cf1\lang2057 Types of Actuators: \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs56 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs56{\pntxtb \'95}}{\b\i0\fs56\lang2057 Linear Actuators:}{\i0\fs56\lang2057  Convert pressure into linear motion (e.g., hydraulic cylinders, pneumatic pistons).\par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs56 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs56{\pntxtb \'95}}{\b\i0\fs56\lang2057 Rotary Actuators:}{\i0\fs56\lang2057  Convert pressure into rotational motion (e.g., hydraulic motors, pneumatic rotary actuators).\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Rotatory\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Linear\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Actuators\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\fs48\lang1033 Perform the physical work (e.g., lifting, pushing, rotating).\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\pntext\pard\plain\f2\fs48 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs48{\pntxtb \'95}}{\fs48\lang1033 Translate fluid/air pressure into mechanical motion.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\pntext\pard\plain\f2\fs72 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs72{\pntxtb \'95}}{\fs72\cf1\lang2057 Tubing and Fittings\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs56 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs56{\pntxtb \'95}}{\b\fs56\lang1033 Types of Tubing:}{\fs56\lang1033  \par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs56 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs56{\pntxtb \'95}}{\b\i0\fs56\lang1033 Pneumatic Tubing:}{\i0\fs56\lang1033  Typically made of nylon or polyurethane for flexibility and durability.\par 
+}\pard\plain\ltrpar\s3\fi-504\i\kerning24\f1\fs28\cf2\lang19465\li1170\fi-450 {\pntext\pard\plain\f2\fs56 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs56{\pntxtb \'95}}{\b\i0\fs56\lang1033 Hydraulic Tubing:}{\i0\fs56\lang1033  Made of steel or high-pressure hose for strength and leak resistance.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Material Depends on the Pressure it needs to Withstand\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\b0\fs48\lang1033 Connect components to ensure fluid/air flows smoothly through the system.\line \line Prevent leaks and maintain system pressure.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\pntext\pard\plain\f2\fs72 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs72{\pntxtb \'95}}{\fs72\cf1\lang2057 Types of Fittings:\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs72 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs72{\pntxtb \'95}}{\b\fs72\lang1033 Quick-Connect Fittings:}{\fs72\lang1033  Allow for easy assembly and disassembly.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs72 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs72{\pntxtb \'95}}{\b\fs72\lang1033 Threaded Fittings:}{\fs72\lang1033  Provide secure, leak-free connections.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Easy to Add and Remove\line \line More Expensive\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang2057 Hard to Install\line \line Cheaper\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\lang1033 Why Use Syringes in Our Design?}{\fs72\lang2057 \par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\cf1\lang2057 Advantages:\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs64 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs64{\pntxtb \'95}}{\fs64\lang1033 Simple and cost-effective.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs64 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs64{\pntxtb \'95}}{\fs64\lang1033 Easy to control manually or with pumps.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li446\fi-446 {\pntext\pard\plain\f2\fs64 \'95\tab}{\*\pn\pnlvlblt\pnf2\pnfs64{\pntxtb \'95}}{\fs64\lang1033 Provide precise linear motion.\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\b\fs64\lang1033 Applications:}{\fs64\lang1033  Ideal for small-scale systems like the arm kit.\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465\li576 {\fs72\cf1\lang2057 Activity:\line Design and Spec Out the System\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465\li576 {\b\fs36\cf1\lang2057 25 Feb 2025\par 
+}\pard\plain\ltrpar\s1\b\kerning24\f1\cf2\lang19465 {\fs72\cf1\lang2057 THANK YOU\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs48\lang2057 Akbar Qamar\par 
+}\pard\plain\ltrpar\s2\kerning24\f1\fs32\cf2\lang19465 {\fs40\lang2057 Mechatronics Engineering\par 
+}
+}
