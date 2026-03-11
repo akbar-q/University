@@ -8,12 +8,13 @@ These prompts are designed to generate **clean, modern mechatronics training dia
 - Clear PLC I/O labels and signal arrows (left → right)
 - Consistent icons for buttons, sensors, actuators, H-bridge blocks
 - Modern sans-serif font, high legibility at A4 size
+- Add branding text at the top-right corner: **University of Greater Manchester RAK**
 - Output: **PNG 300 dpi** (and SVG if available)
 
 **Negative prompt (apply to all prompts):**
 - No photorealism, no 3D render style, no blurry text
 - No cluttered wiring, no overlapping labels
-- No watermarks or random logos
+- No watermarks or random logos (only the required top-right branding text is allowed)
 
 ---
 
