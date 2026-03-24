@@ -10,6 +10,8 @@
   Blank template for risk/hazard assessment activities.
 - [Template 1 LO2 Safety.odt](Template%201%20LO2%20Safety.odt):  
   Assignment template for LO2 safety-related tasks.
+- [4068-Assignment-Brief.md](4068-Assignment-Brief.md):  
+  Markdown version of the assignment brief converted into the newer task-based format.
 - [Unit 4068 assignment-brief.odt](Unit%204068%20assignment-brief.odt):  
   Official assignment brief for the unit.
 - [Example Hazard Risk Assessments/](Example%20Hazard%20Risk%20Assessments/):  
@@ -47,6 +49,10 @@ A blank template for students to complete risk and hazard assessment activities.
 ### Template 1 LO2 Safety.odt
 
 A template for assignments and documentation related to Learning Outcome 2 (LO2) on safety.
+
+### 4068-Assignment-Brief.md
+
+The converted Markdown version of the unit assignment brief, restructured into the newer task-based format and aligned to Pearson command verbs and assessment criteria.
 
 ### Unit 4068 assignment-brief.odt
 
