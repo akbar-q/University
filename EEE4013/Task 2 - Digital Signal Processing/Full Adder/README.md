@@ -10,7 +10,7 @@ This implementation uses VHDL as required by the assignment brief and is intende
 
 - Select **VHDL 2008** and a VHDL simulator such as GHDL in EDA Playground.
 - Paste `full_adder` into the design pane and `tb_full_adder` into the testbench pane.
-- Run the testbench and open EPWave if available.
+- For GHDL, enter `--vcd=wave.vcd` in **Run options**, tick **Open EPWave after run**, then run the testbench.
 - Save a screenshot of the waveform with input and output signal names visible.
 - Build the equivalent gate-level circuit on the lab bench and record the results table.
 

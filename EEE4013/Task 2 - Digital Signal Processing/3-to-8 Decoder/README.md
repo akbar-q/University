@@ -10,7 +10,7 @@ This implementation uses VHDL as required by the assignment brief and is intende
 
 - Select **VHDL 2008** and a VHDL simulator such as GHDL in EDA Playground.
 - Paste `decoder_3_to_8` into the design pane and `tb_decoder_3_to_8` into the testbench pane.
-- Run the testbench and open EPWave if available.
+- For GHDL, enter `--vcd=wave.vcd` in **Run options**, tick **Open EPWave after run**, then run the testbench.
 - Capture a waveform showing all eight input addresses and their one-hot outputs.
 - Build and test the equivalent circuit on a laboratory logic trainer.
 
