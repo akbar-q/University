@@ -6,12 +6,18 @@ A 3-to-8 decoder converts a three-bit binary command into one active output line
 
 This implementation uses VHDL as required by the assignment brief and is intended for simulation in EDA Playground.
 
+## EDA Playground Settings
+
+Use **Testbench + Design** with language set to `VHDL`, the top entity set to `testbench`, and simulator set to `GHDL 5.1.1`. Under **Simulator Options**, enable **Open EPWave after run** before starting the simulation. For GHDL waveform output, enter `--vcd=wave.vcd` in **Run Options**.
+
+![EDA Playground settings showing the VHDL testbench and enabled EPWave option](../Workspace-Settings.png)
+
 ## EDA Playground Deliverables
 
 - Select **VHDL 2008** and a VHDL simulator such as GHDL in EDA Playground.
 - Paste `decoder_3_to_8` into the design pane and the code below into the testbench pane.
 - Keep the testbench entity name as `testbench`, as used by EDA Playground's VHDL template.
-- For GHDL, enter `--vcd=wave.vcd` in **Run options**, tick **Open EPWave after run**, then run the testbench.
+- In **Simulator Options**, tick **Open EPWave after run**. For GHDL, enter `--vcd=wave.vcd` in **Run Options**, then run the testbench.
 - If the simulation does not start, remove the VCD option and run again first. A successful compile confirms the code and top-level setting; then restore `--vcd=wave.vcd` for EPWave.
 - Capture a waveform showing all eight input addresses and their one-hot outputs.
 - Build and test the equivalent circuit on a laboratory logic trainer.

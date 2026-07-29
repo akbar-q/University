@@ -6,12 +6,18 @@ The full adder combines two one-bit digital values and a carry input. In a propo
 
 This implementation uses VHDL as required by the assignment brief and is intended for simulation in EDA Playground.
 
+## EDA Playground Settings
+
+Use **Testbench + Design** with language set to `VHDL`, the top entity set to `testbench`, and simulator set to `GHDL 5.1.1`. Under **Simulator Options**, enable **Open EPWave after run** before starting the simulation. For GHDL waveform output, enter `--vcd=wave.vcd` in **Run Options**.
+
+![EDA Playground settings showing the VHDL testbench and enabled EPWave option](../Workspace-Settings.png)
+
 ## EDA Playground Deliverables
 
 - Select **VHDL 2008** and a VHDL simulator such as GHDL in EDA Playground.
 - Paste `full_adder` into the design pane and the code below into the testbench pane.
 - Keep the testbench entity name as `testbench`, as used by EDA Playground's VHDL template.
-- For GHDL, enter `--vcd=wave.vcd` in **Run options**, tick **Open EPWave after run**, then run the testbench.
+- In **Simulator Options**, tick **Open EPWave after run**. For GHDL, enter `--vcd=wave.vcd` in **Run Options**, then run the testbench.
 - If the simulation does not start, remove the VCD option and run again first. A successful compile confirms the code and top-level setting; then restore `--vcd=wave.vcd` for EPWave.
 - Save a screenshot of the waveform with input and output signal names visible.
 - Build the equivalent gate-level circuit on the lab bench and record the results table.
@@ -53,6 +59,12 @@ begin
     Cout <= (A and B) or (A and Cin) or (B and Cin);
 end architecture rtl;
 ```
+
+## Design Code Explanation
+
+The `ieee.std_logic_1164` library supplies the `std_logic` type used for all one-bit signals. The `full_adder` entity defines three inputs and two outputs: `A` and `B` are the bits being added, `Cin` is the carry input from a previous bit position, `Sum` is the result bit, and `Cout` is the carry output for the next bit position.
+
+The architecture is combinational because it uses concurrent signal assignments rather than a clocked process. The first assignment, `Sum <= A xor B xor Cin`, produces a high sum bit only when an odd number of the three inputs are high. The second assignment, `Cout <= (A and B) or (A and Cin) or (B and Cin)`, produces a carry when at least two of the three inputs are high. The parentheses make each AND term explicit before the OR operation combines them. Since there is no stored state or clock, outputs update whenever any input changes, subject to propagation delay in physical hardware.
 
 ## Simulation Testbench - `testbench.vhd`
 
@@ -103,9 +115,34 @@ begin
 end architecture tb;
 ```
 
+## Testbench Code Explanation
+
+The testbench has no external ports because it creates its own input signals and observes the outputs. The `component full_adder` declaration matches the design interface, and `DUT: full_adder port map (A, B, Cin, Sum, Cout)` connects the testbench signals to the device under test.
+
+The `stimulus` process applies all eight possible three-input combinations. Each vector is held for 10 ns, allowing the combinational outputs to settle before an `assert` statement checks the expected `Sum` and `Cout` values. The assertions make the test self-checking: an incorrect output produces an error identifying the failing binary input vector. The final report, `Full adder test passed`, occurs only after all eight vectors have been evaluated.
+
 ## Expected Simulation Evidence
 
 At each 10 ns interval, compare `Sum` and `Cout` against the truth table. The waveform should show `Cout=1` for inputs `011`, `101`, `110`, and `111`; `Sum=1` when an odd number of inputs are high. Include the waveform screenshot and a table stating whether every vector passed.
+
+## Captured Simulation Waveform and Interpretation
+
+![EDA Playground EPWave output for the full adder](Full-Adder-Waveform.png)
+
+The waveform runs from 0 ns to 80 ns and applies one input combination per 10 ns interval. The first five traces are the signals at the testbench level; the lower five traces are the same signals inside the DUT. They match because the `port map` connects the testbench directly to the full adder. The duplicate traces are therefore expected and provide confirmation that the DUT receives the intended inputs.
+
+| Time interval | A | B | Cin | Sum | Cout | Explanation | Result |
+|---------------|---|---|-----|-----|------|-------------|--------|
+| 0-10 ns | 0 | 0 | 0 | 0 | 0 | No input bits are high, so there is neither a sum bit nor a carry. | Pass |
+| 10-20 ns | 0 | 0 | 1 | 1 | 0 | One high input gives an odd parity sum and no carry. | Pass |
+| 20-30 ns | 0 | 1 | 0 | 1 | 0 | One high input gives an odd parity sum and no carry. | Pass |
+| 30-40 ns | 0 | 1 | 1 | 0 | 1 | Two high inputs add to binary `10`: sum zero with carry one. | Pass |
+| 40-50 ns | 1 | 0 | 0 | 1 | 0 | One high input gives an odd parity sum and no carry. | Pass |
+| 50-60 ns | 1 | 0 | 1 | 0 | 1 | Two high inputs add to binary `10`: sum zero with carry one. | Pass |
+| 60-70 ns | 1 | 1 | 0 | 0 | 1 | `A` and `B` produce binary `10`: sum zero with carry one. | Pass |
+| 70-80 ns | 1 | 1 | 1 | 1 | 1 | Three high inputs equal binary `11`: sum one with carry one. | Pass |
+
+The captured results match every row of the truth table. In particular, `Cout` is high for `011`, `101`, `110`, and `111`, which are exactly the four cases containing at least two high inputs. `Sum` is high for `001`, `010`, `100`, and `111`, which are the cases with an odd number of high inputs. This confirms the expected arithmetic operation of the full adder.
 
 ## Lab Bench Implementation and Record
 
