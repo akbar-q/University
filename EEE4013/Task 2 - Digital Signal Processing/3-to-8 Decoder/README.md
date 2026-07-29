@@ -1,21 +1,22 @@
-# 3-to-8 Decoder - EasyEDA Verilog and Lab Bench Guide
+# 3-to-8 Decoder - EDA Playground VHDL and Lab Bench Guide
 
 ## Purpose in the Monitoring and Control System
 
 A 3-to-8 decoder converts a three-bit binary command into one active output line. In a monitoring and control system it can select one of eight sensors, actuator channels, display positions, or alarm paths. The one-hot output reduces ambiguity because only the selected channel should be active.
 
-> **Assessment language note:** the assignment brief requests VHDL. EasyEDA's HDL workflow uses Verilog, so obtain assessor approval for this syntax or translate the verified logic into VHDL for submission.
+This implementation uses VHDL as required by the assignment brief and is intended for simulation in EDA Playground.
 
-## EasyEDA Deliverables
+## EDA Playground Deliverables
 
-- Create an EasyEDA project named `EEE4013_Decoder`.
-- Add `decoder_3_to_8` and simulate it using `tb_decoder_3_to_8`.
+- Select **VHDL 2008** and a VHDL simulator such as GHDL in EDA Playground.
+- Paste `decoder_3_to_8` into the design pane and `tb_decoder_3_to_8` into the testbench pane.
+- Run the testbench and open EPWave if available.
 - Capture a waveform showing all eight input addresses and their one-hot outputs.
 - Build and test the equivalent circuit on a laboratory logic trainer.
 
 ## Truth Table
 
-`Y` is active-high and one-hot. `Y[0]` is the least significant output.
+`Y` is active-high and one-hot. `Y(0)` is the least significant output.
 
 | A2 | A1 | A0 | Active output |
 |----|----|----|---------------|
@@ -28,57 +29,72 @@ A 3-to-8 decoder converts a three-bit binary command into one active output line
 | 1 | 1 | 0 | Y6 |
 | 1 | 1 | 1 | Y7 |
 
-## Verilog Source - `decoder_3_to_8.v`
+## VHDL Source - `decoder_3_to_8.vhd`
 
-```verilog
-module decoder_3_to_8 (
-    input  wire [2:0] address,
-    output reg  [7:0] Y
-);
-    always @(*) begin
-        Y = 8'b00000000;
-        case (address)
-            3'b000: Y = 8'b00000001;
-            3'b001: Y = 8'b00000010;
-            3'b010: Y = 8'b00000100;
-            3'b011: Y = 8'b00001000;
-            3'b100: Y = 8'b00010000;
-            3'b101: Y = 8'b00100000;
-            3'b110: Y = 8'b01000000;
-            3'b111: Y = 8'b10000000;
-            default: Y = 8'b00000000;
-        endcase
-    end
-endmodule
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity decoder_3_to_8 is
+    port (
+        address : in  std_logic_vector(2 downto 0);
+        Y       : out std_logic_vector(7 downto 0)
+    );
+end entity decoder_3_to_8;
+
+architecture rtl of decoder_3_to_8 is
+begin
+    with address select
+        Y <= "00000001" when "000",
+             "00000010" when "001",
+             "00000100" when "010",
+             "00001000" when "011",
+             "00010000" when "100",
+             "00100000" when "101",
+             "01000000" when "110",
+             "10000000" when "111",
+             "00000000" when others;
+end architecture rtl;
 ```
 
-## Simulation Testbench - `tb_decoder_3_to_8.v`
+## Simulation Testbench - `tb_decoder_3_to_8.vhd`
 
-```verilog
-`timescale 1ns/1ps
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
-module tb_decoder_3_to_8;
-    reg [2:0] address;
-    wire [7:0] Y;
+entity tb_decoder_3_to_8 is
+end entity tb_decoder_3_to_8;
 
-    decoder_3_to_8 dut (.address(address), .Y(Y));
+architecture sim of tb_decoder_3_to_8 is
+    signal address : std_logic_vector(2 downto 0) := "000";
+    signal Y       : std_logic_vector(7 downto 0);
+begin
+    dut: entity work.decoder_3_to_8(rtl)
+        port map (address => address, Y => Y);
 
-    initial begin
-        address = 3'b000;
-        #10 address = 3'b001;
-        #10 address = 3'b010;
-        #10 address = 3'b011;
-        #10 address = 3'b100;
-        #10 address = 3'b101;
-        #10 address = 3'b110;
-        #10 address = 3'b111;
-        #10 $finish;
-    end
-
-    initial begin
-        $monitor("t=%0t address=%b Y=%b", $time, address, Y);
-    end
-endmodule
+    stimulus: process
+    begin
+        for index in 0 to 7 loop
+            case index is
+                when 0 => address <= "000";
+                when 1 => address <= "001";
+                when 2 => address <= "010";
+                when 3 => address <= "011";
+                when 4 => address <= "100";
+                when 5 => address <= "101";
+                when 6 => address <= "110";
+                when 7 => address <= "111";
+            end case;
+            wait for 10 ns;
+            assert Y = std_logic_vector(to_unsigned(2**index, Y'length))
+                report "Decoder output failed" severity error;
+        end loop;
+        report "3-to-8 decoder test passed" severity note;
+        wait;
+    end process;
+end architecture sim;
 ```
 
 ## Expected Simulation Evidence

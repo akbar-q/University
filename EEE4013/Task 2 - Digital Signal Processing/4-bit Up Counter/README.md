@@ -1,15 +1,16 @@
-# 4-bit Up Counter - EasyEDA Verilog and Lab Bench Guide
+# 4-bit Up Counter - EDA Playground VHDL and Lab Bench Guide
 
 ## Purpose in the Monitoring and Control System
 
 A 4-bit up counter counts clock events from `0000` to `1111` and then wraps to `0000`. It can count sampled sensor events, timing pulses, production items, or alarm occurrences in a digital monitoring and control system. The reset input provides a known safe start state.
 
-> **Assessment language note:** the assignment brief specifies VHDL. This guide provides Verilog for EasyEDA simulation; obtain approval for its use or produce a VHDL version with the same state transitions for the assessed submission.
+This implementation uses VHDL as required by the assignment brief and is intended for simulation in EDA Playground.
 
-## EasyEDA Deliverables
+## EDA Playground Deliverables
 
-- Create an EasyEDA project named `EEE4013_Up_Counter`.
-- Add `up_counter_4bit` and the `tb_up_counter_4bit` testbench.
+- Select **VHDL 2008** and a VHDL simulator such as GHDL in EDA Playground.
+- Paste `up_counter_4bit` into the design pane and `tb_up_counter_4bit` into the testbench pane.
+- Run the testbench and open EPWave if available.
 - Simulate reset, at least 16 rising clock edges, and rollover.
 - Capture a waveform showing `clk`, `reset`, and `count`.
 - Build an equivalent counter on the lab bench and complete the results record.
@@ -38,52 +39,88 @@ The reset in this design is synchronous and active-high: it is sampled on the ri
 | 1110 | 0 | 1111 |
 | 1111 | 0 | 0000 |
 
-## Verilog Source - `up_counter_4bit.v`
+## VHDL Source - `up_counter_4bit.vhd`
 
-```verilog
-module up_counter_4bit (
-    input  wire       clk,
-    input  wire       reset,
-    output reg  [3:0] count
-);
-    always @(posedge clk) begin
-        if (reset)
-            count <= 4'b0000;
-        else
-            count <= count + 4'b0001;
-    end
-endmodule
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity up_counter_4bit is
+    port (
+        clk   : in  std_logic;
+        reset : in  std_logic;
+        count : out std_logic_vector(3 downto 0)
+    );
+end entity up_counter_4bit;
+
+architecture rtl of up_counter_4bit is
+    signal count_internal : unsigned(3 downto 0) := (others => '0');
+begin
+    process (clk)
+    begin
+        if rising_edge(clk) then
+            if reset = '1' then
+                count_internal <= (others => '0');
+            else
+                count_internal <= count_internal + 1;
+            end if;
+        end if;
+    end process;
+
+    count <= std_logic_vector(count_internal);
+end architecture rtl;
 ```
 
-## Simulation Testbench - `tb_up_counter_4bit.v`
+## Simulation Testbench - `tb_up_counter_4bit.vhd`
 
-```verilog
-`timescale 1ns/1ps
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
-module tb_up_counter_4bit;
-    reg clk;
-    reg reset;
-    wire [3:0] count;
+entity tb_up_counter_4bit is
+end entity tb_up_counter_4bit;
 
-    up_counter_4bit dut (.clk(clk), .reset(reset), .count(count));
+architecture sim of tb_up_counter_4bit is
+    signal clk   : std_logic := '0';
+    signal reset : std_logic := '1';
+    signal count : std_logic_vector(3 downto 0);
+begin
+    dut: entity work.up_counter_4bit(rtl)
+        port map (clk => clk, reset => reset, count => count);
 
-    initial begin
-        clk = 0;
-        forever #5 clk = ~clk;
-    end
+    clock_generator: process
+    begin
+        while now < 220 ns loop
+            clk <= '0'; wait for 5 ns;
+            clk <= '1'; wait for 5 ns;
+        end loop;
+        wait;
+    end process;
 
-    initial begin
-        reset = 1;
-        #12 reset = 0;
-        #160 reset = 1;
-        #10 reset = 0;
-        #20 $finish;
-    end
+    stimulus: process
+    begin
+        wait until rising_edge(clk);
+        wait for 1 ns;
+        assert count = "0000" report "Reset failed" severity error;
+        reset <= '0';
 
-    initial begin
-        $monitor("t=%0t clk=%b reset=%b count=%b", $time, clk, reset, count);
-    end
-endmodule
+        for expected_count in 1 to 16 loop
+            wait until rising_edge(clk);
+            wait for 1 ns;
+            assert unsigned(count) = to_unsigned(expected_count mod 16, count'length)
+                report "Count or rollover failed" severity error;
+        end loop;
+
+        reset <= '1';
+        wait until rising_edge(clk);
+        wait for 1 ns;
+        assert count = "0000" report "Reset recovery failed" severity error;
+        report "4-bit counter test passed" severity note;
+        wait;
+    end process;
+end architecture sim;
 ```
 
 ## Expected Simulation Evidence
@@ -107,7 +144,7 @@ Record the clock source and frequency, IC part number, supply voltage, reset wir
 
 As a sequential circuit, performance depends on clock period, clock-to-Q delay, setup time, hold time, reset timing, fan-out, and power consumption. The minimum clock period must exceed the relevant timing path; otherwise metastability or incorrect counts may occur. A mechanical push button can create multiple edges through bounce, producing skipped counts. For a high-frequency system, use timing analysis and a clean clock distribution network.
 
-Common faults include using blocking assignment (`=`) in clocked logic, failing to initialise or reset the counter, applying reset between edges while expecting an immediate change in this synchronous design, and connecting an active-low hardware clear as though it were active-high. Describe only faults actually found, their cause, correction, and rerun evidence.
+Common faults include using a variable or combinational process incorrectly for clocked logic, failing to initialise or reset the counter, applying reset between edges while expecting an immediate change in this synchronous design, and connecting an active-low hardware clear as though it were active-high. Describe only faults actually found, their cause, correction, and rerun evidence.
 
 ## Reliability and Professional Engineering
 

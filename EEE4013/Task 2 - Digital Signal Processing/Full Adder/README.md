@@ -1,16 +1,16 @@
-# Full Adder - EasyEDA Verilog and Lab Bench Guide
+# Full Adder - EDA Playground VHDL and Lab Bench Guide
 
 ## Purpose in the Monitoring and Control System
 
 The full adder combines two one-bit digital values and a carry input. In a proposed monitoring and control system it can form part of an arithmetic logic unit used to add sensor values, calculate thresholds, increment stored measurements, or combine alarm counts. Multiple full adders can be cascaded to process multi-bit values after analogue-to-digital conversion.
 
-> **Assessment language note:** the assignment brief specifies VHDL, whereas EasyEDA uses Verilog for its HDL simulation flow. Confirm with the assessor that an EasyEDA Verilog implementation is acceptable. The logic and verification evidence below remain applicable; only the HDL syntax differs.
+This implementation uses VHDL as required by the assignment brief and is intended for simulation in EDA Playground.
 
-## EasyEDA Deliverables
+## EDA Playground Deliverables
 
-- Create an EasyEDA project named `EEE4013_Full_Adder`.
-- Add a Verilog module named `full_adder`.
-- Add the testbench named `tb_full_adder` and run the simulation.
+- Select **VHDL 2008** and a VHDL simulator such as GHDL in EDA Playground.
+- Paste `full_adder` into the design pane and `tb_full_adder` into the testbench pane.
+- Run the testbench and open EPWave if available.
 - Save a screenshot of the waveform with input and output signal names visible.
 - Build the equivalent gate-level circuit on the lab bench and record the results table.
 
@@ -29,51 +29,67 @@ The full adder combines two one-bit digital values and a carry input. In a propo
 
 The governing equations are $Sum=A\oplus B\oplus Cin$ and $Cout=AB+ACin+BCin$.
 
-## Verilog Source - `full_adder.v`
+## VHDL Source - `full_adder.vhd`
 
-```verilog
-module full_adder (
-    input  wire A,
-    input  wire B,
-    input  wire Cin,
-    output wire Sum,
-    output wire Cout
-);
-    assign Sum = A ^ B ^ Cin;
-    assign Cout = (A & B) | (A & Cin) | (B & Cin);
-endmodule
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity full_adder is
+    port (
+        A    : in  std_logic;
+        B    : in  std_logic;
+        Cin  : in  std_logic;
+        Sum  : out std_logic;
+        Cout : out std_logic
+    );
+end entity full_adder;
+
+architecture rtl of full_adder is
+begin
+    Sum  <= A xor B xor Cin;
+    Cout <= (A and B) or (A and Cin) or (B and Cin);
+end architecture rtl;
 ```
 
-## Simulation Testbench - `tb_full_adder.v`
+## Simulation Testbench - `tb_full_adder.vhd`
 
-```verilog
-`timescale 1ns/1ps
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
 
-module tb_full_adder;
-    reg A;
-    reg B;
-    reg Cin;
-    wire Sum;
-    wire Cout;
+entity tb_full_adder is
+end entity tb_full_adder;
 
-    full_adder dut (.A(A), .B(B), .Cin(Cin), .Sum(Sum), .Cout(Cout));
+architecture sim of tb_full_adder is
+    signal A, B, Cin : std_logic := '0';
+    signal Sum, Cout : std_logic;
+begin
+    dut: entity work.full_adder(rtl)
+        port map (A => A, B => B, Cin => Cin, Sum => Sum, Cout => Cout);
 
-    initial begin
-        A = 0; B = 0; Cin = 0;
-        #10 Cin = 1;
-        #10 B = 1; Cin = 0;
-        #10 Cin = 1;
-        #10 A = 1; B = 0; Cin = 0;
-        #10 Cin = 1;
-        #10 B = 1; Cin = 0;
-        #10 Cin = 1;
-        #10 $finish;
-    end
-
-    initial begin
-        $monitor("t=%0t A=%b B=%b Cin=%b Sum=%b Cout=%b", $time, A, B, Cin, Sum, Cout);
-    end
-endmodule
+    stimulus: process
+    begin
+        A <= '0'; B <= '0'; Cin <= '0'; wait for 10 ns;
+        assert Sum = '0' and Cout = '0' report "000 failed" severity error;
+        Cin <= '1'; wait for 10 ns;
+        assert Sum = '1' and Cout = '0' report "001 failed" severity error;
+        B <= '1'; Cin <= '0'; wait for 10 ns;
+        assert Sum = '1' and Cout = '0' report "010 failed" severity error;
+        Cin <= '1'; wait for 10 ns;
+        assert Sum = '0' and Cout = '1' report "011 failed" severity error;
+        A <= '1'; B <= '0'; Cin <= '0'; wait for 10 ns;
+        assert Sum = '1' and Cout = '0' report "100 failed" severity error;
+        Cin <= '1'; wait for 10 ns;
+        assert Sum = '0' and Cout = '1' report "101 failed" severity error;
+        B <= '1'; Cin <= '0'; wait for 10 ns;
+        assert Sum = '0' and Cout = '1' report "110 failed" severity error;
+        Cin <= '1'; wait for 10 ns;
+        assert Sum = '1' and Cout = '1' report "111 failed" severity error;
+        report "Full adder test passed" severity note;
+        wait;
+    end process;
+end architecture sim;
 ```
 
 ## Expected Simulation Evidence
