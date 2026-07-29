@@ -9,8 +9,10 @@ This implementation uses VHDL as required by the assignment brief and is intende
 ## EDA Playground Deliverables
 
 - Select **VHDL 2008** and a VHDL simulator such as GHDL in EDA Playground.
-- Paste `full_adder` into the design pane and `tb_full_adder` into the testbench pane.
+- Paste `full_adder` into the design pane and the code below into the testbench pane.
+- Keep the testbench entity name as `testbench`, as used by EDA Playground's VHDL template.
 - For GHDL, enter `--vcd=wave.vcd` in **Run options**, tick **Open EPWave after run**, then run the testbench.
+- If the simulation does not start, remove the VCD option and run again first. A successful compile confirms the code and top-level setting; then restore `--vcd=wave.vcd` for EPWave.
 - Save a screenshot of the waveform with input and output signal names visible.
 - Build the equivalent gate-level circuit on the lab bench and record the results table.
 
@@ -52,21 +54,30 @@ begin
 end architecture rtl;
 ```
 
-## Simulation Testbench - `tb_full_adder.vhd`
+## Simulation Testbench - `testbench.vhd`
 
 ```vhdl
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity tb_full_adder is
-end entity tb_full_adder;
+entity testbench is
+end entity testbench;
 
-architecture sim of tb_full_adder is
+architecture tb of testbench is
+    component full_adder is
+        port (
+            A    : in  std_logic;
+            B    : in  std_logic;
+            Cin  : in  std_logic;
+            Sum  : out std_logic;
+            Cout : out std_logic
+        );
+    end component;
+
     signal A, B, Cin : std_logic := '0';
     signal Sum, Cout : std_logic;
 begin
-    dut: entity work.full_adder(rtl)
-        port map (A => A, B => B, Cin => Cin, Sum => Sum, Cout => Cout);
+    DUT: full_adder port map (A, B, Cin, Sum, Cout);
 
     stimulus: process
     begin
@@ -89,7 +100,7 @@ begin
         report "Full adder test passed" severity note;
         wait;
     end process;
-end architecture sim;
+end architecture tb;
 ```
 
 ## Expected Simulation Evidence

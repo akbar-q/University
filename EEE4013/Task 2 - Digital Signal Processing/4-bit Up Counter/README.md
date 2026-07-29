@@ -9,8 +9,10 @@ This implementation uses VHDL as required by the assignment brief and is intende
 ## EDA Playground Deliverables
 
 - Select **VHDL 2008** and a VHDL simulator such as GHDL in EDA Playground.
-- Paste `up_counter_4bit` into the design pane and `tb_up_counter_4bit` into the testbench pane.
+- Paste `up_counter_4bit` into the design pane and the code below into the testbench pane.
+- Keep the testbench entity name as `testbench`, as used by EDA Playground's VHDL template.
 - For GHDL, enter `--vcd=wave.vcd` in **Run options**, tick **Open EPWave after run**, then run the testbench.
+- If the simulation does not start, remove the VCD option and run again first. A successful compile confirms the code and top-level setting; then restore `--vcd=wave.vcd` for EPWave.
 - Simulate reset, at least 16 rising clock edges, and rollover.
 - Capture a waveform showing `clk`, `reset`, and `count`.
 - Build an equivalent counter on the lab bench and complete the results record.
@@ -72,23 +74,30 @@ begin
 end architecture rtl;
 ```
 
-## Simulation Testbench - `tb_up_counter_4bit.vhd`
+## Simulation Testbench - `testbench.vhd`
 
 ```vhdl
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity tb_up_counter_4bit is
-end entity tb_up_counter_4bit;
+entity testbench is
+end entity testbench;
 
-architecture sim of tb_up_counter_4bit is
+architecture tb of testbench is
+    component up_counter_4bit is
+        port (
+            clk   : in  std_logic;
+            reset : in  std_logic;
+            count : out std_logic_vector(3 downto 0)
+        );
+    end component;
+
     signal clk   : std_logic := '0';
     signal reset : std_logic := '1';
     signal count : std_logic_vector(3 downto 0);
 begin
-    dut: entity work.up_counter_4bit(rtl)
-        port map (clk => clk, reset => reset, count => count);
+    DUT: up_counter_4bit port map (clk, reset, count);
 
     clock_generator: process
     begin
@@ -120,7 +129,7 @@ begin
         report "4-bit counter test passed" severity note;
         wait;
     end process;
-end architecture sim;
+end architecture tb;
 ```
 
 ## Expected Simulation Evidence

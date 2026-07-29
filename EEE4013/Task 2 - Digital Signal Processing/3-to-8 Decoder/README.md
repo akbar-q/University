@@ -9,8 +9,10 @@ This implementation uses VHDL as required by the assignment brief and is intende
 ## EDA Playground Deliverables
 
 - Select **VHDL 2008** and a VHDL simulator such as GHDL in EDA Playground.
-- Paste `decoder_3_to_8` into the design pane and `tb_decoder_3_to_8` into the testbench pane.
+- Paste `decoder_3_to_8` into the design pane and the code below into the testbench pane.
+- Keep the testbench entity name as `testbench`, as used by EDA Playground's VHDL template.
 - For GHDL, enter `--vcd=wave.vcd` in **Run options**, tick **Open EPWave after run**, then run the testbench.
+- If the simulation does not start, remove the VCD option and run again first. A successful compile confirms the code and top-level setting; then restore `--vcd=wave.vcd` for EPWave.
 - Capture a waveform showing all eight input addresses and their one-hot outputs.
 - Build and test the equivalent circuit on a laboratory logic trainer.
 
@@ -57,22 +59,28 @@ begin
 end architecture rtl;
 ```
 
-## Simulation Testbench - `tb_decoder_3_to_8.vhd`
+## Simulation Testbench - `testbench.vhd`
 
 ```vhdl
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity tb_decoder_3_to_8 is
-end entity tb_decoder_3_to_8;
+entity testbench is
+end entity testbench;
 
-architecture sim of tb_decoder_3_to_8 is
+architecture tb of testbench is
+    component decoder_3_to_8 is
+        port (
+            address : in  std_logic_vector(2 downto 0);
+            Y       : out std_logic_vector(7 downto 0)
+        );
+    end component;
+
     signal address : std_logic_vector(2 downto 0) := "000";
     signal Y       : std_logic_vector(7 downto 0);
 begin
-    dut: entity work.decoder_3_to_8(rtl)
-        port map (address => address, Y => Y);
+    DUT: decoder_3_to_8 port map (address, Y);
 
     stimulus: process
     begin
@@ -94,7 +102,7 @@ begin
         report "3-to-8 decoder test passed" severity note;
         wait;
     end process;
-end architecture sim;
+end architecture tb;
 ```
 
 ## Expected Simulation Evidence
