@@ -4,7 +4,8 @@
 
 **Audience:** Year 1 mechanical engineering students with little or no previous electrical knowledge.
 
-**Purpose:** Give students the minimum practical theory, vocabulary, measurement skills, and safety awareness needed to take part confidently in electromechanical and embedded projects in Year 2. The course is deliberately motor-centred: every electrical idea is connected to moving a load, selecting a supply, or controlling a small DC motor.
+**Purpose:** Give students the minimum practical theory, vocabulary, measurement skills, and safety awareness needed to take part confidently in electromechanical and embedded projects in Year 2. The course is deliberately motor-centred: every electrical idea is connected to moving a load, selecting a supply, or contro
+lling a small DC motor.
 
 **Delivery:** 10 weeks x 1 session/week x 2 hours/session = **20 guided learning hours**.
 
