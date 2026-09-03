@@ -1,0 +1,73 @@
+https://modules.bolton.ac.uk/EEE5014
+
+EEE5014
+(Validated in 2023-24)
+Intermediate Embedded Systems
+
+Credits
+    20 
+Level
+    HE5 
+Type
+    Practical 
+Trimester 3?
+    No 
+ECTS
+    10 
+Marking Scheme
+    Numeric mark scheme (i.e. mark of 0-100) 
+Pass Mark
+    40% ,with all assessment elements passed at 40% 
+Delivery Type
+    This Module requires you to attend particular classes or events at particular times and in particular locations. 
+Module Outline
+    This module builds on Introductory Embedded Systems module EEE4015 taught at HE4. You will have the opportunity to increase the depth of and broaden your knowledge of software and hardware related to programmable embedded devices and systems, through a group design project. This is a laboratory based module comprising mainly of practical work supported by specialist seminars. You will design, build, test and demonstrate a working system. Students are expected to operate in small self-governing groups and also to coordinate the group's efforts to meet various pre-identified deadlines. This module teaches and assesses C6, C11, C16, C17 and C18 and develops C1, C4, C5, C7, C8, C9, C12, C13 and C15 of the AHEP4 for CEng. The GAME attributes covered are resilient, global citizen, adaptable, collaborative, lifelong learning and self-aware. 
+
+Indicative Content
+1 	Embedded System Design
+2 	Software testing and documentation
+3 	Design Methodologies and strategies
+4 	Bread-boards and prototyping
+5 	Design life cycle: Requirements capture and specification.
+6 	Waste Electrical and Electronic Equipment Directive (WEEE), Restriction of Hazardous Substances Directive (RoHS), recycling and sustainability.
+7 	Application of design concepts in group-based design
+8 	Unit and System testing, testing for manufacture
+Learning Outcomes
+
+On successful completion of this Module you will be expected to be able to:
+1 	Apply an integrated or systems approach to the solution of embedded systems problems. (C6)
+2 	Function effectively as an individual, and as a member or leader of a team. (C16)
+3 	Communicate effectively on embedded systems matters with technical and non-technical audiences. (C17)
+4 	Adopt an inclusive approach to engineering practice and recognise the responsibilities, benefits and importance of supporting equality, diversity and inclusion. (C11)
+5 	Plan and record self-learning and development as the foundation for lifelong learning/CPD. (C18)
+
+Learning And Teaching Strategy
+    A blended learning approach is employed to allow flexibility and optimum delivery conditions. The module uses project-based learning, underpinned by conventional lectures to impart knowledge of a range of technologies and methods. Computer-based tools support the creation and testing of designs containing electrical and/or electronic devices, components and subsystems. You will work on one or more projects to design, construct, test, and evaluate components or subsystems with a degree of challenge, complexity, and open-endedness appropriate to the programme and level. A team teaching approach is adopted in the delivery of this module. You will be expected to attend all scheduled sessions and to complete the module successfully you must allocate a substantial amount of independent study time. Self-directed study time is used for undertaking relevant research, background work, development of design, programming, and having group meetings. 
+
+Learning & Teaching Methods
+Method 	KIS 	Hours
+Scheduled 	Scheduled 	45
+Independent 	Independent 	155
+Total 		200
+
+Continuous Assessment Strategy
+    Formative assessment is employed to support your learning on the module, allowing you to reflect on feedback on your progress from your tutors and peers. It takes a variety of forms, including software skills development, completion of and reflection on practical laboratory activities and verbal question and answer sessions in class, and does not contribute to the final module mark. Summative assessment comprises a group demonstration of your outcomes, and an individual portfolio. The group demonstration also contains individual components that evidence your engagement and contribution, and will influence your personal grade. The individual portfolio enables you to combine a number of activities such as, research, records of activity, notes, analyses, drawings and reflections on activities. This portfolio can be used in future to evidence achievement of competences from the UK-SPEC, and also develop record keeping skills which is an aspect of CPD and lifelong learning. 
+
+Summative Assessments
+	Assessment 	KIS 	Description 		Learning Outcomes 	Marking Scheme 	Passmark 	KIS Weighting
+001 	Oral assessment 	Practical 	Group demonstration of project outcomes 15-25 mins plus 5 mins questions. 		1 3 4 	Non Standard Percentage mark scheme 	40% 	50%
+002 	Portfolio 	Coursework 	Individual Portfolio of practical activities 	FINAL 	2 5 	Non Standard Percentage mark scheme 	40% 	50%
+Learning Resources
+Recommended Reading
+Bayle, J. (2013) C Programming for Arduino. Olton: Packt Publishing.
+Brindley, K. (2005) Practical Electronics Construction: Techniques, Equipment and Projects. Oxford: Newnes.
+Frenzel, L.E. (2020) Practical Electronic Design for Experimenters. London: McGraw-Hill Education.
+Horowitz, P. and Hill, W. (2015) The Art of Electronics. 3rd Ed. Cambridge: Cambridge University Press.
+Monk, S. (2023) Programming Arduino: Getting started with Sketches, 3rd Ed. London: McGraw-Hill.
+Nussey, J. (2018) Arduino for Dummies, 2nd Ed. Somerset: John Wiley & Sons.
+Scherz, P. and Monk, S. (2016) Practical Electronics for Inventors. 4th Ed. London: McGraw-Hill Education.
+Talis Aspire Reading lists
+
+Feedback to Students
+
+    Formative and summative assessment feedback will be made available verbally and/or in written form. Feedback will be provided within the terms of the University’s guidelines which are provided in the Module Guides.

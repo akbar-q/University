@@ -1,0 +1,71 @@
+https://modules.bolton.ac.uk/EEE4015
+
+EEE4015
+(Validated in 2023-24)
+Introductory Embedded Systems
+
+Credits
+    20 
+Level
+    HE4 
+Type
+    Standard 
+Trimester 3?
+    No 
+ECTS
+    10 
+Marking Scheme
+    Numeric mark scheme (i.e. mark of 0-100) 
+Pass Mark
+    40% ,with all assessment elements passed at 40% 
+Delivery Type
+    This Module requires you to attend particular classes or events at particular times and in particular locations. 
+Module Outline
+    This module introduces you to the principles of software and hardware related to embedded systems that are relevant to their application in programmable embedded devices. Types of devices include microcontroller, sensors, practical electronics components and signal processing equipment. Explorative case studies around sub-themes such as real-time systems are used to support your learning about embedded systems. This module teaches and assesses C6, C10, C12, C16 and C18 and develops C2, C4, C5, C7, C13 and C15 of the AHEP4 for CEng. The GAME attributes covered are problem solver, effective communicator, collaborative and lifelong learning. 
+
+Indicative Content
+1 	Microcontrollers
+2 	Arduino C programming
+3 	Digital I/O
+4 	Communication Interfaces
+5 	Sensors
+6 	Software Design Techniques
+7 	Software Sustainability
+8 	Mitigate Security Risk
+9 	Time management and collaborative team working skills
+Learning Outcomes
+
+On successful completion of this Module you will be expected to be able to:
+1 	Demonstrate an integrated or systems approach to solving embedded systems problems. (C6)
+2 	Demonstrate practical laboratory and workshop skills to investigate embedded systems problems. (C12)
+3 	Adopt a holistic and proportionate approach to the mitigation of security risks. (C10)
+4 	Function effectively as an individual, and as a member or leader of a team. (C16)
+5 	Plan and record self-learning and development as the foundation for lifelong learning/CPD. (C18)
+
+Learning And Teaching Strategy
+    A blended learning approach is employed to allow flexibility and optimum delivery conditions. The main learning vehicle in this module is group project work, both investigative (analysis) and constructive (design synthesis). A team teaching approach is adopted in the delivery of this module, to allow flexibility in delivery and to bring a range of staff skills to support the students. This module will be delivered through a combination of lecture and laboratory sessions. You will be expected to attend all scheduled sessions and prepare for these in advance by undertaking relevant research and background reading. Delivery will be supported by computer-aided software, online discussions and self-directed learning exercises posted on the VLE. To complete the module successfully you must allocate a substantial amount of independent study time. 
+
+Learning & Teaching Methods
+Method 	KIS 	Hours
+Scheduled 	Scheduled 	67.5
+Independent 	Independent 	132.5
+Total 		200
+
+Continuous Assessment Strategy
+    Formative assessment is employed to support your learning on the module, allowing you to reflect on feedback on your progress from your tutors and peers. It takes a variety of forms, including software skills development, completion of and reflection on practical laboratory activities and verbal question and answer sessions in class, and does not contribute to the final module mark. Summative assessment comprises two group portfolio reports centred around problem-based design projects. The group portfolios also contain individual components that evidence your engagement and contribution, and will influence your personal grade. Individual elements include, research, records of activity, notes, analyses, drawings and reflections on activities, which are collated in a logbook. This can be used in future to evidence achievement of competences from the UK-SPEC, and also develop record keeping skills which is an aspect of CPD and lifelong learning. 
+
+Summative Assessments
+	Assessment 	KIS 	Description 		Learning Outcomes 	Marking Scheme 	Passmark 	KIS Weighting
+001 	Portfolio 	Coursework 	Portfolio of practical group design exercises. 		1 2 	Non Standard Percentage mark scheme 	40% 	50%
+002 	Portfolio 	Coursework 	Portfolio of practical group design exercises 	FINAL 	3 4 5 	Non Standard Percentage mark scheme 	40% 	50%
+Learning Resources
+Recommended Reading
+Bayle, J. (2013) C Programming for Arduino. Olton: Packt Publishing.
+Marwedel, P. (2022) Embedded System Design: Embedded Systems Foundations of Cyber-Physical Systems, and the Internet of Things. 4th Ed. Cham: Springer.
+McGrath, M. (2018) C Programming in Easy Steps, 5th Ed. Warwickshire: In Easy Steps Limited.
+Monk, S. (2023) Programming Arduino: Getting Started with Sketches, 3rd Ed. London: McGraw-Hill.
+Talis Aspire Reading lists
+
+Feedback to Students
+
+    Formative and summative assessment feedback will be made available verbally and/or in written form. Feedback will be provided within the terms of the University’s guidelines which are provided in the Module Guides.
