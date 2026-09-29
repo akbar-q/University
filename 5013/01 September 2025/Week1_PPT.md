@@ -1,229 +1,203 @@
-# Week 1 — ESP32 Advanced Peripherals & Embedded Programming (3-4h)
+# Week 1 - Embedded Systems and First Arduino Programs (3-4h)
 
-Notes: This deck is written as a Markdown slide deck. Use a generator (Pandoc, Marp, reveal.js, or PowerPoint import) to convert into PPTX.
-
----
-
-## Slide 1: Title
-
-ESP32 Advanced Peripherals & Embedded Programming — Week 1
-
-Speaker notes:
-- Welcome the class. Today we build on basics you already learned (GPIO, ADC, I2C LCD, PWM, speaker alarm project).
-- Explain outcomes: by the end of this session they should understand timers, interrupts, advanced PWM/ADC use, debouncing and produce a small in-class exercise.
+This deck is a Markdown slide source. Use the existing conversion process to create the delivered PPTX/ODP.
 
 ---
 
-## Slide 2: Learning Objectives
+## Slide 1: Unit 5013 - Embedded Systems
 
-- Understand hardware timers and software timers on the ESP32
-- Use interrupts (GPIO and timer-based) safely
-- Advanced PWM: channels, frequency, duty, resolution
-- ADC details: attenuation, multisampling, calibration
-- Debounce switches and read stable inputs
-- Build a small exercise: tone generator with timed snooze and safe button handling
+### Smart Environmental Monitoring System
+
+- We will design, simulate, implement, test and explain a small environmental monitoring alarm.
+- The final project is built one verified function at a time.
+- No prior programming knowledge is assumed at the start of this sequence.
 
 Speaker notes:
-- Read objectives aloud. Link each objective to their prior learning (digitalWrite, analogWrite, analogRead).
-- Emphasise safety and determinism in embedded code.
+- Explain that the surviving student work shows the intended final system: LDR, curtain switch, LED, buzzer and LCD status.
+- The first question in every lab is: what should the system sense, decide and do?
 
 ---
 
-## Slide 3: Recap — ESP32 functional blocks
+## Slide 2: Today's Learning Objectives
 
-- Dual-core Xtensa processors (brief reminder)
-- GPIO matrix and routing
-- Timers (hardware), RTC, watchdogs
-- ADC (SAR), DAC (2 channels), PWM (LEDC), I2C, SPI, UART
-- Interrupt controller & priorities
-
-Speaker notes:
-- Keep recap short. Focus on blocks we'll use: Timers, ADC, PWM, interrupts.
+- Define an embedded system and identify input, processing and output blocks.
+- Explain the role of an Arduino-compatible microcontroller.
+- Create, run and alter a first Arduino sketch in Tinkercad Circuits.
+- Use `setup()`, `loop()`, `pinMode()` and `digitalWrite()`.
+- Capture evidence of a working simulator lab.
 
 ---
 
-## Slide 4: Hardware Timers vs Software Timers
+## Slide 3: What Is an Embedded System?
 
-- Hardware timers: independent, precise, less jitter, run at peripheral level
-- Software timers: built on OS (FreeRTOS) or loop, easier but less precise
-- When to use which: time-critical or audio -> hardware; periodic UI refresh -> software timer
+- A small computer built into a product to perform a dedicated job.
+- It observes the world through inputs, processes information and controls outputs.
+- Examples: thermostat, washing machine, vehicle parking sensor, fire alarm and smart HVAC controller.
 
-Speaker notes:
-- Show common API: ESP-IDF hardware timer config or Arduino-style timer libraries.
-- Give example: generating a 2 kHz square wave reliably -> hardware timer + PWM or toggle in interrupt.
+`sensor/switch -> microcontroller -> actuator/display`
 
 ---
 
-## Slide 5: Timer Programming (example)
+## Slide 4: Our Project Context
 
-- Components: timer source (APB), prescaler, counter, auto-reload
-- Use-cases: debouncing windows, PWM updates, periodic ADC sampling
+EcoSmart needs an indoor comfort-monitoring prototype.
 
-Speaker notes:
-- Outline pseudocode: configure timer; attach ISR; start; in ISR set a flag; handle in main loop.
-- Warn: keep ISRs short, avoid printf or heap allocations in ISR.
-
----
-
-## Slide 6: Interrupt Basics and Best Practices
-
-- Types: level vs edge, GPIO vs peripheral
-- ISR constraints: minimal work, use volatile flags, signal tasks/queues
-- Priority and freeRTOS: which functions are safe (no blocking APIs) in ISR
-
-Speaker notes:
-- Show pattern: ISR -> set volatile flag or xSemaphoreGiveFromISR -> task handles processing.
-- Stress race conditions & atomic operations.
+- **Input:** light level from an LDR and a curtain switch.
+- **Processing:** compare reading with an agreed threshold.
+- **Outputs:** LED, buzzer and LCD status.
+- **Evidence:** code, block diagram, test plans/results, debugging record and individual LO3 video.
 
 ---
 
-## Slide 7: Practical: Wiring a button with interrupt
+## Slide 5: Arduino Uno as a Learning Platform
 
-- Use hardware pull-up or pull-down
-- Connect button to GPIO, configure edge detection
-- Implement debounce in software or via hardware RC
+- Microcontroller: ATmega328P.
+- Digital pins: read or write `HIGH`/`LOW` states.
+- Analogue pins: measure a varying voltage with `analogRead()`.
+- USB connection: uploads the sketch and provides serial debugging.
+- It is simple enough for first programs and supports the project pattern directly.
 
 Speaker notes:
-- Demonstrate wiring diagram quickly: button to GPIO, 10k pull-down/up.
-- Show sample debounce approach: ignore edges for N ms after first event.
+- Make clear that students still compare Arduino-class boards, ESP32 and STM32 for LO1 selection. The Uno is the starting learning platform, not automatically the final recommendation.
 
 ---
 
-## Slide 8: Debouncing Techniques
+## Slide 6: Tinkercad and Wokwi
 
-- Hardware: RC filter, Schmitt trigger
-- Software: simple delay; timer-based state machine; counting samples
-- Best: timer-based state machine with sampling every 5-10ms
+| Tool | Use it for |
+| --- | --- |
+| Tinkercad Circuits | First circuits, Arduino Uno, LEDs, buttons, LDRs and beginner code |
+| Wokwi | I2C LCD, ESP32 extensions, serial monitor and shareable advanced simulations |
 
-Speaker notes:
-- Explain why naive delay inside ISR or main loop is bad. Present robust state-machine pseudocode.
-
----
-
-## Slide 9: PWM (LEDC) Advanced
-
-- Channels vs timers vs GPIO assignment
-- Frequency and resolution tradeoffs: resolution = log2(timer_clk / freq)
-- Updating duty safely at runtime
-
-Speaker notes:
-- Show example: choosing 8-bit resolution at 1kHz vs 12-bit at 50Hz for motors/LEDs.
-- Discuss phase-correct vs fast PWM where relevant.
+- Begin every lab in the stated simulator.
+- Save a named copy and take one working screenshot.
+- Simulation proves logic and wiring ideas; it does not replace real-hardware testing.
 
 ---
 
-## Slide 10: ADC on ESP32 — Deep Dive
+## Slide 7: How an Arduino Sketch Runs
 
-- SAR ADC characteristics: 12-bit nominal, non-linearities
-- Attenuation settings (0dB, 2.5dB, 6dB, 11dB)
-- Calibration & multisampling to reduce noise
-- ADC2 caveat: shared with Wi-Fi; prefer ADC1 for reliability
+```cpp
+void setup() {
+	// Runs once when power is applied or reset.
+}
 
-Speaker notes:
-- Explain effect of attenuation on input voltage range and accuracy.
-- Show multisample pattern: read N samples, average, discard outliers.
+void loop() {
+	// Runs repeatedly forever.
+}
+```
 
----
-
-## Slide 11: DAC (audio basics)
-
-- Two onboard DAC channels (8-bit style output)
-- Use for simple tones, envelopes, or analog reference
-- Combine PWM+filter vs DAC for cleaner audio
-
-Speaker notes:
-- Suggest using DAC for simple analog ramp; for higher fidelity, use I2S + external DAC.
+- `setup()` configures hardware.
+- `loop()` repeatedly reads inputs, decides, then updates outputs.
 
 ---
 
-## Slide 12: Generating Tones — Options
+## Slide 8: Digital Output and Logic States
 
-- Toggle GPIO at target frequency (square wave)
-- Use PWM/LEDC to produce variable duty cycle square waves
-- Use DAC with timer/interrupt for arbitrary waveforms
+- `HIGH` supplies a logic-on output state.
+- `LOW` supplies a logic-off output state.
+- `pinMode(pin, OUTPUT)` configures an output pin.
+- `digitalWrite(pin, HIGH)` commands the output on.
 
-Speaker notes:
-- Discuss audio quality tradeoffs and CPU usage. For alarm tones, PWM or toggling is fine.
-- Provide pseudocode for timer-driven toggling producing 1kHz tone.
-
----
-
-## Slide 13: Combining Sensors and Actuators — Example: Light-based Alarm
-
-- Input: LDR via voltage divider -> ADC
-- Output: Speaker via PWM or DAC
-- Logic: sample ADC periodically, if below threshold start tone; if curtain open (button) stop
-
-Speaker notes:
-- Walk through system flow: ADC sample timer -> evaluate -> start/stop tone via timer/LED PWM -> button interrupt to disable.
-- Emphasize state machine design: IDLE, ALARMING, SNOOZE, DISABLED.
+Safety note: use a resistor with an LED. Never use a microcontroller pin to power a motor, relay or high-current load directly.
 
 ---
 
-## Slide 14: Debugging Strategies
+## Slide 9: First Program - Blink
 
-- Serial logging (but not in ISR), use levels and timestamps
-- Use LED blink patterns for boot/error codes
-- Use logic analyzer/oscilloscope for timing-sensitive issues
+```cpp
+const int ledPin = 13;
+
+void setup() {
+	pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+	digitalWrite(ledPin, HIGH);
+	delay(1000);
+	digitalWrite(ledPin, LOW);
+	delay(1000);
+}
+```
 
 Speaker notes:
-- Recommend turning off serial in tight loops; prefer toggling a GPIO to mark events for logic analyzer.
-- Show example logs to trace ADC values and state transitions.
+- Read the code in order, then predict what will happen before running it.
+- Ask students to alter one number and describe the visible change.
 
 ---
 
-## Slide 15: In-class Exercise (45-60 minutes)
+## Slide 10: Lab L01 - Blink in Tinkercad (25 min)
 
-Task: Build a robust tone generator with these requirements:
-- Read LDR every 200ms using hardware timer or software timer with multisampling
-- If measured light < threshold, start a 1kHz tone via PWM; else stop
-- Button to silence alarm: must be debounced and use ISR to set a flag
-- Implement a 30-second snooze using a timer
-- Submit: code file + short README describing design choices
+**Build:** Arduino Uno, LED and 220 ohm resistor.
 
-Speaker notes:
-- Provide scaffolding hints: recommend using ADC1, use LEDC for tone, use timer for sampling.
-- Encourage splitting work: sensor read task, alarm task, and button handling.
+**Do:**
 
----
+1. Connect the LED safely to digital pin 13 and ground.
+2. Enter the Blink sketch.
+3. Run the simulation.
+4. Change the on/off timing to 250 ms and 750 ms.
+5. Save the project as `L01_Blink_StudentName`.
 
-## Slide 16: Code patterns and anti-patterns
-
-- Keep ISRs short; avoid heap and blocking calls
-- Avoid floating point in tight loops if performance matters
-- Use mutexes/semaphores for shared resources
-
-Speaker notes:
-- Give quick code snippet example showing safe ISR -> task communication.
+**Submit:** screenshot, code and one sentence explaining `setup()` versus `loop()`.
 
 ---
 
-## Slide 17: Resources & Reference APIs
+## Slide 11: Variables Make Code Easier to Change
 
-- ESP-IDF timer/ISR docs and Arduino-ESP32 equivalents
-- ADC calibration notes, LEDC PWM API
-- Links to sample projects (local repo or official examples)
+- A variable stores a value that may change while the program runs.
+- A named constant makes a fixed value readable and avoids unexplained numbers.
 
-Speaker notes:
-- Point students to the exact API pages and show where to find code examples in the SDK.
+```cpp
+const int redPin = 13;
+const int delayMs = 500;
+```
 
----
-
-## Slide 18: Homework & Preparation for Week 2
-
-- Finish the in-class exercise if not done
-- Read Week 2 brief: Wi-Fi, BLE, SPI, I2C deep dive, KiCad basics
-- Optional: sketch a PCB for the alarm circuit in KiCad
-
-Speaker notes:
-- Explain deliverables for next week: bring code for demo and any KiCad questions.
+- Use meaningful names: `ledPin`, `lightValue`, `threshold`.
+- Avoid unclear names such as `x`, `a1` or `thing`.
 
 ---
 
-## Slide 19: Q&A and Wrap
+## Slide 12: Lab L02 - Timed Traffic Light (35 min)
 
-- Quick recap of what was covered
-- Invite questions and check understanding
+**Build:** three LEDs: red, amber and green, each with a resistor.
+
+**Requirements:**
+
+- Green: 5 seconds.
+- Amber: 2 seconds.
+- Red: 5 seconds.
+- Use named pin constants and explain the sequence.
+
+**Extension:** make amber flash three times before red.
+
+**Evidence:** wiring screenshot, code and a flowchart with start, outputs and delays.
+
+---
+
+## Slide 13: Lab Review - Debug in This Order
+
+1. Is the circuit powered and grounded correctly?
+2. Does the code use the pin actually wired?
+3. Is the pin configured as `OUTPUT`?
+4. Is the LED direction and resistor correct?
+5. Can a simpler one-LED sketch work first?
 
 Speaker notes:
-- Use small live quiz: ask 3 quick questions to assess understanding (timers, ADC attenuation, ISR rules).
+- Demonstrate a deliberate wrong pin number and show how to identify it without guessing.
+
+---
+
+## Slide 14: Link to the Assessment
+
+- L01/L02 build the implementation confidence needed for **LO3.P4**.
+- The platform comparison begins evidence for **LO1.P1/P2/M1/D1**.
+- Saved screenshots, code and reflections are evidence, not optional decoration.
+
+---
+
+## Slide 15: Week 1 Exit Ticket
+
+- Explain one difference between an input and an output.
+- Identify which function runs once and which repeats.
+- Submit L01 and L02 evidence.
+- Begin a comparison table for Arduino Uno, ESP32 and STM32: processing, interfaces, communication, power, cost and tooling.

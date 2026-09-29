@@ -1,232 +1,177 @@
-# Week 2 — ESP32 Connectivity, Protocols & Design Workflow (3-4h)
-
-Notes: Markdown slide deck for conversion to PPTX. Includes speaker notes for each slide and assessment details.
+# Week 2 - Digital Inputs, Decisions and Flowcharts (3-4h)
 
 ---
 
-## Slide 1: Title
+## Slide 1: From Output to Decision
 
-ESP32 Connectivity, Protocols & Design Workflow — Week 2
-
-Speaker notes:
-- Welcome back. Overview: Wi‑Fi/BLE basics, I2C vs SPI deep dive, KiCad PCB workflow, project assignment and offline test instructions.
+- Last week: code made LEDs follow a fixed sequence.
+- This week: code responds to an input and makes a decision.
+- Project link: the curtain switch will later change the alarm state.
 
 ---
 
 ## Slide 2: Learning Objectives
 
-- Understand ESP32 networking capabilities (Wi‑Fi station/AP, BLE roles)
-- Use I2C and SPI at a protocol level and in code
-- Design a simple PCB in KiCad for the alarm circuit
-- Be prepared for the offline programming test and project submission requirements
-
-Speaker notes:
-- Emphasise outcomes mapping to assessment: coding, schematic capture, PCB layout, and documentation.
+- Configure and read a digital input.
+- Explain `HIGH`, `LOW`, pull-up and pull-down behaviour.
+- Use `if/else` to make a decision.
+- Create a truth table and flowchart before writing code.
+- Produce a first pin map and system block diagram.
 
 ---
 
-## Slide 3: Wi‑Fi on ESP32 — Modes & Use-cases
+## Slide 3: Digital Inputs Need a Defined State
 
-- Station (STA), Access Point (AP), STA+AP
-- Use-cases: data upload, remote control, local web UI, OTA updates
-- Security basics: WPA2, proper credential storage
+- An input pin cannot be left electrically floating.
+- A **pull-down** resistor holds it at `LOW` until a switch connects it to supply.
+- A **pull-up** resistor holds it at `HIGH` until a switch connects it to ground.
+- `INPUT_PULLUP` uses the Arduino's internal pull-up resistor.
 
 Speaker notes:
-- Explain when to use STA vs AP. Show small architecture diagrams: device -> router -> cloud, or device as AP for local config.
+- With `INPUT_PULLUP`, pressed normally reads `LOW`. Students often find this backwards at first.
 
 ---
 
-## Slide 4: Wi‑Fi Programming Patterns
+## Slide 4: Button Truth Table
 
-- Connecting to network with event handlers
-- Reconnection strategies and exponential backoff
-- Keepalive and watchdog integration
-
-Speaker notes:
-- Show event-driven model in ESP-IDF and Arduino examples. Warn about blocking on connect in main loop.
-
----
-
-## Slide 5: BLE Basics — GATT and Advertising
-
-- BLE roles: Central vs Peripheral
-- GATT server and characteristics
-- Advertising parameters and discovery
-
-Speaker notes:
-- Keep to practical BLE: advertise sensor data or accept remote control via characteristics.
-- Mention tools: nRF Connect for testing.
+| Wiring mode | Button condition | Typical reading |
+| --- | --- | --- |
+| External pull-down | Not pressed | `LOW` |
+| External pull-down | Pressed | `HIGH` |
+| `INPUT_PULLUP` | Not pressed | `HIGH` |
+| `INPUT_PULLUP` | Pressed | `LOW` |
 
 ---
 
-## Slide 6: When to choose Wi‑Fi vs BLE
+## Slide 5: Read a Button
 
-- Wi‑Fi: high throughput, networked, OTA
-- BLE: low power, mobile phone pairing, short bursts
+```cpp
+const int switchPin = 2;
+
+void setup() {
+  pinMode(switchPin, INPUT_PULLUP);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int switchState = digitalRead(switchPin);
+  Serial.println(switchState);
+  delay(100);
+}
+```
 
 Speaker notes:
-- Show real examples: BLE for phone app sensor reading; Wi‑Fi for cloud logging.
+- Explain that the serial monitor is a window into the running program.
 
 ---
 
-## Slide 7: I2C Deep Dive — Signals and Protocol
+## Slide 6: Lab L03 - Read a Button in Tinkercad (25 min)
 
-- Two-wire bus: SDA (data) and SCL (clock)
-- Open-drain drivers and pull-ups
-- 7-bit vs 10-bit addresses, ACK/NACK, repeated start
+- Wire a pushbutton from pin 2 to ground.
+- Configure `INPUT_PULLUP`.
+- Print the reading to serial monitor.
+- Press/release the button and record the readings.
+- Explain why the pressed result is `LOW`.
 
-Speaker notes:
-- Explain bus arbitration and why pull-ups are critical. Show logic-level timing diagram.
-
----
-
-## Slide 8: I2C: Common Gotchas
-
-- Wrong pull-up values, bus speed mismatches
-- Address collisions and scan tool usage
-- Long wires and capacitance affecting rise time
-
-Speaker notes:
-- Recommend 2.2k-10k pull-ups depending on bus speed and length. Demonstrate `i2cdetect` style scan in code.
+**Evidence:** circuit screenshot, code and a two-row observation table.
 
 ---
 
-## Slide 9: SPI Deep Dive — Modes and Timing
+## Slide 7: `if/else` Makes a Choice
 
-- Four signals: SCLK, MOSI, MISO, CS
-- Modes 0-3: clock polarity and phase (CPOL/CPHA)
-- Full-duplex and chip-select handling
+```cpp
+if (switchState == LOW) {
+  // The button is pressed.
+} else {
+  // The button is not pressed.
+}
+```
 
-Speaker notes:
-- Explain how to pick mode for a peripheral and show a short oscilloscope timing example.
-
----
-
-## Slide 10: I2C vs SPI — When to use which
-
-- I2C: simpler wiring, multiple masters, slower
-- SPI: faster, full-duplex, per-device chip-selects
-
-Speaker notes:
-- Give examples: I2C for sensors and EEPROMs; SPI for displays and fast ADCs.
+- `==` compares values.
+- `=` assigns a value.
+- Braces show which statements belong to each condition.
 
 ---
 
-## Slide 11: Interfacing an I2C LCD — Review & Advanced Tips
+## Slide 8: Button-Controlled LED
 
-- Addressing, custom characters, backlight control
-- Use buffered writes and rate limit updates to reduce bus load
+```cpp
+if (digitalRead(switchPin) == LOW) {
+  digitalWrite(ledPin, HIGH);
+} else {
+  digitalWrite(ledPin, LOW);
+}
+```
 
-Speaker notes:
-- Show a code snippet for creating custom charset and refreshing only changed characters.
+Predict before running:
 
----
-
-## Slide 12: Peripheral Integration Patterns
-
-- Use dedicated tasks for blocking comms (e.g., SPI flash, I2C sensor scans)
-- Protect shared buses with mutexes
-
-Speaker notes:
-- Show example: multiple sensors on I2C with polling task; avoid simultaneous bus access.
+- What happens when the button is held?
+- What happens when it is released?
+- What would change if the wiring used a pull-down resistor instead?
 
 ---
 
-## Slide 13: KiCad Workflow — Overview
+## Slide 9: Lab L04 - Button-Controlled LED (35 min)
 
-- Schematic capture, symbol selection, net labels
-- Creating footprints or using library footprints
-- ERC checks, PCB layout, design rules, DRC
+**Requirement:** pressing the button illuminates an LED; releasing it turns the LED off.
 
-Speaker notes:
-- Outline the typical workflow: schematic -> annotate -> ERC -> assign footprints -> netlist -> PCB layout -> DRC -> export Gerbers.
+**Challenge:** add a second LED that does the opposite.
 
----
+**Record:**
 
-## Slide 14: Designing a Simple Alarm PCB — Key considerations
-
-- Power supply decoupling, regulator placement
-- Trace widths for currents, connector placement
-- Keep analog traces away from noisy digital/gnd returns
-
-Speaker notes:
-- Recommend placement: speaker connector and switching devices at board edge; keep ADC sensor inputs short.
+- Pin map.
+- Truth table.
+- Flowchart.
+- Screenshot showing the button pressed and code running.
 
 ---
 
-## Slide 15: KiCad Demonstration Plan (in class)
+## Slide 10: Flowchart Before Code
 
-- Build schematic for alarm: ESP32 module, LDR voltage divider, button, speaker (via transistor), power regulator, I2C LCD connector
-- Assign footprints and start PCB layout
+`START -> configure pins -> read button -> is button pressed? -> LED ON / LED OFF -> repeat`
 
-Speaker notes:
-- Note: actual step-by-step to be a live demo; students should replicate on their machines.
-
----
-
-## Slide 16: Offline Programming Test — Goals
-
-- Assess programming and debugging under time pressure with no internet
-- Focus on core skills: peripheral setup, ISR handling, ADC/PWM, protocol knowledge
-
-Speaker notes:
-- Explain test conditions: offline, 30-45 minutes, must submit code that compiles locally and a short README describing logic.
+- Flowcharts describe logic without worrying about C++ punctuation.
+- They make errors easier to discuss before wiring or code is changed.
+- The final project must include a flowchart of its alarm logic.
 
 ---
 
-## Slide 17: Sample Offline Test Prompt
+## Slide 11: Block Diagram and Pin Map
 
-- Implement a device that:
-  - Samples an analog sensor (thermistor or LDR) every 250ms
-  - Toggles a PWM-controlled LED brightness based on sensor value (mapping function)
-  - Uses a button to cycle modes (AUTO -> MAX -> OFF) with debouncing
-  - Provide serial output of mode and values every 1s
+### Block diagram
 
-Speaker notes:
-- This task checks ADC reading, mapping, PWM control, button interrupts/debounce, and serial output for debugging.
-- Provide constraints: must use ADC1, avoid floating in tight loops, ISR must be minimal.
+`LDR + curtain switch -> Arduino -> LED + buzzer + LCD`
 
----
+### Pin map example
 
-## Slide 18: Assessment Rubric (40 points)
-
-- Correct peripheral initialization and use: 12 pts
-- Robust button handling and debouncing: 8 pts
-- Correct sensor mapping to actuator: 8 pts
-- Code clarity + README explanation: 6 pts
-- Bonus (clean power layout / KiCad schematic snippet): 6 pts
-
-Speaker notes:
-- Be clear about deductions: blocking in ISR, unsafe API use in ISR, failure to handle ADC noise.
+| Component | Arduino connection | Function |
+| --- | --- | --- |
+| Curtain switch | D2 | Digital input |
+| LED | D13 | Digital output |
 
 ---
 
-## Slide 19: Project Assignment & Submission Requirements
+## Slide 12: Debugging Clinic
 
-- Project: Complete alarm system with ESP32 + I2C LCD + LDR + button + speaker; optionally add Wi‑Fi reporting or PCB design
-- Deliverables: Code (well-commented), README (design choices, pinout), KiCad files if PCB attempted, short demo video (2-3 minutes)
-- Deadline and submission channel: specify your LMS or GitHub repo (instructor to fill)
-
-Speaker notes:
-- Mention academic integrity and allowed resources for project (libraries allowed, internet permitted for project work but not during offline test).
-
----
-
-## Slide 20: Preparation Tips for Students
-
-- Practice without internet: set up local dev environment and compile offline
-- Test on hardware early
-- Keep a checklist: pinout, ADC/GND reference, pull-ups, power decoupling
-
-Speaker notes:
-- Encourage pair-programming practice sessions and rehearsing demonstration.
+- Does `Serial.println()` show a changing state?
+- Is the switch connected to ground when using `INPUT_PULLUP`?
+- Is the code testing for the correct logic level?
+- Is every component connected to a shared ground?
+- Can the input and output be proved separately before combining them?
 
 ---
 
-## Slide 21: Q&A and Next Steps
+## Slide 13: Assessment Link
 
-- Recap: what to study and what to bring to next session
-- Offer office hours for KiCad help and debugging
+- Clear I/O design supports **LO1.M1** and **LO2.P3**.
+- Working, readable code supports **LO3.P4**.
+- The truth table and test check are the beginning of **LO3.P5** evidence.
 
-Speaker notes:
-- Close with reminder of test format and deliverables.
+---
+
+## Slide 14: Week 2 Exit Evidence
+
+- Submit L03 and L04 simulator links/screenshots.
+- Submit truth table, flowchart and first system block diagram.
+- Update platform comparison with input/output and communication capability.
+- Bring one question about analogue sensors to Week 3.

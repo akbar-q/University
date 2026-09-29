@@ -7,6 +7,7 @@ What to include here
 - Source code (.ino, .cpp, .py) with README explaining how to build/run
 - Test logs and test plan evidence
 - Professional discussion notes (PD Sample QnA, PD Test Question List)
+- Individual professional-discussion video recording and [submission brief](LO3_VIDEO_RECORDING_BRIEF.md)
 - Offline programming test results and assessor notes
 
 Organisation suggestion
