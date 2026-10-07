@@ -30,3 +30,6 @@ desktop.ini
 # Ignore Python cache (if any)
 __pycache__/
 *.pyc
+
+# Ignore private career documents
+/Career Documents/
