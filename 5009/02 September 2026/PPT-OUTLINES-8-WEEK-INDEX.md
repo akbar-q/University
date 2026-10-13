@@ -1,6 +1,6 @@
 # Unit 5009: Eight-Week LO1/LO2 PPT Outline Index
 
-These eight documents are weekly teaching-deck outlines, not exported PowerPoint files. Each plan is for a 3.5-hour session (210 minutes, including a 10-minute break) and contains slide timings, teaching points, activities, and expected evidence.
+These eight documents are weekly teaching-deck outlines paired with editable PowerPoint decks. Each plan is for a 3.5-hour session (210 minutes, including a 10-minute break) and contains slide timings, substantive teaching points, worked examples, activities, and expected evidence.
 
 | Week | Learning outcome | Weekly presentation | PowerPoint deck | Main criteria |
 |---|---|---|---|---|
@@ -29,7 +29,7 @@ These eight documents are weekly teaching-deck outlines, not exported PowerPoint
 
 ## Deck generation
 
-- The PowerPoint decks contain 18 teaching slides each, with a reserved image area on every slide.
-- Full teaching bullets, activity cues, and a tailored image-generation prompt are embedded in each slide's speaker notes.
+- The PowerPoint decks contain 18 teaching slides each. Slide faces show the lesson content and editable topic diagrams; selected slides retain dedicated image bays for visuals that benefit from photography or illustration.
+- Speaker notes preserve the complete teaching bullets/activity cues and contain a slide-specific optional image prompt.
 - The generator and its npm project are in [`PPTX Builder`](PPTX%20Builder/).
 - From that folder, run `npm install` once and then `npm run build` to regenerate the decks from the Markdown outlines.
