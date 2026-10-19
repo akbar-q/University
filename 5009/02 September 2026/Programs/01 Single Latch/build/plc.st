@@ -27,7 +27,7 @@ PROGRAM program0
     Output : BOOL;
   END_VAR
 
-  Output := Button OR Button AND NOT(Output);
+  Output := Output OR NOT(Output) AND Button;
 END_PROGRAM
 
 

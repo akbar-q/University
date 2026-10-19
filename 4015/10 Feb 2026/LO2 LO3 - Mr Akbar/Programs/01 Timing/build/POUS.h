@@ -36,7 +36,7 @@ typedef struct {
 
   // PROGRAM private variables - TEMP, private and located variables
   __DECLARE_VAR(BOOL,TRIGGER)
-  __DECLARE_VAR(BOOL,LAMP)
+  __DECLARE_LOCATED(BOOL,LAMP)
   TON TON0;
   TOF TOF0;
 

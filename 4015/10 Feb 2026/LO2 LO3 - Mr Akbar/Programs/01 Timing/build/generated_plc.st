@@ -1,7 +1,11 @@
 PROGRAM program0
   VAR
     Trigger : BOOL;
-    Lamp : BOOL;
+  END_VAR
+  VAR
+    Lamp AT %IX0.0 : BOOL;
+  END_VAR
+  VAR
     TON0 : TON;
     TOF0 : TOF;
   END_VAR

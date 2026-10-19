@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6.xsd">
+<project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2025-10-17T14:24:37"/>
-  <contentHeader name="Unnamed" modificationDateTime="2025-10-17T14:34:49">
+  <contentHeader name="Unnamed" modificationDateTime="2026-10-16T15:30:20">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -80,7 +80,7 @@
                 <relPosition x="0" y="300"/>
               </connectionPointIn>
             </rightPowerRail>
-            <contact localId="3" negated="false" width="20" height="20">
+            <contact localId="3" negated="false" width="21" height="20">
               <position x="280" y="80"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
@@ -90,11 +90,11 @@
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="20" y="10"/>
+                <relPosition x="21" y="10"/>
               </connectionPointOut>
               <variable>Button</variable>
             </contact>
-            <contact localId="4" negated="true" width="20" height="20">
+            <contact localId="4" negated="false" width="21" height="20">
               <position x="280" y="140"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
@@ -104,7 +104,7 @@
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="20" y="10"/>
+                <relPosition x="21" y="10"/>
               </connectionPointOut>
               <variable>Output</variable>
             </contact>
@@ -112,15 +112,15 @@
               <position x="450" y="80"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="3">
-                  <position x="450" y="90"/>
-                  <position x="300" y="90"/>
-                </connection>
                 <connection refLocalId="4">
                   <position x="450" y="90"/>
-                  <position x="375" y="90"/>
-                  <position x="375" y="150"/>
+                  <position x="418" y="90"/>
+                  <position x="418" y="150"/>
                   <position x="301" y="150"/>
+                </connection>
+                <connection refLocalId="6">
+                  <position x="450" y="90"/>
+                  <position x="381" y="90"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -128,6 +128,20 @@
               </connectionPointOut>
               <variable>Output</variable>
             </coil>
+            <contact localId="6" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="360" y="80"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="3">
+                  <position x="360" y="90"/>
+                  <position x="301" y="90"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>Output</variable>
+            </contact>
           </LD>
         </body>
       </pou>

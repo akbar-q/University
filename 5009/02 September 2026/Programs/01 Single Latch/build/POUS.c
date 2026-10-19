@@ -50,7 +50,7 @@ void PROGRAM0_init__(PROGRAM0 *data__, BOOL retain) {
 void PROGRAM0_body__(PROGRAM0 *data__) {
   // Initialise TEMP variables
 
-  __SET_VAR(data__->,OUTPUT,,(__GET_VAR(data__->BUTTON,) || (__GET_VAR(data__->BUTTON,) && !(__GET_VAR(data__->OUTPUT,)))));
+  __SET_VAR(data__->,OUTPUT,,(__GET_VAR(data__->OUTPUT,) || (!(__GET_VAR(data__->OUTPUT,)) && __GET_VAR(data__->BUTTON,))));
 
   goto __end;
 
