@@ -24,12 +24,12 @@
 **Time:** 00:00-00:05
 
 **On-slide:**
-- Build only from the reviewed, safe schematic
-- Test under controlled and repeatable conditions
-- Record what happened, including failed tests and changes
-- Compare physical measurements to equations and simulation
+- Build on the reviewed design and Week 6 simulation
+- P8: construct the circuit and justify a repeatable bench test
+- M5 preparation: collect comparable measurements for later analysis
+- Record results, faults and changes; compare with predictions
 
-**Speaker notes:** Explain that deviations are valuable evidence. Students may not hide changes by silently redrawing the circuit after testing; record as-built deviations and revision IDs.
+**Speaker notes:** Explain that P8 is not simply “the circuit was built”: students must justify how the test method checks the design. M5 will use the measured evidence alongside calculations and simulation. Deviations are valuable evidence; record as-built changes and revision IDs rather than silently redrawing the circuit.
 
 ## Slide 2 - Bench Readiness and Safe Limits
 **Time:** 00:05-00:10
@@ -51,7 +51,9 @@
 - Verify dynamics: step -> settling/update/threshold delay
 - Verify fault bounds: open/short input response where safe
 
-**Speaker notes:** Separate subsystem tests. First prove divider and ADC electrically with known resistors or a calibrated source. Then test temperature mapping. Fault injection should be limited to safe, current-limited conditions and never exceed absolute maximum ratings.
+**Speaker notes:** Separate subsystem tests and introduce them in order: first prove the divider and ADC electrically with known resistors or a calibrated source, then test temperature mapping, then dynamics. Fault injection must stay within safe, current-limited conditions and never exceed absolute maximum ratings.
+
+**Quick check:** Ask students which test isolates the analogue divider from uncertainty in the temperature reference.
 
 ## Slide 4 - Instruments and Their Limits
 **Time:** 00:20-00:32
@@ -62,7 +64,7 @@
 - Oscilloscope: transient/noise; probe attenuation, bandwidth and grounding
 - MCU serial/log output: raw code, converted value, sample timing
 
-**Speaker notes:** Show how to measure VADC directly while logging raw ADC code. Explain instrument resolution is not accuracy. Note that MCU ADC reads can be affected by source impedance, sampling configuration and internal calibration.
+**Speaker notes:** Choose the instrument by the quantity being checked: DMM for steady voltage, oscilloscope for changing signals, and MCU logging for raw code/timing. Show how to measure VADC while logging raw code. Explain instrument resolution is not accuracy. Note that MCU ADC reads can be affected by source impedance, sampling configuration and calibration.
 
 ## Slide 5 - Test Inputs: Known Resistors Before Temperature
 **Time:** 00:32-00:44

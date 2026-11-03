@@ -24,19 +24,20 @@
 **Time:** 00:00-00:05
 
 **On-slide:**
-- ADC converts sampled analogue input into digital codes
-- Topology affects speed, resolution, latency, complexity, power and noise
-- Selection starts with application requirements
+- Last week: an ADC turns an analogue voltage into a digital code
+- This week: compare how different ADCs perform that conversion
+- P5: specify what the application needs; M4: justify which approach fits
 
-**Speaker notes:** Reconnect to last week's signal-chain matrix. Explain that a converter cannot compensate for wrong sensor range, poor grounding or aliasing. Today's outcome is a defensible specification and topology choice.
+**Speaker notes:** Start with the familiar sensor -> voltage -> ADC -> code chain. Explain that a topology is the internal method the ADC uses to create a code. P5 means describing measurable converter requirements; M4 means comparing architectures against those requirements. A converter cannot compensate for wrong sensor range, poor grounding or aliasing.
 
 ## Slide 2 - Retrieval Check
 **Time:** 00:05-00:10
 
 **On-slide:**
-- Define quantisation step for an ideal N-bit ADC
+- In one sentence, what goes into an ADC and what comes out?
+- Estimate the code step for a 10-bit ADC over 0-5 V
 - What does Nyquist tell us, and what does it not guarantee?
-- Name two errors beyond quantisation
+- Name one error beyond quantisation
 
 **Speaker notes:** Students answer individually, then compare with a partner. Expected: step is approximately full-scale range / 2^N; Nyquist lower bound for band-limited signals, not filter/accuracy guarantee; reference error, offset/gain, INL/DNL, noise, drift and source impedance are examples.
 
@@ -44,11 +45,14 @@
 **Time:** 00:10-00:20
 
 **On-slide:**
-- Input conditioning -> sample/hold -> quantiser/encoder -> code/interface
-- Define aperture, acquisition time, conversion time and data latency
-- ADC input must remain within electrical limits at all times
+- Condition the signal so it fits the ADC input range
+- Sample/hold captures the voltage; quantiser/encoder assigns a code
+- The interface reports the code to the system
+- Acquisition, conversion and readout latency describe different delays
 
-**Speaker notes:** Use a block diagram. Separate analog input sampling time from conversion time and readout latency. Highlight source impedance and sample capacitor settling: a source may be within voltage limits but still fail to settle accurately.
+**Speaker notes:** Introduce the blocks in order and define each delay only when its block appears. Acquisition is time for the input to settle; conversion is time to determine the code; readout latency is time until the system receives it. Highlight source impedance and sample-capacitor settling: a source may be within voltage limits but still fail to settle accurately.
+
+**Quick check:** Students label the input voltage, sample/hold and digital-code output on the diagram, then explain which delay matters for the required update rate.
 
 ## Slide 4 - Single-Ramp / Counter-Ramp ADC
 **Time:** 00:20-00:32

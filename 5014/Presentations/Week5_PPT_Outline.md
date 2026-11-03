@@ -35,22 +35,24 @@ Design an extra-low-voltage circuit that measures temperature using an NTC therm
 **Time:** 00:00-00:05
 
 **On-slide:**
-- Shared LO4 project: thermistor -> conditioning -> ADC -> temperature -> warning
-- Today's question: what circuit will meet a measurable requirement?
-- Deliverable: documented design that can be simulated, built and tested
+- LO4: design a circuit using physical components
+- P6: choose and explain a circuit that meets a measurable need
+- Project path: thermistor resistance -> voltage -> ADC code -> temperature estimate
+- Today: define what a good measurement must do before selecting parts
 
-**Speaker notes:** Clarify LO3 DAC simulations are a separate evidence strand. The project today is an ADC application with physical components. Explain that students must create individual schematics/calculations even if they discuss ideas together.
+**Speaker notes:** Connect the ADC basics from Week 1 to this project: the ADC reads voltage, while the thermistor and interface make temperature measurable. Explain that LO4 is the broader outcome and P6 is the evidence for designing and describing the circuit. Clarify LO3 DAC simulations are a separate strand. Students create individual schematics/calculations even if they discuss ideas together.
 
 ## Slide 2 - Project Scenario and Requirements Seed
 **Time:** 00:05-00:10
 
 **On-slide:**
+- Quick recall: what signal enters the ADC, and what does it return?
 - Measure a defined temperature range using a specified NTC thermistor
 - Deliver a repeatable ADC code and converted temperature
 - Indicate a threshold condition with a low-voltage output
 - Show error, noise, response and safe input limits
 
-**Speaker notes:** Provide the cohort with a tutor-set application range and warning threshold after checking actual component availability. Do not prescribe an accuracy target unsupported by sensor/board capability. Students will derive a realistic error budget.
+**Speaker notes:** Take a one-minute retrieval response before introducing the scenario. Provide the cohort with a tutor-set application range and warning threshold after checking actual component availability. Do not prescribe an accuracy target unsupported by sensor/board capability. Students will derive a realistic error budget.
 
 ## Slide 3 - Requirement Before Circuit
 **Time:** 00:10-00:20
@@ -63,6 +65,8 @@ Design an extra-low-voltage circuit that measures temperature using an NTC therm
 
 **Speaker notes:** Show a requirement-to-test example: “Over 20-60 C, ADC code shall increase monotonically as temperature rises; verify with resistor substitutions representing selected temperatures.” Make clear monotonicity may reverse depending on divider orientation. Require a written decision.
 
+**Quick check:** For each requirement, students name one measurement that could prove whether it passes.
+
 ## Slide 4 - NTC Thermistor: Resistance Is Not Temperature
 **Time:** 00:20-00:32
 
@@ -72,7 +76,9 @@ Design an extra-low-voltage circuit that measures temperature using an NTC therm
 - Beta model: R(T)=R0 exp[B(1/T - 1/T0)] (T in kelvin)
 - Tolerance and self-heating contribute to measurement uncertainty
 
-**Speaker notes:** Explain nominal resistance and reference temperature. Have students identify why beta is not constant across all ranges and why the device's actual datasheet/model matters. Define self-heating qualitatively through power in the thermistor; mention mounting and thermal lag.
+**Speaker notes:** Begin with the qualitative relationship (NTC resistance falls as temperature rises), then introduce the equation and define each symbol. Explain nominal resistance and reference temperature. Have students identify why beta is not constant across all ranges and why the actual datasheet/model matters. Define self-heating through power in the thermistor; mention mounting and thermal lag.
+
+**Quick check:** Show a warmer-temperature point and ask students to predict whether resistance rises or falls before calculating it.
 
 ## Slide 5 - Divider Design and ADC Span
 **Time:** 00:32-00:44

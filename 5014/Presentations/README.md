@@ -16,3 +16,21 @@ These Markdown documents are detailed slide-by-slide outlines for eight 3-4 hour
 Each outline assumes 3 hours 45 minutes including a 10-minute break. Confirm timetable, selected hardware, ECAD tool, component availability and assessment submission requirements with the module tutor before delivery.
 
 The LO4 project uses an extra-low-voltage thermistor-to-ADC temperature monitor. It is a teaching prototype, not a certified safety system. LO3 DAC simulations remain a separate assessment activity.
+
+## Editable PowerPoint Deck
+
+- `Week1_Analogue_and_Digital_Information.pptx` - Week 1 foundations: analogue and digital information.
+- `Week2_ADC_Topologies_and_Requirements.pptx` - ADC architectures and specifications.
+- `Week3_DAC_Topologies_and_Output_Requirements.pptx` - DAC architectures and output requirements.
+- `Week4_DAC_Simulation_Study.pptx` - controlled DAC simulation study.
+- `Week5_ADC_Temperature_Monitor_Design.pptx` - thermistor-to-ADC design.
+- `Week6_ADC_Temperature_Monitor_Simulation.pptx` - ECAD simulation, changes and tolerances.
+- `Week7_ADC_Circuit_Bench_Testing.pptx` - safe construction and bench testing.
+- `Week8_Circuit_Analysis_and_Presentation.pptx` - graphical evaluation and presentation.
+
+All decks have 16 editable slides with speaker notes. Text, shapes, plots and diagrams are native PowerPoint objects; replace illustrative diagrams with your own sourced data or results where required.
+
+- `build_week1_ppt.js` - rebuilds the Week 1 deck.
+- `build_weeks2to8_ppt.js` - rebuilds the Week 2-8 decks from their Markdown outlines.
+
+Run the relevant script from this folder with Node.js to regenerate its deck or decks. Both scripts use the workspace's shared PptxGenJS installation.

@@ -1,6 +1,6 @@
 # Unit 5014 Task 2 - Project Presentation Template
 
-Use this slide-by-slide template to build your specialist-audience presentation. Replace every bracketed prompt with your own design information and evidence. Remove prompts that do not apply, but do not omit required assessment evidence. Confirm presentation duration, file format and evidence-pack arrangements with your tutor.
+Use this slide-by-slide template to build your project presentation. It starts by orienting the audience to LO4 and the ADC signal path, then moves into your design and evidence. Keep the fundamentals concise and spend most of the presentation on your own engineering decisions and results. Replace every bracketed prompt with your information and evidence. Remove prompts that do not apply, but do not omit required assessment evidence. Confirm presentation duration, file format and evidence-pack arrangements with your tutor.
 
 Keep the main slides focused on decisions and results. Put detailed calculations, raw data, full datasheets, editable ECAD files and extra test evidence in the indexed supporting pack, and cite the relevant item on the slide.
 
@@ -29,7 +29,49 @@ Keep the main slides focused on decisions and results. Put detailed calculations
 
 **Evidence reference:** [Build photo / project record]
 
-### Slide 2 - Application, Requirements and Acceptance Criteria
+### Slide 2 - What LO4 Asks You to Demonstrate
+
+**On-slide:**
+- LO4: design electronic circuits using physical components
+- P6: design the circuit and explain it in writing
+- P7-P8: simulate, construct and test it using a justified method
+- M5-D4: analyse the evidence and present the effect of design changes or tolerances
+
+**Visual:** [Progression: design -> simulate -> construct/test -> analyse -> recommend]
+
+**Speaker notes:** Explain that learning outcomes describe the capability being developed, while the criteria show what evidence demonstrates achievement. The presentation should make the route from the circuit design to the final recommendation visible.
+
+**Evidence reference:** [Assignment brief / assessment evidence map]
+
+### Slide 3 - ADC Basics: From Voltage to Digital Code
+
+**On-slide:**
+- An ADC converts an analogue input voltage into a digital number
+- It samples the input, quantises the value into a finite range and encodes a digital code
+- The input range, reference voltage and resolution determine the code mapping
+- An ADC measures voltage; it does not identify temperature or another physical quantity by itself
+
+**Visual:** [Simple input-voltage-to-digital-code diagram or staircase plot]
+
+**Speaker notes:** Introduce the idea without assuming prior knowledge: the ADC takes a voltage at its input and reports a number representing that voltage. Explain that finite resolution means nearby input voltages can produce the same code, and that sampling rate describes how often readings are taken. Do not imply that bit count alone guarantees measurement accuracy.
+
+**Evidence reference:** [ADC datasheet / cited introductory source]
+
+### Slide 4 - How This Project Uses the ADC
+
+**On-slide:**
+- Temperature changes the NTC thermistor's resistance
+- A circuit converts resistance into an analogue voltage
+- The ADC converts that voltage into a digital code
+- A conversion/calibration step maps the code to an estimated temperature
+
+**Visual:** [NTC thermistor -> divider/conditioning -> ADC -> code -> temperature]
+
+**Speaker notes:** Connect the basic ADC explanation to this project. Identify where the analogue signal exists, what voltage reaches the ADC, and how the digital code becomes a temperature estimate. State that the measurement depends on the thermistor characteristics, analogue circuit, ADC reference and conversion method.
+
+**Evidence reference:** [Project block diagram / thermistor datasheet]
+
+### Slide 5 - Application, Requirements and Acceptance Criteria
 
 **On-slide:**
 - Application and intended measurement: [Description]
@@ -44,7 +86,7 @@ Keep the main slides focused on decisions and results. Put detailed calculations
 
 **Evidence reference:** [Requirements / acceptance criteria record]
 
-### Slide 3 - Circuit Architecture and Signal Flow
+### Slide 6 - Circuit Architecture and Signal Flow
 
 **On-slide:**
 - Sensor -> [conditioning stages] -> ADC input -> [measurement output]
@@ -57,7 +99,7 @@ Keep the main slides focused on decisions and results. Put detailed calculations
 
 **Evidence reference:** [Block diagram / schematic, revision]
 
-### Slide 4 - Schematic and Component Selection
+### Slide 7 - Schematic and Component Selection
 
 **On-slide:**
 - Thermistor: [Manufacturer, part number, key characteristics]
@@ -71,7 +113,7 @@ Keep the main slides focused on decisions and results. Put detailed calculations
 
 **Evidence reference:** [Schematic / component list / datasheets]
 
-### Slide 5 - Design Equations and Predicted Response
+### Slide 8 - Design Equations and Predicted Response
 
 **On-slide:**
 - Governing equations: [Equation(s), symbols and units]
@@ -85,7 +127,7 @@ Keep the main slides focused on decisions and results. Put detailed calculations
 
 **Evidence reference:** [Calculation sheet / prediction data]
 
-### Slide 6 - Nominal Simulation and Requirement Check
+### Slide 9 - Nominal Simulation and Requirement Check
 
 **On-slide:**
 - ECAD tool and project revision: [Tool/version, file/revision]
@@ -99,7 +141,7 @@ Keep the main slides focused on decisions and results. Put detailed calculations
 
 **Evidence reference:** [Editable ECAD project / simulation output]
 
-### Slide 7 - Design Change and Component-Tolerance Investigation
+### Slide 10 - Design Change and Component-Tolerance Investigation
 
 **On-slide:**
 - Baseline: [Component values / reference assumption]
@@ -114,7 +156,7 @@ Keep the main slides focused on decisions and results. Put detailed calculations
 
 **Evidence reference:** [Variant ECAD files / plots / run settings]
 
-### Slide 8 - Construction and Bench Test Method
+### Slide 11 - Construction and Bench Test Method
 
 **On-slide:**
 - Build configuration and revision: [As-built description]
@@ -129,7 +171,7 @@ Keep the main slides focused on decisions and results. Put detailed calculations
 
 **Evidence reference:** [Bench test plan / setup photo]
 
-### Slide 9 - Build Evidence and Bench Results
+### Slide 12 - Build Evidence and Bench Results
 
 **On-slide:**
 - Build photograph(s): [Label components and test points]
@@ -144,7 +186,7 @@ Keep the main slides focused on decisions and results. Put detailed calculations
 
 **Evidence reference:** [Build photos / raw bench data / retest record]
 
-### Slide 10 - Predicted, Simulated and Measured Comparison
+### Slide 13 - Predicted, Simulated and Measured Comparison
 
 **On-slide:**
 - Compared conditions: [Matched temperature/resistance, supply, reference, load]
@@ -158,7 +200,7 @@ Keep the main slides focused on decisions and results. Put detailed calculations
 
 **Evidence reference:** [Processed dataset / graph / uncertainty calculation]
 
-### Slide 11 - Recommendation, Limitations and Improvements
+### Slide 14 - Recommendation, Limitations and Improvements
 
 **On-slide:**
 - Recommended design or configuration: [Choice]
@@ -172,7 +214,7 @@ Keep the main slides focused on decisions and results. Put detailed calculations
 
 **Evidence reference:** [Evaluation / proposed test record]
 
-### Slide 12 - References and Evidence Pack
+### Slide 15 - References and Evidence Pack
 
 **On-slide:**
 - [Harvard references for sources cited in the presentation]

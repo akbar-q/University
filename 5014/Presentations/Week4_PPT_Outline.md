@@ -24,11 +24,11 @@
 **Time:** 00:00-00:05
 
 **On-slide:**
-- D3: create a range of DAC circuit simulations
-- Evaluate how resolution and conversion time affect accuracy and noise
-- Controlled comparisons and honest model limits are required
+- Build on last week: ideal DAC calculations are a prediction, not a test result
+- D3: run controlled simulations to test how resolution and timing affect output
+- Explain what the results show and what the model cannot prove
 
-**Speaker notes:** Distinguish “I ran a simulator” from “I designed a test that supports a conclusion.” Students should leave with source files, parameter records and exported data, not screenshots alone.
+**Speaker notes:** Explain D3 in plain language: change a defined parameter, observe a measurable effect, and support a conclusion with the saved model and data. Distinguish “I ran a simulator” from “I designed a test that answers a question.” Students should leave with source files, parameter records and exported data, not screenshots alone.
 
 ## Slide 2 - Retrieval and Hypothesis
 **Time:** 00:05-00:10
@@ -44,12 +44,12 @@
 **Time:** 00:10-00:20
 
 **On-slide:**
-- Choose a reproducible circuit: R/2R ladder plus output buffer, or tutor-approved DAC model
-- Fix supply/reference, output range, load and input code sequence
-- State idealisations and non-ideal elements explicitly
-- Version each model and simulation run
+- Choose one baseline DAC circuit or tutor-approved model
+- Keep supply/reference, range, load and code sequence fixed
+- Change one test factor at a time for a fair comparison
+- Record assumptions and save a version for every run
 
-**Speaker notes:** Recommend the same topology across resolution variants to avoid confounding architecture and bit-depth. Include switch models, resistor values/tolerances, reference source, op-amp model and load if supported. If the ECAD tool lacks a DAC block, construct the circuit from components.
+**Speaker notes:** Explain “controlled comparison” as changing one thing while keeping the rest the same. Recommend the same topology across resolution variants to avoid confounding architecture and bit-depth. Introduce model details in layers: first topology and values, then switch/reference/op-amp models and load if supported. If the ECAD tool lacks a DAC block, construct the circuit from components.
 
 ## Slide 4 - Resolution and Quantisation Error
 **Time:** 00:20-00:32
@@ -106,7 +106,7 @@
 - Define settling band and measurement window before running
 - Separate expected ideal error from simulator and component effects
 
-**Speaker notes / prompt:** Ask students how they would know a waveform is under-sampled by the simulator. Require a pilot run and a timestep refinement check. Each student writes a one-sentence hypothesis for one resolution and one timing comparison.
+**Speaker notes / prompt:** Use this as a pause before the lab: students explain the reference, code mapping and one chosen metric to a partner. Ask how they would know a waveform is under-sampled by the simulator. Require a pilot run and a timestep refinement check. Each student writes a one-sentence hypothesis for one resolution and one timing comparison.
 
 ## Slide 9 - Break
 **Time:** 01:20-01:30

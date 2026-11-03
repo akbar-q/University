@@ -24,32 +24,35 @@
 **Time:** 00:00-00:05
 
 **On-slide:**
-- DAC maps a digital code into an analogue output
-- Today: binary-weighted, R/2R, segmented and delta-sigma approaches
-- Output range, load, settling, accuracy and noise define suitability
+- Last week: ADC converts voltage to code; now follow the signal in reverse
+- A DAC maps a digital code to an analogue output voltage
+- P5/M4: calculate the output and choose a topology for its application
 
-**Speaker notes:** Give examples: audio, control references, waveform generation, sensor simulation and instrumentation. Clarify that a PWM output plus filter is not the same implementation as a true DAC, even if both can generate an average voltage.
+**Speaker notes:** Draw the two directions side by side: ADC voltage -> code; DAC code -> voltage. Give examples such as audio, control references, waveform generation and instrumentation. Clarify that PWM plus a filter is not the same implementation as a true DAC, even if both can generate an average voltage. Preview the topology names, but teach each only when its diagram is shown.
 
 ## Slide 2 - Retrieval Check: ADC or DAC?
 **Time:** 00:05-00:10
 
 **On-slide:**
+- Match each direction: voltage -> code; code -> voltage
 - Successive approximation is primarily an ADC architecture
 - A SAR ADC contains an internal DAC in its comparison loop
 - Name one limitation of using PWM as an analogue-output substitute
 
-**Speaker notes:** Correct the frequent confusion between ADC architectures and DAC topologies. Elicit ripple, filter lag, load dependence and PWM carrier/noise as examples.
+**Speaker notes:** Ask students to sketch the two conversion arrows before discussing terminology. Correct the frequent confusion between ADC architectures and DAC topologies. Elicit ripple, filter lag, load dependence and PWM carrier/noise as examples.
 
 ## Slide 3 - Ideal DAC Transfer Function
 **Time:** 00:10-00:20
 
 **On-slide:**
-- N bits provide 2^N code states
-- Ideal step size is approximately Vref / 2^N
-- Output transfer depends on code convention and reference polarity
-- Real DACs add offset, gain, INL/DNL, settling and glitch errors
+- First count the available codes: N bits give 2^N states
+- Then find the ideal step: approximately Vref / 2^N
+- Map a code using the stated transfer convention and polarity
+- Real DACs add offset, gain, nonlinearity, settling and glitch errors
 
-**Speaker notes:** Define the assumed unipolar straight-binary model for the examples. Keep endpoint conventions explicit: the maximum code may produce one LSB below reference in a common model. Datasheets determine exact scaling.
+**Speaker notes:** Define the assumed unipolar straight-binary model for the examples. Work the code count before the voltage calculation. Keep endpoint conventions explicit: the maximum code may produce one LSB below reference in a common model. Datasheets determine exact scaling.
+
+**Quick check:** Students predict whether the output should rise or fall when the code increases, then verify using the stated polarity and transfer equation.
 
 ## Slide 4 - Binary-Weighted Resistor DAC
 **Time:** 00:20-00:32

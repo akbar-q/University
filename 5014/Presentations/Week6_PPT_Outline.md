@@ -24,12 +24,12 @@
 **Time:** 00:00-00:05
 
 **On-slide:**
-- Start from the reviewed thermistor-to-ADC schematic
-- Prove nominal function against the requirements
-- Compare a design change and meaningful component tolerances
-- Save model files, settings and evidence for reproducibility
+- Build on the Week 5 design: start from its reviewed schematic and requirements
+- P7: show the chosen circuit works in simulation
+- D4: show how a design change or component tolerance changes its function
+- Save the model, settings and results so another person can check them
 
-**Speaker notes:** Explain that a pretty schematic is not a working simulation. P7 needs observable circuit operation; D4 requires evidence that simulated function varies when design or tolerances change.
+**Speaker notes:** Translate the criteria: P7 is evidence of working simulated behaviour; D4 is a clear comparison showing the effect of a controlled design or tolerance change. Explain that a schematic alone is not a simulation result.
 
 ## Slide 2 - Preflight: Does the Model Match the Design?
 **Time:** 00:05-00:10
@@ -40,18 +40,20 @@
 - Correct ADC input range and signal direction?
 - Named baseline revision and acceptance checks?
 
-**Speaker notes:** Students compare simulation and design packs. If the actual MCU model is unavailable, simulate the analogue front end and use a documented ADC transfer model/table in a spreadsheet or secondary model. State the limitation rather than inventing MCU behaviour.
+**Speaker notes:** Students compare simulation and design packs before opening the simulator. Start with one nominal baseline; only after it behaves as expected should they create variants. If the actual MCU model is unavailable, simulate the analogue front end and use a documented ADC transfer model/table in a spreadsheet or secondary model. State the limitation rather than inventing MCU behaviour.
 
 ## Slide 3 - What ECAD Can and Cannot Prove
 **Time:** 00:10-00:20
 
 **On-slide:**
-- DC operating point: bias and node ranges
-- Transient: response to changing temperature-equivalent resistance/input
-- AC/noise: frequency response when models support it
+- DC operating point: the circuit's steady voltages and currents
+- Transient: how signals change over time
+- AC/noise: frequency response or noise, when models support it
 - Simulation is conditional on models, solver and assumptions
 
-**Speaker notes:** Describe model fidelity hierarchy: ideal components, generic SPICE models, manufacturer models, parasitic and instrument inclusion. Simulation cannot prove physical thermistor calibration, breadboard noise or firmware correctness without additional evidence.
+**Speaker notes:** Introduce one analysis type at a time and connect each to a question it can answer. Describe model fidelity in layers: ideal components, generic SPICE models, manufacturer models, then parasitics and instruments. Simulation cannot prove physical thermistor calibration, breadboard noise or firmware correctness without additional evidence.
+
+**Quick check:** Give students three questions (steady voltage, step response, filter cutoff) and ask them to match each to DC, transient or AC analysis.
 
 ## Slide 4 - Create a Thermistor Model
 **Time:** 00:20-00:32

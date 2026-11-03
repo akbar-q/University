@@ -24,23 +24,23 @@
 **Time:** 00:00-00:05
 
 **On-slide:**
-- Compare design equations, simulation and bench measurements
-- Explain discrepancies, do not hide them
-- Show how design changes and tolerances vary circuit function
-- Present a defensible recommendation to a specialist audience
+- M5: compare equations, simulation and bench results using graphs and evidence
+- D4: show how a design change or tolerance changes circuit function
+- Explain discrepancies, then make a justified recommendation
+- Today: turn the work from Weeks 5-7 into a clear engineering argument
 
-**Speaker notes:** Frame the week as engineering judgement rather than decorating slides. The core narrative is requirement -> design -> predicted response -> simulated response -> measured response -> explanation -> decision.
+**Speaker notes:** Translate M5 as “compare and explain the evidence,” and D4 as “show and evaluate the effect of a design/tolerance variation.” Frame the week as engineering judgement rather than decorating slides. The narrative is requirement -> design -> prediction -> simulation -> measurement -> explanation -> decision.
 
 ## Slide 2 - Retrieve the Evidence Chain
 **Time:** 00:05-00:10
 
 **On-slide:**
-- Requirements and acceptance limits
-- Calculation sheet and component datasheets
-- Versioned ECAD baseline, variants and tolerance runs
-- Bench test plan, raw data and as-built circuit
+- Rebuild the story: requirement -> calculation -> simulation -> bench result
+- Retrieve acceptance limits, datasheets and the as-built revision
+- Find the nominal ECAD run, design variant and tolerance case
+- Bring raw data and test conditions, not only finished plots
 
-**Speaker notes:** Students place files in order and identify missing links. A number without test condition or source is not strong evidence. A schematic must match the simulated/build revision or the difference must be documented.
+**Speaker notes:** Students place evidence in the sequence before making graphs and identify any missing link. A number without a test condition or source is not strong evidence. A schematic must match the simulated/build revision, or the difference must be documented.
 
 ## Slide 3 - Compare Like with Like
 **Time:** 00:10-00:20

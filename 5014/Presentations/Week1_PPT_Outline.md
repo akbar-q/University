@@ -24,19 +24,20 @@
 **Time:** 00:00-00:05
 
 **On-slide:**
-- LO3: assess conversion between analogue and digital formats
-- Today: what is represented, what is lost, and what must be measured?
-- Case signal: a slowly changing temperature measurement
+- Unit 5014 has two linked outcomes: assess conversion (LO3) and design physical circuits (LO4)
+- Weeks 1-4 build LO3 knowledge; Weeks 5-8 apply it to the LO4 thermistor project
+- Today: what an ADC does, what is represented, and what can be lost?
 
-**Speaker notes:** Ask students to give one analogue and one digital representation they use. Preview that the unit is not a list of ADC/DAC names: converter choice must follow signal requirements and evidence.
+**Speaker notes:** Explain that a learning outcome describes a broad capability, while assessment criteria specify the evidence used to judge it. Briefly map the eight weeks: representation and converters first, then a physical thermistor-to-ADC design. Ask students for one familiar analogue signal and one digital value representing it.
 
 ## Slide 2 - Starting Point and Success Criteria
 **Time:** 00:05-00:10
 
 **On-slide:**
-- By the end: compare analogue vs digital limits using a real application
-- Identify range, bandwidth, resolution, accuracy, linearity, drift and noise
-- State an initial sampling and input-range requirement
+- Explain in plain language what an ADC takes in and what it produces
+- Distinguish continuous analogue signals from sampled, coded digital values
+- Compare their limits using a temperature-measurement example
+- Success today: describe one design consequence of a signal or converter limit
 
 **Speaker notes / prompt:** Quick diagnostic: “If an ADC has more bits, is the measurement necessarily more accurate?” Take two answers, record the competing claims, and revisit them in the exit ticket.
 
@@ -44,12 +45,13 @@
 **Time:** 00:10-00:20
 
 **On-slide:**
-- Physical quantity -> sensor -> analogue voltage/current -> conditioning
-- ADC -> digital code -> processing/storage/communication
-- Optional reverse path: DAC -> reconstruction/filter -> physical output
-- Every stage has range, bandwidth, noise and failure limits
+- An ADC (analogue-to-digital converter) changes an input voltage into a number
+- Input voltage -> sample -> quantise -> encode -> digital code
+- The code represents voltage; another step is needed to infer temperature
 
-**Speaker notes:** Distinguish the physical quantity from its electrical representation and from the stored number. Have students identify where sensor calibration, grounding and units enter the chain. Emphasise that a numerical value without calibration metadata may be precise-looking but misleading.
+**Speaker notes:** Start with a simple example: a sensor produces 1.2 V and the ADC reports a code for that voltage. Explain each step in everyday terms: sample means take a reading at a moment; quantise means map it to one of a finite set of levels; encode means write that level as a digital number. The ADC does not know the voltage means temperature. A sensor model or calibration maps the reading to a physical quantity. Keep DACs for the later reverse-conversion discussion.
+
+**Quick check:** Ask students to point out the ADC input (voltage) and output (digital code) on the diagram before moving on.
 
 ## Slide 4 - Analogue and Digital Are Different Representations
 **Time:** 00:20-00:32
