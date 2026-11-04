@@ -150,16 +150,31 @@ No inverter is needed. When `P=0`, the final NAND is high. When `P=1`, it is hig
 
 Use the switches to test each input row. Run the simulation, change the switch positions, and record the output indicator. Stop and reset the simulation if your Multisim version does not allow switch interaction while running. The expected values are identical for the expanded, standard-gate, and NAND-only designs.
 
-| P | Q | R | Expected S | Standard gates | NAND-only | Physical measurement |
+| P | Q | R | Expected S | Standard gates | NAND-only | Hardware output LED 1 |
 |---:|---:|---:|---:|---|---|---|
-| 0 | 0 | 0 | 1 |  |  |  |
-| 0 | 0 | 1 | 1 |  |  |  |
-| 0 | 1 | 0 | 1 |  |  |  |
-| 0 | 1 | 1 | 1 |  |  |  |
-| 1 | 0 | 0 | 0 |  |  |  |
-| 1 | 0 | 1 | 0 |  |  |  |
-| 1 | 1 | 0 | 0 |  |  |  |
-| 1 | 1 | 1 | 1 |  |  |  |
+| 0 | 0 | 0 | 1 |  |  | On |
+| 0 | 0 | 1 | 1 |  |  | On |
+| 0 | 1 | 0 | 1 |  |  | On |
+| 0 | 1 | 1 | 1 |  |  | On |
+| 1 | 0 | 0 | 0 |  |  | Off |
+| 1 | 0 | 1 | 0 |  |  | Off |
+| 1 | 1 | 0 | 0 |  |  | Off |
+| 1 | 1 | 1 | 1 |  |  | On |
+
+### Hardware output photos
+
+The eight photos are named for the input combination in `PQR` order. The green indicators show the input states, and the red logic-output indicator labelled `1` is interpreted as `S`. Its observed state matches the expected truth-table output for every photo.
+
+| Inputs (`PQR`) | Observed `S` | Photo |
+|---|---:|---|
+| `000` | 1 (on) | <img src="Hardware%20Outputs/000.jpeg" alt="Hardware output for PQR 000; S on" width="240"> |
+| `001` | 1 (on) | <img src="Hardware%20Outputs/001.jpeg" alt="Hardware output for PQR 001; S on" width="240"> |
+| `010` | 1 (on) | <img src="Hardware%20Outputs/010.jpeg" alt="Hardware output for PQR 010; S on" width="240"> |
+| `011` | 1 (on) | <img src="Hardware%20Outputs/011.jpeg" alt="Hardware output for PQR 011; S on" width="240"> |
+| `100` | 0 (off) | <img src="Hardware%20Outputs/100.jpeg" alt="Hardware output for PQR 100; S off" width="240"> |
+| `101` | 0 (off) | <img src="Hardware%20Outputs/101.jpeg" alt="Hardware output for PQR 101; S off" width="240"> |
+| `110` | 0 (off) | <img src="Hardware%20Outputs/110.jpeg" alt="Hardware output for PQR 110; S off" width="240"> |
+| `111` | 1 (on) | <img src="Hardware%20Outputs/111.jpeg" alt="Hardware output for PQR 111; S on" width="240"> |
 
 For the assignment comparison, retain the theoretical value, Multisim result, and measured prototype value for each row. Use the logic family and supply specified for the physical components in your course; the 2.5 V shown by the simulation probe is not a substitute for checking the real device datasheets and lab supply requirements.
 
