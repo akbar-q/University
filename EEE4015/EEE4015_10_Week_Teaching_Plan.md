@@ -11,9 +11,9 @@
 
 This plan moves students from basic embedded-system concepts and safe microcontroller use to a tested, documented prototype and a proportionate security and resilience review. The propagation cabinet is a teaching context, not a safety-certified product. All practical work is low voltage. Students must not connect a prototype directly to mains electricity, mains-powered heaters, pumps, or fans.
 
-The module specification allocates 67.5 scheduled hours and 132.5 independent-study hours across 200 total learning hours. For planning purposes, this document models ten teaching weeks at an average of **6.75 scheduled hours and 13.25 independent-study hours per week**. A suggested weekly pattern is 1.75 hours of concept teaching and worked examples, 4 hours of supervised practical work, and 1 hour of team/tutorial activity. Tutors should adjust the pattern to the actual timetable and confirm assessment dates. The weekly independent-study allowance is indicative, not a requirement to spend every hour on one task.
+The module specification allocates 67.5 scheduled hours and 132.5 independent-study hours across 200 total learning hours. For planning purposes, this document models ten teaching weeks at an average of **6.75 scheduled hours and 13.25 independent-study hours per week**. Four consecutive weeks (Weeks 2–5) are reserved for simulation-led practical learning. On each simulation day, teach a short concept block, run a guided simulation, pause to interpret the result, then apply the idea in one or more further simulations. Several short circuits can therefore be completed in one day; do not treat each circuit as a separate week. Tutors should adjust session splits to the actual timetable and confirm assessment dates. Weekly independent study is indicative, not a requirement to spend every hour on one task.
 
-The two assessments each carry 50% of the module mark. Weeks 1–5 principally prepare students for Assessment 001; weeks 6–10 principally prepare them for Assessment 002. The individual logbook, evidence of contribution, collaboration, and CPD are developed throughout rather than left until the final week.
+The two assessments each carry 50% of the module mark. Weeks 1–6 principally prepare students for Assessment 001; Weeks 7–10 principally prepare them for Assessment 002. The individual logbook, evidence of contribution, collaboration, and CPD are developed throughout rather than left until the final week.
 
 ## 2. Intended Learning Progression
 
@@ -35,7 +35,7 @@ By the end of the ten weeks, students should be able to:
 | Assessment / learning outcome | Evidence developed during teaching |
 | --- | --- |
 | A001, LO1: integrated or systems approach | Requirements and context; system and signal-flow diagrams; controller and component choices; pin allocation; algorithm or state diagram; trade-offs; traceable requirements. |
-| A001, LO2: practical investigation skills | Safe assembly; incremental build record; sensor and output checks; use of serial tools and measurement equipment; test plan and results; debugging and retest evidence. |
+| A001, LO2: practical investigation skills | Simulation records from Weeks 2–5 plus supervised physical hardware work in Week 6: safe assembly, incremental build, sensor/output measurements, test results, debugging, and retest evidence. Clearly label simulated and physical evidence; simulation alone does not demonstrate all workshop skills. |
 | A002, LO3: proportionate security-risk mitigation | Asset inventory; threats and consequences; likelihood/impact ratings; selected controls; defined safe state; fault-response flow; residual-risk evaluation. |
 | A002, LO4: effective individual and team contribution | Agreed roles and task plan; meeting and decision records; peer review; handovers; contribution statement; evidence of practical and communication work. |
 | A002, LO5: self-learning and CPD | Dated individual logbook; feedback response; skills reflection; identified gap; SMART actions with dates and success measures. |
@@ -63,6 +63,39 @@ These points are revisited whenever students change a circuit or platform.
 - Wireless connectivity is optional for the learning objectives. If used on an ESP32, use a tutor-approved network and avoid placing credentials or private data in a public repository or presentation.
 
 ## 5. Weekly Delivery Plan
+
+### Four-Week Simulation-Led Practical Block (Weeks 2–5)
+
+Use the existing [EEE4015 TinkerCAD Circuits library](TinkerCAD%20Circuits/README.md). Each circuit folder contains a diagram, a TinkerCAD share link, the original code text, a commented `.ino` teaching sketch, and a circuit-specific README. Tutors should open each circuit guide before class: it records pin assignments, simulator/source discrepancies, library needs, and relevant safety cautions.
+
+The simulation block is deliberately interleaved with theory. Teach only the concepts needed for the next circuit, have students predict the result, then let them wire/run/modify the simulation and explain the evidence. Where a class day includes several short simulations, use the same repeatable cycle rather than delivering one long lecture followed by an unstructured lab.
+
+**Suggested 6.75-hour simulation-day pattern (adapt to the actual timetable):**
+
+| Activity | Scheduled time | Learning move |
+|---|---:|---|
+| Mini-lesson and prediction | 0.75 h | Introduce one concept; students predict pin state, signal, or output before running. |
+| Guided simulation A | 1.25 h | Build/open the circuit, inspect the pin map, run the supplied sketch, capture one observation. |
+| Compare and explain | 0.5 h | Compare prediction with simulator output; connect behaviour to the circuit and code. |
+| Guided simulation B | 1.25 h | Change one variable or input, rerun, and record expected versus observed behaviour. |
+| Mini-lesson bridge | 0.5 h | Explain the next concept using the result just observed. |
+| Simulation C / extension | 1.25 h | Complete a second circuit or a fault/boundary extension; more than one simulation can be completed in this block. |
+| Team debrief | 0.75 h | Compare designs, explain a failure, and connect the circuit to the seedling-controller project. |
+| Evidence and logbook | 0.5 h | Label screenshots, pin maps, code version, findings, and next question. |
+| **Total** | **6.75 h** | |
+
+When a week is split over multiple class days, repeat the mini-lesson → simulation → explanation cycle each day. Do not postpone all theory until after the simulation: students should have the vocabulary and a prediction before each new circuit. Tutors may assign different circuits to stations/teams and rotate groups, provided every student records an individual contribution.
+
+**Simulation versus hardware:** TinkerCAD supports safe repetition and fast fault exploration, but it does not by itself evidence the module's LO2 laboratory/workshop skills. Week 6 therefore includes supervised physical low-voltage assembly, measurement, and testing using tutor-approved equipment. If hardware availability is limited, arrange an equivalent supervised physical investigation; do not label simulator output as physical test evidence. A simulated fault is not permission to create a real short circuit, overload, reverse polarity, or unsafe motor supply.
+
+| Simulation week | Circuit set from the folder | Concept-to-simulation emphasis |
+|---|---|---|
+| Week 2 | [01 LED](TinkerCAD%20Circuits/01%20LED%20Interfacing/README.md), [02 Button](TinkerCAD%20Circuits/02%20Button%20Interfacing/README.md), [03 Button → LED](TinkerCAD%20Circuits/03%20Button%20Controlled%20LED/README.md) | GPIO setup, current path, resistor, pull-up, active-low logic, and input-to-output control. |
+| Week 3 | [11 LDR → PWM](TinkerCAD%20Circuits/11%20LDR%20Controlled%20PWM/README.md), [10 Moisture → Servo](TinkerCAD%20Circuits/10%20Moisture%20Sensor%20Controlled%20Servo/README.md) | Voltage-divider measurement, ADC values, calibration, thresholds, PWM mapping, servo output, and hysteresis. |
+| Week 4 | [04 Keypad](TinkerCAD%20Circuits/04%204x4%20Keypad%20Interfacing/README.md), [05 Buzzer PWM](TinkerCAD%20Circuits/05%20Buzzer%20Interfacing%20PWM/README.md), [06 Seven-segment](TinkerCAD%20Circuits/06%207-Segment%20Display%20Interfacing/README.md) | Matrix scanning, event values, duty cycle versus tone, segment maps, polarity, and per-segment current limiting. |
+| Week 5 | [08 Parallel LCD](TinkerCAD%20Circuits/08%20Parallel%2016x2%20Display%20Interfacing/README.md), [09 I2C LCD](TinkerCAD%20Circuits/09%20I2C%2016x2%20Display%20Interfacing/README.md), [07 H-bridge motor](TinkerCAD%20Circuits/07%20Single%20Motor%20H-Bridge/README.md) | Parallel versus serialised display wiring, interface selection, driver logic, separate load power, and system integration. |
+
+For every simulator exercise, students should capture: circuit/pin map, sketch version, the input or control change, observed output, and one explanation. Label screenshots **SIMULATION**. If the class adapts a circuit for a different ESP32 or Uno variant, students must re-check the exact board pinout and logic voltage; do not assume the Uno diagrams transfer directly.
 
 ### Week 1: What Makes a System Embedded?
 
@@ -94,188 +127,180 @@ These points are revisited whenever students change a circuit or platform.
 
 **Assessment link:** A001 Task 1.1 begins: context, requirements, candidate platform, and team plan.
 
-### Week 2: First Programs, Digital Output, and Digital Input
+### Week 2: Simulation Lab 1 — Digital I/O and First Code
 
-**Purpose:** Introduce the programming and electrical patterns students need to make the board observably respond to a simple input.
+**Purpose:** Pair short C/C++ and electrical mini-lessons with three linked simulations so students progress from an output pin to an input-controlled response.
+
+**Concepts to teach in short blocks**
+
+- Sketch structure: `setup()` configures once; `loop()` repeats. Separate compile, upload, reset, and observed runtime behaviour.
+- GPIO modes and logic states: output, input, active-high, active-low, and why an input must not float.
+- LED polarity and current path. A bare LED requires a correctly sized series resistor; GPIO is not a general-purpose supply.
+- `INPUT_PULLUP`: a released switch reads HIGH and a pressed switch to GND reads LOW. Introduce Boolean state, `if` conditions, and `digitalRead()`/`digitalWrite()`.
+- Testing discipline: predict before running, change one thing, compare expected and observed state, then record evidence.
+
+**Simulations to complete in this week**
+
+1. [01 LED Interfacing](TinkerCAD%20Circuits/01%20LED%20Interfacing/README.md): identify polarity and resistor/current path; change blink interval and predict the result.
+2. [02 Button Interfacing](TinkerCAD%20Circuits/02%20Button%20Interfacing/README.md): read two pull-up buttons; observe released/pressed raw logic and serial output.
+3. [03 Button Controlled LED](TinkerCAD%20Circuits/03%20Button%20Controlled%20LED/README.md): connect each input state to its corresponding LED; test one and both buttons.
+
+**Suggested 6.75-hour delivery:** Use the simulation-day pattern above. Start with a brief pin/electrical mini-lesson, run LED Interfacing, compare the code and current path, teach pull-ups and active-low logic, then run Button Interfacing and Button-Controlled LED in the same class. Use the final simulation block for a deliberate wiring/code fault prediction and correction. Multiple simulations are expected within this teaching week and may occur on one class day.
+
+**Practical/simulation outcomes:** Three working simulator states; a pin map; one LED resistor calculation using the selected LED datasheet; a button-state truth table; labelled before/after screenshots; and a short fault/fix note.
+
+**Formative questions:** Why does an unconnected input behave unpredictably? Why does pressed read LOW with `INPUT_PULLUP`? What does the resistor limit? Does successful compilation prove the wiring is correct?
+
+**Hardware option:** If the tutor has approved kits, students may wire one LED and one pull-up button on an Uno after checking the circuit and disconnecting power before changes. This supplements simulation; it does not replace the safety checks.
+
+**Assessment link:** A001 incremental implementation evidence begins: board/serial check, input/output verification, testable requirement, and individual logbook entry.
+
+### Week 3: Simulation Lab 2 — Analogue Sensing, Calibration, and PWM
+
+**Purpose:** Teach the measurement chain and control thresholds by moving from raw analogue codes to an output students can interpret.
+
+**Concepts to teach in short blocks**
+
+- Sensor/transducer, voltage divider, reference voltage, analogue signal, ADC sampling, and quantisation. Distinguish code range from accuracy and resolution.
+- Raw ADC value versus voltage versus calibrated physical measurement. The sensor/module and exact board determine the mapping; do not claim a moisture or lux value without calibration evidence.
+- PWM duty cycle controls average output for suitable loads; it is not a true analogue voltage. Compare duty command to observed LED brightness.
+- Threshold equality, noise, hysteresis, plausible range, and safe handling of missing or implausible readings.
+
+**Simulations to complete in this week**
+
+1. [11 LDR Controlled PWM](TinkerCAD%20Circuits/11%20LDR%20Controlled%20PWM/README.md): read a divider, observe dark/bright ADC changes, map values to LED PWM, and check the diagram's A5 versus original-code A0 discrepancy.
+2. [10 Moisture Sensor Controlled Servo](TinkerCAD%20Circuits/10%20Moisture%20Sensor%20Controlled%20Servo/README.md): inspect raw sensor readings, exercise both sides of a threshold, and compare the servo/indicator response. Treat the starter threshold as uncalibrated until students record observed dry/wet values.
+3. Repeat one sensor scenario with values below, at, and above the threshold; simulate a plausible but noisy reading and demonstrate why hysteresis is useful.
+
+**Suggested 6.75-hour delivery:** Mini-lesson and voltage-divider prediction; LDR simulation; pause to translate one raw code using a stated example; short ADC/PWM lesson; adjust the light level and observe the PWM output; moisture/servo simulation; then test threshold boundaries and a simulated invalid reading. Close by comparing raw-code logs across groups and identifying what would need real sensor calibration.
+
+**Practical/simulation outcomes:** A labelled sensor signal chain, raw-value table, graph/screenshot, provisional threshold with explicit units or counts, boundary test table, and a written calibration limitation.
+
+**Formative questions:** What exactly does the ADC measure? Why can two boards report different values for a similar input? Can a single threshold chatter? What output state should be used if the reading is invalid?
+
+**Hardware option:** If an approved analogue sensor or potentiometer is available, measure a small set of values on the physical Uno and compare with TinkerCAD. Label the datasets separately; do not present simulation readings as hardware measurements.
+
+**Assessment link:** A001 functional acceptance criteria, sensor/component choice, interface explanation, and first boundary/fault tests; starts the A002 sensor-validity risk discussion.
+
+### Week 4: Simulation Lab 3 — Keypads, Buzzer PWM, and Seven-Segment Display
+
+**Purpose:** Combine one short interface concept with several output/input simulations, helping students understand how a controller communicates with users.
+
+**Concepts to teach in short blocks**
+
+- Matrix keypad scanning: four rows plus four columns represent sixteen keys; libraries abstract scanning and return a key event. Introduce library dependency and pin mapping.
+- PWM control: explain duty cycle, frequency, and the distinction between changing loudness/average drive and changing pitch. Passive and active buzzers may respond differently.
+- Seven-segment structure: labels a–g and decimal point, common-anode versus common-cathode, and logic inversion where relevant.
+- LED segment current limiting: each bare segment is an LED and needs its own appropriate resistor; verify the diagram and component type before hardware use.
+- Serial output as interface/debug evidence; distinguish a key event from a continuously held state.
+
+**Simulations to complete in this week**
+
+1. [04 4×4 Keypad](TinkerCAD%20Circuits/04%204x4%20Keypad%20Interfacing/README.md): trace row/column pins; press numeric and special keys; record returned characters.
+2. [05 Buzzer PWM](TinkerCAD%20Circuits/05%20Buzzer%20Interfacing%20PWM/README.md): sweep duty values and listen/observe; compare a PWM ramp with a tone-frequency example.
+3. [06 Seven-Segment Display](TinkerCAD%20Circuits/06%207-Segment%20Display%20Interfacing/README.md): map segment labels to pins, show a character, and predict how common-anode logic would differ.
+
+**Suggested 6.75-hour delivery:** Begin with a keypad matrix diagram, then simulate keypad input and capture the serial output; teach PWM and complete the buzzer activity; use a pinout mini-lesson before the seven-segment simulation; finish with a segment truth table and peer explanation. Teams can work through the three simulations as stations in one day, with a theory/debrief between stations.
+
+**Practical/simulation outcomes:** Keypad pin map and key log; PWM observation table; seven-segment character truth table; resistor/current-limit note; and a code/library setup record.
+
+**Formative questions:** Why does a matrix keypad need fewer pins than one GPIO per key? Does `analogWrite()` set sound pitch? How does display type change ON/OFF levels? Why are separate segment resistors required?
+
+**Hardware option:** Tutor-approved physical keypad, buzzer, or display may be substituted for a simulator station. Validate the specific library, module voltage, pinout, and resistor arrangement before powering it.
+
+**Assessment link:** A001 interface explanation, pin allocation, component justification, and user-facing status choices. Record each student's owned station and evidence in the individual logbook.
+
+### Week 5: Simulation Lab 4 — Displays, Motor Drivers, and System Integration
+
+**Purpose:** Compare communication interfaces and actuator control, then combine the simulation evidence into a defensible cabinet-system architecture.
+
+**Concepts to teach in short blocks**
+
+- Parallel versus I2C display wiring: signal count, bus roles, address/module dependence, library configuration, and voltage/pull-up compatibility.
+- H-bridge operation: enable and direction inputs control motor polarity through a driver; GPIO does not supply motor current. Discuss separate logic/load supplies, common ground where required, stall current, and driver thermal limits.
+- PWM and delays in a control sequence; identify why a long blocking sequence can miss inputs and how a state/timing design improves responsiveness.
+- Integrated system view: requirements → input → validation → decision/state → driver/interface → output/status; define startup and safe states.
+
+**Simulations to complete in this week**
+
+1. [08 Parallel 16×2 LCD](TinkerCAD%20Circuits/08%20Parallel%2016x2%20Display%20Interfacing/README.md): wire/configure a character display and show a measured or simulated value.
+2. [09 I2C 16×2 LCD](TinkerCAD%20Circuits/09%20I2C%2016x2%20Display%20Interfacing/README.md): compare signal count and interface setup; inspect the simulator address versus real-module address caveat.
+3. [07 Single Motor H-Bridge](TinkerCAD%20Circuits/07%20Single%20Motor%20H-Bridge/README.md): simulate forward/stop/reverse; trace logic and load-power paths; critique the drawn 9 V battery as a motor supply before proposing any physical version.
+4. Team challenge: combine one sensor simulation from Week 3, one display/status output, and a safe actuator decision into a block diagram/state table for the seedling cabinet. This is a design exercise, not a claim that the separate TinkerCAD circuits are already one integrated simulation.
+
+**Suggested 6.75-hour delivery:** Mini-lesson and parallel LCD simulation; compare with the I2C LCD simulation; teach H-bridge/current-path concepts; run motor-direction simulation; hold a guided risk review of the motor supply; teams then draw and explain their integrated architecture. Complete more than one simulation in the class day, pausing between circuits for concept explanation and evidence capture.
+
+**Practical/simulation outcomes:** Two display-interface comparison notes; motor direction truth table; annotated logic/power diagram; cabinet block diagram; initial state/output table; and at least one explicit design trade-off.
+
+**Formative questions:** Which LCD wiring uses fewer controller pins? Is an I2C address universal? Which circuit supplies motor current? What should happen if the sensor value is invalid or the controller resets?
+
+**Hardware option:** Do not build the 9 V battery motor circuit as drawn. A physical motor/driver station is only permitted with a tutor-approved supply and load after checking the exact motor and driver datasheets. Display modules must also be checked for supply voltage and I2C pull-up levels.
+
+**Assessment link:** A001 Task 1.2 design justification and Task 1.3 staged investigation preparation. Weeks 2–5 simulation evidence feeds diagrams, pin tables, interface trade-offs, and initial test cases, but does not replace physical LO2 evidence.
+
+### Week 6: Physical Prototype, Integration, and A001 Evidence
+
+**Purpose:** Translate the simulation learning into a supervised, low-voltage physical subsystem or prototype and collect genuine practical evidence for A001 LO2.
 
 **Concepts to teach**
 
-- Sketch structure and execution: `setup()` runs for initial configuration; `loop()` repeats. Explain compile, upload, reset, and runtime as separate stages, and distinguish compiler messages from program output.
-- Values and types: variables, constants, integer and floating-point values, Boolean logic, meaningful names, and the difference between storing a value and displaying it. Introduce units in names or documentation where that improves clarity.
-- Basic expressions and control flow: assignment, comparison, `if`/`else`, and a simple repeated action. Use a truth table or decision table before coding a threshold.
-- Digital logic at the GPIO level: HIGH/LOW as logic states whose actual voltages depend on the board; input versus output direction; active-high and active-low circuits.
-- LED interface: current-limiting resistor, polarity, and why GPIO current limits matter. Use the resistor and board documentation to choose a safe, approved circuit; do not make students infer a safe value from appearance alone.
-- Button input: open circuit, pull-up or pull-down, floating input, internal pull-up where supported, and why an input must have a defined state. Introduce mechanical switch bounce as a source of multiple transitions, with software debounce reserved for later if needed.
-- Serial monitor as an observation and debugging tool. Print labelled values and units where appropriate; avoid treating serial output as a substitute for a user-facing design requirement.
+- Simulation versus hardware: simulator components are idealised models; physical parts add tolerance, noise, contact resistance, supply variation, and tool handling. Clearly distinguish simulated observations from measured hardware evidence.
+- Safe transition from model to bench: re-check the exact board and module pinouts, operating voltages, GPIO limits, common grounds, resistor/driver needs, and supply rating before wiring.
+- Incremental build sequence: board/serial check; one input; one output; status; automatic decision; then manual/test mode. Power off before rewiring and get the circuit checked before energising it.
+- Measurement and investigation: use a multimeter or serial logs appropriately; record instrument/setup, units, observed values, expected values, and uncertainty. Do not infer sensor calibration from TinkerCAD values alone.
+- Integration and debugging: reproduce an issue, isolate one subsystem, state a hypothesis, change one factor, retest, and record at least two issue/repair/retest examples.
+- A001 requirements traceability: connect each requirement to the real or simulated subsystem, pin allocation, code function, verification method, and evidence reference.
 
-**Suggested scheduled sequence**
+**Suggested scheduled sequence (6.75 hours)**
 
-1. Worked examples (1.75 h): predict a short sketch's behaviour; trace variables through a decision; inspect a wiring diagram and identify the current path.
-2. Supervised practical (4 h): upload a basic sketch; configure and blink an LED; add a button with a defined input state; print the button state to serial; change behaviour using an `if` statement; practise correcting one deliberately introduced compile or wiring error.
-3. Team/tutorial (1 h): assign a small requirement-writing task and review whether its acceptance criterion can be tested.
+1. Safety briefing and board/component compatibility check (0.75 h): inspect the approved hardware set and team circuit plans.
+2. Tutor-demonstrated bench procedure and known-good board check (0.75 h): power, upload, serial output, and safe isolation.
+3. Supervised team build (2 h): implement one sensor/input and one output/status subsystem; test each separately before connecting them.
+4. Short theory bridge (0.5 h): discuss measured-versus-simulated values, tolerance, calibration, or an observed fault.
+5. Continue build and integrate control logic/manual mode (1.5 h): follow the incremental plan and avoid unreviewed circuit changes.
+6. Initial requirement tests and fault diagnosis (0.75 h): normal, threshold/boundary, manual mode, and a tutor-approved simulated invalid input.
+7. Team demonstration, evidence capture, and logbook review (0.5 h): each student explains their own practical contribution.
 
-**Practical outcome:** A digital input changes a visible output, with labelled serial evidence and a circuit diagram or annotated wiring image.
+**Hardware availability contingency:** Use only tutor-approved extra-low-voltage setups and suitable components. If a team cannot complete the full cabinet, require a physically built and tested subsystem plus a verified integration plan. If physical hardware is unavailable to the cohort, the tutor must arrange an equivalent supervised laboratory/workshop investigation for LO2; simulator evidence alone is not represented as practical hardware evidence.
 
-**Formative check:** Students explain what the resistor does, what happens to an unconnected input, and what the program does when the input is HIGH versus LOW. Tutor checks the powered circuit before operation.
+**Practical outcome:** A safe physical subsystem or prototype; updated circuit/pin map; dated code version; requirement-linked test results; and at least two documented debugging/retest records.
 
-**Interactive presentation idea:** A step-through code visualiser shows the current line, variable values, and resulting pin state. An SVG button circuit lets students toggle the switch and observe a pulled-up input, including the floating-input case as an explanatory simulation rather than unsafe hardware experimentation.
+**Formative check:** Each student demonstrates one connection safely, identifies the signal and power paths, and explains one observed difference between simulation and physical behaviour.
 
-**Independent study and evidence:** Rebuild the sketch from a blank file; make a short fault-and-fix note; write two test cases with setup, input, expected result, and observed result.
+**Assessment link:** A001 Tasks 1.2–1.3 and LO1–LO2. This is the main physical-investigation checkpoint before the A001 portfolio milestone.
 
-**Assessment link:** A001 Task 1.3 starts with board/serial checks and incremental output/input implementation. Team role and logbook evidence continues for A002.
+### Week 7: Security, Resilience, Communication, and Team Practice
 
-### Week 3: Analogue Signals and Sensor Measurement
-
-**Purpose:** Teach that sensor data is a physical measurement requiring interpretation, calibration, range checks, and an understanding of the ADC.
-
-**Concepts to teach**
-
-- Sensor, transducer, signal conditioning, and measurement chain: physical quantity to electrical signal, interface, sampled digital value, conversion or calibration, and engineering interpretation.
-- Analogue versus digital signal. Introduce voltage dividers using a sensor or potentiometer, the reference voltage, ground, and how the ADC measures a voltage rather than directly measuring temperature, light, or moisture.
-- Sampling and quantisation at an introductory level. Relate nominal ADC bit depth to the number of representable codes, while explaining that real-world accuracy also depends on reference stability, noise, board implementation, sensor tolerance, and wiring. Do not assume ADC characteristics are identical on Uno and ESP32 variants.
-- Convert a raw reading to a useful quantity only when the sensor and calibration method support it. Distinguish raw counts, voltage, and calibrated engineering units. Cite the chosen component documentation for operating range and accuracy.
-- Threshold decisions, equality/boundary cases, hysteresis, and noise. Show how a single threshold can cause rapid switching when a reading fluctuates near the decision boundary; use a two-threshold example to introduce hysteresis.
-- Plausibility and validity: permitted range, disconnected or shorted sensor symptoms, stale or implausible readings, and the difference between a valid-looking number and a trustworthy measurement.
-- Safe sensor selection: potentiometer or approved low-voltage sensor module for initial investigations; verify whether the module's output can safely connect to the selected board's input.
-
-**Suggested scheduled sequence**
-
-1. Concept session (1.75 h): derive a simple voltage-divider relationship; examine ADC code ranges for the selected board; analyse a sample data trace around a control threshold.
-2. Supervised practical (4 h): read a potentiometer or approved sensor; stream raw values to serial; observe the serial plotter; vary the input; document minimum/maximum observed values; implement a threshold and test below, at, and above it; add a basic plausible-range check or hysteresis demonstration.
-3. Team/tutorial (1 h): select and justify at least one candidate project sensor and record what must be verified from its datasheet.
-
-**Practical outcome:** A sensor/input subsystem with labelled measurements, an initial calibration or mapping note, and test evidence for normal and boundary values.
-
-**Formative check:** Given a raw ADC value and a stated calibration, students estimate the corresponding quantity and state one reason the real measurement may differ. Ask what safe behaviour follows if the sensor is disconnected.
-
-**Interactive presentation idea:** A Plotly.js graph pairs a simulated sensor voltage or raw ADC code with a calibrated value and threshold bands. Add controls for noise, sample interval, and hysteresis so the effect is visible. Clearly label simulated data and do not imply it is a datasheet guarantee.
-
-**Independent study and evidence:** Research the selected sensor from a manufacturer or official source; document supply and output voltage, range, accuracy/resolution, pinout, and calibration limitations. Add one sensor fault case to the requirements or operating narrative.
-
-**Assessment link:** A001 Tasks 1.1–1.2: measurable input requirements, sensor choice, interface, and acceptance evidence. Validity checking introduces A002 resilience thinking.
-
-### Week 4: Outputs, Actuators, PWM, and Communication Interfaces
-
-**Purpose:** Extend the input/output model to safe actuation and introduce common interfaces students will encounter in an integrated prototype.
-
-**Concepts to teach**
-
-- Indicator outputs versus actuators: LEDs and buzzers communicate status; motors, fans, servos, and relays produce physical action and may need more current or a separate supply.
-- GPIO current and voltage limits; why a GPIO signal usually controls a driver rather than powering a motor. Introduce transistor/MOSFET switching as a controlled low-side driver at a conceptual level, including the need to follow the selected component circuit and protect against inductive transients where applicable.
-- PWM as a digital waveform with duty cycle. Relate duty cycle to average delivered energy for suitable loads, while noting that PWM is not a true analogue voltage and not every actuator responds linearly. Explain frequency and timer/channel differences at a level appropriate to the board selected.
-- Servo control as a timed control signal to a specific compatible servo; separate servo power considerations from the logic signal and follow the servo's documentation.
-- Communication purpose and topology: UART TX/RX, I2C shared clock/data with addressing, and SPI clock/data/chip-select. Identify the wires, direction, shared ground, and common debugging clues. Students need an interface-selection rationale, not protocol implementation expertise in every protocol.
-- Optional status display: use an approved I2C display module to show measured state or fault. Explain that module logic voltage and pull-up arrangement must be checked.
-- Timing and control responsiveness: introduce the difference between continuously checking a condition and waiting in a long blocking delay. Defer detailed non-blocking timing implementation to week 5.
-
-**Suggested scheduled sequence**
-
-1. Concept session (1.75 h): trace logic signal and load-current paths; compare UART, I2C, and SPI diagrams; calculate example PWM duty cycle from high and period times.
-2. Supervised practical (4 h): dim an LED with supported PWM; inspect a tutor-approved driver circuit or module for a low-voltage load; optionally connect a compatible I2C display; document supply, signal, and ground connections; test output states independently before integration.
-3. Team/tutorial (1 h): draft the project pin-allocation table and identify pin conflicts, voltage mismatches, and supply dependencies.
-
-**Practical outcome:** At least one output interface is demonstrated safely; teams have a preliminary interface and pin plan.
-
-**Formative check:** Students explain why a motor must not be driven directly from a GPIO pin, identify which communication lines are shared or directional, and calculate a simple PWM duty cycle.
-
-**Interactive presentation idea:** Use SVG wiring diagrams with selectable signal/power overlays; a PWM timeline slider changes duty cycle and updates the graph; a protocol selector highlights the wires and roles for UART, I2C, or SPI. Use Three.js or React Three Fiber only if a spatial board/breadboard view materially clarifies placement; keep a labelled 2D alternative available.
-
-**Independent study and evidence:** Check every selected component's official operating and signal specifications; update the pin map, block diagram, and component-selection table; record the reason for using a driver or display.
-
-**Assessment link:** A001 Task 1.2: integrated design, pin allocation, component selection, signal/power flow, and trade-offs.
-
-### Week 5: Control Logic, Integration, and Assessment 001 Portfolio
-
-**Purpose:** Bring requirements, inputs, outputs, and software together into a small, explainable controller and an evidence-led first portfolio submission.
-
-**Concepts to teach**
-
-- Modular program structure: separate setup, input reading, validity checking, decision/state update, and output update into named functions. Explain single responsibility and why a function boundary helps testing and debugging.
-- State-based control: states such as STARTUP, NORMAL, DRY_WARNING, HOT_WARNING, MANUAL_TEST, and SENSOR_FAULT. A state diagram makes allowed transitions and outputs explicit. Keep the actual state set small enough to understand and test.
-- Decision tables, pseudocode, and flowcharts as design tools that should agree with the code. Include startup, range check, normal control, manual/test mode, error indication, and return/recovery paths.
-- Time behaviour: sensor sampling interval, response time, and why long `delay()` calls can prevent timely input checks. Introduce `millis()`-style elapsed-time reasoning where supported, without requiring advanced scheduling.
-- Requirements traceability: connect each requirement to design elements, code behaviour, test ID, and evidence. A requirement without an observable acceptance criterion is difficult to verify.
-- Integration order: prove each input and output alone; combine one feature at a time; maintain a known working version; isolate faults instead of changing several parts at once.
-- Test design: normal case, boundary case, invalid case, manual/test mode, and expected versus observed results. Introduce pass/fail criteria before running a test.
-- Engineering communication: clear diagram labels, units, pin identifiers, code version, figure captions, source citations, and a concise explanation of limitations.
-
-**Suggested scheduled sequence**
-
-1. Concept session (1.75 h): transform a requirement into a state transition, pseudocode, and test case; discuss blocking versus elapsed-time control.
-2. Supervised practical (4 h): teams integrate a minimum controller using at least two inputs (including a physical sensor) and two low-voltage outputs; implement automatic thresholds, status, and a manual/test mode; conduct a short initial test sequence.
-3. Team/tutorial (1 h): portfolio clinic and individual demonstration check. Teams identify missing evidence, work allocation, and the next concrete action.
-
-**Practical outcome:** A working minimum prototype or, where hardware availability constrains build completion, a working integrated subsystem plus a verified integration plan. The exact state and output mapping are documented.
-
-**Formative check:** Each student explains one requirement, the code path that implements it, the hardware interface involved, and the test evidence that verifies it.
-
-**Interactive presentation idea:** A state-machine explorer highlights transitions as students change sensor values or select manual mode. Pair it with a traceability view that opens the corresponding requirement, code function, and test. Use Motion for React for restrained step-by-step reveals; reserve GSAP for a genuinely complex timeline such as a complete sensor-to-actuator sequence.
-
-**Independent study and evidence:** Complete A001 design and initial test evidence; review individual logbook entries and contribution records; prepare a short explanation of one design trade-off and one unresolved limitation.
-
-**Assessment link:** A001 consolidation and portfolio checkpoint. Teams should confirm submission format and deadline with the tutor; the brief's example milestone table is not a substitute for the actual module calendar.
-
-### Week 6: Security, Resilience, and Safe Fault Response
-
-**Purpose:** Introduce security as part of dependable system operation, with controls proportionate to a local, low-cost teaching prototype.
+**Purpose:** Begin A002 by reviewing the now-defined prototype's realistic risks, proportionate controls, interfaces, maintainability, and team access practices.
 
 **Concepts to teach**
 
 - Security and resilience in context: protect system behaviour, configuration, access, and availability; do not imply that a classroom prototype is a production or safety-certified system.
 - Asset identification: controller, source code, configuration/thresholds, sensor values, user controls, USB/programming access, power/wiring, and—if used—wireless credentials and transmitted data.
-- Threat, vulnerability, likelihood, impact, control, residual risk, and risk owner. Use the assessment's 1–5 likelihood and impact scales and calculate $R = L \times I$. Explain that a numerical score supports prioritisation but is not a precise probability.
-- Threat categories grounded in the brief: implausible or manipulated sensor data; physical access or accidental reprogramming; power loss, wiring error, or incompatible voltage; software lockup or unsafe output state; and wireless or communication exposure where applicable.
-- Failure versus attack: the same invalid sensor reading may arise from a loose wire, component failure, interference, or deliberate manipulation. Design controls should address plausible causes without overstating what has been proven.
-- Safe state and recovery: define the required state of every output at startup, invalid measurement, reset, and power recovery. The safe state depends on the system requirements; make the choice explicit and verify it.
-- Input validation, plausible ranges, safe defaults, bounded configuration, fault indication, watchdog concepts, physical access procedures, and labelled wiring. Select controls that students can implement and test.
-- Uno and ESP32 context: for an Uno, consider physical USB/programming access and configuration protection; for ESP32, consider added wireless attack surface, credential handling, and whether connectivity is necessary. A non-networked design can be a justified risk-reduction choice.
+- Threat, vulnerability, likelihood, impact, control, and residual risk. Use the assessment's 1–5 likelihood and impact scales and calculate $R = L \times I$. Explain that a numeric score supports prioritisation but is not a precise probability.
+- Required threat categories: invalid/manipulated sensor data, physical/USB access, power/wiring fault, software/control failure, and communication risk if a network or bus interface is used.
+- Define output safe states for startup, invalid readings, reset, and power recovery. The state must be justified against the prototype requirements and checked in a safe test.
+- Proportionate controls: input validation, plausible ranges, bounded configuration, safe default outputs, fault indication, controlled programming access, labelled wiring, recovery procedure, and a watchdog concept where appropriate. State control limitations and residual risks.
+- Communication/access: revisit UART, I2C, and SPI signal roles and failure symptoms. ESP32 Wi-Fi remains optional; if used, use a tutor-approved network and keep credentials and personal data out of public code/screenshots.
+- Maintainable software and collaborative work: meaningful names, small functions, version identifiers, change notes, reproducible setup, role ownership, meeting decisions, peer review, and handovers.
 
-**Suggested scheduled sequence**
+**Suggested scheduled sequence (6.75 hours)**
 
-1. Concept session (1.75 h): walk through an asset-to-threat-to-control example; score a sample risk and discuss uncertainty; define system safe-state outputs.
-2. Supervised practical (4 h): inject safe, tutor-approved faults such as a disconnected sensor input or out-of-range simulated reading; verify validation, fault indication, output state, and recovery; test reset behaviour without creating hazardous conditions.
-3. Team/tutorial (1 h): create the team's asset list and first risk table; review the division of individual evidence responsibilities.
+1. Mini-lesson and asset mapping (1 h): identify what the team values and where information/energy crosses its boundary.
+2. Guided risk-table workshop (1.25 h): rate five threats, identify causes/consequences, select controls, and estimate residual risk.
+3. Theory bridge (0.5 h): compare a local-only Uno design with an optional connected ESP32 design and their access/configuration risks.
+4. Supervised safe fault simulation on the prototype (1.5 h): invalid sensor input, reset/power restart where safe, observe defined output states, and document recovery.
+5. Team review (1 h): peer-review risk/control claims against the actual circuit and software version; record questions and decisions.
+6. Individual logbook and CPD planning (0.75 h): record contribution, feedback, skill evidence, a gap, and one next action.
+7. Debrief/portfolio linking (0.75 h): identify A002 evidence still missing and assign owners/dates.
 
-**Practical outcome:** A documented safe-state definition and at least one implemented or demonstrably specified software control plus one hardware or procedural control.
+**Practical outcome:** Asset list, risk table with initial/residual ratings, output safe-state table, fault-response flow, and a team decision/change record.
 
-**Formative check:** Students explain the consequence of an invalid sensor value, the selected output state, and how they would test recovery. Challenge a risk rating by asking what evidence justifies its likelihood and impact.
+**Formative check:** Students justify one risk rating and one mitigation with evidence, then explain what risk remains after the control.
 
-**Interactive presentation idea:** A risk-matrix interaction lets learners adjust likelihood and impact and see the rating update, with a note that the matrix is a prioritisation aid. An animated fault-response flow reveals detect, enter safe state, notify/log, recover, retest, and resume steps. Provide keyboard-operable controls and text descriptions.
+**Interactive presentation idea:** Risk-matrix and fault-flow visuals; protocol wiring comparison; a configuration-access map. Keep visual data explicitly labelled as example/simulation unless based on an observed test.
 
-**Independent study and evidence:** Complete the A002 asset inventory and at least five threats with initial and residual ratings; cite the source or design evidence for technical controls; update the fault-response diagram and safe-state table.
-
-**Assessment link:** A002 Task 2.1: security and resilience review.
-
-### Week 7: Communication, Access, and Sustainable Software
-
-**Purpose:** Deepen students' understanding of communication and configuration risks while making maintainable, testable code and project records part of good engineering practice.
-
-**Concepts to teach**
-
-- Revisit UART, I2C, and SPI from an integration and diagnosis perspective: expected lines, addressing or selection, signal levels, common ground, bus sharing, and symptoms such as missing devices or garbled serial output.
-- Optional ESP32 Wi-Fi concepts: access point versus client at a high level, network boundary, credentials, data flow, and newly exposed interfaces. Connectivity is not a requirement of the cabinet project. Do not publish credentials or personal data in source code, screenshots, logs, or public web presentations.
-- Configuration security and physical access: who can change thresholds, who can upload firmware, how a device is reset, how configuration changes are recorded, and how accidental changes are detected. Choose controls that fit a classroom demonstrator.
-- Proportionate security: identify what is in scope and out of scope, avoid claiming cryptographic security without implementing and validating it, and record residual risks honestly.
-- Software sustainability and maintainability: meaningful names, small functions, consistent formatting, limited duplication, comments for non-obvious decisions, version identifiers, change records, and reproducible setup notes.
-- Debugging as a method: reproduce, observe, form a hypothesis, change one factor, retest, and record. Distinguish a software defect from wiring, power, interface, sensor, and toolchain issues.
-- Team operation: role rotation where useful, task ownership, short meeting records, respectful review, handover notes, and making individual contributions visible without fragmenting the design.
-- Git or another version-control workflow if available: working copy, commits as checkpoints, meaningful messages, and review of changes. Avoid committing secrets or generated build clutter; follow the repository's local rules.
-
-**Suggested scheduled sequence**
-
-1. Concept session (1.75 h): trace project data across a communication boundary; compare a local-only and connected design; perform a peer review of a short code sample and risk control.
-2. Supervised practical (4 h): diagnose a prepared interface or configuration problem; improve project code structure or error reporting; demonstrate that changes are traceable to a version and test.
-3. Team/tutorial (1 h): peer review the risk table and each student's evidence plan; agree team actions and deadlines.
-
-**Practical outcome:** A reviewed project version with a change record, one maintainability improvement, and communication/configuration risks considered for the actual selected board.
-
-**Formative check:** Ask each student to explain one communication interface in terms of physical lines and roles, and one security control's limitation. Check that any wireless functionality is optional and its credentials are not exposed.
-
-**Interactive presentation idea:** A protocol comparison uses an SVG timing or wiring diagram with line-by-line narration. A repository-style change timeline can show how a test failure leads to a recorded code revision and retest. Use KaTeX for equations or notation where useful, including the module risk score; keep text equivalents for diagrams.
-
-**Independent study and evidence:** Refine controls and residual-risk evaluations; update code/version and design records; collect meeting, peer-review, task-board, or handover evidence; record feedback and next actions in each logbook.
-
-**Assessment link:** A002 Tasks 2.1 and 2.3: communication risk, software/procedural controls, teamwork, and individual records.
+**Assessment link:** A002 Task 2.1 and the teamwork/CPD evidence in Task 2.3. Continue to update individual records from Week 1 rather than backfilling at the end.
 
 ### Week 8: Test Engineering and Full-System Verification
 
