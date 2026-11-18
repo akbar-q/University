@@ -1,0 +1,41 @@
+#define EN  5
+#define IN1 2
+#define IN2 3
+
+void stopMotor() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+}
+
+void forward() {
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+}
+
+void backward() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+}
+
+void setup() {
+  pinMode(EN, OUTPUT);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+
+  digitalWrite(EN, HIGH);  // Enable motor driver
+  stopMotor();
+}
+
+void loop() {
+  forward();
+  delay(2000);
+
+  stopMotor();
+  delay(200);
+
+  backward();
+  delay(2000);
+
+  stopMotor();
+  delay(200);
+}

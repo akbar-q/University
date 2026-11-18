@@ -1,0 +1,28 @@
+#define    goodLED 3
+#define    badLED  5
+
+#define goodButton 9
+#define badButton  8
+
+
+void setup(){
+
+  pinMode(goodLED, OUTPUT); 
+  pinMode(badLED,  OUTPUT);
+  
+  pinMode(goodButton, INPUT_PULLUP);
+  pinMode(badButton,  INPUT_PULLUP);
+
+	}
+  
+void loop(){
+
+	bool stateA = !digitalRead(goodButton);
+    bool stateB = !digitalRead( badButton);
+  
+  	digitalWrite(goodLED, stateA);
+  	digitalWrite(badLED,  stateB);
+
+  delay(100);
+
+	}

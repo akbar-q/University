@@ -1,0 +1,23 @@
+//Defining Name to LED PIn
+byte LED = 3;
+
+//Defining a Variable to Store LDR & Light Value
+int   LDR;
+int Light;
+
+void setup()
+{
+  
+//Setting The LED as an Output
+  pinMode(LED, OUTPUT); 
+
+}
+
+void loop()
+{
+//Reading the 
+  LDR   = analogRead(A0);
+  Light = (LDR/2) - 24;
+  
+  analogWrite(LED, Light);
+}

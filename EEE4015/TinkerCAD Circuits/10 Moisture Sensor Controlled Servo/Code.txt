@@ -1,0 +1,33 @@
+#include <Servo.h>
+
+#define LEDPIN       3
+#define ServoPin     5
+#define MoisturePin A0
+
+Servo myservo;
+
+void setup(){
+  
+  myservo.attach(ServoPin);
+  
+  pinMode(LEDPIN,      OUTPUT);
+  pinMode(MoisturePin,  INPUT);
+}
+
+void loop(){
+ 
+  int MoistureVal = analogRead(MoisturePin);
+  
+  if(MoistureVal > 100){
+   
+    myservo.write(10);
+    digitalWrite(LEDPIN,  LOW);
+    
+  }
+  
+  else {
+    
+	myservo.write(120);
+    digitalWrite(LEDPIN, HIGH);    
+  } 
+}

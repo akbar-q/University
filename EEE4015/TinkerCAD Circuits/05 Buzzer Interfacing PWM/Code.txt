@@ -1,0 +1,28 @@
+#define BuzzerPin 6
+int PWM = 0;
+
+void setup(){
+  pinMode(BuzzerPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop(){
+
+  while(PWM < 255){
+    PWM++;
+    analogWrite(BuzzerPin, PWM);
+    delay(1);
+    
+    Serial.println(PWM);
+  }
+
+  while(PWM > 0  ){
+    PWM--;
+    analogWrite(BuzzerPin, PWM);
+    delay(1);
+    
+	Serial.println(PWM);
+  }  
+
+}
+  

@@ -1,0 +1,25 @@
+bool onButtonState  = 0;
+bool offButtonState = 0;
+
+
+void setup(){
+  pinMode(2, INPUT_PULLUP); //Set as  On Input
+  pinMode(3, INPUT_PULLUP); //Set as Off Input
+  Serial.begin(9600);
+}
+
+void loop(){
+  onButtonState = digitalRead(2);
+  Serial.print(" On Button State = ");
+  Serial.println(onButtonState);
+  
+  offButtonState = digitalRead(3);
+  Serial.print("Off Button State = ");
+  Serial.println(offButtonState);
+
+  Serial.println('\n');
+  
+  delay(1000); //Delay in milliseconds
+}
+  
+  
