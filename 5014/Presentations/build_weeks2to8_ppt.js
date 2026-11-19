@@ -130,7 +130,7 @@ function dot(slide, x, y, radius, fill, lineColor = fill) {
 }
 
 function label(slide, text, x, y, w, h, options = {}) {
-  addText(slide, text, { x, y, w, h, fontSize: 9, color: C.muted, align: 'center', ...options });
+  addText(slide, text, x, y, w, h, { fontSize: 9, color: C.muted, align: 'center', ...options });
 }
 
 function node(slide, title, detail, x, y, w, h, accent, fill = C.paper) {
@@ -413,10 +413,11 @@ function drawCards(slide, cards, accent, dark = false) {
   cards.slice(0, 4).forEach((card, index) => {
     const x = x0 + (index % 2) * (width + xGap);
     const y = y0 + Math.floor(index / 2) * (height + yGap);
-    const tint = index % 2 ? 'F2F6F8' : (dark ? '244E49' : PALETTES[deckWeek(slide)].soft);
+    const darkCard = dark && index % 2 === 0;
+    const tint = darkCard ? '244E49' : index % 2 ? 'F2F6F8' : PALETTES[deckWeek(slide)].soft;
     shape(slide, x, y, width, height, tint, dark ? '38635D' : tint, 0.75);
-    addText(slide, card[0], x + 0.15, y + 0.16, width - 0.3, 0.23, { fontSize: 8.7, bold: true, color: dark ? '9CD6C6' : accent, charSpacing: 0.4 });
-    addText(slide, card[1], x + 0.15, y + 0.48, width - 0.3, height - 0.57, { fontSize: 11, bold: true, color: dark ? C.white : C.ink });
+    addText(slide, card[0], x + 0.15, y + 0.16, width - 0.3, 0.23, { fontSize: 8.7, bold: true, color: darkCard ? '9CD6C6' : accent, charSpacing: 0.4 });
+    addText(slide, card[1], x + 0.15, y + 0.48, width - 0.3, height - 0.57, { fontSize: 11, bold: true, color: darkCard ? C.white : C.ink });
   });
 }
 

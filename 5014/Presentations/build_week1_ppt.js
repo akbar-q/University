@@ -146,14 +146,15 @@ function addNotes(slide, number, time, content) {
   slide.addNotes(`UNIT 5014 | WEEK 1 | Slide ${number} of 16 | ${time}\n\n${content}`);
 }
 
-function axes(slide, x, y, w, h, xLabel = 'TIME', yLabel = 'SIGNAL') {
-  line(slide, x, y + h, x + w, y + h, C.muted, 1, { endArrowType: 'triangle' });
-  line(slide, x, y + h, x, y, C.muted, 1, { endArrowType: 'triangle' });
+function axes(slide, x, y, w, h, xLabel = 'TIME', yLabel = 'SIGNAL', dark = false) {
+  const color = dark ? 'B8DED4' : C.muted;
+  line(slide, x, y + h, x + w, y + h, color, 1, { endArrowType: 'triangle' });
+  line(slide, x, y + h, x, y, color, 1, { endArrowType: 'triangle' });
   addText(slide, xLabel, x + w - 0.55, y + h + 0.12, 0.55, 0.18, {
-    fontSize: 8, bold: true, color: C.muted, align: 'right',
+    fontSize: 8, bold: true, color, align: 'right',
   });
   addText(slide, yLabel, x - 0.02, y - 0.23, 0.82, 0.16, {
-    fontSize: 8, bold: true, color: C.muted,
+    fontSize: 8, bold: true, color,
   });
 }
 
@@ -234,7 +235,7 @@ function addCover() {
   addText(slide, 'ONE SIGNAL, TWO REPRESENTATIONS', 7.2, 1.36, 4.75, 0.22, {
     fontSize: 9, bold: true, color: 'B8DED4', charSpacing: 0.8,
   });
-  axes(slide, gx, gy + 0.38, gw, gh, 'TIME', 'VOLTAGE');
+  axes(slide, gx, gy + 0.38, gw, gh, 'TIME', 'VOLTAGE', true);
   polyline(slide, sinePoints(gx + 0.1, gy + 0.52, gw - 0.2, gh - 0.58, 1.25, 0, 0.34, 96), C.coral, 2.4);
   drawQuantizedSteps(slide, gx + 0.1, gy + 0.52, gw - 0.2, gh - 0.58, 1.25, 8, '82D2BE', 28);
   addText(slide, 'continuous input', 7.18, 5.6, 1.85, 0.21, { fontSize: 9, bold: true, color: C.coral });

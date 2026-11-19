@@ -134,6 +134,7 @@ For every simulator exercise, students should capture: circuit/pin map, sketch v
 **Concepts to teach in short blocks**
 
 - Sketch structure: `setup()` configures once; `loop()` repeats. Separate compile, upload, reset, and observed runtime behaviour.
+- For students new to code, read one small sketch line by line: named pin constants, a `bool` value, function calls and arguments, and braces/semicolons. Compare `=` (store a value) with `==` (test equality) only when the button example is introduced; do not front-load a catalogue of C/C++ types.
 - GPIO modes and logic states: output, input, active-high, active-low, and why an input must not float.
 - LED polarity and current path. A bare LED requires a correctly sized series resistor; GPIO is not a general-purpose supply.
 - `INPUT_PULLUP`: a released switch reads HIGH and a pressed switch to GND reads LOW. Introduce Boolean state, `if` conditions, and `digitalRead()`/`digitalWrite()`.
@@ -145,7 +146,7 @@ For every simulator exercise, students should capture: circuit/pin map, sketch v
 2. [02 Button Interfacing](TinkerCAD%20Circuits/02%20Button%20Interfacing/README.md): read two pull-up buttons; observe released/pressed raw logic and serial output.
 3. [03 Button Controlled LED](TinkerCAD%20Circuits/03%20Button%20Controlled%20LED/README.md): connect each input state to its corresponding LED; test one and both buttons.
 
-**Suggested 6.75-hour delivery:** Use the simulation-day pattern above. Start with a brief pin/electrical mini-lesson, run LED Interfacing, compare the code and current path, teach pull-ups and active-low logic, then run Button Interfacing and Button-Controlled LED in the same class. Use the final simulation block for a deliberate wiring/code fault prediction and correction. Multiple simulations are expected within this teaching week and may occur on one class day.
+**Suggested 6.75-hour delivery:** Use the simulation-day pattern above. Start with a brief pin/electrical mini-lesson, run LED Interfacing, then pause for a line-by-line code trace: identify the named pin, configure it, and predict each output change before stepping. Teach button wiring and pull-ups before using the second code trace for `bool`, `digitalRead()`, `if/else`, and the difference between `=` and `==`. Ask students to change just one pin or condition and predict the result. Use the final simulation block for a deliberate wiring/code fault prediction and correction. If students need more practice, split the simulations across class days rather than rushing all three; the goal is to read and explain a small sketch before writing a larger one.
 
 **Practical/simulation outcomes:** Three working simulator states; a pin map; one LED resistor calculation using the selected LED datasheet; a button-state truth table; labelled before/after screenshots; and a short fault/fix note.
 
