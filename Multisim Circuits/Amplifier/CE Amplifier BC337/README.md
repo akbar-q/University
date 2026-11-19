@@ -390,6 +390,24 @@ Pload(10 mV peak) ~= 1.221 W * (10 mV / 1 V)^2
 
 That agrees with the transient estimate of about 0.120 mW from the 314 mV RMS oscilloscope reading. The 1.776 W sweep maximum would imply roughly 38 V RMS across 820 ohm, which a 12 V amplifier cannot deliver. Treat the AC sweep as a normalized frequency-response result; do not interpret its unscaled watt values as real large-signal output power. Also treat the extreme high-frequency results as model-dependent, since a transistor-level circuit and its layout are not generally validated to 1 GHz.
 
+### Scaled reference for a 10 mV-peak input
+
+The following table scales the sweep gain to the schematic's 10 mV peak input (20 mV peak-to-peak). It gives predicted output levels that can be compared with an oscilloscope. The 677 Hz and 6.52 MHz entries are interpolated -3 dB points; other gains are taken from the sweep table above.
+
+| Frequency | Sweep gain (V/V) | Expected output (V peak-to-peak) | Expected output (V RMS) | Hardware input (V peak-to-peak) | Hardware output (V peak-to-peak) | Measured gain (V/V) |
+|---:|---:|---:|---:|---:|---:|---:|
+| 100 Hz | 7.876 | 0.1575 | 0.0557 |  |  |  |
+| 677 Hz (-3 dB, interpolated) | 38.16 | 0.7633 | 0.2699 |  |  |  |
+| 1 kHz | 44.741 | 0.8948 | 0.3164 |  |  |  |
+| 10 kHz | 53.858 | 1.0772 | 0.3808 |  |  |  |
+| 39.81 kHz | 53.971 | 1.0794 | 0.3816 |  |  |  |
+| 100 kHz | 53.973 | 1.0795 | 0.3816 |  |  |  |
+| 1 MHz | 53.362 | 1.0672 | 0.3773 |  |  |  |
+| 6.52 MHz (-3 dB, interpolated) | 38.16 | 0.7633 | 0.2699 |  |  |  |
+| 10 MHz | 29.466 | 0.5893 | 0.2084 |  |  |  |
+
+At 1 kHz, the table predicts 0.8948 V peak-to-peak and 0.3164 V RMS. The schematic's transient probe reads 0.887 V peak-to-peak and 0.314 V RMS, which is close. For a hardware test, record the actual input and output peak-to-peak voltages, then calculate measured gain as `Vout(pp) / Vin(pp)`. Use the actual measured input rather than assuming it is exactly 20 mV peak-to-peak; generator settings and source loading can change the voltage reaching the amplifier.
+
 ## Measuring impedance in Multisim or on the bench
 
 ### Input impedance
