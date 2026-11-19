@@ -9,6 +9,8 @@ This folder contains a Multisim common-emitter (CE) voltage amplifier built arou
 - [Diagram.png](Diagram.png) - circuit schematic and 1 kHz probe readings.
 - [Oscilloscope.png](Oscilloscope.png) - time-domain input and output.
 - [BodePlotter.png](BodePlotter.png) - voltage-gain magnitude response.
+- [Voltage Current Plot.xlsx](Voltage%20Current%20Plot.xlsx) - AC-sweep input/output voltage and current data.
+- [Power Plot.xlsx](Power%20Plot.xlsx) - AC-sweep input/source and load power data.
 
 ## Circuit schematic
 
@@ -346,6 +348,47 @@ PLOAD = VOUT(rms)^2 / RL ~= (0.314 V)^2 / 820 ohm ~= 0.120 mW
 This is a different frequency from the 1 kHz time-domain test and should not be reported as the 1 kHz gain. To find bandwidth, record the midband gain and locate the lower and upper frequencies where the gain has fallen by 3 dB.
 
 Small differences among the hand estimate, schematic probe, oscilloscope cursors, and Bode cursor are expected because they use different frequencies or measurement methods, and because the transistor model and cursor placement affect the results.
+
+## AC sweep data: gain, current, and power
+
+The two Excel files contain matching 451-point logarithmic sweeps from 1 Hz to 1 GHz. In `Voltage Current Plot.xlsx`, the input AC voltage is 1 V peak throughout the sweep; the output voltage and the input/output currents are also exported. The table below uses representative sweep points. Currents and voltages are magnitudes, and the output-current sign has been made positive for readability.
+
+| Frequency | Input current (uA peak) | Input impedance magnitude (kOhm) | Output voltage (V peak) | Output current (mA peak) | Voltage gain (V/V, dB) | Source / load power (mW) |
+|---:|---:|---:|---:|---:|---:|---:|
+| 1 Hz | 56.322 | 17.755 | 0.0287 | 0.035 | 0.029, -30.84 dB | 0.0282 / 0.0005 |
+| 10 Hz | 124.711 | 8.019 | 0.6796 | 0.829 | 0.680, -3.36 dB | 0.0624 / 0.2816 |
+| 100 Hz | 142.886 | 6.999 | 7.8759 | 9.605 | 7.876, 17.93 dB | 0.0714 / 37.8234 |
+| 1 kHz | 390.928 | 2.558 | 44.7410 | 54.562 | 44.741, 33.01 dB | 0.1955 / 1220.5834 |
+| 10 kHz | 465.035 | 2.150 | 53.8576 | 65.680 | 53.858, 34.62 dB | 0.2325 / 1768.6831 |
+| 39.81 kHz | 498.398 | 2.006 | 53.9715 | 65.819 | 53.971, 34.64 dB | 0.2492 / 1776.1693 |
+| 100 kHz | 652.516 | 1.533 | 53.9727 | 65.820 | 53.973, 34.64 dB | 0.3263 / 1776.2504 |
+| 1 MHz | 4562.422 | 0.219 | 53.3615 | 65.075 | 53.362, 34.54 dB | 2.2812 / 1736.2472 |
+| 10 MHz | 25235.175 | 0.040 | 29.4655 | 35.934 | 29.466, 29.39 dB | 12.6176 / 529.4000 |
+| 100 MHz | 32426.167 | 0.031 | 2.4831 | 3.028 | 2.483, 7.90 dB | 16.2131 / 3.7597 |
+| 1 GHz | 34588.618 | 0.029 | 0.0400 | 0.049 | 0.040, -27.97 dB | 17.2943 / 0.0010 |
+
+The table's derived columns use these relationships:
+
+```text
+|Av| = |Vout| / |Vin|; here Vin = 1 V peak, so the Vout number is also the gain in V/V
+Av(dB) = 20 * log10(|Av|)
+|Zin| = |Vin| / |Iin|
+```
+
+`|Zin|` is an impedance magnitude at the input measurement point, not the full complex impedance; phase data would be needed to calculate its reactive part. The output voltage/current ratio is about 820 ohm, as expected for the connected load. That ratio confirms the load measurement; it is not a measurement of the amplifier's unloaded output impedance.
+
+The gain climbs rapidly at low frequency, is nearly flat around 53.9 V/V (34.6 dB) from about 10 kHz through 100 kHz, then rolls off at high frequency. From the power sweep, the maximum load power is about 1.776 W near 66.1 kHz. Half this power corresponds to the -3 dB points, approximately 677 Hz and 6.52 MHz. These are estimates interpolated between sweep samples; the broad plateau means the small maximum near 66 kHz is not a sharp resonance.
+
+### AC-sweep power is normalized, not a physical output rating
+
+The sweep's 1 V peak AC input is 100 times the transient source's 10 mV peak. Small-signal AC analysis scales the circuit response linearly, so the exported power scales with the square of that input ratio. For example, the 1 kHz sweep reports about 1.221 W at the load; scaling to a 10 mV peak input gives:
+
+```text
+Pload(10 mV peak) ~= 1.221 W * (10 mV / 1 V)^2
+                   ~= 0.122 mW
+```
+
+That agrees with the transient estimate of about 0.120 mW from the 314 mV RMS oscilloscope reading. The 1.776 W sweep maximum would imply roughly 38 V RMS across 820 ohm, which a 12 V amplifier cannot deliver. Treat the AC sweep as a normalized frequency-response result; do not interpret its unscaled watt values as real large-signal output power. Also treat the extreme high-frequency results as model-dependent, since a transistor-level circuit and its layout are not generally validated to 1 GHz.
 
 ## Measuring impedance in Multisim or on the bench
 
