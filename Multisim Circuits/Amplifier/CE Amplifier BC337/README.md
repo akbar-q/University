@@ -497,3 +497,26 @@ The captures in `Scope PNG/` confirm the expected common-emitter behaviour over 
 | 2–10 MHz | High-frequency amplitude falls as frequency rises; the 10 MHz capture shows noticeably smaller output. |
 
 The 50 Hz, 100 Hz, 200 Hz, 500 Hz, 1 kHz, 2 kHz, 5 kHz, and 10 kHz captures show a clear phase-inverted output. Higher-frequency captures retain inversion in the midband and then include increasing distortion from the oscilloscope trace, transistor bandwidth, probe/layout capacitance, and breadboard parasitics.
+
+## Hardware oscilloscope captures
+
+| Frequency | Input and output capture |
+|---|---|
+| 50 Hz | ![Hardware oscilloscope capture at 50 Hz](Scope%20PNG/50Hz.png) |
+| 100 Hz | ![Hardware oscilloscope capture at 100 Hz](Scope%20PNG/100Hz.png) |
+| 200 Hz | ![Hardware oscilloscope capture at 200 Hz](Scope%20PNG/200Hz.png) |
+| 500 Hz | ![Hardware oscilloscope capture at 500 Hz](Scope%20PNG/500Hz.png) |
+| 1 kHz | ![Hardware oscilloscope capture at 1 kHz](Scope%20PNG/1kHz.png) |
+| 2 kHz | ![Hardware oscilloscope capture at 2 kHz](Scope%20PNG/2kHz.png) |
+| 5 kHz | ![Hardware oscilloscope capture at 5 kHz](Scope%20PNG/5kHz.png) |
+| 10 kHz | ![Hardware oscilloscope capture at 10 kHz](Scope%20PNG/10kHz.png) |
+| 50 kHz | ![Hardware oscilloscope capture at 50 kHz](Scope%20PNG/50kHz.png) |
+| 100 kHz | ![Hardware oscilloscope capture at 100 kHz](Scope%20PNG/100kHz.png) |
+| 200 kHz | ![Hardware oscilloscope capture at 200 kHz](Scope%20PNG/200kHz.png) |
+| 500 kHz | ![Hardware oscilloscope capture at 500 kHz](Scope%20PNG/500kHz.png) |
+| 1 MHz | ![Hardware oscilloscope capture at 1 MHz](Scope%20PNG/1MHz.png) |
+| 2 MHz | ![Hardware oscilloscope capture at 2 MHz](Scope%20PNG/2MHz.png) |
+| 5 MHz | ![Hardware oscilloscope capture at 5 MHz](Scope%20PNG/5MHz.png) |
+| 10 MHz | ![Hardware oscilloscope capture at 10 MHz](Scope%20PNG/10MHz.png) |
+
+The captures use Channel 1 for the yellow input waveform and Channel 2 for the magenta output waveform. Measurements may differ between images because horizontal scale, vertical scale, trigger level, and waveform cursors change with frequency.
