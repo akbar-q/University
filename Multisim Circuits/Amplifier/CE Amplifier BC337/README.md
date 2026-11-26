@@ -7,14 +7,33 @@ This folder contains a Multisim common-emitter (CE) voltage amplifier built arou
 - `CE Amplifier BC337.ms14` - Multisim design.
 - `CE Amplifier BC337.ms14 (Security copy)` - Multisim security copy.
 - [Diagram.png](Diagram.png) - circuit schematic and 1 kHz probe readings.
+- [Crumb Diagram.png](Crumb%20Diagram.png) - physical breadboard implementation from the CRUMB 3D simulator.
+- [CE Amplifier BC337.cru](CE%20Amplifier%20BC337.cru) - CRUMB 3D circuit/save file for the hardware implementation.
+- [Scope PNG/](Scope%20PNG/) - frequency-by-frequency hardware oscilloscope captures from 50 Hz to 10 MHz.
 - [Oscilloscope.png](Oscilloscope.png) - time-domain input and output.
 - [BodePlotter.png](BodePlotter.png) - voltage-gain magnitude response.
-- [Voltage Current Plot.xlsx](Voltage%20Current%20Plot.xlsx) - AC-sweep input/output voltage and current data.
-- [Power Plot.xlsx](Power%20Plot.xlsx) - AC-sweep input/source and load power data.
+- [Voltage Current Plot.xlsx](Voltage%20Current%20Plot.xlsx) - updated AC-sweep input/output voltage and current data.
+- [Power Plot.xlsx](Power%20Plot.xlsx) - updated AC-sweep source and load power data.
 
 ## Circuit schematic
 
-![Multisim schematic of the BC337 common-emitter amplifier, including component values and 1 kHz probe readings](Diagram.png)
+![Updated Multisim schematic of the BC337 common-emitter amplifier](Diagram.png)
+
+## Physical implementation
+
+![Updated BC337 amplifier shown in the CRUMB 3D breadboard simulator](Crumb%20Diagram.png)
+
+The CRUMB 3D view records the physical layout corresponding to the Multisim circuit: a BC337 stage, voltage-divider bias resistors, collector and emitter resistors, input/output coupling capacitors, emitter bypass capacitor, and the output load. The breadboard assembly should be compared with the schematic rather than used as a wiring-only reproduction, since component placement and lead routing do not affect the intended circuit topology but do affect noise and high-frequency behaviour.
+
+Use [CE Amplifier BC337.cru](CE%20Amplifier%20BC337.cru) to reopen the CRUMB 3D implementation. The hardware evidence also includes the individual images in [Scope PNG/](Scope%20PNG/), covering:
+
+```text
+50 Hz, 100 Hz, 200 Hz, 500 Hz, 1 kHz, 2 kHz, 5 kHz,
+10 kHz, 50 kHz, 100 kHz, 200 kHz, 500 kHz,
+1 MHz, 2 MHz, 5 MHz, 10 MHz
+```
+
+In each capture, Channel 1 is the yellow input waveform and Channel 2 is the magenta output waveform. The output remains inverted relative to the input. The capture sequence shows strong low-frequency attenuation below the pass band, a nearly flat midband response, and increasing high-frequency roll-off towards 10 MHz.
 
 ## Circuit at a glance
 
