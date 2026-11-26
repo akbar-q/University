@@ -417,39 +417,38 @@ Vrms = Vpeak / sqrt(2) = Vpp / (2 * sqrt(2))
 
 1. Run the transient simulation with the current 100 Hz, 100 mV-peak input.
 2. Check that the input and output have the same frequency and that the output is phase-shifted toward the expected common-emitter inversion.
-3. Measure both channels using the same amplitude convention. Compare measured gain with the AC sweep and the hardware table; at 100 Hz the sweep predicts 9.17 V/V while the scope capture reads 14.62 V/V.
+3. Measure both channels using the same amplitude convention. Compare measured hardware gain with the 200 mVpp transient simulation and the hardware table; use the AC sweep only as supplemental small-signal analysis.
 4. Check DC bias separately: temporarily inspect base, emitter, and collector DC voltages. The hand estimate is VB ~= 1.93 V, VE ~= 1.23 V, and VC ~= 7.23 V for beta ~= 100.
 5. Run AC analysis over a wide frequency range. Record the midband gain and the lower and upper -3 dB frequencies.
 6. Repeat gain measurements with and without the 1 kOhm load to observe loading. Use the same frequency and source amplitude for both runs.
 
 When comparing versions of the simulation, record the transistor model, source resistance, load, frequency, and measurement method. Those conditions are part of the result, not incidental details.
 
-### Hardware measurements compared with the AC sweep
+### Hardware measurements compared with transient simulation
 
-The current schematic input is 100 mV peak (200 mVpp) at 100 Hz. Each scope image displays Channel 1 input and Channel 2 output peak-to-peak measurements. The hardware gain is recalculated as `Vout(pp) / Vin(pp)`. AC-sweep gains are interpolated in log frequency from `Voltage Current Plot.xlsx`; the final column scales that small-signal gain by the actual Channel 1 Vpp in the corresponding capture.
+Transient simulation outputs below were supplied for a 200 mVpp input. Simulated gain is `simulated output Vpp / 0.200 Vpp`. Hardware gain is recalculated from the Channel 1 and Channel 2 peak-to-peak readings in each scope image, so the gain comparison accounts for the hardware input not being exactly 200 mVpp. The 20 kHz row has no matching hardware capture.
 
-| Frequency | AC-sweep gain (V/V) | Hardware input (Vpp) | Hardware output (Vpp) | Hardware gain (V/V) | Sweep-predicted output at measured input (Vpp) |
+| Frequency | Simulated output at 200 mVpp input (Vpp) | Simulated gain (V/V) | Hardware input (Vpp) | Hardware output (Vpp) | Hardware gain (V/V) |
 |---:|---:|---:|---:|---:|---:|
-| 50 Hz | 4.715 | 0.210 | 2.160 | 10.29 | 0.990 |
-| 100 Hz | 9.171 | 0.208 | 3.040 | 14.62 | 1.907 |
-| 200 Hz | 17.686 | 0.208 | 3.880 | 18.65 | 3.679 |
-| 500 Hz | 36.985 | 0.208 | 5.280 | 25.38 | 7.693 |
-| 1 kHz | 51.464 | 0.202 | 5.320 | 26.34 | 10.396 |
-| 2 kHz | 58.808 | 0.212 | 6.280 | 29.62 | 12.467 |
-| 5 kHz | 61.501 | 0.204 | 5.480 | 26.86 | 12.546 |
-| 10 kHz | 61.916 | 0.208 | 5.360 | 25.77 | 12.879 |
-| 50 kHz | 62.049 | 0.208 | 5.520 | 26.54 | 12.906 |
-| 100 kHz | 62.046 | 0.204 | 5.240 | 25.69 | 12.657 |
-| 200 kHz | 62.021 | 0.212 | 5.360 | 25.28 | 13.148 |
-| 500 kHz | 61.837 | 0.202 | 5.000 | 24.75 | 12.491 |
-| 1 MHz | 61.192 | 0.196 | 4.240 | 21.63 | 11.994 |
-| 2 MHz | 58.797 | 0.188 | 3.120 | 16.60 | 11.054 |
-| 5 MHz | 47.404 | 0.158 | 1.600 | 10.13 | 7.490 |
-| 10 MHz | 31.511 | 0.116 | 0.800 | 6.90 | 3.655 |
+| 50 Hz | 0.944 | 4.72 | 0.210 | 2.160 | 10.29 |
+| 100 Hz | 1.820 | 9.10 | 0.208 | 3.040 | 14.62 |
+| 200 Hz | 3.280 | 16.40 | 0.208 | 3.880 | 18.65 |
+| 500 Hz | 5.760 | 28.80 | 0.208 | 5.280 | 25.38 |
+| 1 kHz | 6.660 | 33.30 | 0.202 | 5.320 | 26.34 |
+| 2 kHz | 6.750 | 33.75 | 0.212 | 6.280 | 29.62 |
+| 5 kHz | 6.770 | 33.85 | 0.204 | 5.480 | 26.86 |
+| 10 kHz | 6.770 | 33.85 | 0.208 | 5.360 | 25.77 |
+| 20 kHz | 6.770 | 33.85 | - | - | - |
+| 50 kHz | 6.770 | 33.85 | 0.208 | 5.520 | 26.54 |
+| 100 kHz | 6.770 | 33.85 | 0.204 | 5.240 | 25.69 |
+| 200 kHz | 6.730 | 33.65 | 0.212 | 5.360 | 25.28 |
+| 500 kHz | 6.500 | 32.50 | 0.202 | 5.000 | 24.75 |
+| 1 MHz | 6.210 | 31.05 | 0.196 | 4.240 | 21.63 |
+| 2 MHz | 5.750 | 28.75 | 0.188 | 3.120 | 16.60 |
+| 5 MHz | 4.920 | 24.60 | 0.158 | 1.600 | 10.13 |
+| 10 MHz | 4.100 | 20.50 | 0.116 | 0.800 | 6.90 |
 
-At the nominal 200 mVpp input, the AC sweep predicts 1.834 Vpp at 100 Hz (`9.171 * 0.200 V`). The 100 Hz scope capture reads 208 mVpp in and 3.04 Vpp out, giving 14.62 V/V. At 1 kHz, the sweep predicts about 10.40 Vpp when scaled to the measured 202 mVpp input, but the hardware capture reads 5.32 Vpp (26.34 V/V). This large-signal comparison is not expected to remain linear: a 100 mV-peak input can drive the transistor stage toward its available output swing, and the higher-frequency scope traces show distortion/compression. The AC sweep is a small-signal reference, not a promise of undistorted output at this drive level.
-
-The low-frequency captures also differ from the sweep: at 50 and 100 Hz, measured gain is above the workbook prediction. Treat the table as a comparison of the saved hardware run with the saved AC-sweep run, not as proof that either trace is a calibrated measurement of a single identical operating condition.
+The hardware gain is above the transient-simulation gain at 50–200 Hz, then below it from 500 Hz upward. The difference widens at higher frequencies. This compares the user-provided transient run directly with the captured hardware data; the separately listed AC sweep remains a small-signal result and is not used as the expected-value column here.
 
 ## Hardware frequency-evidence summary
 
