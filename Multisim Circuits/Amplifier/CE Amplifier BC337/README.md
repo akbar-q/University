@@ -370,21 +370,20 @@ Small differences among the hand estimate, schematic probe, oscilloscope cursors
 
 ## AC sweep data: gain, current, and power
 
-The two Excel files contain matching 451-point logarithmic sweeps from 1 Hz to 1 GHz. In `Voltage Current Plot.xlsx`, the input AC voltage is 1 V peak throughout the sweep; the output voltage and the input/output currents are also exported. The table below uses representative sweep points. Currents and voltages are magnitudes, and the output-current sign has been made positive for readability.
+The updated Excel files contain matching logarithmic sweeps from 10 Hz to 1 GHz (401 data rows including headers). In `Voltage Current Plot.xlsx`, the input AC voltage is 1 V peak throughout the sweep; the output voltage and input/output currents are exported from the same run. The table below uses representative frequencies from the updated data. Voltage and current values are magnitudes.
 
 | Frequency | Input current (uA peak) | Input impedance magnitude (kOhm) | Output voltage (V peak) | Output current (mA peak) | Voltage gain (V/V, dB) | Source / load power (mW) |
 |---:|---:|---:|---:|---:|---:|---:|
-| 1 Hz | 56.322 | 17.755 | 0.0287 | 0.035 | 0.029, -30.84 dB | 0.0282 / 0.0005 |
-| 10 Hz | 124.711 | 8.019 | 0.6796 | 0.829 | 0.680, -3.36 dB | 0.0624 / 0.2816 |
-| 100 Hz | 142.886 | 6.999 | 7.8759 | 9.605 | 7.876, 17.93 dB | 0.0714 / 37.8234 |
-| 1 kHz | 390.928 | 2.558 | 44.7410 | 54.562 | 44.741, 33.01 dB | 0.1955 / 1220.5834 |
-| 10 kHz | 465.035 | 2.150 | 53.8576 | 65.680 | 53.858, 34.62 dB | 0.2325 / 1768.6831 |
-| 39.81 kHz | 498.398 | 2.006 | 53.9715 | 65.819 | 53.971, 34.64 dB | 0.2492 / 1776.1693 |
-| 100 kHz | 652.516 | 1.533 | 53.9727 | 65.820 | 53.973, 34.64 dB | 0.3263 / 1776.2504 |
-| 1 MHz | 4562.422 | 0.219 | 53.3615 | 65.075 | 53.362, 34.54 dB | 2.2812 / 1736.2472 |
-| 10 MHz | 25235.175 | 0.040 | 29.4655 | 35.934 | 29.466, 29.39 dB | 12.6176 / 529.4000 |
-| 100 MHz | 32426.167 | 0.031 | 2.4831 | 3.028 | 2.483, 7.90 dB | 16.2131 / 3.7597 |
-| 1 GHz | 34588.618 | 0.029 | 0.0400 | 0.049 | 0.040, -27.97 dB | 17.2943 / 0.0010 |
+| 10 Hz | 124.651 | 8.022 | 1.319980 | 1.319980 | 1.320, 2.41 dB | 0.0623 / 0.8712 |
+| 100 Hz | 142.821 | 7.002 | 9.170572 | 9.170572 | 9.171, 19.25 dB | 0.0714 / 42.0497 |
+| 1 kHz | 390.954 | 2.558 | 51.464056 | 51.464056 | 51.464, 34.23 dB | 0.1955 / 1324.2745 |
+| 10 kHz | 465.314 | 2.149 | 61.916213 | 61.916213 | 61.916, 35.84 dB | 0.2327 / 1916.8087 |
+| 39.81 kHz | 504.537 | 1.982 | 62.046429 | 62.046429 | 62.046, 35.85 dB | 0.2523 / 1924.8797 |
+| 100 kHz | 682.174 | 1.466 | 62.046476 | 62.046476 | 62.046, 35.85 dB | 0.3411 / 1924.8826 |
+| 1 MHz | 4957.629 | 0.202 | 61.191686 | 61.191686 | 61.192, 35.73 dB | 2.4788 / 1872.2112 |
+| 10 MHz | 25611.302 | 0.039 | 31.510580 | 31.510580 | 31.511, 29.97 dB | 12.8057 / 496.4583 |
+| 100 MHz | 32350.291 | 0.031 | 2.531909 | 2.531909 | 2.532, 8.07 dB | 16.1751 / 3.2053 |
+| 1 GHz | 34588.667 | 0.0289 | 0.039971 | 0.039971 | 0.0400, -27.97 dB | 17.2943 / 0.000799 |
 
 The table's derived columns use these relationships:
 
@@ -394,38 +393,20 @@ Av(dB) = 20 * log10(|Av|)
 |Zin| = |Vin| / |Iin|
 ```
 
-`|Zin|` is an impedance magnitude at the input measurement point, not the full complex impedance; phase data would be needed to calculate its reactive part. The output voltage/current ratio is about 820 ohm, as expected for the connected load. That ratio confirms the load measurement; it is not a measurement of the amplifier's unloaded output impedance.
+The output voltage/current ratio is approximately 820 ohm at the sweep frequencies at which the output remains measurable, as expected for the connected load. This ratio confirms the load measurement; it is not a measurement of the amplifier's unloaded output impedance.
 
-The gain climbs rapidly at low frequency, is nearly flat around 53.9 V/V (34.6 dB) from about 10 kHz through 100 kHz, then rolls off at high frequency. From the power sweep, the maximum load power is about 1.776 W near 66.1 kHz. Half this power corresponds to the -3 dB points, approximately 677 Hz and 6.52 MHz. These are estimates interpolated between sweep samples; the broad plateau means the small maximum near 66 kHz is not a sharp resonance.
+The gain is approximately 62 V/V (35.85 dB) across the broad midband region, peaks in the tens-of-kHz range, then rolls off at high frequency. The maximum load power in the updated sweep is approximately 1.925 W at 63.096 kHz. Logarithmic interpolation of the load-power half-power crossings gives approximately 674 Hz and 5.92 MHz. These values are sweep estimates, not guaranteed physical bandwidth limits.
 
 ### AC-sweep power is normalized, not a physical output rating
 
-The sweep's 1 V peak AC input is 100 times the transient source's 10 mV peak. Small-signal AC analysis scales the circuit response linearly, so the exported power scales with the square of that input ratio. For example, the 1 kHz sweep reports about 1.221 W at the load; scaling to a 10 mV peak input gives:
+The sweep uses a 1 V peak AC input, 100 times the schematic transient source's 10 mV peak. Exported power therefore scales with the square of the input ratio. For example, the updated 1 kHz sweep reports about 1.324 W at the load; scaling to 10 mV peak gives:
 
 ```text
-Pload(10 mV peak) ~= 1.221 W * (10 mV / 1 V)^2
-                   ~= 0.122 mW
+Pload(10 mV peak) ~= 1.324 W * (10 mV / 1 V)^2
+                   ~= 0.132 mW
 ```
 
-That agrees with the transient estimate of about 0.120 mW from the 314 mV RMS oscilloscope reading. The 1.776 W sweep maximum would imply roughly 38 V RMS across 820 ohm, which a 12 V amplifier cannot deliver. Treat the AC sweep as a normalized frequency-response result; do not interpret its unscaled watt values as real large-signal output power. Also treat the extreme high-frequency results as model-dependent, since a transistor-level circuit and its layout are not generally validated to 1 GHz.
-
-### Scaled reference for a 10 mV-peak input
-
-The following table scales the sweep gain to the schematic's 10 mV peak input (20 mV peak-to-peak). It gives predicted output levels that can be compared with an oscilloscope. The 677 Hz and 6.52 MHz entries are interpolated -3 dB points; other gains are taken from the sweep table above.
-
-| Frequency | Sweep gain (V/V) | Expected output (V peak-to-peak) | Expected output (V RMS) | Hardware input (V peak-to-peak) | Hardware output (V peak-to-peak) | Measured gain (V/V) |
-|---:|---:|---:|---:|---:|---:|---:|
-| 100 Hz | 7.876 | 0.1575 | 0.0557 |  |  |  |
-| 677 Hz (-3 dB, interpolated) | 38.16 | 0.7633 | 0.2699 |  |  |  |
-| 1 kHz | 44.741 | 0.8948 | 0.3164 |  |  |  |
-| 10 kHz | 53.858 | 1.0772 | 0.3808 |  |  |  |
-| 39.81 kHz | 53.971 | 1.0794 | 0.3816 |  |  |  |
-| 100 kHz | 53.973 | 1.0795 | 0.3816 |  |  |  |
-| 1 MHz | 53.362 | 1.0672 | 0.3773 |  |  |  |
-| 6.52 MHz (-3 dB, interpolated) | 38.16 | 0.7633 | 0.2699 |  |  |  |
-| 10 MHz | 29.466 | 0.5893 | 0.2084 |  |  |  |
-
-At 1 kHz, the table predicts 0.8948 V peak-to-peak and 0.3164 V RMS. The schematic's transient probe reads 0.887 V peak-to-peak and 0.314 V RMS, which is close. For a hardware test, record the actual input and output peak-to-peak voltages, then calculate measured gain as `Vout(pp) / Vin(pp)`. Use the actual measured input rather than assuming it is exactly 20 mV peak-to-peak; generator settings and source loading can change the voltage reaching the amplifier.
+This is consistent with the schematic's approximately 0.120 mW result. The sweep maximum of 1.925 W is normalized and must not be treated as a 12 V stage's real large-signal output rating. At high frequencies, especially above several MHz, the transistor model and breadboard layout become increasingly significant.
 
 ## Measuring impedance in Multisim or on the bench
 
@@ -475,3 +456,44 @@ Vrms = Vpeak / sqrt(2) = Vpp / (2 * sqrt(2))
 6. Repeat gain measurements with and without the 820 ohm load to observe loading. Use the same frequency and source amplitude for both runs.
 
 When comparing versions of the simulation, record the transistor model, source resistance, load, frequency, and measurement method. Those conditions are part of the result, not incidental details.
+
+### Scaled reference for a 10 mV-peak input
+
+The following table scales the updated sweep gain to the schematic's 10 mV peak input (20 mV peak-to-peak). It gives predicted output levels that can be compared with the physical oscilloscope captures. The 674 Hz and 5.92 MHz entries are interpolated load-power half-power crossings; the other gains are from the updated sweep.
+
+| Frequency | Sweep gain (V/V) | Expected output (V peak-to-peak) | Expected output (V RMS) | Hardware input (V peak-to-peak) | Hardware output (V peak-to-peak) | Measured gain (V/V) |
+|---:|---:|---:|---:|---:|---:|---:|
+| 100 Hz | 9.171 | 0.1834 | 0.0648 | Not recorded in the SCPI trace summary | See 100 Hz image | Calculate from the trace |
+| 674 Hz (-3 dB, interpolated) | 43.00 approx. | 0.8600 approx. | 0.3041 approx. | Not recorded in the SCPI trace summary | See 500 Hz/1 kHz captures | Calculate from the trace |
+| 1 kHz | 51.464 | 1.0293 | 0.3641 | 20 mV target | See 1 kHz image | Calculate from the trace |
+| 10 kHz | 61.916 | 1.2383 | 0.4381 | 20 mV target | See 10 kHz image | Calculate from the trace |
+| 39.81 kHz | 62.046 | 1.2409 | 0.4391 | 20 mV target | See 50 kHz/100 kHz captures | Calculate from the trace |
+| 100 kHz | 62.046 | 1.2409 | 0.4391 | 20 mV target | See 100 kHz image | Calculate from the trace |
+| 1 MHz | 61.192 | 1.2238 | 0.4330 | 20 mV target | See 1 MHz image | Calculate from the trace |
+| 5.92 MHz (-3 dB, interpolated) | 43.00 approx. | 0.8600 approx. | 0.3041 approx. | Not recorded in the SCPI trace summary | See 5 MHz image | Calculate from the trace |
+| 10 MHz | 31.511 | 0.6302 | 0.2229 | 20 mV target | See 10 MHz image | Calculate from the trace |
+
+At 1 kHz, the updated table predicts 1.0293 V peak-to-peak and 0.3641 V RMS. The Multisim transient probe reads 887 mV peak-to-peak, a close order-of-magnitude comparison but a different result than the normalized 1 V-AC sweep. The difference is expected because the simulation runs use different source conditions and AC-sweep analysis normalizes the input.
+
+For a final hardware comparison, calculate gain from the actual measured input and output amplitudes in every `Scope PNG/*.png` capture:
+
+```text
+Av = Vout(pp) / Vin(pp)
+Av(dB) = 20 * log10(|Av|)
+```
+
+Do not fill the hardware columns by assuming the generator setting reached the amplifier input. Use the trace's Channel 1 peak-to-peak value as the amplifier input.
+
+## Hardware frequency-evidence summary
+
+The captures in `Scope PNG/` confirm the expected common-emitter behaviour over the complete tested frequency sequence:
+
+| Frequency range | Qualitative evidence |
+|---|---|
+| 50–200 Hz | Low output relative to the midband waveform; the coupling/bypass network strongly limits the response. |
+| 500 Hz–2 kHz | Output rises rapidly and approaches the midband gain. |
+| 5–100 kHz | Nearly flat, high-amplitude, inverted output. This is the experimental midband region. |
+| 200 kHz–1 MHz | Output remains substantial, with visible phase and amplitude response changes near the upper range. |
+| 2–10 MHz | High-frequency amplitude falls as frequency rises; the 10 MHz capture shows noticeably smaller output. |
+
+The 50 Hz, 100 Hz, 200 Hz, 500 Hz, 1 kHz, 2 kHz, 5 kHz, and 10 kHz captures show a clear phase-inverted output. Higher-frequency captures retain inversion in the midband and then include increasing distortion from the oscilloscope trace, transistor bandwidth, probe/layout capacitance, and breadboard parasitics.
