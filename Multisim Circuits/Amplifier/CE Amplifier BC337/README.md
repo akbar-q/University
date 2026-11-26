@@ -1,12 +1,12 @@
 # BC337 Common-Emitter Amplifier
 
-This folder contains a Multisim common-emitter (CE) voltage amplifier built around an NPN BC337 transistor. The stage uses a voltage-divider base bias, an emitter resistor for DC stability, capacitors for AC coupling and emitter bypass, and an 820 ohm output load.
+This folder contains a Multisim common-emitter (CE) voltage amplifier built around an NPN BC337 transistor. The current schematic uses a voltage-divider base bias, an emitter resistor for DC stability, capacitors for AC coupling and emitter bypass, and a 1 kOhm output load.
 
 ## Project files
 
 - `CE Amplifier BC337.ms14` - Multisim design.
 - `CE Amplifier BC337.ms14 (Security copy)` - Multisim security copy.
-- [Diagram.png](Diagram.png) - circuit schematic and 1 kHz probe readings.
+- [Diagram.png](Diagram.png) - current circuit schematic with a 100 mV-peak, 100 Hz source.
 - [Crumb Diagram.png](Crumb%20Diagram.png) - physical breadboard implementation from the CRUMB 3D simulator.
 - [CE Amplifier BC337.cru](CE%20Amplifier%20BC337.cru) - CRUMB 3D circuit/save file for the hardware implementation.
 - [Scope PNG/](Scope%20PNG/) - frequency-by-frequency hardware oscilloscope captures from 50 Hz to 10 MHz.
@@ -33,7 +33,7 @@ Use [CE Amplifier BC337.cru](CE%20Amplifier%20BC337.cru) to reopen the CRUMB 3D 
 1 MHz, 2 MHz, 5 MHz, 10 MHz
 ```
 
-In each capture, Channel 1 is the yellow input waveform and Channel 2 is the magenta output waveform. The output remains inverted relative to the input. The capture sequence shows strong low-frequency attenuation below the pass band, a nearly flat midband response, and increasing high-frequency roll-off towards 10 MHz.
+In each capture, Channel 1 is the yellow input waveform and Channel 2 is the magenta output waveform. The output is phase-shifted relative to the input; the displayed phase varies across the sweep and is not uniformly 180 degrees. The scope measurements show rising output through the low-frequency region, a compressed midband, and roll-off toward 10 MHz.
 
 ## Circuit at a glance
 
@@ -47,9 +47,9 @@ In each capture, Channel 1 is the yellow input waveform and Channel 2 is the mag
 | R4 | 560 ohm | Emitter resistor; stabilises the DC operating point |
 | InputDCBlock | 10 uF | Couples the AC source to the base while blocking source DC |
 | ACBYPASS | 22 uF | Bypasses R4 for AC to increase voltage gain |
-| OutputDCBlock | 3.3 uF | Couples the collector signal to the load while blocking collector DC |
-| Load | 820 ohm | Output load connected after the coupling capacitor |
-| V1 | 10 mV peak, 1 kHz | Input test signal; 20 mV peak-to-peak |
+| OutputDCBlock | 10 uF | Couples the collector signal to the load while blocking collector DC |
+| Load | 1 kOhm | Output load connected after the coupling capacitor |
+| V1 | 100 mV peak, 100 Hz | Input test signal; 200 mV peak-to-peak |
 
 The input signal is applied to the base through the 10 uF capacitor. A small increase in base voltage increases collector current; the larger current causes a larger voltage drop across R3, so the collector voltage falls. The output is therefore amplified and inverted: a common-emitter stage has approximately 180 degrees of phase inversion in its midband.
 
@@ -159,7 +159,7 @@ VC ~= 12 V - (2.17 mA * 2.2 kOhm) ~= 7.23 V
 VCE ~= 7.23 V - 1.23 V ~= 6.00 V
 ```
 
-This leaves useful voltage headroom in both directions. The 820 ohm load is isolated from DC by the output capacitor, so it does not set the DC collector current.
+This leaves useful voltage headroom in both directions. The 1 kOhm load is isolated from DC by the output capacitor, so it does not set the DC collector current.
 
 ## Resistor power checks
 
@@ -227,7 +227,7 @@ ZIN,base ~= rpi ~= 1.19 kOhm
 ZIN,amplifier ~= 8.246 kOhm || 1.19 kOhm ~= 1.04 kOhm
 ```
 
-This is an estimate, not a fixed input resistance. It depends on transistor beta, frequency, signal-source resistance, and how completely R4 is bypassed. The schematic probe annotation shows 7.07 mV RMS and 2.75 uA RMS at the input, giving an apparent measured value:
+This is an estimate, not a fixed input resistance. It depends on transistor beta, frequency, signal-source resistance, and how completely R4 is bypassed. An earlier Multisim run (10 mV peak at 1 kHz; not the current `Diagram.png` setup) recorded 7.07 mV RMS and 2.75 uA RMS at the input, giving this historical apparent value:
 
 ```text
 ZIN,apparent ~= VIN / IIN
@@ -235,7 +235,7 @@ ZIN,apparent ~= VIN / IIN
              ~= 2.57 kOhm at 1 kHz
 ```
 
-Use the probe value as the result for that Multisim run and probe location. A physical measurement should use a known source impedance and avoid treating a loaded input voltage as an open-circuit source voltage.
+The 2.57 kOhm value applies only to that earlier run and probe location. A physical measurement should use a known source impedance and avoid treating a loaded input voltage as an open-circuit source voltage.
 
 ### Output impedance and load effect
 
@@ -245,20 +245,20 @@ Looking into the collector with the input signal set to zero, the output resista
 ROUT,collector ~= R3 || ro
 ```
 
-Here `ro` is the transistor's small-signal collector output resistance. If `ro` is much larger than R3, then `ROUT` is about 2.2 kOhm. At the output terminal, the 3.3 uF capacitor is in series with this source resistance; with the load removed, its impedance must also be included. At 1 kHz:
+Here `ro` is the transistor's small-signal collector output resistance. If `ro` is much larger than R3, then `ROUT` is about 2.2 kOhm. At the output terminal, the 10 uF capacitor is in series with this source resistance; with the load removed, its impedance must also be included. At 1 kHz:
 
 ```text
-|XCout| = 1 / (2 * pi * 1 kHz * 3.3 uF) ~= 48.2 ohm
+|XCout| = 1 / (2 * pi * 1 kHz * 10 uF) ~= 15.9 ohm
 ```
 
-Because 48.2 ohm is small compared with 2.2 kOhm, the output impedance magnitude is still approximately 2.2 kOhm at 1 kHz. This is not a low-impedance power output stage.
+Because 15.9 ohm is small compared with 2.2 kOhm, the output impedance magnitude is still approximately 2.2 kOhm at 1 kHz. This is not a low-impedance power output stage.
 
-When the 820 ohm load is connected, it substantially reduces voltage gain. In the midband approximation, where the output capacitor is treated as a short and transistor `ro` is ignored:
+When the 1 kOhm load is connected, it substantially reduces voltage gain. In the midband approximation, where the output capacitor is treated as a short and transistor `ro` is ignored:
 
 ```text
 RAC = R3 || RL
-    = 2.2 kOhm || 820 ohm
-    ~= 597 ohm
+    = 2.2 kOhm || 1 kOhm
+    ~= 688 ohm
 ```
 
 The load does not equal the output impedance. The load is the external resistance; the output impedance describes the amplifier's ability to hold its output voltage as the load changes.
@@ -269,8 +269,8 @@ With the emitter fully bypassed, an approximate loaded common-emitter gain is:
 
 ```text
 Av ~= -gm * (R3 || RL)
-   ~= -0.084 * 597
-   ~= -50 V/V
+    ~= -0.084 * 688
+    ~= -57.8 V/V
 ```
 
 The minus sign indicates phase inversion. The gain magnitude in decibels is:
@@ -279,7 +279,7 @@ The minus sign indicates phase inversion. The gain magnitude in decibels is:
 Av(dB) = 20 * log10(|Av|)
 ```
 
-For 50 V/V, this is about 34.0 dB. This simple estimate assumes a fully effective emitter bypass, ignores transistor output resistance, and treats the output coupling capacitor as a short. The actual gain at 1 kHz is lower because the bypass capacitor has finite reactance and the transistor model is not ideal.
+For 57.8 V/V, this is about 35.2 dB. This simple estimate assumes a fully effective emitter bypass, ignores transistor output resistance, and treats the output coupling capacitor as a short. The actual gain depends on frequency, bypass reactance, source/load conditions, and the transistor model.
 
 ## Capacitors and low-frequency response
 
@@ -287,7 +287,7 @@ The three capacitors serve different purposes:
 
 - The 10 uF input capacitor blocks DC from the signal generator. Its corner frequency depends on source resistance plus amplifier input resistance.
 - The 22 uF emitter capacitor bypasses R4 for AC. Its corner depends on the resistance seen looking into the emitter, not just on R4 alone.
-- The 3.3 uF output capacitor blocks collector DC from the 820 ohm load. Its corner depends on amplifier output resistance plus load resistance.
+- The 10 uF output capacitor blocks collector DC from the 1 kOhm load. Its corner depends on amplifier output resistance plus load resistance.
 
 For a simple series-capacitor high-pass network:
 
@@ -302,11 +302,11 @@ fCin ~= 1 / (2 * pi * Cin * (Rsource + Zin))
 fCout ~= 1 / (2 * pi * Cout * (Rout + RL))
 ```
 
-Using `Rout ~= 2.2 kOhm` and `RL = 820 ohm` gives:
+Using `Rout ~= 2.2 kOhm` and `RL = 1 kOhm` gives:
 
 ```text
-fCout ~= 1 / (2 * pi * 3.3 uF * (2.2 kOhm + 820 ohm))
-      ~= 16 Hz
+fCout ~= 1 / (2 * pi * 10 uF * (2.2 kOhm + 1 kOhm))
+    ~= 5.0 Hz
 ```
 
 The emitter bypass pole is more involved. A first-order estimate is:
@@ -321,52 +321,19 @@ The resistance looking into the emitter depends on the base's AC source impedanc
 |---|---:|---|
 | 10 uF input | 15.9 ohm | Small compared with the estimated input impedance |
 | 22 uF bypass | 7.23 ohm | Much smaller than 560 ohm, but not zero compared with the transistor's emitter resistance |
-| 3.3 uF output | 48.2 ohm | Small compared with the 820 ohm load and 2.2 kOhm source resistance |
+| 10 uF output | 15.9 ohm | Small compared with the 1 kOhm load and 2.2 kOhm source resistance |
 
 To determine the actual low-frequency cutoff, sweep the Bode plot and find the frequency where gain is 3 dB below the midband gain. A single cursor reading is not enough to identify a cutoff frequency.
 
-## Simulation results shown in the images
+## Multisim screenshots
 
-The schematic source is 10 mV peak at 1 kHz, equivalent to 20 mV peak-to-peak and 7.07 mV RMS for a sine wave. The yellow probe annotations in `Diagram.png` show:
+The current schematic source is 100 mV peak at 100 Hz, equivalent to 200 mV peak-to-peak. `Oscilloscope.png` shows a 5 ms/div timebase consistent with that nominal frequency, but its cursor readout is blank; it is not used as a numerical Vpp measurement.
 
-| Measurement | Input | Output |
-|---|---:|---:|
-| Peak-to-peak voltage | 20.0 mV | 887 mV |
-| RMS voltage | 7.07 mV | 314 mV |
-| RMS current | 2.75 uA | 383 uA |
-
-The voltage gain from the peak-to-peak values is:
-
-```text
-|Av| = VOUT(pp) / VIN(pp)
-    = 887 mV / 20.0 mV
-    = 44.35 V/V
-
-Av(dB) = 20 * log10(44.35) ~= 32.94 dB
-```
-
-Using RMS voltage gives the same gain for undistorted sine waves. The output load check is consistent with the schematic:
-
-```text
-VOUT(rms) / IOUT(rms) = 314 mV / 383 uA ~= 820 ohm
-PLOAD = VOUT(rms)^2 / RL ~= (0.314 V)^2 / 820 ohm ~= 0.120 mW
-```
-
-![Oscilloscope traces of the input and amplified, inverted output](Oscilloscope.png)
-
-`Oscilloscope.png` shows a separate cursor measurement. The cursor differences are 18.897 mV on Channel A and 779.559 mV on Channel B, corresponding to about 41.25 V/V or 32.31 dB. These cursor points are not guaranteed to be exact waveform peaks, so this is not identical to the schematic's peak-to-peak annotation. The output waveform is inverted relative to the input.
+![Multisim input and output waveform view](Oscilloscope.png)
 
 ![Bode magnitude plot of the amplifier's voltage gain](BodePlotter.png)
 
-`BodePlotter.png` has its cursor at 40.039 kHz and 34.643 dB. That point corresponds to a gain magnitude of:
-
-```text
-|Av| = 10^(34.643 / 20) ~= 53.9 V/V at 40.039 kHz
-```
-
-This is a different frequency from the 1 kHz time-domain test and should not be reported as the 1 kHz gain. To find bandwidth, record the midband gain and locate the lower and upper frequencies where the gain has fallen by 3 dB.
-
-Small differences among the hand estimate, schematic probe, oscilloscope cursors, and Bode cursor are expected because they use different frequencies or measurement methods, and because the transistor model and cursor placement affect the results.
+`BodePlotter.png` shows 34.643 dB at 40.039 kHz, or approximately 53.9 V/V. The updated AC-sweep workbook gives about 62.05 V/V (35.85 dB) near 39.81 kHz. Keep these as separate saved results: they differ by about 1.2 dB and may come from different simulation states or settings. The comparison table below uses the workbook sweep as the expected small-signal response.
 
 ## AC sweep data: gain, current, and power
 
@@ -393,20 +360,20 @@ Av(dB) = 20 * log10(|Av|)
 |Zin| = |Vin| / |Iin|
 ```
 
-The output voltage/current ratio is approximately 820 ohm at the sweep frequencies at which the output remains measurable, as expected for the connected load. This ratio confirms the load measurement; it is not a measurement of the amplifier's unloaded output impedance.
+The output voltage/current ratio is approximately 1 kOhm at the sweep frequencies at which the output remains measurable, as expected for the connected load. This ratio confirms the load measurement; it is not a measurement of the amplifier's unloaded output impedance.
 
 The gain is approximately 62 V/V (35.85 dB) across the broad midband region, peaks in the tens-of-kHz range, then rolls off at high frequency. The maximum load power in the updated sweep is approximately 1.925 W at 63.096 kHz. Logarithmic interpolation of the load-power half-power crossings gives approximately 674 Hz and 5.92 MHz. These values are sweep estimates, not guaranteed physical bandwidth limits.
 
 ### AC-sweep power is normalized, not a physical output rating
 
-The sweep uses a 1 V peak AC input, 100 times the schematic transient source's 10 mV peak. Exported power therefore scales with the square of the input ratio. For example, the updated 1 kHz sweep reports about 1.324 W at the load; scaling to 10 mV peak gives:
+The sweep uses a 1 V peak AC input, ten times the current schematic source's 100 mV peak. Exported power therefore scales with the square of the input ratio. For example, the updated 1 kHz sweep reports about 1.324 W at the load; scaling to 100 mV peak gives:
 
 ```text
-Pload(10 mV peak) ~= 1.324 W * (10 mV / 1 V)^2
-                   ~= 0.132 mW
+Pload(100 mV peak) ~= 1.324 W * (100 mV / 1 V)^2
+                    ~= 13.24 mW
 ```
 
-This is consistent with the schematic's approximately 0.120 mW result. The sweep maximum of 1.925 W is normalized and must not be treated as a 12 V stage's real large-signal output rating. At high frequencies, especially above several MHz, the transistor model and breadboard layout become increasingly significant.
+This is a small-signal estimate at 1 kHz, not a measured hardware power. The sweep maximum of 1.925 W is normalized and must not be treated as a 12 V stage's real large-signal output rating. At high frequencies, especially above several MHz, the transistor model and breadboard layout become increasingly significant.
 
 ## Measuring impedance in Multisim or on the bench
 
@@ -448,55 +415,54 @@ Vrms = Vpeak / sqrt(2) = Vpp / (2 * sqrt(2))
 
 ## Suggested verification steps
 
-1. Run the transient simulation with the 1 kHz, 10 mV peak input.
-2. Check that the input and output have the same frequency and that the output is inverted.
-3. Measure input and output using the same amplitude convention and calculate gain. The schematic annotation indicates approximately 44 V/V at 1 kHz.
+1. Run the transient simulation with the current 100 Hz, 100 mV-peak input.
+2. Check that the input and output have the same frequency and that the output is phase-shifted toward the expected common-emitter inversion.
+3. Measure both channels using the same amplitude convention. Compare measured gain with the AC sweep and the hardware table; at 100 Hz the sweep predicts 9.17 V/V while the scope capture reads 14.62 V/V.
 4. Check DC bias separately: temporarily inspect base, emitter, and collector DC voltages. The hand estimate is VB ~= 1.93 V, VE ~= 1.23 V, and VC ~= 7.23 V for beta ~= 100.
 5. Run AC analysis over a wide frequency range. Record the midband gain and the lower and upper -3 dB frequencies.
-6. Repeat gain measurements with and without the 820 ohm load to observe loading. Use the same frequency and source amplitude for both runs.
+6. Repeat gain measurements with and without the 1 kOhm load to observe loading. Use the same frequency and source amplitude for both runs.
 
 When comparing versions of the simulation, record the transistor model, source resistance, load, frequency, and measurement method. Those conditions are part of the result, not incidental details.
 
-### Scaled reference for a 10 mV-peak input
+### Hardware measurements compared with the AC sweep
 
-The following table scales the updated sweep gain to the schematic's 10 mV peak input (20 mV peak-to-peak). It gives predicted output levels that can be compared with the physical oscilloscope captures. The 674 Hz and 5.92 MHz entries are interpolated load-power half-power crossings; the other gains are from the updated sweep.
+The current schematic input is 100 mV peak (200 mVpp) at 100 Hz. Each scope image displays Channel 1 input and Channel 2 output peak-to-peak measurements. The hardware gain is recalculated as `Vout(pp) / Vin(pp)`. AC-sweep gains are interpolated in log frequency from `Voltage Current Plot.xlsx`; the final column scales that small-signal gain by the actual Channel 1 Vpp in the corresponding capture.
 
-| Frequency | Sweep gain (V/V) | Expected output (V peak-to-peak) | Expected output (V RMS) | Hardware input (V peak-to-peak) | Hardware output (V peak-to-peak) | Measured gain (V/V) |
-|---:|---:|---:|---:|---:|---:|---:|
-| 100 Hz | 9.171 | 0.1834 | 0.0648 | Not recorded in the SCPI trace summary | See 100 Hz image | Calculate from the trace |
-| 674 Hz (-3 dB, interpolated) | 43.00 approx. | 0.8600 approx. | 0.3041 approx. | Not recorded in the SCPI trace summary | See 500 Hz/1 kHz captures | Calculate from the trace |
-| 1 kHz | 51.464 | 1.0293 | 0.3641 | 20 mV target | See 1 kHz image | Calculate from the trace |
-| 10 kHz | 61.916 | 1.2383 | 0.4381 | 20 mV target | See 10 kHz image | Calculate from the trace |
-| 39.81 kHz | 62.046 | 1.2409 | 0.4391 | 20 mV target | See 50 kHz/100 kHz captures | Calculate from the trace |
-| 100 kHz | 62.046 | 1.2409 | 0.4391 | 20 mV target | See 100 kHz image | Calculate from the trace |
-| 1 MHz | 61.192 | 1.2238 | 0.4330 | 20 mV target | See 1 MHz image | Calculate from the trace |
-| 5.92 MHz (-3 dB, interpolated) | 43.00 approx. | 0.8600 approx. | 0.3041 approx. | Not recorded in the SCPI trace summary | See 5 MHz image | Calculate from the trace |
-| 10 MHz | 31.511 | 0.6302 | 0.2229 | 20 mV target | See 10 MHz image | Calculate from the trace |
+| Frequency | AC-sweep gain (V/V) | Hardware input (Vpp) | Hardware output (Vpp) | Hardware gain (V/V) | Sweep-predicted output at measured input (Vpp) |
+|---:|---:|---:|---:|---:|---:|
+| 50 Hz | 4.715 | 0.210 | 2.160 | 10.29 | 0.990 |
+| 100 Hz | 9.171 | 0.208 | 3.040 | 14.62 | 1.907 |
+| 200 Hz | 17.686 | 0.208 | 3.880 | 18.65 | 3.679 |
+| 500 Hz | 36.985 | 0.208 | 5.280 | 25.38 | 7.693 |
+| 1 kHz | 51.464 | 0.202 | 5.320 | 26.34 | 10.396 |
+| 2 kHz | 58.808 | 0.212 | 6.280 | 29.62 | 12.467 |
+| 5 kHz | 61.501 | 0.204 | 5.480 | 26.86 | 12.546 |
+| 10 kHz | 61.916 | 0.208 | 5.360 | 25.77 | 12.879 |
+| 50 kHz | 62.049 | 0.208 | 5.520 | 26.54 | 12.906 |
+| 100 kHz | 62.046 | 0.204 | 5.240 | 25.69 | 12.657 |
+| 200 kHz | 62.021 | 0.212 | 5.360 | 25.28 | 13.148 |
+| 500 kHz | 61.837 | 0.202 | 5.000 | 24.75 | 12.491 |
+| 1 MHz | 61.192 | 0.196 | 4.240 | 21.63 | 11.994 |
+| 2 MHz | 58.797 | 0.188 | 3.120 | 16.60 | 11.054 |
+| 5 MHz | 47.404 | 0.158 | 1.600 | 10.13 | 7.490 |
+| 10 MHz | 31.511 | 0.116 | 0.800 | 6.90 | 3.655 |
 
-At 1 kHz, the updated table predicts 1.0293 V peak-to-peak and 0.3641 V RMS. The Multisim transient probe reads 887 mV peak-to-peak, a close order-of-magnitude comparison but a different result than the normalized 1 V-AC sweep. The difference is expected because the simulation runs use different source conditions and AC-sweep analysis normalizes the input.
+At the nominal 200 mVpp input, the AC sweep predicts 1.834 Vpp at 100 Hz (`9.171 * 0.200 V`). The 100 Hz scope capture reads 208 mVpp in and 3.04 Vpp out, giving 14.62 V/V. At 1 kHz, the sweep predicts about 10.40 Vpp when scaled to the measured 202 mVpp input, but the hardware capture reads 5.32 Vpp (26.34 V/V). This large-signal comparison is not expected to remain linear: a 100 mV-peak input can drive the transistor stage toward its available output swing, and the higher-frequency scope traces show distortion/compression. The AC sweep is a small-signal reference, not a promise of undistorted output at this drive level.
 
-For a final hardware comparison, calculate gain from the actual measured input and output amplitudes in every `Scope PNG/*.png` capture:
-
-```text
-Av = Vout(pp) / Vin(pp)
-Av(dB) = 20 * log10(|Av|)
-```
-
-Do not fill the hardware columns by assuming the generator setting reached the amplifier input. Use the trace's Channel 1 peak-to-peak value as the amplifier input.
+The low-frequency captures also differ from the sweep: at 50 and 100 Hz, measured gain is above the workbook prediction. Treat the table as a comparison of the saved hardware run with the saved AC-sweep run, not as proof that either trace is a calibrated measurement of a single identical operating condition.
 
 ## Hardware frequency-evidence summary
 
-The captures in `Scope PNG/` confirm the expected common-emitter behaviour over the complete tested frequency sequence:
+The captures in `Scope PNG/` show the following measured trend:
 
 | Frequency range | Qualitative evidence |
 |---|---|
-| 50–200 Hz | Low output relative to the midband waveform; the coupling/bypass network strongly limits the response. |
-| 500 Hz–2 kHz | Output rises rapidly and approaches the midband gain. |
-| 5–100 kHz | Nearly flat, high-amplitude, inverted output. This is the experimental midband region. |
-| 200 kHz–1 MHz | Output remains substantial, with visible phase and amplitude response changes near the upper range. |
-| 2–10 MHz | High-frequency amplitude falls as frequency rises; the 10 MHz capture shows noticeably smaller output. |
+| 50–200 Hz | Output rises from 2.16 Vpp to 3.88 Vpp; measured gain is above the sweep at 50 and 100 Hz and close by 200 Hz. |
+| 500 Hz–200 kHz | Output is about 5.24–6.28 Vpp and measured gain is about 25–30 V/V, below the small-signal sweep prediction. |
+| 500 kHz–2 MHz | Output declines from 5.00 Vpp to 3.12 Vpp as the transistor stage approaches its upper-frequency roll-off. |
+| 5–10 MHz | Output falls from 1.60 Vpp to 0.80 Vpp; the highest-frequency reading is less reliable due to waveform/noise limits. |
 
-The 50 Hz, 100 Hz, 200 Hz, 500 Hz, 1 kHz, 2 kHz, 5 kHz, and 10 kHz captures show a clear phase-inverted output. Higher-frequency captures retain inversion in the midband and then include increasing distortion from the oscilloscope trace, transistor bandwidth, probe/layout capacitance, and breadboard parasitics.
+The scope's displayed phase readings move from about 100 degrees at 50 Hz toward roughly 150–173 degrees through much of the mid/high band, then continue shifting at MHz frequencies. These readings and the visibly distorted midband waveforms are retained as captured; they should not be summarized as a constant 180-degree phase inversion.
 
 ## Hardware oscilloscope captures
 
