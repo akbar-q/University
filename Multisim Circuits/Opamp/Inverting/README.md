@@ -40,15 +40,12 @@ The channel assignment changes between capture groups. From 50 Hz through 10 kHz
 | 2 kHz | CH2 | 0.194 | CH1 | 1.880 | 9.69 | 19.73 |
 | 5 kHz | CH2 | 0.194 | CH1 | 1.920 | 9.90 | 19.91 |
 | 10 kHz | CH2 | 0.198 | CH1 | 1.960 | 9.90 | 19.91 |
-| 50 kHz | CH1 | 0.0212 | CH2 | 1.400 | 66.04 | 36.40 |
-| 100 kHz | CH1 | 0.0210 | CH2 | 0.800 | 38.10 | 31.62 |
-| 200 kHz | CH1 | 0.0210 | CH2 | 0.440 | 20.95 | 26.42 |
 | 500 kHz | CH1 | 0.0210 | CH2 | 0.220 | 10.48 | 20.40 |
 | 2 MHz | CH1 | 0.0206 | CH2 | 0.056 | 2.72 | 8.69 |
 | 5 MHz | CH1 | 0.0200 | CH2 | 0.032 | 1.60 | 4.08 |
 | 10 MHz | CH1 | 0.0208 | CH2 | 0.140 | 6.73 | 16.56 |
 
-Gain in dB is calculated as `20 * log10(|Vout(pp) / Vin(pp)|)`; it expresses magnitude, while the inverting phase is indicated separately by the waveforms. There is no `200Hz.png` capture in the current folder. At 1 kHz, the corrected measurement is `1.900 Vpp / 0.192 Vpp = 9.90 V/V` or 19.91 dB, close to the ideal magnitude of 10 V/V (20 dB). The 50 Hz–10 kHz readings are consistently near the expected gain. Above 50 kHz, gain falls as the LM741 approaches its bandwidth limit; the non-monotonic 5 MHz and 10 MHz values are near the measurement floor and should not be used to infer a precise high-frequency response.
+Gain in dB is calculated as `20 * log10(|Vout(pp) / Vin(pp)|)`; it expresses magnitude, while the inverting phase is indicated separately by the waveforms. There is no `200Hz.png` capture in the current folder. At 1 kHz, the corrected measurement is `1.900 Vpp / 0.192 Vpp = 9.90 V/V` or 19.91 dB, close to the ideal magnitude of 10 V/V (20 dB). The 50 Hz–10 kHz readings are consistently near the expected gain. The 50 kHz, 100 kHz, and 200 kHz captures are retained in the gallery but omitted from this gain table because their apparent gains form a pronounced peak far above the nominal closed-loop gain; recheck probe/channel assignment or high-frequency coupling before reporting those measurements. The 5 MHz and 10 MHz measurements are also near the measurement floor and should not be used to infer a precise high-frequency response.
 
 No `1MHz.png` capture is present in this folder.
 
