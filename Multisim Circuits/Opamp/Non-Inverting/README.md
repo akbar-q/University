@@ -29,53 +29,43 @@ At the displayed cursor position, Multisim reads 16.634 mV on Channel A and 210.
 
 ## Hardware measurements
 
-The hardware images show the Siglent measurement bar. Channel 1 is the yellow input and Channel 2 is the magenta output. The Vpp readings below are transcribed from the screen, and gain is recalculated as `Vout(pp) / Vin(pp)`. Frequencies use the image filenames because some on-screen frequency-counter values do not match their filenames. The ratios are the observed hardware results, not the ideal gain of +11 V/V.
+The replacement hardware images show the Siglent measurement bar. Channel 1 is the yellow input and Channel 2 is the magenta output. The Vpp readings below are transcribed from the screen, and gain is recalculated as `Vout(pp) / Vin(pp)`. Frequencies follow the capture filenames; the scope's frequency-counter readout is noisy and unreliable at high frequencies.
 
-| Capture frequency | Input (Vpp) | Output (Vpp) | Observed gain magnitude (V/V) |
+| Capture frequency (filename) | Input (Vpp) | Output (Vpp) | Observed gain magnitude (V/V) |
 |---:|---:|---:|---:|
-| 50 Hz | 0.348 | 2.26 | 6.49 |
-| 100 Hz | 0.368 | 2.28 | 6.20 |
-| 200 Hz | 0.440 | 2.28 | 5.18 |
-| 500 Hz | 0.348 | 2.24 | 6.44 |
-| 1 kHz | 0.356 | 2.26 | 6.35 |
-| 2 kHz | 0.368 | 2.28 | 6.20 |
-| 5 kHz | 0.336 | 2.28 | 6.79 |
-| 10 kHz | 0.332 | 2.30 | 6.93 |
-| 50 kHz | 0.352 | 1.82 | 5.17 |
-| 100 kHz | 0.296 | 1.16 | 3.92 |
-| 200 kHz | 0.284 | 0.700 | 2.46 |
-| 500 kHz | 0.316 | 0.300 | 0.95 |
-| 1 MHz | 0.272 | 0.132 | 0.49 |
-| 2 MHz | 0.232 | 0.068 | 0.29 |
-| 5 MHz | 0.364 | 0.028 | 0.077 |
-| 10 MHz | 0.124 | 0.020 | 0.16 |
+| 100 Hz | 0.224 | 2.260 | 10.09 |
+| 200 Hz | 0.220 | 2.260 | 10.27 |
+| 500 Hz | 0.220 | 2.260 | 10.27 |
+| 1 kHz | 0.220 | 2.260 | 10.27 |
+| 2 kHz | 0.216 | 2.240 | 10.37 |
+| 5 kHz | 0.216 | 2.240 | 10.37 |
+| 10 kHz | 0.220 | 2.260 | 10.27 |
+| 50 kHz | 0.212 | 1.800 | 8.49 |
+| 100 kHz | 0.212 | 1.180 | 5.57 |
+| 200 kHz | 0.216 | 0.660 | 3.06 |
+| 500 kHz | 0.204 | 0.272 | 1.33 |
+| 1 MHz | 0.208 | 0.136 | 0.65 |
+| 2 MHz | 0.204 | 0.072 | 0.35 |
+| 5 MHz | 0.188 | 0.036 | 0.19 |
+| 10 MHz | 0.152 | 0.0096 | 0.063 |
 
-At 1 kHz, the hardware screenshot's Vpp readings give `2.26 Vpp / 0.356 Vpp = 6.35 V/V`, not 11 V/V. This is not a correction to the ideal gain formula; the saved hardware capture does not demonstrate the stated circuit's expected gain. The hardware input amplitude also varies substantially across captures, so use the measured input in each row rather than the schematic generator setting. Verify the feedback-divider wiring and resistor values, scope probe attenuation, and channel assignments. The phase values shown on some captures also do not consistently match an in-phase non-inverting response, so treat them as instrument readouts requiring setup verification.
+There is no 50 Hz image in the replacement capture set. From 100 Hz through 10 kHz, the measured gain is 10.09–10.37 V/V, about 6–8% below the ideal +11 V/V. At 1 kHz, `2.260 Vpp / 0.220 Vpp = 10.27 V/V`, confirming the expected non-inverting gain closely. The measured input is about 0.22 Vpp, higher than the schematic's nominal 0.10 Vpp source setting; use the measured Channel 1 value for gain. Gain falls from about 8.49 V/V at 50 kHz as the LM741 approaches its bandwidth limit. For frequency-response interpretation, use the frequencies in the capture filenames; do not use the high-frequency scope-counter readouts, which are unreliable because of noise.
 
 ## Hardware oscilloscope captures
 
-The gallery contains all 16 frequency-named captures. The two `SDS` images are included separately because their circuit identity is not clear from the screenshots; they are not included in the non-inverting frequency table.
+The replacement gallery contains 15 captures, from 100 Hz to 10 MHz. No 50 Hz capture is present.
 
-| 50 Hz | 100 Hz | 200 Hz |
+| 100 Hz | 200 Hz | 500 Hz |
 |---|---|---|
-| <img src="Hardware%20Images/50Hz.png" alt="Non-inverting amplifier hardware capture at 50 Hz" width="250"> | <img src="Hardware%20Images/100Hz.png" alt="Non-inverting amplifier hardware capture at 100 Hz" width="250"> | <img src="Hardware%20Images/200Hz.png" alt="Non-inverting amplifier hardware capture at 200 Hz" width="250"> |
-| 500 Hz | 1 kHz | 2 kHz |
-| <img src="Hardware%20Images/500Hz.png" alt="Non-inverting amplifier hardware capture at 500 Hz" width="250"> | <img src="Hardware%20Images/1kHz.png" alt="Non-inverting amplifier hardware capture at 1 kHz" width="250"> | <img src="Hardware%20Images/2kHz.png" alt="Non-inverting amplifier hardware capture at 2 kHz" width="250"> |
-| 5 kHz | 10 kHz | 50 kHz |
-| <img src="Hardware%20Images/5kHz.png" alt="Non-inverting amplifier hardware capture at 5 kHz" width="250"> | <img src="Hardware%20Images/10kHz.png" alt="Non-inverting amplifier hardware capture at 10 kHz" width="250"> | <img src="Hardware%20Images/50kHz.png" alt="Non-inverting amplifier hardware capture at 50 kHz" width="250"> |
-| 100 kHz | 200 kHz | 500 kHz |
-| <img src="Hardware%20Images/100kHz.png" alt="Non-inverting amplifier hardware capture at 100 kHz" width="250"> | <img src="Hardware%20Images/200kHz.png" alt="Non-inverting amplifier hardware capture at 200 kHz" width="250"> | <img src="Hardware%20Images/500kHz.png" alt="Non-inverting amplifier hardware capture at 500 kHz" width="250"> |
-| 1 MHz | 2 MHz | 5 MHz |
-| <img src="Hardware%20Images/1MHz.png" alt="Non-inverting amplifier hardware capture at 1 MHz" width="250"> | <img src="Hardware%20Images/2MHz.png" alt="Non-inverting amplifier hardware capture at 2 MHz" width="250"> | <img src="Hardware%20Images/5MHz.png" alt="Non-inverting amplifier hardware capture at 5 MHz" width="250"> |
-| 10 MHz | SDS00016 (scope label: 5 MHz) | SDS00017 (scope label: 10 MHz) |
-| <img src="Hardware%20Images/10MHz.png" alt="Non-inverting amplifier hardware capture at 10 MHz" width="250"> | <img src="Hardware%20Images/SDS00016.png" alt="Unassigned supplementary scope capture, scope label 5 MHz" width="250"> | <img src="Hardware%20Images/SDS00017.png" alt="Unassigned supplementary scope capture, scope label 10 MHz" width="250"> |
-
-The two supplementary images show these readings, but their circuit assignment is uncertain:
-
-| Image | Scope frequency label | Input (Vpp) | Output (Vpp) | Observed ratio (V/V) | Scope phase (deg) |
-|---|---:|---:|---:|---:|---:|
-| `SDS00016.png` | 5 MHz | 0.0200 | 0.082 | 4.10 | 9.00 |
-| `SDS00017.png` | 10 MHz | 0.0188 | 0.016 | 0.85 | Not measurable |
+| <img src="Hardware%20Images/100Hz.png" alt="Non-inverting amplifier hardware capture at 100 Hz" width="250"> | <img src="Hardware%20Images/200Hz.png" alt="Non-inverting amplifier hardware capture at 200 Hz" width="250"> | <img src="Hardware%20Images/500Hz.png" alt="Non-inverting amplifier hardware capture at 500 Hz" width="250"> |
+| 1 kHz | 2 kHz | 5 kHz |
+| <img src="Hardware%20Images/1kHz.png" alt="Non-inverting amplifier hardware capture at 1 kHz" width="250"> | <img src="Hardware%20Images/2kHz.png" alt="Non-inverting amplifier hardware capture at 2 kHz" width="250"> | <img src="Hardware%20Images/5kHz.png" alt="Non-inverting amplifier hardware capture at 5 kHz" width="250"> |
+| 10 kHz | 50 kHz | 100 kHz |
+| <img src="Hardware%20Images/10kHz.png" alt="Non-inverting amplifier hardware capture at 10 kHz" width="250"> | <img src="Hardware%20Images/50kHz.png" alt="Non-inverting amplifier hardware capture at 50 kHz" width="250"> | <img src="Hardware%20Images/100kHz.png" alt="Non-inverting amplifier hardware capture at 100 kHz" width="250"> |
+| 200 kHz | 500 kHz | 1 MHz |
+| <img src="Hardware%20Images/200kHz.png" alt="Non-inverting amplifier hardware capture at 200 kHz" width="250"> | <img src="Hardware%20Images/500kHz.png" alt="Non-inverting amplifier hardware capture at 500 kHz" width="250"> | <img src="Hardware%20Images/1MHz.png" alt="Non-inverting amplifier hardware capture at 1 MHz" width="250"> |
+| 2 MHz | 5 MHz | 10 MHz |
+| <img src="Hardware%20Images/2MHz.png" alt="Non-inverting amplifier hardware capture at 2 MHz" width="250"> | <img src="Hardware%20Images/5MHz.png" alt="Non-inverting amplifier hardware capture at 5 MHz" width="250"> | <img src="Hardware%20Images/10MHz.png" alt="Non-inverting amplifier hardware capture at 10 MHz" width="250"> |
 
 ## Calculation and measurement notes
 
