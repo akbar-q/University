@@ -29,37 +29,36 @@ At the displayed cursor position, Multisim reads 49.550 mV on Channel A and -473
 
 ## Hardware measurements
 
-The hardware images show the Siglent measurement bar. Channel 1 is the yellow input and Channel 2 is the magenta output. The Vpp measurements below are transcribed from the screen; the gain column is recalculated as `Vout(pp) / Vin(pp)`. Frequencies are the filenames. This is the observed hardware ratio, not the schematic's ideal gain.
+The channel assignment changes between capture groups. From 50 Hz through 10 kHz, CH1 (yellow, 500 mV/div) is the large output and CH2 (magenta, 50 mV/div) is the input. From 50 kHz through 10 MHz, CH1 (yellow, 5 mV/div) is the small input and CH2 (magenta, 500 mV/div, or 200 mV/div at 2 MHz) is the output. The table maps input/output accordingly for each row. Frequencies follow the filenames.
 
-| Capture frequency | Input (Vpp) | Output (Vpp) | Observed gain magnitude (V/V) | Scope phase (deg) |
-|---:|---:|---:|---:|---:|
-| 50 Hz | 0.0210 | 2.06 | 98.10 | 181.02 |
-| 100 Hz | 0.0212 | 2.02 | 95.28 | 178.12 |
-| 200 Hz | 0.0210 | 2.02 | 96.19 | 180.07 |
-| 500 Hz | 0.0208 | 1.98 | 95.19 | 180.18 |
-| 1 kHz | 0.0206 | 1.96 | 95.15 | 177.71 |
-| 2 kHz | 0.0206 | 1.96 | 95.15 | 181.08 |
-| 5 kHz | 0.0206 | 2.00 | 97.09 | 185.41 |
-| 10 kHz | 0.0214 | 2.08 | 97.20 | 191.82 |
-| 50 kHz | 0.0212 | 1.40 | 66.04 | Not shown |
-| 100 kHz | 0.0210 | 0.800 | 38.10 | Not shown |
-| 200 kHz | 0.0210 | 0.440 | 20.95 | Not shown |
-| 500 kHz | 0.0210 | 0.220 | 10.48 | Not shown |
-| 2 MHz | 0.0206 | 0.056 | 2.72 | Not shown |
-| 5 MHz | 0.0200 | 0.032 | 1.60 | 9.00 |
-| 10 MHz | 0.0208 | 0.140 | 6.73 | -50.51 |
+| Capture frequency | Input channel | Input (Vpp) | Output channel | Output (Vpp) | Gain magnitude (V/V) | Gain magnitude (dB) |
+|---:|---:|---:|---:|---:|---:|---:|
+| 50 Hz | CH2 | 0.226 | CH1 | 1.960 | 8.67 | 18.76 |
+| 100 Hz | CH2 | 0.200 | CH1 | 1.900 | 9.50 | 19.55 |
+| 500 Hz | CH2 | 0.194 | CH1 | 1.900 | 9.79 | 19.82 |
+| 1 kHz | CH2 | 0.192 | CH1 | 1.900 | 9.90 | 19.91 |
+| 2 kHz | CH2 | 0.194 | CH1 | 1.880 | 9.69 | 19.73 |
+| 5 kHz | CH2 | 0.194 | CH1 | 1.920 | 9.90 | 19.91 |
+| 10 kHz | CH2 | 0.198 | CH1 | 1.960 | 9.90 | 19.91 |
+| 50 kHz | CH1 | 0.0212 | CH2 | 1.400 | 66.04 | 36.40 |
+| 100 kHz | CH1 | 0.0210 | CH2 | 0.800 | 38.10 | 31.62 |
+| 200 kHz | CH1 | 0.0210 | CH2 | 0.440 | 20.95 | 26.42 |
+| 500 kHz | CH1 | 0.0210 | CH2 | 0.220 | 10.48 | 20.40 |
+| 2 MHz | CH1 | 0.0206 | CH2 | 0.056 | 2.72 | 8.69 |
+| 5 MHz | CH1 | 0.0200 | CH2 | 0.032 | 1.60 | 4.08 |
+| 10 MHz | CH1 | 0.0208 | CH2 | 0.140 | 6.73 | 16.56 |
 
-At 1 kHz, the hardware screenshot's displayed values give `1.96 Vpp / 20.60 mVpp = 95.15 V/V`, not 10 V/V. This is not a correction to the ideal formula: it indicates that the hardware capture does not match the stated 10 kOhm / 100 kOhm circuit, or that its measurement setup is misconfigured. The input is also only 20.6 mVpp in this capture, whereas the Multisim source is set to 100 mVpp. Confirm the physical resistor values and wiring, probe attenuation, and channel scaling before using the hardware result as validation. The 5 MHz and 10 MHz readings are non-monotonic and their output/phase readings may be unreliable near the noise floor.
+Gain in dB is calculated as `20 * log10(|Vout(pp) / Vin(pp)|)`; it expresses magnitude, while the inverting phase is indicated separately by the waveforms. There is no `200Hz.png` capture in the current folder. At 1 kHz, the corrected measurement is `1.900 Vpp / 0.192 Vpp = 9.90 V/V` or 19.91 dB, close to the ideal magnitude of 10 V/V (20 dB). The 50 Hz–10 kHz readings are consistently near the expected gain. Above 50 kHz, gain falls as the LM741 approaches its bandwidth limit; the non-monotonic 5 MHz and 10 MHz values are near the measurement floor and should not be used to infer a precise high-frequency response.
 
 No `1MHz.png` capture is present in this folder.
 
 ## Hardware oscilloscope captures
 
-The measurement labels are included in each image. The scope's phase values are reproduced as displayed; values may wrap around 360 degrees, and a dash in the table means the capture had no readable phase value.
+The measurement overlays remain visible in each image. The table uses the displayed peak-to-peak values and identifies the input/output channel mapping for each frequency group.
 
-| 50 Hz | 100 Hz | 200 Hz |
+| 50 Hz | 100 Hz | 500 Hz |
 |---|---|---|
-| <img src="Hardware%20Images/50Hz.png" alt="Inverting amplifier hardware capture at 50 Hz" width="250"> | <img src="Hardware%20Images/100Hz.png" alt="Inverting amplifier hardware capture at 100 Hz" width="250"> | <img src="Hardware%20Images/200Hz.png" alt="Inverting amplifier hardware capture at 200 Hz" width="250"> |
+| <img src="Hardware%20Images/50Hz.png" alt="Inverting amplifier hardware capture at 50 Hz" width="250"> | <img src="Hardware%20Images/100Hz.png" alt="Inverting amplifier hardware capture at 100 Hz" width="250"> | <img src="Hardware%20Images/500Hz.png" alt="Inverting amplifier hardware capture at 500 Hz" width="250"> |
 | 500 Hz | 1 kHz | 2 kHz |
 | <img src="Hardware%20Images/500Hz.png" alt="Inverting amplifier hardware capture at 500 Hz" width="250"> | <img src="Hardware%20Images/1kHz.png" alt="Inverting amplifier hardware capture at 1 kHz" width="250"> | <img src="Hardware%20Images/2kHz.png" alt="Inverting amplifier hardware capture at 2 kHz" width="250"> |
 | 5 kHz | 10 kHz | 50 kHz |

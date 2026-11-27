@@ -31,23 +31,23 @@ At the displayed cursor position, Multisim reads 16.634 mV on Channel A and 210.
 
 The replacement hardware images show the Siglent measurement bar. Channel 1 is the yellow input and Channel 2 is the magenta output. The Vpp readings below are transcribed from the screen, and gain is recalculated as `Vout(pp) / Vin(pp)`. Frequencies follow the capture filenames; the scope's frequency-counter readout is noisy and unreliable at high frequencies.
 
-| Capture frequency (filename) | Input (Vpp) | Output (Vpp) | Observed gain magnitude (V/V) |
-|---:|---:|---:|---:|
-| 100 Hz | 0.224 | 2.260 | 10.09 |
-| 200 Hz | 0.220 | 2.260 | 10.27 |
-| 500 Hz | 0.220 | 2.260 | 10.27 |
-| 1 kHz | 0.220 | 2.260 | 10.27 |
-| 2 kHz | 0.216 | 2.240 | 10.37 |
-| 5 kHz | 0.216 | 2.240 | 10.37 |
-| 10 kHz | 0.220 | 2.260 | 10.27 |
-| 50 kHz | 0.212 | 1.800 | 8.49 |
-| 100 kHz | 0.212 | 1.180 | 5.57 |
-| 200 kHz | 0.216 | 0.660 | 3.06 |
-| 500 kHz | 0.204 | 0.272 | 1.33 |
-| 1 MHz | 0.208 | 0.136 | 0.65 |
-| 2 MHz | 0.204 | 0.072 | 0.35 |
-| 5 MHz | 0.188 | 0.036 | 0.19 |
-| 10 MHz | 0.152 | 0.0096 | 0.063 |
+| Capture frequency (filename) | Input (Vpp) | Output (Vpp) | Gain magnitude (V/V) | Gain magnitude (dB) |
+|---:|---:|---:|---:|---:|
+| 100 Hz | 0.224 | 2.260 | 10.09 | 20.08 |
+| 200 Hz | 0.220 | 2.260 | 10.27 | 20.23 |
+| 500 Hz | 0.220 | 2.260 | 10.27 | 20.23 |
+| 1 kHz | 0.220 | 2.260 | 10.27 | 20.23 |
+| 2 kHz | 0.216 | 2.240 | 10.37 | 20.32 |
+| 5 kHz | 0.216 | 2.240 | 10.37 | 20.32 |
+| 10 kHz | 0.220 | 2.260 | 10.27 | 20.23 |
+| 50 kHz | 0.212 | 1.800 | 8.49 | 18.58 |
+| 100 kHz | 0.212 | 1.180 | 5.57 | 14.91 |
+| 200 kHz | 0.216 | 0.660 | 3.06 | 9.70 |
+| 500 kHz | 0.204 | 0.272 | 1.33 | 2.50 |
+| 1 MHz | 0.208 | 0.136 | 0.65 | -3.69 |
+| 2 MHz | 0.204 | 0.072 | 0.35 | -9.05 |
+| 5 MHz | 0.188 | 0.036 | 0.19 | -14.36 |
+| 10 MHz | 0.152 | 0.0096 | 0.063 | -23.99 |
 
 There is no 50 Hz image in the replacement capture set. From 100 Hz through 10 kHz, the measured gain is 10.09–10.37 V/V, about 6–8% below the ideal +11 V/V. At 1 kHz, `2.260 Vpp / 0.220 Vpp = 10.27 V/V`, confirming the expected non-inverting gain closely. The measured input is about 0.22 Vpp, higher than the schematic's nominal 0.10 Vpp source setting; use the measured Channel 1 value for gain. Gain falls from about 8.49 V/V at 50 kHz as the LM741 approaches its bandwidth limit. For frequency-response interpretation, use the frequencies in the capture filenames; do not use the high-frequency scope-counter readouts, which are unreliable because of noise.
 
@@ -70,7 +70,7 @@ The replacement gallery contains 15 captures, from 100 Hz to 10 MHz. No 50 Hz ca
 ## Calculation and measurement notes
 
 ```text
-Av = Vout(pp) / Vin(pp)
+|Av| = Vout(pp) / Vin(pp)
 Av(dB) = 20 * log10(|Av|)
 ```
 
